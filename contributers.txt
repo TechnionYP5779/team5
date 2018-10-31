@@ -1,10 +1,6 @@
 yogi
-
 Shaked Sapir
-Lior Ben Yamin
-Shalev Kuba
 Nir Chachamovitz
 Igor Bashmashnikov
 Lior Ben Yamin
 Shalev Kuba
-
