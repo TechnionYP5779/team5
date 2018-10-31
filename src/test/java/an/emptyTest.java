@@ -1,4 +1,4 @@
-package tests;
+package an;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import org.junit.*;
 
 import an.*;
 
-public class TestEmpty {
+public class emptyTest {
   @Test public void testEmptyList() {
     List<Object> testList = empty.list();
     
