@@ -1,4 +1,3 @@
 yogi
 Lior Ben Yamin
 Igor Bashmashnikov
-Nir Chachamovitz
