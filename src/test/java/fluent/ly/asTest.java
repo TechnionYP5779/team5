@@ -85,7 +85,10 @@ public class asTest {
   
   @Test
   public void listTest() {
-    assertEquals(IntStream.range(1,11).boxed().collect(Collectors.toList()),as.list(1,2,3,4,5,6,7,8,9,10));
+    List<Integer> l=as.list(1,2,3,4,5,6,7,8,9,10);
+//    assertEquals(IntStream.range(1,11).boxed().collect(Collectors.toList()),as.list(1,2,3,4,5,6,7,8,9,10));
+    assertEquals(IntStream.range(1,11).boxed().collect(Collectors.toList()),l);
+
   }
   
   @Test
