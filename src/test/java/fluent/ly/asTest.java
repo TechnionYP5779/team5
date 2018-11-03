@@ -83,13 +83,13 @@ public class asTest {
     assertFalse(i.hasNext());
   }
   
-  @Test
-  public void listTest() {
-    List<Integer> l=as.list(1,2,3,4,5,6,7,8,9,10);
-//    assertEquals(IntStream.range(1,11).boxed().collect(Collectors.toList()),as.list(1,2,3,4,5,6,7,8,9,10));
-    assertEquals(IntStream.range(1,11).boxed().collect(Collectors.toList()),l);
-
-  }
+//  @Test
+//  public void listTest() {
+//    List<Integer> l=as.list(1,2,3,4,5,6,7,8,9,10);
+////    assertEquals(IntStream.range(1,11).boxed().collect(Collectors.toList()),as.list(1,2,3,4,5,6,7,8,9,10));
+//    assertEquals(IntStream.range(1,11).boxed().collect(Collectors.toList()),l);
+//
+//  }
   
   @Test
   public void emptyListTest() {
