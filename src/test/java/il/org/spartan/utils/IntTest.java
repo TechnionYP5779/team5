@@ -9,7 +9,7 @@ public class IntTest {
     Int i = new Int(10);
     assertEquals(10,i.get());
     Int i2 = i.valueOf(9);
-    assertEquals(9,i2.get());
+    assertEquals(9,i2.get());  
   }
   
   @Test public void test_inner() {

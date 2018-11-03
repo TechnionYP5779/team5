@@ -12,7 +12,7 @@ public class PairTest {
     
     Pair<Integer,Integer> p2  = p1.newPair(3, 4);
     assertEquals(Integer.valueOf(3),p2.first);
-    assertEquals(Integer.valueOf(4),p2.second);
+    assertEquals(Integer.valueOf(4),p2.second);  
   }
   
   @Test public void test_makePairs() {

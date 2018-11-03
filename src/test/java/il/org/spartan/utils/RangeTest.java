@@ -13,7 +13,7 @@ public class RangeTest {
     assertEquals(10,r.to);
      Range r2 = new Range(r);
      assertEquals(0,r2.from);
-     assertEquals(10,r2.to);
+     assertEquals(10,r2.to);  
   }
   
   @Test public void test_equals() {
