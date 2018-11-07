@@ -9,10 +9,10 @@ public class TestBox {
   @Test public void testBooleanBox() {
     //variable boolean box testing
     Boolean b= box.box(true);
-    assertEquals(Boolean.valueOf(true), b);
+    azzert.that(b, azzert.is(Boolean.valueOf(true)));
     
     b= box.box(false);
-    assertEquals(Boolean.valueOf(false), b);
+    azzert.that(b, azzert.is(Boolean.valueOf(false)));
     
     //array testing
     boolean bArray[]= new boolean[10];
@@ -22,20 +22,20 @@ public class TestBox {
     
     Boolean BooleanArray[]= box.box(bArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Boolean.valueOf((i%2==0)), BooleanArray[i]);
+      azzert.that(BooleanArray[i], azzert.is(Boolean.valueOf((i%2==0))));
     }
   }
   
   @Test public void testByteBox() {
     //variable boolean box testing
     Byte b= box.box((byte)6);
-    assertEquals(Byte.valueOf((byte) 6), b);
+    azzert.that(b,azzert.is(Byte.valueOf((byte) 6)));
     
     b= box.box((byte)0);
-    assertEquals(Byte.valueOf((byte) 0), b);
+    azzert.that(b,azzert.is(Byte.valueOf((byte) 0)));
     
     b= box.box((byte)-5);
-    assertEquals(Byte.valueOf((byte) -5), b);
+    azzert.that(b,azzert.is(Byte.valueOf((byte) -5)));
     
     //array testing
     byte bArray[]= new byte[10];
@@ -45,17 +45,17 @@ public class TestBox {
     
     Byte ByteArray[]= box.box(bArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Byte.valueOf((byte)i), ByteArray[i]);
+      azzert.that(ByteArray[i],azzert.is(Byte.valueOf((byte)i)));
     }
   }
   
   @Test public void testCharBox() {
     //variable boolean box testing
     Character b= box.box('a');
-    assertEquals(Character.valueOf('a'), b);
+    azzert.that(b,azzert.is(Character.valueOf('a')));
     
     b= box.box('b');
-    assertEquals(Character.valueOf('b'), b);
+    azzert.that(b,azzert.is(Character.valueOf('b')));
     
   //array testing
     char cArray[]= new char[10];
@@ -65,7 +65,7 @@ public class TestBox {
     
     Character CharArray[]= box.box(cArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Character.valueOf((char) ('a'+i)), CharArray[i]);
+      azzert.that(CharArray[i],azzert.is(Character.valueOf((char) ('a'+i))));
     }
    
   }
@@ -73,10 +73,10 @@ public class TestBox {
   @Test public void testDoubleBox() {
     //variable double box testing
     Double b= box.box(3.14);
-    assertEquals(Double.valueOf(3.14), b);
+    azzert.that(b,azzert.is(Double.valueOf(3.14)));
     
     b= box.box(2.71);
-    assertEquals(Double.valueOf(2.71), b);
+    azzert.that(b,azzert.is(Double.valueOf(2.71)));
     
   //array testing
     double dArray[]= new double[10];
@@ -86,7 +86,7 @@ public class TestBox {
 
     Double DoubleArray[]= box.box(dArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Double.valueOf(3.14+i), DoubleArray[i]);
+      azzert.that(DoubleArray[i],azzert.is(Double.valueOf(3.14+i)));
     }
    
   }
@@ -95,10 +95,10 @@ public class TestBox {
     float diff=(float) 0.00005;
     //variable double box testing
     Float b= box.box((float)3.14);
-    assertTrue(b<=Float.valueOf((float)3.14+diff)&&b>=Float.valueOf((float)3.14-diff));
+    azzert.assertTrue((b<=Float.valueOf((float)3.14+diff)&&b>=Float.valueOf((float)3.14-diff)));
     
     b= box.box((float)2.71);
-    assertTrue(b<=Float.valueOf((float)2.71+diff)&&b>=Float.valueOf((float)2.71-diff));
+    azzert.assertTrue(b<=Float.valueOf((float)2.71+diff)&&b>=Float.valueOf((float)2.71-diff));
     
   //array testing
     float fArray[]= new float[10];
@@ -108,7 +108,7 @@ public class TestBox {
 
     Float FloatArray[]= box.box(fArray);
     for(int i=0;i<10;++i) {
-      assertTrue(FloatArray[i]<=Float.valueOf((float) ((float)3.14+i+diff))&&
+      azzert.assertTrue(FloatArray[i]<=Float.valueOf((float) ((float)3.14+i+diff))&&
           FloatArray[i]>=Float.valueOf((float) ((float)3.14+i-diff)));
     }
    
@@ -117,10 +117,10 @@ public class TestBox {
   @Test public void testIntegerBox() {
     //variable int box testing
     Integer b= box.box(3);
-    assertEquals(Integer.valueOf(3), b);
+    azzert.that(b,azzert.is(Integer.valueOf(3)));
     
     b= box.box(-2);
-    assertEquals(Integer.valueOf(-2), b);
+    azzert.that(b,azzert.is(Integer.valueOf(-2)));
     
   //array testing
     int iArray[]= new int[10];
@@ -130,7 +130,7 @@ public class TestBox {
 
     Integer IntegerArray[]= box.box(iArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Integer.valueOf(i), IntegerArray[i]);
+      azzert.that( IntegerArray[i],azzert.is(Integer.valueOf(i)));
     }
    
   }
@@ -139,10 +139,10 @@ public class TestBox {
     //variable long box testing
     long offset=(long) 1e7;
     Long b= box.box(3*offset);
-    assertEquals(Long.valueOf(3*offset), b);
+    azzert.that(b,azzert.is(Long.valueOf(3*offset)));
     
     b= box.box(-3*offset);
-    assertEquals(Long.valueOf(-3*offset), b);
+    azzert.that(b,azzert.is(Long.valueOf(-3*offset)));
     
   //array testing
     long lArray[]= new long[10];
@@ -152,7 +152,7 @@ public class TestBox {
 
     Long LongArray[]= box.box(lArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Long.valueOf(i*offset), LongArray[i]);
+      azzert.that(LongArray[i],azzert.is(Long.valueOf(i*offset)));
     }
    
   }
@@ -160,10 +160,10 @@ public class TestBox {
   @Test public void testShortBox() {
   //variable short box testing
     Short b= box.box((short)3);
-    assertEquals(Short.valueOf((short)3), b);
+    azzert.that(b,azzert.is(Short.valueOf((short)3)));
     
     b= box.box((short)-2);
-    assertEquals(Short.valueOf((short)-2), b);
+    azzert.that(b,azzert.is(Short.valueOf((short)-2)));
     
   //array testing
     short sArray[]= new short[10];
@@ -173,33 +173,18 @@ public class TestBox {
 
     Short ShortArray[]= box.box(sArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Short.valueOf((short)i), ShortArray[i]);
+      azzert.that(ShortArray[i],azzert.is(Short.valueOf((short)i)));
     }
    
   }
   
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   @Test public void testItBooleanBox() {
     //variable boolean box testing
     Boolean b= box.it(true);
-    assertEquals(Boolean.valueOf(true), b);
+    azzert.that(b,azzert.is(Boolean.valueOf(true)));
     
     b= box.it(false);
-    assertEquals(Boolean.valueOf(false), b);
+    azzert.that(b,azzert.is(Boolean.valueOf(false)));
     
     //array testing
     boolean bArray[]= new boolean[10];
@@ -209,20 +194,20 @@ public class TestBox {
     
     Boolean BooleanArray[]= box.it(bArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Boolean.valueOf((i%2==0)), BooleanArray[i]);
+      azzert.that(BooleanArray[i],azzert.is(Boolean.valueOf((i%2==0))));
     }
   }
   
   @Test public void testItByteBox() {
     //variable boolean box testing
     Byte b= box.it((byte)6);
-    assertEquals(Byte.valueOf((byte) 6), b);
+    azzert.that(b,azzert.is(Byte.valueOf((byte) 6)));
     
     b= box.it((byte)0);
-    assertEquals(Byte.valueOf((byte) 0), b);
+    azzert.that(b,azzert.is(Byte.valueOf((byte) 0)));
     
     b= box.it((byte)-5);
-    assertEquals(Byte.valueOf((byte) -5), b);
+    azzert.that(b,azzert.is(Byte.valueOf((byte) -5)));
     
     //array testing
     byte bArray[]= new byte[10];
@@ -232,17 +217,17 @@ public class TestBox {
     
     Byte ByteArray[]= box.it(bArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Byte.valueOf((byte)i), ByteArray[i]);
+      azzert.that(ByteArray[i],azzert.is(Byte.valueOf((byte)i)));
     }
   }
   
   @Test public void testItCharBox() {
     //variable boolean box testing
     Character b= box.it('a');
-    assertEquals(Character.valueOf('a'), b);
+    azzert.that(b,azzert.is(Character.valueOf('a')));
     
     b= box.it('b');
-    assertEquals(Character.valueOf('b'), b);
+    azzert.that(b,azzert.is(Character.valueOf('b')));
     
   //array testing
     char cArray[]= new char[10];
@@ -252,7 +237,7 @@ public class TestBox {
     
     Character CharArray[]= box.it(cArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Character.valueOf((char) ('a'+i)), CharArray[i]);
+      azzert.that(CharArray[i],azzert.is(Character.valueOf((char) ('a'+i))));
     }
    
   }
@@ -260,10 +245,10 @@ public class TestBox {
   @Test public void testItDoubleBox() {
     //variable double box testing
     Double b= box.it(3.14);
-    assertEquals(Double.valueOf(3.14), b);
+    azzert.that(b,azzert.is(Double.valueOf(3.14)));
     
     b= box.it(2.71);
-    assertEquals(Double.valueOf(2.71), b);
+    azzert.that(b,azzert.is(Double.valueOf(2.71)));
     
   //array testing
     double dArray[]= new double[10];
@@ -273,7 +258,7 @@ public class TestBox {
 
     Double DoubleArray[]= box.it(dArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Double.valueOf(3.14+i), DoubleArray[i]);
+      azzert.that(DoubleArray[i],azzert.is(Double.valueOf(3.14+i)));
     }
    
   }
@@ -282,10 +267,10 @@ public class TestBox {
     float diff=(float) 0.00005;
     //variable double box testing
     Float b= box.it((float)3.14);
-    assertTrue(b<=Float.valueOf((float)3.14+diff)&&b>=Float.valueOf((float)3.14-diff));
+    azzert.assertTrue(b<=Float.valueOf((float)3.14+diff)&&b>=Float.valueOf((float)3.14-diff));
     
     b= box.it((float)2.71);
-    assertTrue(b<=Float.valueOf((float)2.71+diff)&&b>=Float.valueOf((float)2.71-diff));
+    azzert.assertTrue(b<=Float.valueOf((float)2.71+diff)&&b>=Float.valueOf((float)2.71-diff));
     
   //array testing
     float fArray[]= new float[10];
@@ -295,7 +280,7 @@ public class TestBox {
 
     Float FloatArray[]= box.it(fArray);
     for(int i=0;i<10;++i) {
-      assertTrue(FloatArray[i]<=Float.valueOf((float) ((float)3.14+i+diff))&&
+      azzert.assertTrue(FloatArray[i]<=Float.valueOf((float) ((float)3.14+i+diff))&&
           FloatArray[i]>=Float.valueOf((float) ((float)3.14+i-diff)));
     }
    
@@ -304,10 +289,10 @@ public class TestBox {
   @Test public void testItIntegerBox() {
     //variable int box testing
     Integer b= box.it(3);
-    assertEquals(Integer.valueOf(3), b);
+    azzert.that(b,azzert.is(Integer.valueOf(3)));
     
     b= box.it(-2);
-    assertEquals(Integer.valueOf(-2), b);
+    azzert.that(b,azzert.is(Integer.valueOf(-2)));
     
   //array testing
     int iArray[]= new int[10];
@@ -317,7 +302,7 @@ public class TestBox {
 
     Integer IntegerArray[]= box.it(iArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Integer.valueOf(i), IntegerArray[i]);
+      azzert.that(IntegerArray[i],azzert.is(Integer.valueOf(i)));
     }
    
   }
@@ -326,10 +311,10 @@ public class TestBox {
     //variable long box testing
     long offset=(long) 1e7;
     Long b= box.it(3*offset);
-    assertEquals(Long.valueOf(3*offset), b);
+    azzert.that(b,azzert.is(Long.valueOf(3*offset)));
     
     b= box.it(-3*offset);
-    assertEquals(Long.valueOf(-3*offset), b);
+    azzert.that(b,azzert.is(Long.valueOf(-3*offset)));
     
   //array testing
     long lArray[]= new long[10];
@@ -339,7 +324,7 @@ public class TestBox {
 
     Long LongArray[]= box.it(lArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Long.valueOf(i*offset), LongArray[i]);
+      azzert.that(LongArray[i],azzert.is(Long.valueOf(i*offset)));
     }
    
   }
@@ -347,10 +332,10 @@ public class TestBox {
   @Test public void testItShortBox() {
   //variable short box testing
     Short b= box.it((short)3);
-    assertEquals(Short.valueOf((short)3), b);
+    azzert.that(b,azzert.is(Short.valueOf((short)3)));
     
     b= box.it((short)-2);
-    assertEquals(Short.valueOf((short)-2), b);
+    azzert.that(b,azzert.is(Short.valueOf((short)-2)));
     
   //array testing
     short sArray[]= new short[10];
@@ -360,7 +345,7 @@ public class TestBox {
 
     Short ShortArray[]= box.it(sArray);
     for(int i=0;i<10;++i) {
-      assertEquals(Short.valueOf((short)i), ShortArray[i]);
+      azzert.that(ShortArray[i],azzert.is(Short.valueOf((short)i)));
     }
    
   }

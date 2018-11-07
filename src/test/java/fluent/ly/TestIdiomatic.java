@@ -12,19 +12,19 @@ import il.org.spartan.beginning.with.C.D.E.*;
 @SuppressWarnings("static-method") public class TestIdiomatic {
   @Test public void testHolder() {
     Holder<Integer> hold=idiomatic.eval(()->42);
-    assertEquals(hold.when(true), Integer.valueOf(42));
-    assertEquals(hold.unless(false), Integer.valueOf(42));
-    assertEquals(hold.unless(true),null);
-    assertEquals(hold.when(false), null);
+    azzert.that(hold.when(true), azzert.is(Integer.valueOf(42)));
+    azzert.that(hold.unless(false), azzert.is(Integer.valueOf(42)));
+    azzert.isNull(hold.unless(true));
+    azzert.isNull(hold.when(false));
     
   }
   
   @Test public void testIncase() {
     Integer val=idiomatic.incase(true, Integer.valueOf(42));
-    assertEquals(val, Integer.valueOf(42));
+    azzert.that(val, azzert.is(Integer.valueOf(42)));
     
     val=idiomatic.incase(false, Integer.valueOf(42));
-    assertEquals(val,null);
+    azzert.isNull(val);
     
   }
   
@@ -34,25 +34,25 @@ import il.org.spartan.beginning.with.C.D.E.*;
       throw new Exception();
     };
     
-    assertEquals(idiomatic.katching(notThrow), Integer.valueOf(42));
-    assertEquals(idiomatic.katching(Throw), null);
+    azzert.that(idiomatic.katching(notThrow), azzert.is(Integer.valueOf(42)));
+    azzert.isNull(idiomatic.katching(Throw));
     
   }
   
   @Test public void testQuote() {
-    assertEquals(idiomatic.quote("helloWorld"), "'helloWorld'");
-    assertEquals(idiomatic.quote(null), "<null reference>");
+    azzert.that(idiomatic.quote("helloWorld"), azzert.is("'helloWorld'"));
+    azzert.that(idiomatic.quote(null), azzert.is("<null reference>"));
   }
   
   @Test public void testStorer() {
     Storer<Integer> storer=new Storer<Integer>(Integer.valueOf(42));
-    assertEquals(storer.when(true), Integer.valueOf(42));
-    assertEquals(storer.when(false), null);
-    assertEquals(storer.unless(false), Integer.valueOf(42));
-    assertEquals(storer.unless(true),null);
-    assertEquals(storer.get(), Integer.valueOf(42));
-    assertEquals(idiomatic.take(Integer.valueOf(42)).unless(false),Integer.valueOf(42));
-    assertEquals(idiomatic.take(Integer.valueOf(42)).unless(true),null);
+    azzert.that(storer.when(true), azzert.is(Integer.valueOf(42)));
+    azzert.isNull(storer.when(false));
+    azzert.that(storer.unless(false), azzert.is(Integer.valueOf(42)));
+    azzert.isNull(storer.unless(true));
+    azzert.that(storer.get(), azzert.is(Integer.valueOf(42)));
+    azzert.that(idiomatic.take(Integer.valueOf(42)).unless(false),azzert.is(Integer.valueOf(42)));
+    azzert.isNull(idiomatic.take(Integer.valueOf(42)).unless(true));
   }
   
   @Test public void use0() {

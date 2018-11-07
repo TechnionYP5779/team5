@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.io.*;
 import org.junit.*;
+
+import fluent.ly.*;
 import il.org.spartan.CSV;
 import il.org.spartan.utils.*;
 enum Color 
@@ -21,13 +23,13 @@ public class CSVTest {
     cs[4]=Float.class;
     cs[5]=Byte.class;
     cs[6]=null;
-    assertEquals("java.lang.Integer,java.lang.Character,"
+    azzert.that(CSV.combine(cs),azzert.is("java.lang.Integer,java.lang.Character,"
         + "java.lang.Double,java.lang.String,java.lang.Float,"
-        + "java.lang.Byte,"+null,CSV.combine(cs) );
+        + "java.lang.Byte,"+null ));
     
     Integer[] intArr=new Integer[5];
     for(int i=0;i<5;i++) intArr[i]=Integer.valueOf(i);
-    assertEquals("0,1,2,3,4",CSV.combine(intArr));
+    azzert.that(CSV.combine(intArr),azzert.is("0,1,2,3,4"));
     
     Color[] colorArr=new Color[4];
     colorArr[0]=Color.RED;
@@ -35,13 +37,13 @@ public class CSVTest {
     colorArr[2]=Color.BLUE;
     colorArr[3]=null;
     
-    assertEquals("RED,GREEN,BLUE,"+null,CSV.combine(colorArr));
+    azzert.that(CSV.combine(colorArr),azzert.is("RED,GREEN,BLUE,"+null));
   }
   
   @SuppressWarnings("null") @Test public void escapeTest() {
     
-    assertEquals("\\n\\r\\t\\\\\\.",CSV.escape("\n\r\t\\,"));
-    assertEquals("\\0",CSV.escape(null));
+    azzert.that(CSV.escape("\n\r\t\\,"),azzert.is("\\n\\r\\t\\\\\\."));
+    azzert.that(CSV.escape(null),azzert.is("\\0"));
   }
   
 @SuppressWarnings("null") @Test public void loadAndSaveTest() {
@@ -68,15 +70,15 @@ public class CSVTest {
     
     
   }
-@SuppressWarnings("null") @Test public void splitTest() {
+@SuppressWarnings({ "null", "static-access" }) @Test public void splitTest() {
   
-  assertEquals(0, CSV.split("").length);
+  azzert.that(CSV.split("").length,azzert.is(0));
   
   Color[] colorArr=new Color[3];
   colorArr[0]=Color.RED;
   colorArr[1]=Color.GREEN;
   colorArr[2]=Color.BLUE;
-  assertArrayEquals(colorArr, CSV.split(Color.class,"RED,GREEN,BLUE"));
+  azzert.assertArrayEquals(colorArr, CSV.split(Color.class,"RED,GREEN,BLUE"));
   
   Class<?>[] cs=new Class<?>[6];
   cs[0]=Integer.class;
@@ -85,7 +87,7 @@ public class CSVTest {
   cs[3]=String.class;
   cs[4]=Float.class;
   cs[5]=Byte.class;
-  assertArrayEquals(cs, CSV.splitToClasses("java.lang.Integer,java.lang.Character,"
+  azzert.assertArrayEquals(cs, CSV.splitToClasses("java.lang.Integer,java.lang.Character,"
       + "java.lang.Double,java.lang.String,java.lang.Float,"
       + "java.lang.Byte"));
   
@@ -94,12 +96,12 @@ public class CSVTest {
 
 @SuppressWarnings("null") @Test public void unescapeTest() {
   
-  assertEquals(null,CSV.unescape("\\0"));
-  assertEquals("\n",CSV.unescape("\\n"));
-  assertEquals("\r",CSV.unescape("\\r"));
-  assertEquals("\t",CSV.unescape("\\t"));
-  assertEquals(",",CSV.unescape("\\."));
-  assertEquals("\\",CSV.unescape("\\\\"));
-  assertEquals("a",CSV.unescape("a"));
+  azzert.that(null,azzert.is(CSV.unescape("\\0")));
+  azzert.that("\n",azzert.is(CSV.unescape("\\n")));
+  azzert.that("\r",azzert.is(CSV.unescape("\\r")));
+  azzert.that("\t",azzert.is(CSV.unescape("\\t")));
+  azzert.that(",",azzert.is(CSV.unescape("\\.")));
+  azzert.that("\\",azzert.is(CSV.unescape("\\\\")));
+  azzert.that("a",azzert.is(CSV.unescape("a")));
 }
 }
