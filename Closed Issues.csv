@@ -1,0 +1,39 @@
+Closed Issues										
+										
+Issue #	Name								Time (min)	
+17	Make sure all tests conform to the recommended maven structure								15	
+19	Setup continuous integration								30	
+20	"Kill dead packages: il.org.spartan.collections, il.org.spartan.bench, il.org.spartan.java,"								20	
+21	Unit tests for class Bool								30	
+22	Unit tests for class box								60	
+23	Unit tests for class idiomatic								40	
+24	Unit tests for class Int								40	
+25	Unit tests for class Pair								40	
+26	Unit tests for class Range								40	
+27	Unit tests for class Statistics								90	
+28	Unit tests for class Truth								60	
+29	Unit tests for class unbox								30	
+30	Unit tests for enum empty								30	
+31	Unit tests for interface anonymous								30	
+32	Unit tests for interface as								75	
+33	Unit tests for interface count								15	
+34	Unit tests for interface is								60	
+35	Unit tests for interface nil								30	
+36	Unit tests for interface singleton								30	
+37	document interface forget and add unit tests								70	
+41	move enum file from il.org.spartan.utils to fluent.ly								10	
+42	rename function readFromFile to read								2	
+43	move function read() from class FileUtils to class file								2	
+44	move function read() from class FileUtils to class file								2	
+45	change type of enum file to class file								5	
+46	move function readFromFile from class FileUtils to class file								2	
+47	rename function readFromFile to read								2	
+48	"move function in() from interface Utils to interface is, erasing duplicates"								10	
+49	"rm function hash() from class Pair, and use function hash() on Utils"								5	
+50	move function penultimate from Utils to interface list								3	
+63	Unit tests for enum string								120	
+64	Unit tests for enum separate								0	
+65	Unit tests for interface English								60	
+66	Unit tests for enum CSV								60	
+										Total Minutes
+										1118
