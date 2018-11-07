@@ -1,38 +1,38 @@
 package il.org.spartan.utils;
 
-import static org.junit.Assert.*;
+import fluent.ly.azzert;
 
 import org.junit.*;
 
 public class TruthTest {
-  @Test public void testTruthOf() {
-    assertEquals(Truth.T, Truth.truthOf(() -> 1 == 1));
-    assertEquals(Truth.F, Truth.truthOf(() -> 1 == 2));
-    assertEquals(Truth.N, Truth.truthOf(null));
-    assertEquals(Truth.X, Truth.truthOf(() -> {throw new AssertionError();}));
-    assertEquals(Truth.R, Truth.truthOf(() -> {throw new RuntimeException();}));
-    assertEquals(Truth.Ħ, Truth.truthOf(() -> {throw new Error();}));
+  @Test public void testTruthOf() { 
+    azzert.that(Truth.truthOf(() -> 1 == 1), azzert.is(Truth.T));
+    azzert.that(Truth.truthOf(() -> 1 == 2), azzert.is(Truth.F));
+    azzert.that(Truth.truthOf(null), azzert.is(Truth.N));
+    azzert.that(Truth.truthOf(() -> {throw new AssertionError();}), azzert.is(Truth.X));
+    azzert.that(Truth.truthOf(() -> {throw new RuntimeException();}), azzert.is(Truth.R));
+    azzert.that(Truth.truthOf(() -> {throw new Error();}), azzert.is(Truth.Ħ));
     }
   
   @Test public void testNot() {
     Truth t = Truth.T;
     Truth f = Truth.F;
     
-    assertEquals(Truth.F, t.not());
-    assertEquals(Truth.T, f.not());
+    azzert.that(t.not(), azzert.is(Truth.F));
+    azzert.that(f.not(), azzert.is(Truth.T));
   }
   
   @Test public void testOr() {
-    assertEquals(Truth.T, Truth.T.or(Truth.T));
-    assertEquals(Truth.T, Truth.T.or(Truth.F));
-    assertEquals(Truth.T, Truth.F.or(Truth.T));
-    assertEquals(Truth.F, Truth.F.or(Truth.F));
+    azzert.that(Truth.T.or(Truth.T), azzert.is(Truth.T));
+    azzert.that(Truth.T.or(Truth.F), azzert.is(Truth.T));
+    azzert.that(Truth.F.or(Truth.T), azzert.is(Truth.T));
+    azzert.that(Truth.F.or(Truth.F), azzert.is(Truth.F));
   }
 
   @Test public void testAnd() {
-    assertEquals(Truth.T, Truth.T.and(Truth.T));
-    assertEquals(Truth.F, Truth.T.and(Truth.F));
-    assertEquals(Truth.F, Truth.F.and(Truth.T));
-    assertEquals(Truth.F, Truth.F.and(Truth.F));
+    azzert.that(Truth.T.and(Truth.T), azzert.is(Truth.T));
+    azzert.that(Truth.T.and(Truth.F), azzert.is(Truth.F));
+    azzert.that(Truth.F.and(Truth.T), azzert.is(Truth.F));
+    azzert.that(Truth.F.and(Truth.F), azzert.is(Truth.F));
   }
 }
