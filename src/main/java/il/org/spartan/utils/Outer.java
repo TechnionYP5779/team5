@@ -1,5 +1,7 @@
 package il.org.spartan.utils;
 
+import org.jetbrains.annotations.*;
+
 import il.org.spartan.*;
 
 /** TODO Yossi Gil: document class
@@ -34,5 +36,10 @@ public class Outer<Inner> {
 
   @Override public int hashCode() {
     return 31 + Utils.hash(inner);
+  }
+
+  public @NotNull Inner get() {
+    // TODO Auto-generated method stub
+    return inner;
   }
 }
