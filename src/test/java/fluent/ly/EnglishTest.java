@@ -13,11 +13,12 @@ public class EnglishTest {
   @Test public void testIndefinite() {
     String s = "str";
     Integer i = 1;
-    assertEquals("a str",English.indefinite(s));
-    assertEquals("a Integer" ,English.indefinite(i));
-    assertEquals("a ar" ,English.indefinite("STR"));
-    assertEquals("an Double" ,English.indefinite(1.1));
-    assertEquals("a StrinG" ,English.indefinite("StrinG"));
+    
+    azzert.that(English.indefinite(s), azzert.is("a str"));
+    azzert.that(English.indefinite(i), azzert.is("a Integer"));
+    azzert.that(English.indefinite("STR"), azzert.is("a ar"));
+    azzert.that(English.indefinite(1.1), azzert.is("an Double"));
+    azzert.that(English.indefinite("StrinG"), azzert.is("a StrinG"));
   }
   
   @Test public void testList() {
@@ -29,106 +30,89 @@ public class EnglishTest {
     list.add("e");
     List<String> list2 = new ArrayList<>();
     list2.add("single");
-    assertEquals("a, b, c, d and e" ,English.list(list));
-    assertEquals("nothing" , English.list(new ArrayList<>()));
-    assertEquals("single" , English.list(list2));
-    assertEquals("nothing" , English.list(null));
+    
+    azzert.that(English.list(list), azzert.is("a, b, c, d and e"));
+    azzert.that(English.list(new ArrayList<>()), azzert.is("nothing"));
+    azzert.that(English.list(list2), azzert.is("single"));
+    azzert.that(English.list(null), azzert.is("nothing"));
   }
   
   @Test public void testLowerFirstLetter() {
-    assertEquals("aBcd", English.lowerFirstLetter("ABcd"));
-    assertEquals("genererated", English.lowerFirstLetter("").substring(0, 11));
+    azzert.that(English.lowerFirstLetter("ABcd"), azzert.is("aBcd"));
+    azzert.that(English.lowerFirstLetter("").substring(0, 11), azzert.is("genererated"));
   }
   
   @Test public void testName() {
     class A{
     }
     A b = new A();
-    assertEquals("A.EnglishTest", English.name(b));
+    azzert.that(English.name(b), azzert.is("A.EnglishTest"));
   }
   
   @Test public void testPlurales() {
-    assertEquals("one apple", English.plurales("apple", 1));
-    assertEquals("one apple", English.plurales("apple", Integer.valueOf(1)));
-    assertEquals("one apple", English.plurales("apple", Int.valueOf(1)));
-    assertEquals("2 appleses", English.plurales("apples", 2));
-    assertEquals("2 appleses", English.plurales("apples", Integer.valueOf(2)));
-    assertEquals("2 appleses", English.plurales("apples", Int.valueOf(2)));
-    assertEquals("??? applees", English.plurales("apple", (Integer)null));
-    assertEquals("??? applees", English.plurales("apple", (Int)null));
+    azzert.that(English.plurales("apple", 1), azzert.is("one apple"));
+    azzert.that(English.plurales("apple", Integer.valueOf(1)), azzert.is("one apple"));
+    azzert.that(English.plurales("apple", Int.valueOf(1)), azzert.is("one apple"));
+    azzert.that(English.plurales("apples", 2), azzert.is("2 appleses"));
+    azzert.that(English.plurales("apples", Integer.valueOf(2)), azzert.is("2 appleses"));
+    azzert.that(English.plurales("apples", Int.valueOf(2)), azzert.is("2 appleses"));
+    azzert.that(English.plurales("apple", (Integer)null), azzert.is("??? applees"));
+    azzert.that(English.plurales("apple", (Integer)null), azzert.is("??? applees"));
   }
   
   @Test public void testPlurals() {
-    assertEquals("one apple", English.plurals("apple", 1));
-    assertEquals("one apple", English.plurals("apple", Integer.valueOf(1)));
-    assertEquals("one apple", English.plurals("apple", Int.valueOf(1)));
-    assertEquals("2 appless", English.plurals("apples", 2));
-    assertEquals("2 appless", English.plurals("apples", Integer.valueOf(2)));
-    assertEquals("2 appless", English.plurals("apples", Int.valueOf(2)));
-    assertEquals("??? apples", English.plurals("apple", (Integer)null));
-    assertEquals("??? apples", English.plurals("apple", (Int)null));
+    azzert.that(English.plurals("apple", 1),azzert.is("one apple"));
+    azzert.that(English.plurals("apple", Integer.valueOf(1)),azzert.is("one apple"));
+    azzert.that(English.plurals("apple", Int.valueOf(1)),azzert.is("one apple"));
+    azzert.that(English.plurals("apples", 2),azzert.is("2 appless"));
+    azzert.that(English.plurals("apples", Integer.valueOf(2)),azzert.is("2 appless"));
+    azzert.that(English.plurals("apples", Int.valueOf(2)),azzert.is("2 appless"));
+    azzert.that(English.plurals("apple", (Integer)null),azzert.is("??? apples"));
+    azzert.that(English.plurals("apple", (Int)null),azzert.is("??? apples"));
   }
   
   @Test public void testPronounce() {
-    assertEquals("aey", English.pronounce('a'));
-    assertEquals("bee", English.pronounce('b'));
-    assertEquals("see", English.pronounce('c'));
-    assertEquals("dee", English.pronounce('d'));
-    assertEquals("eae", English.pronounce('e'));
-    assertEquals("eff", English.pronounce('f'));
-    assertEquals("gee", English.pronounce('g'));
-    assertEquals("eitch", English.pronounce('h'));
-    assertEquals("eye", English.pronounce('i'));
-    assertEquals("jay", English.pronounce('j'));
-    assertEquals("kay", English.pronounce('k'));
-    assertEquals("ell", English.pronounce('l'));
-    assertEquals("em", English.pronounce('m'));
-    assertEquals("en", English.pronounce('n'));
-    assertEquals("oh", English.pronounce('o'));
-    assertEquals("pee", English.pronounce('p'));
-    assertEquals("queue", English.pronounce('q'));
-    assertEquals("ar", English.pronounce('r'));
-    assertEquals("ess", English.pronounce('s'));
-    assertEquals("tee", English.pronounce('t'));
-    assertEquals("you", English.pronounce('u'));
-    assertEquals("vee", English.pronounce('v'));
-    assertEquals("some character", English.pronounce('w'));
-    assertEquals("exx", English.pronounce('x'));
-    assertEquals("why", English.pronounce('y'));
-    assertEquals("zee", English.pronounce('z'));
+    String[] expected = {"aey" , "bee" , "see" , "dee" , "eae" , "eff" , "gee" , "eitch" , "eye" 
+                         , "jay", "kay" , "ell" , "em" , "en" , "oh" , "pee" , "queue" , "ar" , "ess"
+                         , "tee" , "you" , "vee" , "some character" , "exx" , "why" , "zee"};
+    
+    for(int i = 0 ; i < 26 ; i++) {
+      azzert.that(English.pronounce((char)('a' + i)), azzert.is(expected[i]));
+    }
   }
   
   @Test public void testRepeat() {
-    assertEquals("aa", English.repeat(2, 'a'));
+    azzert.that(English.repeat(2, 'a'), azzert.is("aa"));
   }
   
   @Test public void testTime() {
-    assertEquals("0.00", English.time(10));
+    azzert.that(English.time(10), azzert.is("0.00"));
   }
   
   @Test public void testTrim() {
-    assertEquals(null, English.trim(null));
-    assertEquals("abcd", English.trim("abcd"));
-    assertEquals("a", English.trim("a"));
-    assertEquals("", English.trim(""));
+    azzert.isNull(English.trim(null));
+    azzert.that(English.trim("abcd"), azzert.is("abcd"));
+    azzert.that( English.trim("a"), azzert.is("a"));
+    azzert.that(English.trim(""), azzert.is(""));
   }
   
   @Test public void testUnknownIfNull() {
-    assertEquals("10", English.unknownIfNull(10));
-    assertEquals("???", English.unknownIfNull(null));
-    assertEquals("11", English.unknownIfNull(10, (i) -> i + 1));
-    assertEquals("???", English.unknownIfNull(null,null));
+    azzert.that(English.unknownIfNull(10), azzert.is("10"));
+    azzert.that(English.unknownIfNull(null), azzert.is("???"));
+    azzert.that(English.unknownIfNull(10, (i) -> i + 1), azzert.is("11"));
+    azzert.that(English.unknownIfNull(null,null), azzert.is("???"));
   }
   
   @Test public void testUpperFirstLetter() {
-    assertEquals("ABcd", English.upperFirstLetter("aBcd"));
-    assertEquals("genererated", English.upperFirstLetter("").substring(0, 11));
+    azzert.that(English.upperFirstLetter("aBcd"),azzert.is("ABcd"));
+    azzert.that(English.upperFirstLetter("").substring(0, 11),azzert.is("genererated"));
   }
   
   @Test public void testInterfaceInflection() {
     Inflection s = Inflection.stem("s");
-    assertEquals("s", s.get());
-    assertEquals("sed", s.getEd());
-    assertEquals("sing", s.getIng());
+    
+    azzert.that(s.get(), azzert.is("s"));
+    azzert.that(s.getEd(), azzert.is("sed"));
+    azzert.that(s.getIng(), azzert.is("sing"));
   }
 }

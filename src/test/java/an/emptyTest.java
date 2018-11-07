@@ -1,25 +1,20 @@
 package an;
 
-import static org.junit.Assert.*;
-
 import java.util.*;
-
-import org.jetbrains.annotations.*;
 import org.junit.*;
-
-import an.*;
+import fluent.ly.*;
 
 public class emptyTest {
   @Test public void testEmptyList() {
     List<Object> testList = empty.list();
     
-    assertEquals(0, testList.size());
+    azzert.that(testList.size(), azzert.is(0));
   }
   
   @Test public void testEmptyIterable() {
     Iterator<Object> testIterable = empty.iterable().iterator();
     
-    assertEquals(Boolean.valueOf(false), Boolean.valueOf(testIterable.hasNext()));
-    assertEquals(null, testIterable.next());
+    azzert.that(Boolean.valueOf(testIterable.hasNext()), azzert.is(Boolean.valueOf(false)));
+    azzert.isNull(testIterable.next());
   }
 }
