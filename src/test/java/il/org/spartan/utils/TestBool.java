@@ -2,38 +2,40 @@ package il.org.spartan.utils;
 
 import static org.junit.Assert.*;
 import org.junit.*;
+
+import fluent.ly.*;
 import il.org.spartan.utils.*;
 
 public class TestBool {
   @Test public void testValueOf() {
     Bool b = Bool.valueOf(true);
-    assertEquals(b.get(), true);
+    azzert.that(b.get(), azzert.is(true));
   }
   
   @Test public void testClear() {
     Bool b = new Bool(true);
     b.clear();
-    assertEquals(b.get(), false);
+    azzert.that(b.get(), azzert.is(false));
   }
   
   @Test public void testSet() {
     Bool b = new Bool(true);
     b.set(false);
-    assertEquals(b.get(), false);
+    azzert.that(b.get(), azzert.is(false));
     
     b.set();
-    assertEquals(b.get(), true);
+    azzert.that(b.get(), azzert.is(true));
   }
   
   @Test public void testInner() {
-    assertEquals(Boolean.TRUE, Bool.valueOf(true).inner());
-    assertEquals(Boolean.FALSE, Bool.valueOf(false).inner());
+    azzert.that(Bool.valueOf(true).inner(),azzert.is(Boolean.TRUE));
+    azzert.that(Bool.valueOf(false).inner(),azzert.is(Boolean.FALSE));
 
   }
   
   @Test public void testEmptyConst() {
-    assertEquals((new Bool()).get(), false);
-    assertEquals(Boolean.FALSE, Bool.valueOf(false).inner());
+    azzert.that((new Bool()).get(), azzert.is(false));
+    azzert.that(Bool.valueOf(false).inner(),azzert.is(Boolean.FALSE));
 
   }
 
