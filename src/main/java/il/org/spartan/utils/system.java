@@ -176,7 +176,7 @@ public interface system {
     return bash("./essence <" + fileName + ">" + essenced(fileName));
   }
 
-  @SuppressWarnings("null") static String userName() {
+   static String userName() {
     return English.upperFirstLetter(getProperty("user.name", "User"));
   }
 
