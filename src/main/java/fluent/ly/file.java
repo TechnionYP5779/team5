@@ -6,8 +6,6 @@ import java.nio.file.*;
 
 import org.jetbrains.annotations.*;
 
-import fluent.ly.*;
-
 /** File utils
  * @author Ori Marcovitch
  * @since Dec 4, 2016 */
@@ -36,7 +34,7 @@ public class file {
   public static void renameToCSV(final @NotNull String old) {
     file.rename(old, old + ".csv");
   }
-  
+
   @NotNull public static String read(final @NotNull File f) throws IOException {
     final @NotNull String ls = System.getProperty("line.separator");
     System.err.println(ls.compareTo("\n"));
@@ -47,11 +45,11 @@ public class file {
     }
     return $ + "";
   }
-  
+
   @NotNull public static String read(final @NotNull String fileName) throws IOException {
     return read(Paths.get(fileName));
   }
-  
+
   @NotNull private static String read(final @NotNull Path ¢) throws IOException {
     return new String(Files.readAllBytes(¢), StandardCharsets.UTF_8);
   }

@@ -11,50 +11,47 @@ import il.org.spartan.beginning.with.C.D.E.*;
 
 @SuppressWarnings("static-method") public class TestIdiomatic {
   @Test public void testHolder() {
-    Holder<Integer> hold=idiomatic.eval(()->42);
+    final Holder<Integer> hold = idiomatic.eval(() -> 42);
     azzert.that(hold.when(true), azzert.is(Integer.valueOf(42)));
     azzert.that(hold.unless(false), azzert.is(Integer.valueOf(42)));
     azzert.isNull(hold.unless(true));
     azzert.isNull(hold.when(false));
-    
   }
-  
+
   @Test public void testIncase() {
-    Integer val=idiomatic.incase(true, Integer.valueOf(42));
+    Integer val = idiomatic.incase(true, Integer.valueOf(42));
     azzert.that(val, azzert.is(Integer.valueOf(42)));
-    
-    val=idiomatic.incase(false, Integer.valueOf(42));
+    val = idiomatic.incase(false, Integer.valueOf(42));
     azzert.isNull(val);
-    
   }
-  
+
   @Test public void testKatching() {
-    Producer<Integer> notThrow=()->42;
-    Producer<Integer> Throw=()->{
+    final Producer<Integer> notThrow=()->42;
+    final Producer<Integer> Throw=()->{
       throw new Exception();
     };
-    
+
     azzert.that(idiomatic.katching(notThrow), azzert.is(Integer.valueOf(42)));
     azzert.isNull(idiomatic.katching(Throw));
-    
+
   }
-  
+
   @Test public void testQuote() {
     azzert.that(idiomatic.quote("helloWorld"), azzert.is("'helloWorld'"));
     azzert.that(idiomatic.quote(null), azzert.is("<null reference>"));
   }
-  
+
   @Test public void testStorer() {
-    Storer<Integer> storer=new Storer<Integer>(Integer.valueOf(42));
+    final Storer<Integer> storer = new Storer<>(Integer.valueOf(42));
     azzert.that(storer.when(true), azzert.is(Integer.valueOf(42)));
     azzert.isNull(storer.when(false));
     azzert.that(storer.unless(false), azzert.is(Integer.valueOf(42)));
     azzert.isNull(storer.unless(true));
     azzert.that(storer.get(), azzert.is(Integer.valueOf(42)));
-    azzert.that(idiomatic.take(Integer.valueOf(42)).unless(false),azzert.is(Integer.valueOf(42)));
+    azzert.that(idiomatic.take(Integer.valueOf(42)).unless(false), azzert.is(Integer.valueOf(42)));
     azzert.isNull(idiomatic.take(Integer.valueOf(42)).unless(true));
   }
-  
+
   @Test public void use0() {
     assert new Storer<>(this) != null;
   }

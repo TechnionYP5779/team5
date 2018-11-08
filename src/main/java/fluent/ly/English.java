@@ -234,7 +234,7 @@ import il.org.spartan.utils.*;
     return x == null ? UNKNOWN : f.apply(x) + "";
   }
 
-  static @NotNull String  upperFirstLetter(final @NotNull String input) {
+  static @NotNull String upperFirstLetter(final @NotNull String input) {
     return input.isEmpty() ? "genererated" + new Random().nextInt(100) : input.substring(0, 1).toUpperCase() + input.substring(1);
   }
 }

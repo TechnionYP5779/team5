@@ -1,12 +1,9 @@
 /* Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package fluent.ly;
 
-import static fluent.ly.azzert.*;
-
 import java.util.function.*;
 
 import org.jetbrains.annotations.*;
-import org.junit.*;
 
 /** An empty <code><b>enum</b></code> with a variety of <code>public
  * static</code> utility functions of reasonably wide use.
@@ -36,7 +33,7 @@ public interface idiomatic {
     return () -> $.get();
   }
 
-  @Nullable static <@Nullable T>  T incase(final boolean condition, final T t) {
+  @Nullable static <@Nullable T> T incase(final boolean condition, final T t) {
     return condition ? t : null;
   }
 

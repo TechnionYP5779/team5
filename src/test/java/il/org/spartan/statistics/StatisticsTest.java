@@ -6,24 +6,24 @@ import org.junit.*;
 
 public class StatisticsTest {
   @SuppressWarnings("deprecation") @Test public void testSampleMean() {
-    double b = 2;
-    double a[] = { 1, 2, 3 };
-    double c = Statistics.sampleMean(a);
+    final double b = 2;
+    final double a[] = { 1, 2, 3 };
+    final double c = Statistics.sampleMean(a);
     assertEquals(b, c, 0);
   }
 
   @Test public void testSampleVariance() {
-    double a[] = { 1, 2, 3 };
+    final double a[] = { 1, 2, 3 };
     assertEquals(1, Statistics.sampleVariance(a), 0);
   }
 
   @Test public void testMad() {
-    double a[] = { 4, 8, 12.5 };
+    final double a[] = { 4, 8, 12.5 };
     assertEquals(4, Statistics.mad(a), 0);
   }
 
   @Test public void testIsEmpty() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     assertEquals(true, s.isEmpty());
     s.n = 1;
@@ -31,7 +31,7 @@ public class StatisticsTest {
   }
 
   @Test public void testMax() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 1;
     s.moments[0] = 10;
@@ -40,7 +40,7 @@ public class StatisticsTest {
   }
 
   @Test public void testMin() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 1;
     s.moments[0] = 10;
@@ -49,7 +49,7 @@ public class StatisticsTest {
   }
 
   @Test public void testMean() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 2;
     s.moments[1] = 10;
@@ -57,14 +57,14 @@ public class StatisticsTest {
   }
 
   @Test public void testMissing() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.missing = 0;
     assertEquals(0, s.missing(), 0);
   }
 
   @Test public void testSum2() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 2;
     s.moments[2] = 1;
@@ -72,7 +72,7 @@ public class StatisticsTest {
   }
 
   @Test public void testSd() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 2;
     s.moments[1] = 1;
@@ -81,7 +81,7 @@ public class StatisticsTest {
   }
 
   @Test public void testRelativeError() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 1;
     s.moments[1] = 0;
@@ -89,7 +89,7 @@ public class StatisticsTest {
   }
 
   @Test public void testRelativeError2() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 2;
     s.moments[1] = 1;
@@ -98,7 +98,7 @@ public class StatisticsTest {
   }
 
   @Test public void testV() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 2;
     s.moments[1] = 1;
@@ -107,7 +107,7 @@ public class StatisticsTest {
   }
 
   @Test public void testVariance() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 2;
     s.moments[1] = 1;
@@ -116,13 +116,12 @@ public class StatisticsTest {
   }
 
   @Test public void testCheckEmpty() {
-    Statistics s = new Statistics() {
+    final Statistics s = new Statistics() {
     };
     s.n = 0;
     try {
       s.checkEmpty();
-    } catch (Exception E) {
-      ;
+    } catch (final Exception E) {
     }
   }
 }

@@ -3,14 +3,9 @@ package fluent.ly;
 /** TODO Yossi Gil: document class
  * @author Yossi Gil
  * @since 2017-04-16 */
-
-/**
- * 
- * @author Shaked Sapir
- * this class handles old man's memories, if he doesn't use them the
- * compiler supports this,
- * therefore all methods are labeled as "unused".
- */
+/** @author Shaked Sapir this class handles old man's memories, if he doesn't
+ *         use them the compiler supports this, therefore all methods are
+ *         labeled as "unused". */
 public interface forget {
   @SuppressWarnings("unused") static void all(final Object _1, final Object... _2) {
     /**/ }

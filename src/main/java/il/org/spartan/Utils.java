@@ -3,7 +3,6 @@ package il.org.spartan;
 import static org.junit.Assert.*;
 
 import static fluent.ly.azzert.*;
-import static fluent.ly.idiomatic.*;
 
 import java.io.*;
 import java.util.*;
@@ -231,7 +230,6 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   static String name(final File ¢) {
     return cantBeNull(¢.getName());
   }
-
 
   /** Determine whether an {@link Object} is penultimate in its {@link List} .
    * @param    <T> JD

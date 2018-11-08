@@ -1,11 +1,10 @@
 package a;
 
 public class Rectangle {
-
-  private double x1;
-  private double y1;
-  private double x2;
-  private double y2;
+  private final double x1;
+  private final double y1;
+  private final double x2;
+  private final double y2;
 
   public Rectangle(double x1, double y1, double x2, double y2) {
     this.x1 = x1;
@@ -27,7 +26,7 @@ public class Rectangle {
   }
 
   public double getPerimeter() {
-    return 2*getWidth() + 2*getLength();
+    return 2 * getWidth() + 2 * getLength();
   }
 
   public double getDiagonallyLength() {
