@@ -1,4 +1,4 @@
-package TDD;
+package a;
 
 public class Rectangle {
 

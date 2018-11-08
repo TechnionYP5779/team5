@@ -1,7 +1,8 @@
-package TDD;
+package a;
 
 import org.junit.*;
 
+import a.*;
 import fluent.ly.*;
 
 public class RectangleTest {
