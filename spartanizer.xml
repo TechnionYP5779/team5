@@ -65,7 +65,7 @@
                 
         <tipper enabled="true" id="3496864953281334906"/>
                 
-        <tipper enabled="true" id="-5353123467714120198"/>
+        <tipper enabled="false" id="-5353123467714120198"/>
                 
         <tipper enabled="true" id="2174891198673495792"/>
                 
@@ -223,7 +223,7 @@
                 
         <tipper enabled="true" id="4265122877786904832"/>
                 
-        <tipper enabled="true" id="7490692444066432956"/>
+        <tipper enabled="false" id="7490692444066432956"/>
                 
         <tipper enabled="true" id="-7169963565517331905"/>
                 
@@ -289,7 +289,7 @@
                 
         <tipper enabled="true" id="1334179326644184831"/>
                 
-        <tipper enabled="true" id="-221763355000543721"/>
+        <tipper enabled="false" id="-221763355000543721"/>
                 
         <tipper enabled="true" id="-228096256168103399"/>
                 
