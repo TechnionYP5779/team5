@@ -50,7 +50,7 @@ public class forgetTest {
   // String str = o.getClass().equals(getClass())? "o is just fine" : "o is mad";
   // System.out.println(str);
   // }
-  // };
+  // }; 
   @Test public void test_all() {
     forget.all(new Pair<>(1, 2), new Pair<>(1, 2), new Pair<>(1, 2),
         new Pair<>(1, 2));// should print "who?"
