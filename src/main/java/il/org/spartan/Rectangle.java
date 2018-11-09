@@ -1,4 +1,4 @@
-package a;
+package il.org.spartan;
 
 public class Rectangle {
   private final double x1;
