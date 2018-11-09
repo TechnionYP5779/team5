@@ -1,28 +1,26 @@
 package a;
 
-import static org.junit.Assert.*;
-
 import java.util.*;
 
 import org.junit.*;
 
+import fluent.ly.*;
+
 public class singletonTest {
-  @SuppressWarnings("static-method") @Test public void testList() {
-    final Integer x = Integer.valueOf(5);
-    final List<Integer> l = singleton.list(x);
-    assertEquals(1, l.size());
-    assertEquals(Boolean.valueOf(false), Boolean.valueOf(l.isEmpty()));
+  @Test @SuppressWarnings("static-method") public void testList() {
+    final List<Integer> l = singleton.list(Integer.valueOf(5));
+    azzert.that(l.size(), azzert.is(1));
+    azzert.that(Boolean.valueOf(l.isEmpty()), azzert.is(Boolean.FALSE));
     final Iterator<Integer> itr = l.iterator();
-    assertEquals(Integer.valueOf(5), itr.next());
-    assertEquals(Boolean.valueOf(false), Boolean.valueOf(itr.hasNext()));
+    azzert.that(itr.next(),azzert.is(Integer.valueOf(5)));
+    azzert.that(Boolean.valueOf(itr.hasNext()), azzert.is(Boolean.FALSE));
     l.remove(0);
-    assertEquals(Boolean.valueOf(true), Boolean.valueOf(l.isEmpty()));
+    azzert.that(Boolean.valueOf(l.isEmpty()), azzert.is(Boolean.TRUE));
   }
 
-  @SuppressWarnings("static-method") @Test public void testArray() {
-    final Object x = null;
-    final Object[] o = singleton.array(x);
-    assertEquals(null, o[0]);
-    assertEquals(Integer.valueOf(1), Integer.valueOf(o.length));
+  @Test @SuppressWarnings("static-method") public void testArray() {
+    final Object[] o = singleton.array(null);
+    azzert.that(o[0], azzert.is((Object)null));
+    azzert.that(Integer.valueOf(o.length), azzert.is(Integer.valueOf(1)));
   }
 }

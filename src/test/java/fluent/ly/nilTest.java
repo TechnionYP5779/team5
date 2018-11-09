@@ -1,47 +1,45 @@
 package fluent.ly;
 
-import static org.junit.Assert.*;
-
 import org.junit.*;
 
 public class nilTest {
-  @SuppressWarnings("static-method") @Test public void testForgetting() {
+  @Test @SuppressWarnings("static-method") public void testForgetting() {
     Object o = nil.forgetting(new Object());
-    assertEquals(null, o);
-    o = nil.forgetting(new Integer(3), new Integer(7));
-    assertEquals(null, o);
+    azzert.that(o, azzert.is((Object) null));
+    o = nil.forgetting(Integer.valueOf(3), Integer.valueOf(7));
+    azzert.that(o, azzert.is((Object) null));
   }
 
-  @SuppressWarnings("static-method") @Test public void testGuardingly() {
+  @Test @SuppressWarnings("static-method") public void testGuardingly() {
     final String helloString = "Hello";
     final String nullString = null;
     final Integer i1 = nil.guardingly(String::length).on(helloString);
-    assertEquals(Integer.valueOf(5), i1);
+    azzert.that(i1, azzert.is(Integer.valueOf(5)));
     final Integer i2 = nil.guardingly(String::length).on(nullString);
-    assertEquals(Integer.valueOf(5), i1);
-    assertEquals(null, i2);
+    azzert.that(i1, azzert.is(Integer.valueOf(5)));
+    azzert.that(i2, azzert.is((String) null));
   }
 
-  @SuppressWarnings("static-method") @Test public void testBoolIgnoring() {
+  @Test @SuppressWarnings("static-method") public void testBoolIgnoring() {
     Object o = nil.ignoring(false);
-    assertEquals(null, o);
+    azzert.that(o, azzert.is((Object) null));
     o = nil.ignoring(true);
-    assertEquals(null, o);
+    azzert.that(o, azzert.is((Object) null));
   }
 
-  @SuppressWarnings("static-method") @Test public void testDoubleIgnoring() {
+  @Test @SuppressWarnings("static-method") public void testDoubleIgnoring() {
     Object o;
-    for (double d = 3.14; d <= 102.37; d += Math.E) {
-      o = nil.ignoring(d);
-      assertEquals(null, o);
+    for (double ¢ = 3.14; ¢ <= 102.37; ¢ += Math.E) {
+      o = nil.ignoring(¢);
+      azzert.that(o, azzert.is((Object) null));
     }
   }
 
-  @SuppressWarnings("static-method") @Test public void testLongIgnoring() {
+  @Test @SuppressWarnings("static-method") public void testLongIgnoring() {
     Object o;
-    for (long l = 30000; l <= 102000; l += 100) {
-      o = nil.ignoring(l);
-      assertEquals(null, o);
+    for (long ¢ = 30000; ¢ <= 102000; ¢ += 100) {
+      o = nil.ignoring(¢);
+      azzert.that(o, azzert.is((Object) null));
     }
   }
 }
