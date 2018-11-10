@@ -15,7 +15,7 @@ public class bigRange {
      @Override public Iterator<BigInteger> iterator() {
        return new Iterator<BigInteger>() {
 
-         private BigInteger current=BigInteger.valueOf(0).subtract(i);
+         BigInteger current=BigInteger.valueOf(0).subtract(i);
          
          @Override public boolean hasNext() {
            return true;
@@ -36,7 +36,7 @@ public class bigRange {
    }
   
   public interface theRange extends Iterable<BigInteger>{
-    public  BigInteger Sum();
+    BigInteger Sum();
   }
 
   
@@ -64,8 +64,8 @@ public class bigRange {
       return new afterFrom(first,BigInteger.valueOf( i));
     }
     
-    public afterFrom to(BigInteger i) {
-      return new afterFrom(first,i);
+    public afterFrom to(BigInteger ¢) {
+      return new afterFrom(first,¢);
     }
 
     public theRange withDiff(BigInteger i) {
@@ -76,7 +76,7 @@ public class bigRange {
      @Override public Iterator<BigInteger> iterator() {
        return new Iterator<BigInteger>() {
 
-         private BigInteger current=first.subtract(i);
+         BigInteger current=first.subtract(i);
          
          @Override public boolean hasNext() {
            return !isFinit|| current.compareTo(last)<0;
@@ -109,16 +109,16 @@ public class bigRange {
     return new afterFrom(BigInteger.valueOf(i));
   }
   
-  public static afterFrom from(BigInteger i) {
-    return new afterFrom(i);
+  public static afterFrom from(BigInteger ¢) {
+    return new afterFrom(¢);
   }
 
   public static afterFrom to(long i) {
     return new afterFrom(BigInteger.valueOf(0),BigInteger.valueOf(i));
   }
   
-  public static afterFrom to(BigInteger i) {
-    return new afterFrom(BigInteger.valueOf(0),i);
+  public static afterFrom to(BigInteger ¢) {
+    return new afterFrom(BigInteger.valueOf(0),¢);
   }
   
   public static theRange naturals() {

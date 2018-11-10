@@ -5,7 +5,7 @@ import java.math.*;
 import org.junit.*;
 
 public class bigRangeTest {
-  @SuppressWarnings({ "static-method" }) @Test public void withDiffOnly() {
+  @SuppressWarnings("static-method") @Test public void withDiffOnly() {
     final Iterable<BigInteger> iter = bigRange.withDiff(1);
     BigInteger count = BigInteger.valueOf(0);
     for (final BigInteger i : iter) {
@@ -17,7 +17,7 @@ public class bigRangeTest {
     }
   }
 
-  @SuppressWarnings({ "static-method" }) @Test public void withDiff3Only() {
+  @SuppressWarnings("static-method") @Test public void withDiff3Only() {
     final Iterable<BigInteger> iter = bigRange.withDiff(3);
     BigInteger count = BigInteger.valueOf(0);
     for (final BigInteger i : iter) {
@@ -29,7 +29,7 @@ public class bigRangeTest {
     }
   }
 
-  @SuppressWarnings({ "static-method" }) @Test public void fromAndWithDiff() {
+  @SuppressWarnings("static-method") @Test public void fromAndWithDiff() {
     final Iterable<BigInteger> iter = bigRange.from(2).withDiff(3);
     BigInteger count = BigInteger.valueOf(2);
     for (final BigInteger i : iter) {
@@ -52,43 +52,36 @@ public class bigRangeTest {
    }
   }
    
-   @SuppressWarnings({ "static-access", "static-method" }) @Test
-   public void infinitSumWithDiff() {
-     azzert.assertEquals(null,bigRange.withDiff(1).Sum());
-   }
+   @Test @SuppressWarnings({ "static-access", "static-method" }) public void infinitSumWithDiff() {
+    azzert.assertEquals(null, bigRange.withDiff(1).Sum());
+  }
    
-   @SuppressWarnings({ "static-method", "static-access" }) @Test
-   public void finiteSumWithDiff() {
-     azzert.assertEquals(BigInteger.valueOf(0),bigRange.withDiff(0).Sum());
-   }
+   @Test @SuppressWarnings({ "static-method", "static-access" }) public void finiteSumWithDiff() {
+    azzert.assertEquals(BigInteger.valueOf(0), bigRange.withDiff(0).Sum());
+  }
    
-   @SuppressWarnings({ "static-method", "static-access" }) @Test
-   public void sumWithFrom() {
-     azzert.assertEquals(null,bigRange.from(5).withDiff(2).Sum());
-   }
+   @Test @SuppressWarnings({ "static-method", "static-access" }) public void sumWithFrom() {
+    azzert.assertEquals(null, bigRange.from(5).withDiff(2).Sum());
+  }
    
-   @SuppressWarnings({ "static-method", "static-access" }) @Test 
-   public void SumToandFrom() {
-     azzert.assertEquals(BigInteger.valueOf(20),bigRange.from(2).to(8).withDiff(2).Sum());
-   }
+   @Test @SuppressWarnings({ "static-method", "static-access" }) public void SumToandFrom() {
+    azzert.assertEquals(BigInteger.valueOf(20), bigRange.from(2).to(8).withDiff(2).Sum());
+  }
    
-   @SuppressWarnings({ "static-method", "static-access" }) @Test 
-   public void SumToandFromandDiffof3() {
-     azzert.assertEquals(BigInteger.valueOf(18),bigRange.from(3).to(9).withDiff(3).Sum());
-   }
+   @Test @SuppressWarnings({ "static-method", "static-access" }) public void SumToandFromandDiffof3() {
+    azzert.assertEquals(BigInteger.valueOf(18), bigRange.from(3).to(9).withDiff(3).Sum());
+  }
   
    
-   @SuppressWarnings({ "static-method", "static-access" }) @ Test
-   public void impossibleRangeNegative() {
-     azzert.assertEquals(null, bigRange.to(-5).withDiff(1));
-   }
+   @Test @SuppressWarnings({ "static-method", "static-access" }) public void impossibleRangeNegative() {
+    azzert.assertEquals(null, bigRange.to(-5).withDiff(1));
+  }
    
-   @SuppressWarnings({ "static-method", "static-access" }) @Test
-   public void impossibleRangePossitive() {
-     azzert.assertEquals(null, bigRange.from(2).to(5).withDiff(-1));
-   }
+   @Test @SuppressWarnings({ "static-method", "static-access" }) public void impossibleRangePossitive() {
+    azzert.assertEquals(null, bigRange.from(2).to(5).withDiff(-1));
+  }
    
-   @SuppressWarnings({ "static-method" }) @Test 
+   @SuppressWarnings("static-method") @Test 
    public void naturals() {
      BigInteger count = BigInteger.valueOf(0);
      for (final BigInteger i : bigRange.naturals()) {
