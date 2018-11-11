@@ -102,4 +102,16 @@ public class RangeTest {
     azzert.that(it.hasNext(), azzert.is(false));
     azzert.that(it.next(), azzert.is(Integer.valueOf(9)));
   }
+  @SuppressWarnings("static-method") @Test public void includes() {
+    Range r=range.from(5).to(20);
+    azzert.that(r.isToInfinite(), azzert.is(false));
+    azzert.that(r.isToNInfinite(), azzert.is(false));
+    azzert.that(r.getTo(), azzert.is(20));
+    azzert.that(r.getFrom(), azzert.is(5));
+    azzert.that(r.includes(6), azzert.is(true));
+    azzert.that(r.includes(19), azzert.is(true));
+    azzert.that(r.includes(20), azzert.is(false));
+    azzert.that(r.includes(25), azzert.is(false));
+    azzert.that(r.includes(2), azzert.is(false));
+  }
 }

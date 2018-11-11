@@ -80,4 +80,8 @@ public class Range {
   @SuppressWarnings("static-method") public Range interset(@SuppressWarnings("unused") Range from2) {
     return range.from(3).to(10);
   }
+
+  @SuppressWarnings("boxing") public boolean includes(int ¢) {
+    return ¢>=this.from&&¢<this.to;
+  }
 }
