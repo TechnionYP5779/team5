@@ -10,7 +10,6 @@ import org.jetbrains.annotations.*;
  * @author Ori Marcovitch
  * @since Dec 4, 2016 */
 public class file {
-  ;
   private static void delete(final @NotNull String path) {
     if (file.exists(path))
       new File(path).delete();
@@ -36,7 +35,7 @@ public class file {
   }
 
   @NotNull public static String read(final @NotNull File f) throws IOException {
-    final @NotNull String ls = System.getProperty("line.separator");
+    @SuppressWarnings("null") final @NotNull String ls = System.getProperty("line.separator");
     System.err.println(ls.compareTo("\n"));
     final @NotNull StringBuilder $ = new StringBuilder();
     try (@NotNull BufferedReader reader = new BufferedReader(new FileReader(f))) {
@@ -46,7 +45,7 @@ public class file {
     return $ + "";
   }
 
-  @NotNull public static String read(final @NotNull String fileName) throws IOException {
+  @NotNull @SuppressWarnings("null") public static String read(final @NotNull String fileName) throws IOException {
     return read(Paths.get(fileName));
   }
 

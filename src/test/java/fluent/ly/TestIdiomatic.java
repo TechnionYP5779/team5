@@ -1,17 +1,14 @@
 package fluent.ly;
 
-import static org.junit.Assert.*;
-
 import static fluent.ly.azzert.*;
 
 import org.junit.*;
 
 import fluent.ly.idiomatic.*;
-import il.org.spartan.beginning.with.C.D.E.*;
 
 @SuppressWarnings("static-method") public class TestIdiomatic {
   @Test public void testHolder() {
-    final Holder<Integer> hold = idiomatic.eval(() -> 42);
+    @SuppressWarnings("boxing") final Holder<Integer> hold = idiomatic.eval(() -> 42);
     azzert.that(hold.when(true), azzert.is(Integer.valueOf(42)));
     azzert.that(hold.unless(false), azzert.is(Integer.valueOf(42)));
     azzert.isNull(hold.unless(true));
@@ -23,17 +20,6 @@ import il.org.spartan.beginning.with.C.D.E.*;
     azzert.that(val, azzert.is(Integer.valueOf(42)));
     val = idiomatic.incase(false, Integer.valueOf(42));
     azzert.isNull(val);
-  }
-
-  @Test public void testKatching() {
-    final Producer<Integer> notThrow=()->42;
-    final Producer<Integer> Throw=()->{
-      throw new Exception();
-    };
-
-    azzert.that(idiomatic.katching(notThrow), azzert.is(Integer.valueOf(42)));
-    azzert.isNull(idiomatic.katching(Throw));
-
   }
 
   @Test public void testQuote() {

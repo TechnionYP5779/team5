@@ -38,8 +38,7 @@ public class Outer<Inner> {
     return 31 + Utils.hash(inner);
   }
 
-  public @NotNull Inner get() {
-    // TODO Auto-generated method stub
+  @NotNull @SuppressWarnings("null") public Inner get() {
     return inner;
   }
 }

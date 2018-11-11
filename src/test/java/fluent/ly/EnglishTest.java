@@ -8,7 +8,7 @@ import fluent.ly.English.*;
 import il.org.spartan.utils.*;
 
 public class EnglishTest {
-  @Test public void testIndefinite() {
+  @SuppressWarnings({ "static-method", "boxing" }) @Test public void testIndefinite() {
     final String s = "str";
     final Integer i = 1;
     azzert.that(English.indefinite(s), azzert.is("a str"));
@@ -18,7 +18,7 @@ public class EnglishTest {
     azzert.that(English.indefinite("StrinG"), azzert.is("a StrinG"));
   }
 
-  @Test public void testList() {
+  @SuppressWarnings({ "static-method", "null" }) @Test public void testList() {
     final List<String> list = new ArrayList<>();
     list.add("a");
     list.add("b");
@@ -33,19 +33,20 @@ public class EnglishTest {
     azzert.that(English.list(null), azzert.is("nothing"));
   }
 
-  @Test public void testLowerFirstLetter() {
+  @SuppressWarnings("static-method") @Test public void testLowerFirstLetter() {
     azzert.that(English.lowerFirstLetter("ABcd"), azzert.is("aBcd"));
     azzert.that(English.lowerFirstLetter("").substring(0, 11), azzert.is("genererated"));
   }
 
-  @Test public void testName() {
+  @SuppressWarnings("static-method") @Test public void testName() {
     class A {
+      //empty class
     }
     final A b = new A();
     azzert.that(English.name(b), azzert.is("A.EnglishTest"));
   }
 
-  @Test public void testPlurales() {
+  @SuppressWarnings("static-method") @Test public void testPlurales() {
     azzert.that(English.plurales("apple", 1), azzert.is("one apple"));
     azzert.that(English.plurales("apple", Integer.valueOf(1)), azzert.is("one apple"));
     azzert.that(English.plurales("apple", Int.valueOf(1)), azzert.is("one apple"));
@@ -56,7 +57,7 @@ public class EnglishTest {
     azzert.that(English.plurales("apple", (Integer) null), azzert.is("??? applees"));
   }
 
-  @Test public void testPlurals() {
+  @SuppressWarnings("static-method") @Test public void testPlurals() {
     azzert.that(English.plurals("apple", 1), azzert.is("one apple"));
     azzert.that(English.plurals("apple", Integer.valueOf(1)), azzert.is("one apple"));
     azzert.that(English.plurals("apple", Int.valueOf(1)), azzert.is("one apple"));
@@ -67,41 +68,41 @@ public class EnglishTest {
     azzert.that(English.plurals("apple", (Int) null), azzert.is("??? apples"));
   }
 
-  @Test public void testPronounce() {
+  @SuppressWarnings("static-method") @Test public void testPronounce() {
     final String[] expected = { "aey", "bee", "see", "dee", "eae", "eff", "gee", "eitch", "eye", "jay", "kay", "ell", "em", "en", "oh", "pee",
         "queue", "ar", "ess", "tee", "you", "vee", "some character", "exx", "why", "zee" };
     for (int i = 0; i < 26; i++)
       azzert.that(English.pronounce((char) ('a' + i)), azzert.is(expected[i]));
   }
 
-  @Test public void testRepeat() {
+  @SuppressWarnings("static-method") @Test public void testRepeat() {
     azzert.that(English.repeat(2, 'a'), azzert.is("aa"));
   }
 
-  @Test public void testTime() {
+  @SuppressWarnings("static-method") @Test public void testTime() {
     azzert.that(English.time(10), azzert.is("0.00"));
   }
 
-  @Test public void testTrim() {
+  @SuppressWarnings("static-method") @Test public void testTrim() {
     azzert.isNull(English.trim(null));
     azzert.that(English.trim("abcd"), azzert.is("abcd"));
     azzert.that(English.trim("a"), azzert.is("a"));
     azzert.that(English.trim(""), azzert.is(""));
   }
 
-  @Test public void testUnknownIfNull() {
+  @SuppressWarnings({ "static-method", "boxing" }) @Test public void testUnknownIfNull() {
     azzert.that(English.unknownIfNull(10), azzert.is("10"));
     azzert.that(English.unknownIfNull(null), azzert.is("???"));
     azzert.that(English.unknownIfNull(10, (i) -> i + 1), azzert.is("11"));
     azzert.that(English.unknownIfNull(null, null), azzert.is("???"));
   }
 
-  @Test public void testUpperFirstLetter() {
+  @SuppressWarnings("static-method") @Test public void testUpperFirstLetter() {
     azzert.that(English.upperFirstLetter("aBcd"), azzert.is("ABcd"));
     azzert.that(English.upperFirstLetter("").substring(0, 11), azzert.is("genererated"));
   }
 
-  @Test public void testInterfaceInflection() {
+  @SuppressWarnings("static-method") @Test public void testInterfaceInflection() {
     final Inflection s = Inflection.stem("s");
     azzert.that(s.get(), azzert.is("s"));
     azzert.that(s.getEd(), azzert.is("sed"));
