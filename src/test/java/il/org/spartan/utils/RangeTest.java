@@ -72,4 +72,13 @@ public class RangeTest {
     azzert.that(it.next(), azzert.is(Integer.valueOf(1)));
     azzert.that(it.hasNext(), azzert.is(false));
    }
+  @SuppressWarnings("static-method") @Test public void numbers() {
+    RangeIterator it=range.numbers;
+    for(int ¢=1;¢<10000;++¢) {
+      azzert.that(it.hasNext(), azzert.is(true));
+      azzert.that(it.next(), azzert.is(Integer.valueOf(Integer.MIN_VALUE+¢)));
+    }
+    
+    
+  }
 }
