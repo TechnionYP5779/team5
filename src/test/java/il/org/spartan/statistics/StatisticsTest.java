@@ -5,24 +5,19 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 public class StatisticsTest {
-  @SuppressWarnings("static-method") @Test public void testSampleMean() {
-    final double b = 2;
-    final double a[] = { 1, 2, 3 };
-    final double c = Statistics.sampleMean(a);
-    assertEquals(b, c, 0);
+  @Test @SuppressWarnings("static-method") public void testSampleMean() {
+    assertEquals(2, Statistics.sampleMean(new double[] { 1, 2, 3 }), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testSampleVariance() {
-    final double a[] = { 1, 2, 3 };
-    assertEquals(1, Statistics.sampleVariance(a), 0);
+  @Test @SuppressWarnings("static-method") public void testSampleVariance() {
+    assertEquals(1, Statistics.sampleVariance(new double[] { 1, 2, 3 }), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testMad() {
-    final double a[] = { 4, 8, 12.5 };
-    assertEquals(4, Statistics.mad(a), 0);
+  @Test @SuppressWarnings("static-method") public void testMad() {
+    assertEquals(4, Statistics.mad(new double[] { 4, 8, 12.5 }), 0);
   }
 
-  @SuppressWarnings({ "static-method", "boxing" }) @Test public void testIsEmpty() {
+  @Test @SuppressWarnings({ "static-method", "boxing" }) public void testIsEmpty() {
     final Statistics s = new Statistics() {
       //empty block
     };
@@ -31,27 +26,25 @@ public class StatisticsTest {
     assertEquals(false, s.isEmpty());
   }
 
-  @SuppressWarnings("static-method") @Test public void testMax() {
+  @Test @SuppressWarnings("static-method") public void testMax() {
     final Statistics s = new Statistics() {
     //empty block
     };
     s.n = 1;
-    s.moments[0] = 10;
-    s.max = 10;
+    s.max = s.moments[0] = 10;
     assertEquals(10, s.max(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testMin() {
+  @Test @SuppressWarnings("static-method") public void testMin() {
     final Statistics s = new Statistics() {
     //empty block
     };
     s.n = 1;
-    s.moments[0] = 10;
-    s.min = 10;
+    s.min = s.moments[0] = 10;
     assertEquals(10, s.min(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testMean() {
+  @Test @SuppressWarnings("static-method") public void testMean() {
     final Statistics s = new Statistics() {
     //empty block
     };
@@ -60,7 +53,7 @@ public class StatisticsTest {
     assertEquals(5, s.mean(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testMissing() {
+  @Test @SuppressWarnings("static-method") public void testMissing() {
     final Statistics s = new Statistics() {
     //empty block
     };
@@ -68,7 +61,7 @@ public class StatisticsTest {
     assertEquals(0, s.missing(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testSum2() {
+  @Test @SuppressWarnings("static-method") public void testSum2() {
     final Statistics s = new Statistics() {
     //empty block
     };
@@ -77,17 +70,16 @@ public class StatisticsTest {
     assertEquals(1, s.sum2(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testSd() {
+  @Test @SuppressWarnings("static-method") public void testSd() {
     final Statistics s = new Statistics() {
     //empty block
     };
     s.n = 2;
-    s.moments[1] = 1;
-    s.moments[2] = 1;
+    s.moments[2] = s.moments[1] = 1;
     assertEquals(0.5, s.sd(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testRelativeError() {
+  @Test @SuppressWarnings("static-method") public void testRelativeError() {
     final Statistics s = new Statistics() {
     //empty block
     };
@@ -96,17 +88,16 @@ public class StatisticsTest {
     assertEquals(0, s.relativeError(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testRelativeError2() {
+  @Test @SuppressWarnings("static-method") public void testRelativeError2() {
     final Statistics s = new Statistics() {
     //empty block
     };
     s.n = 2;
-    s.moments[1] = 1;
-    s.moments[2] = 1;
+    s.moments[2] = s.moments[1] = 1;
     assertEquals(1, s.relativeError(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testV() {
+  @Test @SuppressWarnings("static-method") public void testV() {
     final Statistics s = new Statistics() {
     //empty block
     };
@@ -116,7 +107,7 @@ public class StatisticsTest {
     assertEquals(1.5, s.v(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testVariance() {
+  @Test @SuppressWarnings("static-method") public void testVariance() {
     final Statistics s = new Statistics() {
     //empty block
     };
@@ -126,7 +117,7 @@ public class StatisticsTest {
     assertEquals(0.75, s.variance(), 0);
   }
 
-  @SuppressWarnings("static-method") @Test public void testCheckEmpty() {
+  @Test @SuppressWarnings("static-method") public void testCheckEmpty() {
     final Statistics s = new Statistics() {
     //empty block
     };

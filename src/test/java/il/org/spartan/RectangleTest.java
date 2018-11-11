@@ -5,7 +5,7 @@ import org.junit.*;
 import fluent.ly.*;
 
 public class RectangleTest {
-  @SuppressWarnings("static-method") @Test public void test() {
+  @Test @SuppressWarnings("static-method") public void test() {
     final Rectangle rec = new Rectangle(1.0, 1.0, 2.0, 2.0);
     azzert.that(rec.getLength(), azzert.is(1.0));
     azzert.that(rec.getWidth(), azzert.is(1.0));
@@ -13,7 +13,7 @@ public class RectangleTest {
     azzert.that(rec.getPerimeter(), azzert.is(4.0));
   }
 
-  @SuppressWarnings("static-method") @Test public void test2() {
+  @Test @SuppressWarnings("static-method") public void test2() {
     final Rectangle rec = new Rectangle(1, 1, 3, 4);
     azzert.that(rec.getLength(), azzert.is(3.0));
     azzert.that(rec.getWidth(), azzert.is(2.0));
@@ -21,7 +21,7 @@ public class RectangleTest {
     azzert.that(rec.getPerimeter(), azzert.is(10.0));
   }
 
-  @SuppressWarnings("static-method") @Test public void test3() {
+  @Test @SuppressWarnings("static-method") public void test3() {
     final Rectangle rec = new Rectangle(3, 4, 1, 1);
     azzert.that(rec.getLength(), azzert.is(3.0));
     azzert.that(rec.getWidth(), azzert.is(2.0));
@@ -29,8 +29,7 @@ public class RectangleTest {
     azzert.that(rec.getPerimeter(), azzert.is(10.0));
   }
 
-  @SuppressWarnings("static-method") @Test public void test4() {
-    final Rectangle rec = new Rectangle(1, 1, 4, 5);
-    azzert.that(rec.getDiagonallyLength(), azzert.is(5.0));
+  @Test @SuppressWarnings("static-method") public void test4() {
+    azzert.that(new Rectangle(1, 1, 4, 5).getDiagonallyLength(), azzert.is(5.0));
   }
 }
