@@ -12,7 +12,7 @@ import org.jetbrains.annotations.*;
  * @since 2017-04-12 */
 public interface the {
   @SuppressWarnings("boxing") static int index(final int i, final int... is) {
-    for (final Integer $ : range.from(0).to(is.length))
+    for (final Integer $ : rangeOrig.from(0).to(is.length))
       if (is[$] == i)
         return $;
     return -1;
