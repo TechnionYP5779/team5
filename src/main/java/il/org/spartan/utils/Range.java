@@ -29,10 +29,17 @@ public class Range {
 
   private Integer from;
   private Integer to;
+  private boolean Ninfinite;
 
   @SuppressWarnings("boxing") public Range(int i) {
     from=i;
     to=from-1;
+  }
+
+  @SuppressWarnings("boxing") public Range(int ¢, boolean b) {
+    from=¢;
+    to=¢;
+    this.Ninfinite=b;
   }
 
   @SuppressWarnings("static-method") public Integer getFrom() {
@@ -43,8 +50,8 @@ public class Range {
     return this.to<this.from;
   }
 
-  @SuppressWarnings("static-method") public boolean isToNInfinite() {
-    return false;
+  public boolean isToNInfinite() {
+    return Ninfinite;
   }
 
   @SuppressWarnings("boxing") public RangeIterator from() {
@@ -57,7 +64,7 @@ public class Range {
     return this;
   }
 
-  @SuppressWarnings("static-method") public Integer getTo() {
-    return Integer.valueOf(6);
+  public Integer getTo() {
+    return this.to;
   }
 }
