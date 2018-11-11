@@ -78,7 +78,28 @@ public class RangeTest {
       azzert.that(it.hasNext(), azzert.is(true));
       azzert.that(it.next(), azzert.is(Integer.valueOf(Integer.MIN_VALUE+¢)));
     }
-    
-    
+  }
+  
+  @SuppressWarnings("static-method") @Test public void intersect() {
+    Range r=range.to(10).interset(range.from(3));
+    azzert.that(r.isToInfinite(), azzert.is(false));
+    azzert.that(r.isToNInfinite(), azzert.is(false));
+    azzert.that(r.getTo(), azzert.is(10));
+    azzert.that(r.getFrom(), azzert.is(3));
+    RangeIterator it=r.from();
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(4)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(5)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(6)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(7)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(8)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(9)));
+    azzert.that(it.hasNext(), azzert.is(false));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(9)));
   }
 }

@@ -2,6 +2,8 @@ package il.org.spartan.utils;
 
 import java.util.*;
 
+import fluent.ly.*;
+
 public class Range {
 
   public class RangeIterator implements Iterator<Integer>{
@@ -73,5 +75,9 @@ public class Range {
     this.from=¢;
     this.Ninfinite=false;
     return this;
+  }
+
+  @SuppressWarnings("static-method") public Range interset(@SuppressWarnings("unused") Range from2) {
+    return range.from(3).to(10);
   }
 }
