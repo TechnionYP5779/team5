@@ -9,7 +9,7 @@ public class bigRangeTest {
     final Iterable<BigInteger> iter = bigRange.withDiff(1);
     BigInteger count = BigInteger.valueOf(0);
     for (final BigInteger i : iter) {
-      Assert.assertEquals(count, i);
+      azzert.that(count, azzert.is(i));
       count.add(BigInteger.valueOf(1));
       if (count.equals(BigInteger.valueOf(1000)))
         break;
@@ -21,7 +21,7 @@ public class bigRangeTest {
     final Iterable<BigInteger> iter = bigRange.withDiff(3);
     BigInteger count = BigInteger.valueOf(0);
     for (final BigInteger i : iter) {
-      Assert.assertEquals(count, i);
+      azzert.that(count, azzert.is(i));
       count.add(BigInteger.valueOf(1));
       if (count.equals(BigInteger.valueOf(999)))
         break;
@@ -29,11 +29,11 @@ public class bigRangeTest {
     }
   }
 
-  @SuppressWarnings("static-method") @Test public void fromAndWithDiff() {
+  @Test @SuppressWarnings("static-method") public void fromAndWithDiff() {
     final Iterable<BigInteger> iter = bigRange.from(2).withDiff(3);
     BigInteger count = BigInteger.valueOf(2);
     for (final BigInteger i : iter) {
-      Assert.assertEquals(count, i);
+      azzert.that(count, azzert.is(i));
       count.add(BigInteger.valueOf(1));
       if (count.equals(BigInteger.valueOf(998)))
         break;
@@ -85,7 +85,7 @@ public class bigRangeTest {
    public void naturals() {
      BigInteger count = BigInteger.valueOf(0);
      for (final BigInteger i : bigRange.naturals()) {
-       Assert.assertEquals(count, i);
+       azzert.that(count, azzert.is(i));
        count.add(BigInteger.valueOf(1));
        if (count.equals(BigInteger.valueOf(1000)))
          break;

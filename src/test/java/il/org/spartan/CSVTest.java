@@ -41,8 +41,8 @@ public class CSVTest {
     azzert.that(CSV.escape(null), azzert.is("\\0"));
   }
 
- @Test @SuppressWarnings({ "null", "static-method" }) public void loadAndSaveTest() {
-  assertEquals("\\n\\r\\t\\\\\\.", CSV.escape("\n\r\t\\,"));
+ @Test @SuppressWarnings({ "null", "static-method", "static-access" }) public void loadAndSaveTest() {
+  azzert.assertEquals("\\n\\r\\t\\\\\\.", CSV.escape("\n\r\t\\,"));
   final File f = new File("src/test/resources/csvTest");
   try {
     final String[][] csv = CSV.load(f);

@@ -15,8 +15,8 @@ public class unboxTest {
     azzert.that(unbox.unbox(new Character[] { Character.valueOf('a'), Character.valueOf('b'), Character.valueOf('c'), Character.valueOf('d') }), azzert.is(new char[] { 'a', 'b', 'c', 'd' }));
   }
 
-  @Test @SuppressWarnings({ "static-method", "null" }) public void testUnboxShortArray() {
-    Assert.assertArrayEquals(new short[] { 1, 2, 3, 4 }, unbox.unbox(new Short[] { Short.valueOf("1"), Short.valueOf("2"), Short.valueOf("3"), Short.valueOf("4") }));
+  @Test @SuppressWarnings({ "static-method", "null", "static-access" }) public void testUnboxShortArray() {
+    azzert.assertArrayEquals(new short[] { 1, 2, 3, 4 }, unbox.unbox(new Short[] { Short.valueOf("1"), Short.valueOf("2"), Short.valueOf("3"), Short.valueOf("4") }));
   }
 
   @Test @SuppressWarnings({ "static-method", "null" }) public void testUnboxDoubleArray() {

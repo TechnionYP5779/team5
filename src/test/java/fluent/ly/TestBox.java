@@ -60,15 +60,15 @@ public class TestBox {
   @Test @SuppressWarnings({ "boxing", "static-method" }) public void testFloatBox() {
     final float diff = (float) 0.00005;
     Float b = box.box((float) 3.14);
-    assert b <= Float.valueOf(diff + (float) 3.14) && b >= Float.valueOf((float) 3.14 - diff);
+    azzert.assertTrue(b <= Float.valueOf(diff + (float) 3.14) && b >= Float.valueOf((float) 3.14 - diff));
     b = box.box((float) 2.71);
-    assert b <= Float.valueOf(diff + (float) 2.71) && b >= Float.valueOf((float) 2.71 - diff);
+    azzert.assertTrue(b <= Float.valueOf(diff + (float) 2.71) && b >= Float.valueOf((float) 2.71 - diff));
     final float fArray[] = new float[10];
     for (int ¢ = 0; ¢ < 10; ++¢)
       fArray[¢] = (float) (¢ + 3.14);
     final Float FloatArray[] = box.box(fArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
-      assert FloatArray[¢] <= Float.valueOf(¢ + diff + (float) 3.14) && FloatArray[¢] >= Float.valueOf(¢ + (float) 3.14 - diff);
+      azzert.assertTrue(FloatArray[¢] <= Float.valueOf(¢ + diff + (float) 3.14) && FloatArray[¢] >= Float.valueOf(¢ + (float) 3.14 - diff));
   }
 
   @Test @SuppressWarnings("static-method") public void testIntegerBox() {
@@ -168,15 +168,15 @@ public class TestBox {
   @Test @SuppressWarnings({ "static-method", "boxing" }) public void testItFloatBox() {
     final float diff = (float) 0.00005;
     Float b = box.it((float) 3.14);
-    assert b <= Float.valueOf(diff + (float) 3.14) && b >= Float.valueOf((float) 3.14 - diff);
+    azzert.assertTrue(b <= Float.valueOf(diff + (float) 3.14) && b >= Float.valueOf((float) 3.14 - diff));
     b = box.it((float) 2.71);
-    assert b <= Float.valueOf(diff + (float) 2.71) && b >= Float.valueOf((float) 2.71 - diff);
+    azzert.assertTrue(b <= Float.valueOf(diff + (float) 2.71) && b >= Float.valueOf((float) 2.71 - diff));
     final float fArray[] = new float[10];
     for (int ¢ = 0; ¢ < 10; ++¢)
       fArray[¢] = (float) (¢ + 3.14);
     final Float FloatArray[] = box.it(fArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
-      assert FloatArray[¢] <= Float.valueOf(¢ + diff + (float) 3.14) && FloatArray[¢] >= Float.valueOf(¢ + (float) 3.14 - diff);
+      azzert.assertTrue(FloatArray[¢] <= Float.valueOf(¢ + diff + (float) 3.14) && FloatArray[¢] >= Float.valueOf(¢ + (float) 3.14 - diff));
   }
 
   @Test @SuppressWarnings("static-method") public void testItIntegerBox() {

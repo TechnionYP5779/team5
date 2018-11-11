@@ -38,8 +38,8 @@ import fluent.ly.idiomatic.*;
     azzert.isNull(idiomatic.take(Integer.valueOf(42)).unless(true));
   }
 
-  @Test public void use0() {
-    assert new Storer<>(this) != null;
+  @SuppressWarnings("null") @Test public void use0() {
+    azzert.assertTrue(new Storer<>(this) != null);
   }
 
   @Test public void use08() {
@@ -47,24 +47,24 @@ import fluent.ly.idiomatic.*;
   }
 
   @Test public void use09() {
-    assert idiomatic.unless(false).eval(() -> new Object()) != null;
+    azzert.assertTrue(idiomatic.unless(false).eval(() -> new Object()) != null);
   }
 
-  @Test public void use1() {
-    assert new Storer<>(this) != null;
+  @SuppressWarnings("null") @Test public void use1() {
+    azzert.assertTrue( new Storer<>(this) != null);
     new Storer<>(this).when(true);
   }
 
   @Test public void use10() {
-    assert idiomatic.when(true).eval(() -> new Object()) != null;
+    azzert.assertTrue( idiomatic.when(true).eval(() -> new Object()) != null);
   }
 
   @Test public void use11() {
     azzert.isNull(idiomatic.when(false).eval(() -> new Object()));
   }
 
-  @Test public void use2() {
-    assert idiomatic.take(this) != null;
+  @SuppressWarnings("null") @Test public void use2() {
+    azzert.assertTrue( idiomatic.take(this) != null);
     azzert.isNull(idiomatic.take(this).when(false));
   }
 

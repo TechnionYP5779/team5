@@ -14,16 +14,16 @@ public class theTest {
     azzert.that(-1, azzert.is(the.index(3, 1, 2, 4, 5, 6)));
   }
 
-  @Test @SuppressWarnings({ "deprecation", "static-method" }) public void nilTest() {
-    Assert.assertEquals(null, the.nil());
+  @Test @SuppressWarnings("static-method") public void nilTest() {
+    assert the.nil() == null;
   }
 
   @Test @SuppressWarnings("static-method") public void nthTest() {
     azzert.that(" #3/5", azzert.is(the.nth(3, IntStream.range(0, 5).boxed().collect(Collectors.toList()))));
   }
 
-  @Test @SuppressWarnings({ "static-method", "deprecation" }) public void PentuliatenullTest() {
-    Assert.assertEquals(null, the.penultimateOf(null));
+  @Test @SuppressWarnings("static-method") public void PentuliatenullTest() {
+    assert the.penultimateOf(null) == null;
   }
 
   @Test @SuppressWarnings({ "boxing", "static-method", "null" }) public void penuliateofOneTest() {
@@ -76,8 +76,8 @@ public class theTest {
     azzert.that(l, azzert.is(the.rest(3, IntStream.range(0, 6).boxed().collect(Collectors.toList()))));
   }
 
-  @Test @SuppressWarnings({ "deprecation", "static-method" }) public void headOfNull() {
-    Assert.assertEquals(null, the.headOf(null));
+  @Test @SuppressWarnings("static-method") public void headOfNull() {
+    assert the.headOf(null) == null;
   }
 
   @Test @SuppressWarnings({ "static-method", "unchecked", "rawtypes" }) public void headOfEmpty() {
@@ -127,8 +127,8 @@ public class theTest {
     azzert.that(false, azzert.is(it.hasNext()));
   }
 
-  @Test @SuppressWarnings({ "deprecation", "static-method" }) public void onlyOneOfNull() {
-    Assert.assertEquals(null, the.onlyOneOf(null));
+  @Test @SuppressWarnings("static-method") public void onlyOneOfNull() {
+    assert the.onlyOneOf(null) == null;
   }
 
   @Test @SuppressWarnings({ "static-method", "unchecked", "rawtypes" }) public void onlyOneOfEmpty() {
@@ -141,8 +141,8 @@ public class theTest {
     azzert.that(Integer.valueOf(0), azzert.is(the.onlyOneOf(l)));
   }
 
-  @Test @SuppressWarnings({ "static-method", "deprecation" }) public void secondOfNull() {
-    Assert.assertEquals(null, the.secondOf(null));
+  @Test @SuppressWarnings("static-method") public void secondOfNull() {
+    assert the.secondOf(null) == null;
   }
 
   @Test @SuppressWarnings({ "static-method", "unchecked", "rawtypes" }) public void secondOfEmpty() {
@@ -168,8 +168,8 @@ public class theTest {
     azzert.that(Integer.valueOf(5), azzert.is(the.lastOf(new Integer[] { 1, 2, 3, 4, 5 })));
   }
 
-  @Test @SuppressWarnings({ "static-method", "deprecation" }) public void lastNull() {
-    Assert.assertEquals(null, the.last(null));
+  @Test @SuppressWarnings("static-method") public void lastNull() {
+    assert the.last(null)==null;
   }
 
   @Test @SuppressWarnings({ "static-method", "unchecked", "rawtypes" }) public void lastEmpty() {

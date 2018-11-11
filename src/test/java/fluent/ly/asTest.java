@@ -7,7 +7,7 @@ import org.junit.*;
 
 public class asTest {
   @Test @SuppressWarnings("static-method") public void emptyAsIterableTest() {
-    assert !as.asIterable().iterator().hasNext();
+    azzert.assertTrue(!as.asIterable().iterator().hasNext());
   }
 
   @Test @SuppressWarnings({ "static-method", "static-access" }) public void iterableHasRange10Test() {
@@ -65,7 +65,7 @@ public class asTest {
     azzert.assertEquals(Integer.valueOf(8), i.next());
     azzert.assertEquals(Integer.valueOf(9), i.next());
     azzert.assertEquals(Integer.valueOf(10), i.next());
-    assert !i.hasNext();
+    azzert.assertTrue(!i.hasNext());
   }
 
   @Test @SuppressWarnings({ "static-method", "static-access", "rawtypes" }) public void emptyListTest() {
