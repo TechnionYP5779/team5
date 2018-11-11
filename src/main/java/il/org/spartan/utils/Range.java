@@ -42,8 +42,8 @@ public class Range {
     this.Ninfinite=b;
   }
 
-  @SuppressWarnings("static-method") public Integer getFrom() {
-    return Integer.valueOf(2);
+  @SuppressWarnings("boxing") public Integer getFrom() {
+    return Integer.valueOf(this.from);
   }
 
   @SuppressWarnings("boxing") public boolean isToInfinite() {
@@ -67,5 +67,11 @@ public class Range {
 
   public Integer getTo() {
     return this.to;
+  }
+
+  @SuppressWarnings("boxing") public Range from(int ¢) {
+    this.from=¢;
+    this.Ninfinite=false;
+    return this;
   }
 }

@@ -48,4 +48,28 @@ public class RangeTest {
     azzert.that(r.getTo(), azzert.is(2));
     azzert.isNull(r.from());
    }
+  
+  @SuppressWarnings("static-method") @Test public void toFrom() {
+    Range r=range.to(2).from(-5);
+    azzert.that(r.isToInfinite(), azzert.is(false));
+    azzert.that(r.isToNInfinite(), azzert.is(false));
+    azzert.that(r.getTo(), azzert.is(2));
+    azzert.that(r.getFrom(), azzert.is(-5));
+    RangeIterator it=r.from();
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(-4)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(-3)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(-2)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(-1)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(0)));
+    azzert.that(it.hasNext(), azzert.is(true));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(1)));
+    azzert.that(it.hasNext(), azzert.is(false));
+    azzert.that(it.next(), azzert.is(Integer.valueOf(1)));
+    azzert.that(it.hasNext(), azzert.is(false));
+   }
 }
