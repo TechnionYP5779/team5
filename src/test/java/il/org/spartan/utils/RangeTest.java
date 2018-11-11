@@ -46,5 +46,6 @@ public class RangeTest {
     azzert.that(r.isToInfinite(), azzert.is(false));
     azzert.that(r.isToNInfinite(), azzert.is(true));
     azzert.that(r.getTo(), azzert.is(2));
+    azzert.isNull(r.from());
    }
 }

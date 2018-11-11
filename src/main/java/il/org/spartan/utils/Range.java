@@ -55,6 +55,7 @@ public class Range {
   }
 
   @SuppressWarnings("boxing") public RangeIterator from() {
+    if(this.Ninfinite) return null;
     if(to<from) return new RangeIterator(from);
     return new RangeIterator(from,to);
   }
