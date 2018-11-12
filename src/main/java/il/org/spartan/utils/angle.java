@@ -2,12 +2,15 @@ package il.org.spartan.utils;
 
 public class angle {
   
+  public static final angle pi = new angle(180);
+  private static final double deg2Rad = Math.PI / 180;
+  private static final double rad2Deg = 180 / Math.PI;
   private double deg;
   private double rad;
 
   public angle(double i) {
-    deg = 20;
-    rad = 1;
+    deg = i;
+    rad = i * deg2Rad;
   }
   
   public double getDegrees() {
@@ -19,10 +22,10 @@ public class angle {
   }
 
   public static angle degrees(double i) {
-    return new angle(20);
+    return new angle(i);
   }
 
   public static angle radians(double i) {
-    return new angle(1);
+    return new angle(i * rad2Deg);
   }
 }
