@@ -1,8 +1,12 @@
 package fluent.ly;
 
+import static org.junit.Assert.*;
+
 import java.util.*;
 import java.util.stream.*;
 
+import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 import org.junit.*;
 
 public class asTest {
@@ -115,5 +119,39 @@ public class asTest {
   @Test @SuppressWarnings({ "static-method", "static-access" }) public void iterableAsStringTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
     azzert.assertEquals(l + "", as.string(l));
+  }
+  
+  @SuppressWarnings("static-method") @Test public void asBitOfFalse() {
+    azzert.that(as.bit(false), azzert.is(0));
+  }
+
+  @SuppressWarnings("static-method") @Test public void asBitOfTrue() {
+    azzert.that(as.bit(true), azzert.is(1));
+  }
+
+  @SuppressWarnings("static-method") @Test public void asIntArraySimple() {
+    final int @NotNull [] is = as.intArray(100, 200, 200, 12, 13, 0);
+    assertArrayEquals(is, as.intArray(as.ingeterList(is)));
+  }
+
+  @SuppressWarnings("static-method") @Test public void asListSimple() {
+    // direct call `as.list(12, 13, 14)` kills Travis --or
+    @SuppressWarnings("null") final @NotNull List<Integer> is = as.list(new int @NotNull [] { 12, 13, 14 });
+    azzert.that(is.get(0), azzert.is(fluent.ly.box.it(12)));
+    azzert.that(is.get(1), azzert.is(fluent.ly.box.it(13)));
+    azzert.that(is.get(2), azzert.is(fluent.ly.box.it(14)));
+    azzert.that(is.size(), azzert.is(3));
+  }
+
+  @SuppressWarnings("static-method") @Test public void stringOfNull() {
+    azzert.that(as.string(null), azzert.is("null"));
+  }
+
+  @SuppressWarnings("static-method") @Test public void stringWhenToStringReturnsNull() {
+    azzert.that(as.string(new Object() {
+      @Override @Nullable public String toString() {
+        return null;
+      }
+    }), azzert.is("null"));
   }
 }
