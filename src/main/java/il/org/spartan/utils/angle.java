@@ -2,18 +2,27 @@ package il.org.spartan.utils;
 
 public class angle {
   
-  private double degrees;
+  private double deg;
+  private double rad;
 
   public angle(double i) {
-    degrees = 20;
+    deg = 20;
+    rad = 1;
   }
   
   public double getDegrees() {
-    return degrees;
+    return deg;
+  }
+  
+  public double getRadians() {
+    return rad;
   }
 
-  public static angle Degrees(double i) {
-    // TODO Auto-generated method stub
+  public static angle degrees(double i) {
     return new angle(20);
+  }
+
+  public static angle radians(double i) {
+    return new angle(1);
   }
 }
