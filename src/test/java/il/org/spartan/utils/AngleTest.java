@@ -4,5 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class AngleTest {
+@SuppressWarnings("static-method")
+public class angleTest {
+  
 }
