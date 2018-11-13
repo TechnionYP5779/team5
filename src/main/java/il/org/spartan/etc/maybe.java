@@ -1,7 +1,9 @@
-package fluent.ly;
+package il.org.spartan.etc;
 
 import org.jetbrains.annotations.*;
 import org.junit.*;
+
+import fluent.ly.*;
 
 /** @author Yossi Gil <Yossi.Gil@GMail.COM>
  * @param <T> JD
