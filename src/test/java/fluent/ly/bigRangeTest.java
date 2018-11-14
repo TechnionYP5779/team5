@@ -3,13 +3,13 @@ package fluent.ly;
 import java.math.*;
 
 import org.junit.*;
-
+import static fluent.ly.azzert.*;
 @SuppressWarnings("static-method") public class bigRangeTest {
   @Test public void withDiffOnly() {
     final Iterable<BigInteger> iter = bigRange.withDiff(1);
     BigInteger count = BigInteger.valueOf(0);
     for (final BigInteger i : iter) {
-      azzert.that(count, azzert.is(i));
+      azzert.that(count, is(i));
       count.add(BigInteger.valueOf(1));
       if (count.equals(BigInteger.valueOf(1000)))
         break;
@@ -21,7 +21,7 @@ import org.junit.*;
     final Iterable<BigInteger> iter = bigRange.withDiff(3);
     BigInteger count = BigInteger.valueOf(0);
     for (final BigInteger i : iter) {
-      azzert.that(count, azzert.is(i));
+      azzert.that(count, is(i));
       count.add(BigInteger.valueOf(1));
       if (count.equals(BigInteger.valueOf(999)))
         break;
@@ -33,7 +33,7 @@ import org.junit.*;
     final Iterable<BigInteger> iter = bigRange.from(2).withDiff(3);
     BigInteger count = BigInteger.valueOf(2);
     for (final BigInteger i : iter) {
-      azzert.that(count, azzert.is(i));
+      azzert.that(count, is(i));
       count.add(BigInteger.valueOf(1));
       if (count.equals(BigInteger.valueOf(998)))
         break;
@@ -82,7 +82,7 @@ import org.junit.*;
   @Test public void naturals() {
     BigInteger count = BigInteger.valueOf(0);
     for (final BigInteger i : bigRange.naturals()) {
-      azzert.that(count, azzert.is(i));
+      azzert.that(count, is(i));
       count.add(BigInteger.valueOf(1));
       if (count.equals(BigInteger.valueOf(1000)))
         break;

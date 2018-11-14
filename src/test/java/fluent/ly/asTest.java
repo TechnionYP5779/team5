@@ -1,5 +1,5 @@
 package fluent.ly;
-
+import static fluent.ly.azzert.*;
 import static org.junit.Assert.*;
 
 import java.util.*;
@@ -121,11 +121,11 @@ public class asTest {
   }
 
   @Test public void asBitOfFalse() {
-    azzert.that(as.bit(false), azzert.is(0));
+    azzert.that(as.bit(false), is(0));
   }
 
   @Test public void asBitOfTrue() {
-    azzert.that(as.bit(true), azzert.is(1));
+    azzert.that(as.bit(true), is(1));
   }
 
   @Test public void asIntArraySimple() {
@@ -136,14 +136,14 @@ public class asTest {
   @Test public void asListSimple() {
     // direct call `as.list(12, 13, 14)` kills Travis --or
     @SuppressWarnings("null") final @NotNull List<Integer> is = as.list(new int @NotNull [] { 12, 13, 14 });
-    azzert.that(is.get(0), azzert.is(fluent.ly.box.it(12)));
-    azzert.that(is.get(1), azzert.is(fluent.ly.box.it(13)));
-    azzert.that(is.get(2), azzert.is(fluent.ly.box.it(14)));
-    azzert.that(is.size(), azzert.is(3));
+    azzert.that(is.get(0), is(fluent.ly.box.it(12)));
+    azzert.that(is.get(1), is(fluent.ly.box.it(13)));
+    azzert.that(is.get(2), is(fluent.ly.box.it(14)));
+    azzert.that(is.size(), is(3));
   }
 
   @Test public void stringOfNull() {
-    azzert.that(as.string(null), azzert.is("null"));
+    azzert.that(as.string(null), is("null"));
   }
 
   @Test public void stringWhenToStringReturnsNull() {
@@ -151,6 +151,6 @@ public class asTest {
       @Override @Nullable public String toString() {
         return null;
       }
-    }), azzert.is("null"));
+    }), is("null"));
   }
 }
