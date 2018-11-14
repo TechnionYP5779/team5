@@ -8,6 +8,8 @@ import fluent.ly.*;
 import il.org.spartan.statistics.*;
 
 /**
+ * this class represents a list of pairs, on which we run statistic measures and,
+ * hopefully, a linear regression.
  * @author Shaked Sapir
  * @since 2018-11-14
  *  
@@ -108,7 +110,8 @@ public class PairsList {
   public double squaresSum(String axis) {
     int $ = 0;
     for(int ¢=0;¢<l.size();¢++) 
-      $ += "X".equals(axis) ? unbox.unbox(l.get(¢).p.first)*unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second)*unbox.unbox(l.get(¢).p.second);
+      $ += "X".equals(axis) ? unbox.unbox(l.get(¢).p.first)*unbox.unbox(l.get(¢).p.first) : 
+        unbox.unbox(l.get(¢).p.second)*unbox.unbox(l.get(¢).p.second);
     return $;
   }
 
@@ -117,5 +120,27 @@ public class PairsList {
     for(int ¢=0;¢<l.size();¢++) 
       $ += "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second);
     return $;
+  }
+
+  public double sd(String axis) {
+    return Math.sqrt(variance(axis));
+  }
+
+  public Pair<Double,Double> orderStatistic(int ¢) {
+    return sortAsc().get(¢-1).p;
+  }
+
+  public double firstQuarter(String axis) {
+    double[] $ = new double[sortAsc().size()];
+    for(int ¢=0;¢<l.size();¢++)
+      $[¢] = "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second);
+    return l.size() % 2 != 0 ? $[l.size() / 4] : ($[l.size() / 4] + $[l.size() / 4 + 1]) / 2;
+  }
+
+  public double thirdQuarter(String axis) {
+    double[] $ = new double[sortAsc().size()];
+    for(int ¢=0;¢<l.size();¢++)
+      $[¢] = "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second);
+    return l.size() % 2 != 0 ? $[3*l.size() / 4] : ($[3*l.size() / 4] + $[3*l.size() / 4 + 1]) / 2;
   }
 }
