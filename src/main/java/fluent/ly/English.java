@@ -64,7 +64,7 @@ import il.org.spartan.utils.*;
   /** Constructs linguistic list of items: [i1, i2, i3] --> "i1, i2 and i3"
    * @param ¢ list of items
    * @return a linguistic list of the items */
-  @NotNull static String list(final List<String> ¢) {
+  static String list(final List<String> ¢) {
     return ¢ == null || ¢.isEmpty() ? "nothing"
         : ¢.size() == 1 ? the.headOf(¢) : separate.these(¢.subList(0, ¢.size() - 1)).by(SEPARATOR) + " and " + the.lastOf(¢);
   }

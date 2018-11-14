@@ -14,7 +14,7 @@ public class Pair<First, Second> {
     return makePairs(i * m);
   }
 
-  @NotNull public static <A, B> Pair<A, B> newPair(final A a, final B b) {
+  @NotNull public static <A, B> Pair<A, B> newPair(@NotNull final A a, @NotNull final B b) {
     return new Pair<>(a, b);
   }
 
@@ -22,10 +22,10 @@ public class Pair<First, Second> {
     return a == null ? o == null : a.equals(o);
   }
 
-  public final First first;
-  public final Second second;
+  @NotNull public final First first;
+  @NotNull public final Second second;
 
-  public Pair(final First first, final Second second) {
+  public Pair(@NotNull final First first, @NotNull final Second second) {
     this.first = first;
     this.second = second;
   }

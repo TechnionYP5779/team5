@@ -24,14 +24,14 @@ import org.jetbrains.annotations.*;
  * function such as {@link Long#longValue()}
  * @author Yossi Gil.
  * @see box */
-public enum unbox {
+@SuppressWarnings("null") public enum unbox {
   // A namespace: no values to this <code><b>enum</b></code>
   ;
   public static double @NotNull [] it(final @NotNull Double[] ¢) {
     return unbox(¢);
   }
 
-  public static float @NotNull [] it(final Float[] ¢) {
+  public static float @NotNull [] it(Float[] ¢) {
     return unbox(¢);
   }
 
@@ -56,6 +56,7 @@ public enum unbox {
    * @param bs an array of {@link Boolean}s
    * @return an equivalent array of <code><b>boolean</b></code>s. */
   public static boolean @NotNull [] unbox(final Boolean[] bs) {
+    if(bs == null) return new boolean[0];
     final boolean @NotNull [] $ = new boolean[bs.length];
     for (int ¢ = 0; ¢ < bs.length; ++¢)
       $[¢] = bs[¢].booleanValue();
@@ -70,6 +71,7 @@ public enum unbox {
    * @param bs an array of {@link Byte}s
    * @return an equivalent array of <code><b>byte</b></code>s. */
   public static byte @NotNull [] unbox(final Byte[] bs) {
+    if(bs == null) return new byte[0];
     final byte @NotNull [] $ = new byte[bs.length];
     for (int ¢ = 0; ¢ < bs.length; ++¢)
       $[¢] = bs[¢].byteValue();
@@ -84,7 +86,8 @@ public enum unbox {
    * <code><b>char</b></code>s.
    * @param cs an array of {@link Character}s
    * @return an equivalent array of <code><b>char</b></code>s. */
-  public static char @NotNull [] unbox(final @NotNull Character[] cs) {
+  public static char @NotNull [] unbox(final Character[] cs) {
+    if(cs == null) return new char[0];
     final char @NotNull [] $ = new char[cs.length];
     for (int ¢ = 0; ¢ < cs.length; ++¢)
       $[¢] = cs[¢].charValue();
@@ -96,8 +99,7 @@ public enum unbox {
    * @param ss a {@link Collection} of {@link Integer}s
    * @return an equivalent array of <code><b>short</b></code>s. */
   public static short @NotNull [] unbox(final Collection<Short> ss) {
-    if (ss == null)
-      return new short[0];
+    if(ss == null) return new short[0];
     final short @NotNull [] $ = new short[ss.size()];
     int i = 0;
     for (final @NotNull Short v : ss)
@@ -113,7 +115,7 @@ public enum unbox {
    * <code><b>double</b></code>s.
    * @param ds an array of {@link Double}s
    * @return an equivalent array of <code><b>double</b></code>s. */
-  public static double @NotNull [] unbox(final @NotNull Double[] ds) {
+  public static double @NotNull [] unbox(final  Double[] ds) {
     final double @NotNull [] $ = new double[ds.length];
     for (int ¢ = 0; ¢ < ds.length; ++¢)
       $[¢] = ds[¢].floatValue();
@@ -129,6 +131,7 @@ public enum unbox {
    * @param fs an array of {@link Float}s
    * @return an equivalent array of <code><b>float</b></code>s. */
   public static float @NotNull [] unbox(final Float[] fs) {
+    if(fs == null) return new float[0];
     final float @NotNull [] $ = new float[fs.length];
     for (int ¢ = 0; ¢ < fs.length; ++¢)
       $[¢] = fs[¢].floatValue();
@@ -143,7 +146,8 @@ public enum unbox {
    * s.
    * @param is an array of {@link Integer}s
    * @return an equivalent array of <code><b>int</b></code>s. */
-  public static int @NotNull [] unbox(final @NotNull Integer[] is) {
+  public static int @NotNull [] unbox(final Integer[] is) {
+    if(is == null) return new int[0];
     final int @NotNull [] $ = new int[is.length];
     for (int ¢ = 0; ¢ < is.length; ++¢)
       $[¢] = is[¢].intValue();
@@ -157,7 +161,8 @@ public enum unbox {
   /** unbox an array of {@link Long}s into an array of <code><b>long</b></code> s.
    * @param ls an array of {@link Long}s
    * @return an equivalent array of <code><b>long</b></code>s. */
-  public static long @NotNull [] unbox(final @NotNull Long[] ls) {
+  public static long @NotNull [] unbox(final Long[] ls) {
+    if(ls == null) return new long[0];
     final long @NotNull [] $ = new long[ls.length];
     for (int ¢ = 0; ¢ < ls.length; ++¢)
       $[¢] = ls[¢].longValue();
@@ -172,7 +177,8 @@ public enum unbox {
    * s.
    * @param ss an array of {@link Integer}s
    * @return an equivalent array of <code><b>short</b></code>s. */
-  public static short @NotNull [] unbox(final @NotNull Short[] ss) {
+  public static short @NotNull [] unbox(final Short[] ss) {
+    if(ss == null) return new short[0];
     final short @NotNull [] $ = new short[ss.length];
     for (int ¢ = 0; ¢ < ss.length; ++¢)
       $[¢] = ss[¢].shortValue();

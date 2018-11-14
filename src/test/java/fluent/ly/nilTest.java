@@ -4,32 +4,33 @@ import java.util.function.*;
 
 import org.junit.*;
 
+@SuppressWarnings("static-method") 
 public class nilTest {
-  @Test @SuppressWarnings("static-method") public void testForgetting() {
+  @Test public void testForgetting() {
     Object o = nil.forgetting(new Object());
     azzert.that(o, azzert.is((Object) null));
-    o = nil.forgetting(Integer.valueOf(3), Integer.valueOf(7));
+    o = nil.forgetting(box.box(3), box.box(7));
     azzert.that(o, azzert.is((Object) null));
   }
 
-  @Test @SuppressWarnings({ "static-method", "hiding" }) public void testGuardingly() {
-    final String helloString = "Hello";
-    final String nullString = null;
-    final Integer i1 = nil.guardingly(String::length).on(helloString);
-    azzert.that(i1, azzert.is(Integer.valueOf(5)));
-    final Integer i2 = nil.guardingly(String::length).on(nullString);
-    azzert.that(i1, azzert.is(Integer.valueOf(5)));
+  @Test public void testGuardingly() {
+    final String helloString1 = "Hello";
+    final String nullString1 = null;
+    final Integer i1 = nil.guardingly(String::length).on(helloString1);
+    azzert.that(i1, azzert.is(box.box(5)));
+    final Integer i2 = nil.guardingly(String::length).on(nullString1);
+    azzert.that(i1, azzert.is(box.box(5)));
     azzert.that(i2, azzert.is((String) null));
   }
 
-  @Test @SuppressWarnings("static-method") public void testBoolIgnoring() {
+  @Test public void testBoolIgnoring() {
     Object o = nil.ignoring(false);
     azzert.that(o, azzert.is((Object) null));
     o = nil.ignoring(true);
     azzert.that(o, azzert.is((Object) null));
   }
 
-  @Test @SuppressWarnings("static-method") public void testDoubleIgnoring() {
+  @Test public void testDoubleIgnoring() {
     Object o;
     for (double ¢ = 3.14; ¢ <= 102.37; ¢ += Math.E) {
       o = nil.ignoring(¢);
@@ -37,7 +38,7 @@ public class nilTest {
     }
   }
 
-  @Test @SuppressWarnings("static-method") public void testLongIgnoring() {
+  @Test public void testLongIgnoring() {
     Object o;
     for (long ¢ = 30000; ¢ <= 102000; ¢ += 100) {
       o = nil.ignoring(¢);

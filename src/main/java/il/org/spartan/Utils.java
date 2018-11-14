@@ -64,7 +64,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
    * @param ts an arbitrary array
    * @param t  an element
    * @return newly created array */
-  @NotNull static <T> T[] append(final @NotNull T[] ts, final T t) {
+  @NotNull static <T> T[] append(final T[] ts, final T t) {
+    if(ts==null) return ts;
     final T @NotNull [] $ = Arrays.copyOf(ts, 1 + ts.length);
     $[ts.length] = t;
     return $;
@@ -155,7 +156,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
    * @param ts an arbitrary array
    * @param i  position of element to be deleted
    * @return newly created array */
-  @NotNull static <T> T[] delete(final @NotNull T[] ts, final int i) {
+  @NotNull static <T> T[] delete(final T[] ts, final int i) {
+    if(ts == null) return ts;
     final T @NotNull [] $ = Arrays.copyOf(ts, ts.length - 1);
     System.arraycopy(ts, i + 1, $, i, $.length - i);
     return $;
@@ -237,7 +239,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
    * @param os JD
    * @return <code><b>true</b></code> <i>iff</i> the an {@link Object} parameter
    *         occurs as the penultimate element of the {@link List} parameter */
-  static <@Nullable T> boolean penultimateIn(final T o, final @Nullable List<T> os) {
+  static <T> boolean penultimateIn(final T o, final List<T> os) {
     assert os != null;
     return list.penultimate(os) == o;
   }
@@ -418,7 +420,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     /** Determine if an integer can be found in a list of values
      * @param ts where to search
      * @return true if the the item is found in the list */
-    @SafeVarargs public final boolean in(final @NotNull T... ts) {
+    @SafeVarargs public final boolean in(final T... ts) {
+      if(ts == null) return false;
       for (final T ¢ : ts)
         if (¢ != null && ¢.equals(candidate))
           return true;

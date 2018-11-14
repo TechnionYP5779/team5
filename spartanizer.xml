@@ -41,7 +41,7 @@
                 
         <tipper enabled="true" id="-6638105215049141624"/>
                 
-        <tipper enabled="true" id="6308185220779727829"/>
+        <tipper enabled="false" id="6308185220779727829"/>
                 
         <tipper enabled="true" id="-2855334552468199138"/>
                 
@@ -291,7 +291,7 @@
                 
         <tipper enabled="false" id="-221763355000543721"/>
                 
-        <tipper enabled="true" id="-228096256168103399"/>
+        <tipper enabled="false" id="-228096256168103399"/>
                 
         <tipper enabled="true" id="8867383151468342949"/>
                 

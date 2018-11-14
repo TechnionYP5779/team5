@@ -2,71 +2,72 @@ package il.org.spartan.utils;
 
 import java.util.*;
 
+import org.jetbrains.annotations.*;
+
 import fluent.ly.*;
-
+@SuppressWarnings("static-method") 
 public class Range {
-  public class RangeIterator implements Iterator<Integer> {
-    private Integer pos;
-    private final Integer to1;
 
-    public RangeIterator(final Integer From) {
-      pos = Integer.valueOf(From.intValue());
-      to1 = Integer.valueOf(From.intValue() - 1);
+  public class RangeIterator implements Iterator<Integer>{
+    
+    @NotNull private Integer pos;
+    @NotNull private Integer to1;
+    public RangeIterator(@NotNull Integer From) {
+      pos=box.box(unbox.unbox(From));
+      to1=box.box(unbox.unbox(From)-1);
+    }
+    public RangeIterator(@NotNull Integer From,@NotNull Integer to) {
+      pos=box.box(unbox.unbox(From));
+      this.to1=box.box(unbox.unbox(to));
+    }
+    @Override public boolean hasNext() {
+      return unbox.unbox(to1)<unbox.unbox(pos)||(unbox.unbox(pos)+1)<unbox.unbox(to1);
     }
 
-    public RangeIterator(final Integer From, final Integer to) {
-      pos = Integer.valueOf(From.intValue());
-      this.to1 = Integer.valueOf(to.intValue());
+    @Override public Integer next() {
+      if(unbox.unbox(pos)>= unbox.unbox(to1)- 1&&unbox.unbox(pos)<=unbox.unbox(to1)) return box.box(unbox.unbox(pos));
+      int $=unbox.unbox(pos)+1;
+      pos=box.box($);
+      return box.box($);
     }
-
-    @SuppressWarnings("boxing") @Override public boolean hasNext() {
-      return to1 < pos || pos < to1 - 1;
-    }
-
-    @SuppressWarnings("boxing") @Override public Integer next() {
-      if (pos >= to1 - 1 && pos <= to1)
-        return Integer.valueOf(pos);
-      return Integer.valueOf(++pos);
-    }
+    
   }
 
-  private Integer from;
-  private Integer to;
+  @NotNull private Integer from;
+  @NotNull private Integer to;
   private boolean Ninfinite;
 
-  @SuppressWarnings("boxing") public Range(final int i) {
-    from = i;
-    to = from - 1;
+  public Range(int i) {
+    from=box.box(i);
+    to=box.box(unbox.unbox(from)-1);
   }
 
-  @SuppressWarnings("boxing") public Range(final int ¢, final boolean b) {
-    from = ¢;
-    to = ¢;
-    this.Ninfinite = b;
+  public Range(int ¢, boolean b) {
+    from=box.box(¢);
+    to=box.box(¢);
+    this.Ninfinite=b;
   }
 
-  @SuppressWarnings("boxing") public Integer getFrom() {
-    return Integer.valueOf(this.from);
+  public Integer getFrom() {
+    return box.box(unbox.unbox(this.from));
   }
 
-  @SuppressWarnings("boxing") public boolean isToInfinite() {
-    return this.to < this.from;
+  public boolean isToInfinite() {
+    return unbox.unbox(this.to)<unbox.unbox(this.from);
   }
 
   public boolean isToNInfinite() {
     return Ninfinite;
   }
 
-  @SuppressWarnings("boxing") public RangeIterator from() {
-    if (this.Ninfinite)
-      return null;
-    if (to < from)
-      return new RangeIterator(from);
-    return new RangeIterator(from, to);
+  public RangeIterator from() {
+    if(this.Ninfinite) return null;
+    if(unbox.unbox(to)<unbox.unbox(from)) return new RangeIterator(from);
+    return new RangeIterator(from,to);
   }
 
-  @SuppressWarnings("boxing") public Range to(final int ¢) {
-    this.to = ¢;
+  public Range to(int ¢) {
+    this.to=box.box(¢);
     return this;
   }
 
@@ -74,17 +75,17 @@ public class Range {
     return this.to;
   }
 
-  @SuppressWarnings("boxing") public Range from(final int ¢) {
-    this.from = ¢;
-    this.Ninfinite = false;
+  public Range from(int ¢) {
+    this.from=box.box(¢);
+    this.Ninfinite=false;
     return this;
   }
 
-  public static Range interset(@SuppressWarnings("unused") final Range from2) {
+  public Range interset(@SuppressWarnings("unused") Range from2) {
     return range.from(3).to(10);
   }
 
-  @SuppressWarnings("boxing") public boolean includes(final int ¢) {
-    return ¢ >= this.from && ¢ < this.to;
+ public boolean includes(int ¢) {
+    return ¢>=unbox.unbox(this.from)&&¢<unbox.unbox(this.to);
   }
 }

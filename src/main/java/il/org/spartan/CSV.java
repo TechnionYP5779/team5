@@ -41,7 +41,7 @@ import fluent.ly.*;
    * @param parts Input array
    * @return Combined string
    * @see CSV#escape(String) */
-  public static <T> String combine(final @NotNull T @NotNull [] parts) {
+  public static <T> String combine(final T @NotNull [] parts) {
     nonnull(parts);
     final @NotNull StringBuilder $ = new StringBuilder(10 * parts.length);
     final @NotNull Separator sep = new Separator(",");
@@ -96,7 +96,7 @@ import fluent.ly.*;
     return $.toArray(new String[$.size()][]);
   }
 
-  public static void save(final File f, final @NotNull String[][] data) throws IOException {
+  public static void save(final File f, final String[][] data) throws IOException {
     try (PrintWriter pw = new PrintWriter(new FileWriter(f))) {
       pw.print(toCsv(data));
     }
@@ -140,6 +140,7 @@ import fluent.ly.*;
   public static String toCsv(final @NotNull String[][] data) {
     final @NotNull StringWriter $ = new StringWriter();
     final @NotNull PrintWriter pw = new PrintWriter($);
+    if(data==null) return $+"";
     for (final @NotNull String[] line : data) {
       final @NotNull Separator comma = new Separator(",");
       for (final @NotNull String ¢ : line)
