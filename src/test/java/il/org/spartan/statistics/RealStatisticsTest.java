@@ -1,10 +1,11 @@
 package il.org.spartan.statistics;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import static fluent.ly.azzert.*;
 
 import org.jetbrains.annotations.*;
 import org.junit.*;
-import static fluent.ly.azzert.*;
 
 import fluent.ly.*;
 
@@ -183,5 +184,4 @@ import fluent.ly.*;
     assertEquals(28, s07.sum(), 1E-6);
     assertEquals(5.0, s_4x0_5x1.sum(), 1E-6);
   }
-
 }

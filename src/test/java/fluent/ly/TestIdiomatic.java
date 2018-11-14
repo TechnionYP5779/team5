@@ -51,12 +51,12 @@ import fluent.ly.idiomatic.*;
   }
 
   @SuppressWarnings("null") @Test public void use1() {
-    azzert.assertTrue( new Storer<>(this) != null);
+    azzert.assertTrue(new Storer<>(this) != null);
     new Storer<>(this).when(true);
   }
 
   @Test public void use10() {
-    azzert.assertTrue( idiomatic.when(true).eval(() -> new Object()) != null);
+    azzert.assertTrue(idiomatic.when(true).eval(() -> new Object()) != null);
   }
 
   @Test public void use11() {
@@ -64,7 +64,7 @@ import fluent.ly.idiomatic.*;
   }
 
   @SuppressWarnings("null") @Test public void use2() {
-    azzert.assertTrue( idiomatic.take(this) != null);
+    azzert.assertTrue(idiomatic.take(this) != null);
     azzert.isNull(idiomatic.take(this).when(false));
   }
 

@@ -40,7 +40,7 @@ public class EnglishTest {
 
   @Test @SuppressWarnings("static-method") public void testName() {
     class A {
-      //empty block
+      // empty block
     }
     azzert.that(English.name(new A()), azzert.is("A.EnglishTest"));
   }

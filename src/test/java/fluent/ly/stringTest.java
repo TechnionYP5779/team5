@@ -1,6 +1,5 @@
 package fluent.ly;
 
-
 import java.io.*;
 import java.util.*;
 
@@ -64,7 +63,7 @@ public class stringTest {
     azzert.that(true, azzert.is(Math.abs(0.2 / 6.9 - string.delta(d1, d2)) < epsilon));
     azzert.that(true, azzert.is(Math.abs(0.2 / 6.9 - string.delta(d2, d1)) < epsilon));
     azzert.that(true, azzert.is(string.delta(d1, d3) == 0));
-    azzert.that("NaN",azzert.is(string.delta(-1, 1)+""));
+    azzert.that("NaN", azzert.is(string.delta(-1, 1) + ""));
   }
 
   @Test @SuppressWarnings("static-method") public void test_dtoa() {
@@ -78,7 +77,7 @@ public class stringTest {
     azzert.that(true, azzert.is(string.eq(null, null)));
     azzert.that(false, azzert.is(string.eq(4, null)));
     azzert.that(false, azzert.is(string.eq(null, 4)));
-    azzert.that(true, azzert.is(string.eq(new Pair<Integer, Integer>(1, 2), new Pair<Integer, Integer>(1, 2))));
+    azzert.that(true, azzert.is(string.eq(new Pair<>(1, 2), new Pair<>(1, 2))));
   }
 
   @Test @SuppressWarnings("static-method") public void test_esc() {
@@ -218,6 +217,7 @@ public class stringTest {
     azzert.that(string.pluralize(20, "hope"), azzert.is("20 hopes"));
     azzert.that(string.pluralize(4, "party", "parties"), azzert.is("four parties"));
   }
+
   @Test @SuppressWarnings({ "boxing", "static-method" }) public void test_pretty() {
     azzert.that(string.pretty("hope", new ArrayList<Integer>()), azzert.is(""));
     azzert.that(string.pretty("course", "courses", new ArrayList<>(Arrays.asList(234311))), azzert.is("1 course: 234311\n"));
@@ -272,7 +272,7 @@ public class stringTest {
       string.strip("");
     } catch (final RuntimeException e) {
       /**
-       * 
+       *
        */
     }
   }
@@ -287,7 +287,7 @@ public class stringTest {
       azzert.that(l1.get(4), azzert.is(""));
     } catch (final IOException e) {
       /**
-       * 
+       *
        */
     }
   }

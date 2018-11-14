@@ -1,6 +1,7 @@
 package fluent.ly;
 
 import static il.org.spartan.Utils.*;
+
 import static fluent.ly.azzert.*;
 
 import java.util.*;
@@ -11,9 +12,9 @@ import org.junit.*;
 
 import an.*;
 import fluent.ly.separate.*;
+import il.org.spartan.Utils.*;
 
-@SuppressWarnings({ "static-method", "null"})
-public class separateTest {
+@SuppressWarnings({ "static-method", "null" }) public class separateTest {
   private static final Function<String, String> quote = λ -> "'" + λ + "'";
 
   static <T> void assertEquals(final @NotNull String reason, final T t1, final T t2) {
@@ -260,5 +261,4 @@ public class separateTest {
   @Test public final void theseOfNoItemslSpaceSeparated() {
     azzert.that(separate.these(new String[] {}).bySpaces(), is(""));
   }
-
 }

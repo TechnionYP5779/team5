@@ -41,21 +41,21 @@ public class CSVTest {
     azzert.that(CSV.escape(null), azzert.is("\\0"));
   }
 
- @Test @SuppressWarnings({ "null", "static-method", "static-access" }) public void loadAndSaveTest() {
-  azzert.assertEquals("\\n\\r\\t\\\\\\.", CSV.escape("\n\r\t\\,"));
-  final File f = new File("src/test/resources/csvTest");
-  try {
-    final String[][] csv = CSV.load(f);
-    azzert.that(csv[0][0], azzert.is("Sally Whittaker"));
-    azzert.that(csv[0][1], azzert.is("2018"));
-    azzert.that(csv[0][2], azzert.is("McCarren House"));
-    azzert.that(csv[0][3], azzert.is("312"));
-    azzert.that(csv[0][4], azzert.is("3.75"));
-    CSV.save(f, csv);
-  } catch (@SuppressWarnings("unused") final IOException e) {
-    fail("loadAndSaveTest");
+  @Test @SuppressWarnings({ "null", "static-method", "static-access" }) public void loadAndSaveTest() {
+    Assert.assertEquals("\\n\\r\\t\\\\\\.", CSV.escape("\n\r\t\\,"));
+    final File f = new File("src/test/resources/csvTest");
+    try {
+      final String[][] csv = CSV.load(f);
+      azzert.that(csv[0][0], azzert.is("Sally Whittaker"));
+      azzert.that(csv[0][1], azzert.is("2018"));
+      azzert.that(csv[0][2], azzert.is("McCarren House"));
+      azzert.that(csv[0][3], azzert.is("312"));
+      azzert.that(csv[0][4], azzert.is("3.75"));
+      CSV.save(f, csv);
+    } catch (@SuppressWarnings("unused") final IOException e) {
+      fail("loadAndSaveTest");
+    }
   }
-}
 
   @Test @SuppressWarnings({ "static-method", "static-access" }) public void splitTest() {
     azzert.that(CSV.split("").length, azzert.is(0));
@@ -63,7 +63,7 @@ public class CSVTest {
     colorArr[0] = Color.RED;
     colorArr[1] = Color.GREEN;
     colorArr[2] = Color.BLUE;
-    azzert.assertArrayEquals(colorArr, CSV.split(Color.class, "RED,GREEN,BLUE"));
+    Assert.assertArrayEquals(colorArr, CSV.split(Color.class, "RED,GREEN,BLUE"));
     final Class<?>[] cs = new Class<?>[6];
     cs[0] = Integer.class;
     cs[1] = Character.class;
@@ -71,7 +71,7 @@ public class CSVTest {
     cs[3] = String.class;
     cs[4] = Float.class;
     cs[5] = Byte.class;
-    azzert.assertArrayEquals(cs,
+    Assert.assertArrayEquals(cs,
         CSV.splitToClasses("java.lang.Integer,java.lang.Character,java.lang.Double,java.lang.String,java.lang.Float,java.lang.Byte"));
   }
 

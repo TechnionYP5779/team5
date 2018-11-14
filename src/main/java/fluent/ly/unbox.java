@@ -24,14 +24,14 @@ import org.jetbrains.annotations.*;
  * function such as {@link Long#longValue()}
  * @author Yossi Gil.
  * @see box */
-@SuppressWarnings("null") public enum unbox {
+public enum unbox {
   // A namespace: no values to this <code><b>enum</b></code>
   ;
   public static double @NotNull [] it(final @NotNull Double[] ¢) {
     return unbox(¢);
   }
 
-  public static float @NotNull [] it(Float[] ¢) {
+  public static float @NotNull [] it(final Float[] ¢) {
     return unbox(¢);
   }
 
@@ -55,7 +55,7 @@ import org.jetbrains.annotations.*;
    * <code><b>boolean</b></code>s.
    * @param bs an array of {@link Boolean}s
    * @return an equivalent array of <code><b>boolean</b></code>s. */
-  public static boolean @NotNull [] unbox(final @NotNull Boolean[] bs) {
+  public static boolean @NotNull [] unbox(final Boolean[] bs) {
     final boolean @NotNull [] $ = new boolean[bs.length];
     for (int ¢ = 0; ¢ < bs.length; ++¢)
       $[¢] = bs[¢].booleanValue();
@@ -69,7 +69,7 @@ import org.jetbrains.annotations.*;
   /** unbox an array of {@link Byte}s into an array of <code><b>byte</b></code> s.
    * @param bs an array of {@link Byte}s
    * @return an equivalent array of <code><b>byte</b></code>s. */
-  public static byte @NotNull [] unbox(final @NotNull Byte[] bs) {
+  public static byte @NotNull [] unbox(final Byte[] bs) {
     final byte @NotNull [] $ = new byte[bs.length];
     for (int ¢ = 0; ¢ < bs.length; ++¢)
       $[¢] = bs[¢].byteValue();
@@ -95,7 +95,9 @@ import org.jetbrains.annotations.*;
    * <code><b>short</b></code>s.
    * @param ss a {@link Collection} of {@link Integer}s
    * @return an equivalent array of <code><b>short</b></code>s. */
-  public static short @NotNull [] unbox(final @NotNull Collection<Short> ss) {
+  public static short @NotNull [] unbox(final Collection<Short> ss) {
+    if (ss == null)
+      return new short[0];
     final short @NotNull [] $ = new short[ss.size()];
     int i = 0;
     for (final @NotNull Short v : ss)

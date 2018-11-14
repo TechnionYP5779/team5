@@ -24,10 +24,10 @@ public class forgetTest {
     forget.it(new Pair<>(1, 2));
     forget.it((Object) Long.MAX_VALUE);
   }
-  
+
   @Test public void test_last() {
     /**
-     * 
+     *
      */
   }
 }

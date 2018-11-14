@@ -9,8 +9,7 @@ import fluent.ly.___.Bug.Assertion.Value.Numerical.*;
 import fluent.ly.___.Bug.Assertion.Variant.*;
 import fluent.ly.___.Bug.Contract.*;
 
-@SuppressWarnings("static-method")
-public class ___Test {
+@SuppressWarnings("static-method") public class ___Test {
   @Test public void ensure() {
     ___.ensure(true);
     try {

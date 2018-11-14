@@ -5,43 +5,44 @@ import java.util.*;
 import fluent.ly.*;
 
 public class Range {
-
-  public class RangeIterator implements Iterator<Integer>{
-    
+  public class RangeIterator implements Iterator<Integer> {
     private Integer pos;
-    private Integer to1;
-    public RangeIterator(Integer From) {
-      pos=Integer.valueOf(From.intValue());
-      to1=Integer.valueOf(From.intValue()-1);
+    private final Integer to1;
+
+    public RangeIterator(final Integer From) {
+      pos = Integer.valueOf(From.intValue());
+      to1 = Integer.valueOf(From.intValue() - 1);
     }
-    public RangeIterator(Integer From,Integer to) {
-      pos=Integer.valueOf(From.intValue());
-      this.to1=Integer.valueOf(to.intValue());
+
+    public RangeIterator(final Integer From, final Integer to) {
+      pos = Integer.valueOf(From.intValue());
+      this.to1 = Integer.valueOf(to.intValue());
     }
+
     @SuppressWarnings("boxing") @Override public boolean hasNext() {
-      return to1<pos||(pos+1)<to1;
+      return to1 < pos || pos + 1 < to1;
     }
 
     @SuppressWarnings("boxing") @Override public Integer next() {
-      if(pos >= to1 - 1&&pos<=to1) return Integer.valueOf(pos);
+      if (pos >= to1 - 1 && pos <= to1)
+        return Integer.valueOf(pos);
       return Integer.valueOf(++pos);
     }
-    
   }
 
   private Integer from;
   private Integer to;
   private boolean Ninfinite;
 
-  @SuppressWarnings("boxing") public Range(int i) {
-    from=i;
-    to=from-1;
+  @SuppressWarnings("boxing") public Range(final int i) {
+    from = i;
+    to = from - 1;
   }
 
-  @SuppressWarnings("boxing") public Range(int ¢, boolean b) {
-    from=¢;
-    to=¢;
-    this.Ninfinite=b;
+  @SuppressWarnings("boxing") public Range(final int ¢, final boolean b) {
+    from = ¢;
+    to = ¢;
+    this.Ninfinite = b;
   }
 
   @SuppressWarnings("boxing") public Integer getFrom() {
@@ -49,7 +50,7 @@ public class Range {
   }
 
   @SuppressWarnings("boxing") public boolean isToInfinite() {
-    return this.to<this.from;
+    return this.to < this.from;
   }
 
   public boolean isToNInfinite() {
@@ -57,13 +58,15 @@ public class Range {
   }
 
   @SuppressWarnings("boxing") public RangeIterator from() {
-    if(this.Ninfinite) return null;
-    if(to<from) return new RangeIterator(from);
-    return new RangeIterator(from,to);
+    if (this.Ninfinite)
+      return null;
+    if (to < from)
+      return new RangeIterator(from);
+    return new RangeIterator(from, to);
   }
 
-  @SuppressWarnings("boxing") public Range to(int ¢) {
-    this.to=¢;
+  @SuppressWarnings("boxing") public Range to(final int ¢) {
+    this.to = ¢;
     return this;
   }
 
@@ -71,17 +74,17 @@ public class Range {
     return this.to;
   }
 
-  @SuppressWarnings("boxing") public Range from(int ¢) {
-    this.from=¢;
-    this.Ninfinite=false;
+  @SuppressWarnings("boxing") public Range from(final int ¢) {
+    this.from = ¢;
+    this.Ninfinite = false;
     return this;
   }
 
-  @SuppressWarnings("static-method") public Range interset(@SuppressWarnings("unused") Range from2) {
+  @SuppressWarnings("static-method") public Range interset(@SuppressWarnings("unused") final Range from2) {
     return range.from(3).to(10);
   }
 
-  @SuppressWarnings("boxing") public boolean includes(int ¢) {
-    return ¢>=this.from&&¢<this.to;
+  @SuppressWarnings("boxing") public boolean includes(final int ¢) {
+    return ¢ >= this.from && ¢ < this.to;
   }
 }

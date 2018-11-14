@@ -35,7 +35,7 @@ public interface lazy<@Nullable T> extends Supplier<@Nullable T> {
       }
 
       /** [[SuppressWarningsSpartan]] */
-      void set(@Nullable T value) {
+      void set(@Nullable final T value) {
         $ = value;
       }
     };

@@ -11,9 +11,10 @@ public class RangeTest {
     azzert.that(range.from(2).isToInfinite(), azzert.is(true));
     azzert.that(range.from(2).isToNInfinite(), azzert.is(false));
   }
+
   @SuppressWarnings("static-method") @Test public void Rangefrom() {
     azzert.that(range.from(2).from().hasNext(), azzert.is(true));
-    RangeIterator it=range.from(2).from();
+    final RangeIterator it = range.from(2).from();
     azzert.that(it.next(), azzert.is(Integer.valueOf(3)));
     azzert.that(it.hasNext(), azzert.is(true));
     azzert.that(it.next(), azzert.is(Integer.valueOf(4)));
@@ -21,13 +22,14 @@ public class RangeTest {
     azzert.that(it.next(), azzert.is(Integer.valueOf(5)));
     azzert.that(it.hasNext(), azzert.is(true));
   }
+
   @SuppressWarnings("static-method") @Test public void fromTo() {
-    Range r=range.from(2).to(6);
+    final Range r = range.from(2).to(6);
     azzert.that(r.getFrom(), azzert.is(2));
     azzert.that(r.getTo(), azzert.is(6));
     azzert.that(r.isToInfinite(), azzert.is(false));
     azzert.that(r.isToNInfinite(), azzert.is(false));
-    RangeIterator it=range.from(2).to(6).from();
+    final RangeIterator it = range.from(2).to(6).from();
     azzert.that(it.hasNext(), azzert.is(true));
     azzert.that(it.next(), azzert.is(Integer.valueOf(3)));
     azzert.that(it.hasNext(), azzert.is(true));
@@ -39,23 +41,23 @@ public class RangeTest {
     azzert.that(it.hasNext(), azzert.is(false));
     azzert.that(it.next(), azzert.is(Integer.valueOf(5)));
     azzert.that(it.hasNext(), azzert.is(false));
-   }
-  
+  }
+
   @SuppressWarnings("static-method") @Test public void to() {
-    Range r=range.to(2);
+    final Range r = range.to(2);
     azzert.that(r.isToInfinite(), azzert.is(false));
     azzert.that(r.isToNInfinite(), azzert.is(true));
     azzert.that(r.getTo(), azzert.is(2));
     azzert.isNull(r.from());
-   }
-  
+  }
+
   @SuppressWarnings("static-method") @Test public void toFrom() {
-    Range r=range.to(2).from(-5);
+    final Range r = range.to(2).from(-5);
     azzert.that(r.isToInfinite(), azzert.is(false));
     azzert.that(r.isToNInfinite(), azzert.is(false));
     azzert.that(r.getTo(), azzert.is(2));
     azzert.that(r.getFrom(), azzert.is(-5));
-    RangeIterator it=r.from();
+    final RangeIterator it = r.from();
     azzert.that(it.hasNext(), azzert.is(true));
     azzert.that(it.next(), azzert.is(Integer.valueOf(-4)));
     azzert.that(it.hasNext(), azzert.is(true));
@@ -71,22 +73,23 @@ public class RangeTest {
     azzert.that(it.hasNext(), azzert.is(false));
     azzert.that(it.next(), azzert.is(Integer.valueOf(1)));
     azzert.that(it.hasNext(), azzert.is(false));
-   }
+  }
+
   @SuppressWarnings("static-method") @Test public void numbers() {
-    RangeIterator it=range.numbers;
-    for(int ¢=1;¢<10000;++¢) {
+    final RangeIterator it = range.numbers;
+    for (int ¢ = 1; ¢ < 10000; ++¢) {
       azzert.that(it.hasNext(), azzert.is(true));
-      azzert.that(it.next(), azzert.is(Integer.valueOf(Integer.MIN_VALUE+¢)));
+      azzert.that(it.next(), azzert.is(Integer.valueOf(Integer.MIN_VALUE + ¢)));
     }
   }
-  
+
   @SuppressWarnings("static-method") @Test public void intersect() {
-    Range r=range.to(10).interset(range.from(3));
+    final Range r = range.to(10).interset(range.from(3));
     azzert.that(r.isToInfinite(), azzert.is(false));
     azzert.that(r.isToNInfinite(), azzert.is(false));
     azzert.that(r.getTo(), azzert.is(10));
     azzert.that(r.getFrom(), azzert.is(3));
-    RangeIterator it=r.from();
+    final RangeIterator it = r.from();
     azzert.that(it.hasNext(), azzert.is(true));
     azzert.that(it.next(), azzert.is(Integer.valueOf(4)));
     azzert.that(it.hasNext(), azzert.is(true));
@@ -102,8 +105,9 @@ public class RangeTest {
     azzert.that(it.hasNext(), azzert.is(false));
     azzert.that(it.next(), azzert.is(Integer.valueOf(9)));
   }
+
   @SuppressWarnings("static-method") @Test public void includes() {
-    Range r=range.from(5).to(20);
+    final Range r = range.from(5).to(20);
     azzert.that(r.isToInfinite(), azzert.is(false));
     azzert.that(r.isToNInfinite(), azzert.is(false));
     azzert.that(r.getTo(), azzert.is(20));

@@ -97,7 +97,7 @@ public class theTest {
   }
 
   @Test @SuppressWarnings("static-method") public void lastOfNull() {
-    azzert.that(null, azzert.is(the.lastOf((ArrayList<Integer>)null)));
+    azzert.that(null, azzert.is(the.lastOf((ArrayList<Integer>) null)));
   }
 
   @Test @SuppressWarnings({ "static-method", "unchecked", "rawtypes", "null" }) public void lastOfEpty() {
@@ -119,7 +119,7 @@ public class theTest {
   }
 
   @Test @SuppressWarnings({ "unchecked", "rawtypes", "null", "static-method" }) public void lastOfIterable() {
-    final Iterator it = the.lastOf((Iterable) ((ArrayList) IntStream.range(0, 5).boxed().collect(Collectors.toList()))).iterator();
+    final Iterator it = the.lastOf((Iterable) (ArrayList) IntStream.range(0, 5).boxed().collect(Collectors.toList())).iterator();
     azzert.that(Integer.valueOf(1), azzert.is(it.next()));
     azzert.that(Integer.valueOf(2), azzert.is(it.next()));
     azzert.that(Integer.valueOf(3), azzert.is(it.next()));
@@ -169,7 +169,7 @@ public class theTest {
   }
 
   @Test @SuppressWarnings("static-method") public void lastNull() {
-    assert the.last(null)==null;
+    assert the.last(null) == null;
   }
 
   @Test @SuppressWarnings({ "static-method", "unchecked", "rawtypes" }) public void lastEmpty() {

@@ -44,8 +44,9 @@ public class nilTest {
       azzert.that(o, azzert.is((Object) null));
     }
   }
-  
+
   static String helloString = "Hello";
+
   @Test public void t() {
     final Integer i1 = nil.guardingly(String::length).on(helloString);
     azzert.that(i1, azzert.is(5));

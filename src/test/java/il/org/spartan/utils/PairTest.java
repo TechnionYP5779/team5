@@ -1,12 +1,10 @@
 package il.org.spartan.utils;
 
-
 import org.junit.*;
 
 import fluent.ly.*;
 
 public class PairTest {
-
   @Test @SuppressWarnings({ "static-method", "boxing" }) public void test_constrAndNewPair() {
     final Pair<Integer, Integer> p1 = new Pair<>(1, 2);
     azzert.that(p1.first, azzert.is(Integer.valueOf(1)));

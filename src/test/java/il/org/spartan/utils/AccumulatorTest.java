@@ -9,8 +9,7 @@ import fluent.ly.*;
 import il.org.spartan.utils.Accumulator.*;
 import il.org.spartan.utils.Accumulator.Counter;
 
-@SuppressWarnings("static-method")
-public class AccumulatorTest {
+@SuppressWarnings("static-method") public class AccumulatorTest {
   @Test public void booleanAdds() {
     final @NotNull Last c = new Last();
     azzert.that(as.bit(false), is(0));
@@ -35,7 +34,7 @@ public class AccumulatorTest {
     c.add(11);
     azzert.that(c.value(), is(11));
   }
-  
+
   @Test public void booleanAdds1() {
     final @NotNull Counter c = new Counter();
     azzert.that(c.value(), is(0));

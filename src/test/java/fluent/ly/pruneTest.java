@@ -1,6 +1,5 @@
 package fluent.ly;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import static fluent.ly.azzert.*;
@@ -14,8 +13,7 @@ import org.junit.*;
 /** A JUnit test class for the enclosing class.
  * @author Yossi Gil, the Technion.
  * @since 27/08/2008 */
-@SuppressWarnings({ "static-method" , "null"})
-public class pruneTest {
+@SuppressWarnings({ "static-method", "null" }) public class pruneTest {
   @Nullable final String[] alternatingArray = new @Nullable String[] { null, "A", null, null, "B", null, null, null, "C", null };
   @NotNull final String[] nonNullArray = { "1", "2", "4" };
   @NotNull private final List<String> sparseCollection = as.list(null, null, null, null, null, "A", null, null, null, "B", null, "C", null, null,
