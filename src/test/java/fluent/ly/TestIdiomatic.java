@@ -8,17 +8,17 @@ import fluent.ly.idiomatic.*;
 
 @SuppressWarnings("static-method") public class TestIdiomatic {
   @Test public void testHolder() {
-    @SuppressWarnings("boxing") final Holder<Integer> hold = idiomatic.eval(() -> 42);
-    azzert.that(hold.when(true), azzert.is(Integer.valueOf(42)));
-    azzert.that(hold.unless(false), azzert.is(Integer.valueOf(42)));
+    final Holder<Integer> hold = idiomatic.eval(() -> box.box(42));
+    azzert.that(hold.when(true), azzert.is(box.box(42)));
+    azzert.that(hold.unless(false), azzert.is(box.box(42)));
     azzert.isNull(hold.unless(true));
     azzert.isNull(hold.when(false));
   }
 
   @Test public void testIncase() {
-    Integer val = idiomatic.incase(true, Integer.valueOf(42));
-    azzert.that(val, azzert.is(Integer.valueOf(42)));
-    val = idiomatic.incase(false, Integer.valueOf(42));
+    Integer val = idiomatic.incase(true, box.box(42));
+    azzert.that(val, azzert.is(box.box(42)));
+    val = idiomatic.incase(false, box.box(42));
     azzert.isNull(val);
   }
 
@@ -28,14 +28,14 @@ import fluent.ly.idiomatic.*;
   }
 
   @Test public void testStorer() {
-    final Storer<Integer> storer = new Storer<>(Integer.valueOf(42));
-    azzert.that(storer.when(true), azzert.is(Integer.valueOf(42)));
+    final Storer<Integer> storer = new Storer<>(box.box(42));
+    azzert.that(storer.when(true), azzert.is(box.box(42)));
     azzert.isNull(storer.when(false));
-    azzert.that(storer.unless(false), azzert.is(Integer.valueOf(42)));
+    azzert.that(storer.unless(false), azzert.is(box.box(42)));
     azzert.isNull(storer.unless(true));
-    azzert.that(storer.get(), azzert.is(Integer.valueOf(42)));
-    azzert.that(idiomatic.take(Integer.valueOf(42)).unless(false), azzert.is(Integer.valueOf(42)));
-    azzert.isNull(idiomatic.take(Integer.valueOf(42)).unless(true));
+    azzert.that(storer.get(), azzert.is(box.box(42)));
+    azzert.that(idiomatic.take(box.box(42)).unless(false), azzert.is(box.box(42)));
+    azzert.isNull(idiomatic.take(box.box(42)).unless(true));
   }
 
   @SuppressWarnings("null") @Test public void use0() {

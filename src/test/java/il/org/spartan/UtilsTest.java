@@ -58,7 +58,8 @@ public class UtilsTest {
   }
   
   @Test public void appendTest() {
-    azzert.that(Utils.append(new Integer[10], box.box(5))[10], azzert.is(5));
+    int[] arr=new int[10];
+    azzert.that(Utils.append(box.box(arr), box.box(5))[10], azzert.is(5));
   }
   
   @Test public void canBeNullTest() {
