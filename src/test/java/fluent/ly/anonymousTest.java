@@ -1,25 +1,25 @@
 package fluent.ly;
 
 import org.junit.*;
-
+@SuppressWarnings("static-method")
 public class anonymousTest {
-  @Test @SuppressWarnings("static-method") public void lyBooleanTest() {
+  @Test public void lyBooleanTest() {
     azzert.assertEquals(true, anonymous.ly(() -> true));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void lyDoubleTest() {
+  @Test public void lyDoubleTest() {
     Assert.assertEquals(1.23, anonymous.ly(() -> 1.23), 0.0001);
   }
 
-  @Test @SuppressWarnings("static-method") public void lyIntTest() {
+  @Test  public void lyIntTest() {
     azzert.assertEquals(1, anonymous.ly(() -> 1));
   }
 
-  @Test @SuppressWarnings({ "static-access", "static-method" }) public void lylongTest() {
+  @Test public void lylongTest() {
     Assert.assertEquals(Long.MAX_VALUE, anonymous.ly(() -> Long.MAX_VALUE));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void lyAnyTest() {
+  @Test public void lyAnyTest() {
     final Object o = new Object();
     Assert.assertEquals(o, anonymous.ly(() -> o));
   }

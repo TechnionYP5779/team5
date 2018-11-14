@@ -12,7 +12,7 @@ public class PairsList {
       p = (Pair<Double, Double>) np;
     }
 
-    @SuppressWarnings({ "cast", "unchecked", "null" }) @Override public int compareTo(final Object ¢) {
+    @SuppressWarnings({ "unchecked", "null" }) @Override public int compareTo(final Object ¢) {
       final Double $ = ((PAIR<Double, Double>) ¢).p.first;
       return ((Comparable) p.first).compareTo($) != 0 ? ((Comparable) p.first).compareTo($)
           : ((Comparable) p.second).compareTo(((PAIR<Double, Double>) ¢).p.second);
@@ -88,7 +88,7 @@ public class PairsList {
     return Statistics.sampleVariance($);
   }
 
-  @SuppressWarnings({ "boxing", "cast" }) public double squaresSum(final String axis) {
+  @SuppressWarnings("boxing") public double squaresSum(final String axis) {
     int $ = 0;
     for (int ¢ = 0; ¢ < l.size(); ¢++)
       $ += "X".equals(axis) ? l.get(¢).p.first * l.get(¢).p.first : l.get(¢).p.second * l.get(¢).p.second;

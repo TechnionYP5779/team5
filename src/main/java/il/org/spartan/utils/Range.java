@@ -20,7 +20,7 @@ public class Range {
     }
 
     @SuppressWarnings("boxing") @Override public boolean hasNext() {
-      return to1 < pos || pos + 1 < to1;
+      return to1 < pos || pos < to1 - 1;
     }
 
     @SuppressWarnings("boxing") @Override public Integer next() {
@@ -80,7 +80,7 @@ public class Range {
     return this;
   }
 
-  @SuppressWarnings("static-method") public Range interset(@SuppressWarnings("unused") final Range from2) {
+  public static Range interset(@SuppressWarnings("unused") final Range from2) {
     return range.from(3).to(10);
   }
 

@@ -41,7 +41,7 @@ public class CSVTest {
     azzert.that(CSV.escape(null), azzert.is("\\0"));
   }
 
-  @Test @SuppressWarnings({ "null", "static-method", "static-access" }) public void loadAndSaveTest() {
+  @Test @SuppressWarnings({ "null", "static-method" }) public void loadAndSaveTest() {
     Assert.assertEquals("\\n\\r\\t\\\\\\.", CSV.escape("\n\r\t\\,"));
     final File f = new File("src/test/resources/csvTest");
     try {
@@ -57,7 +57,7 @@ public class CSVTest {
     }
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void splitTest() {
+  @Test @SuppressWarnings("static-method") public void splitTest() {
     azzert.that(CSV.split("").length, azzert.is(0));
     final Color[] colorArr = new Color[3];
     colorArr[0] = Color.RED;

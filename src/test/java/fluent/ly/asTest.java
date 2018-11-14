@@ -7,13 +7,13 @@ import java.util.stream.*;
 
 import org.jetbrains.annotations.*;
 import org.junit.*;
-
+@SuppressWarnings("static-method") 
 public class asTest {
-  @Test @SuppressWarnings("static-method") public void emptyAsIterableTest() {
+  @Test public void emptyAsIterableTest() {
     azzert.assertTrue(!as.asIterable().iterator().hasNext());
   }
 
-  @Test @SuppressWarnings("static-method") public void iterableHasRange10Test() {
+  @Test public void iterableHasRange10Test() {
     @SuppressWarnings("boxing") final Iterator<Integer> i = as.asIterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).iterator();
     Assert.assertEquals(Integer.valueOf(1), i.next());
     Assert.assertEquals(Integer.valueOf(2), i.next());
@@ -28,35 +28,35 @@ public class asTest {
     assert !i.hasNext();
   }
 
-  @SuppressWarnings("static-method") public void falseShouldBe0bit() {
+  public void falseShouldBe0bit() {
     azzert.assertEquals(0, as.bit(false));
   }
 
-  @Test @SuppressWarnings("static-method") public void trueShouldBe1bit() {
+  @Test public void trueShouldBe1bit() {
     azzert.assertEquals(1, as.bit(true));
   }
 
-  @Test @SuppressWarnings("static-method") public void nullShouldBe0bit() {
+  @Test public void nullShouldBe0bit() {
     azzert.assertEquals(0, as.bit(null));
   }
 
-  @Test @SuppressWarnings("static-method") public void nonNUllShouldBe1bit() {
+  @Test public void nonNUllShouldBe1bit() {
     azzert.assertEquals(1, as.bit(new Object()));
   }
 
-  @Test @SuppressWarnings({ "static-method", "rawtypes" }) public void emptyIterableListTest() {
-    Assert.assertEquals(new ArrayList(), as.ingeterList());
+  @Test public void emptyIterableListTest() {
+    Assert.assertEquals(new ArrayList<>(), as.ingeterList());
   }
 
-  @Test @SuppressWarnings({ "static-access", "static-method" }) public void range10IterableList() {
+  @Test public void range10IterableList() {
     Assert.assertEquals(IntStream.range(1, 11).boxed().collect(Collectors.toList()), as.ingeterList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
   }
 
-  @Test @SuppressWarnings("static-method") public void range10ArrayTest() {
+  @Test public void range10ArrayTest() {
     Assert.assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, as.intArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
   }
 
-  @Test @SuppressWarnings({ "static-method", "boxing" }) public void iteratorHasRange10Test() {
+  @Test @SuppressWarnings("boxing") public void iteratorHasRange10Test() {
     final Iterator<Integer> i = as.iterator(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     Assert.assertEquals(Integer.valueOf(1), i.next());
     Assert.assertEquals(Integer.valueOf(2), i.next());
@@ -71,22 +71,22 @@ public class asTest {
     azzert.assertTrue(!i.hasNext());
   }
 
-  @Test @SuppressWarnings({ "static-method", "rawtypes" }) public void emptyListTest() {
+  @Test public void emptyListTest() {
     final Iterable<Integer> i = null;
-    Assert.assertEquals(new ArrayList(), as.list(i));
+    Assert.assertEquals(new ArrayList<>(), as.list(i));
   }
 
-  @Test @SuppressWarnings("static-method") public void range10IterableTest() {
+  @Test public void range10IterableTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
     Assert.assertEquals(l, as.list(l));
   }
 
-  @Test @SuppressWarnings("static-method") public void rangeA2zListTest() {
+  @Test public void rangeA2zListTest() {
     Assert.assertEquals(IntStream.range(0, 26).mapToObj(λ -> String.valueOf((char) (λ + 'A'))).collect(Collectors.toList()),
         as.list("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"));
   }
 
-  @Test @SuppressWarnings({ "static-method", "boxing" }) public void setOf123Test() {
+  @Test @SuppressWarnings("boxing") public void setOf123Test() {
     final Set<Integer> s = new HashSet<>();
     s.add(1);
     s.add(2);
@@ -94,46 +94,46 @@ public class asTest {
     Assert.assertEquals(s, as.set(1, 1, 2, 3, 2, 3, 1, 2, 3));
   }
 
-  @Test @SuppressWarnings("static-method") public void nullStringTest() {
+  @Test public void nullStringTest() {
     Assert.assertEquals("null", as.string(null));
   }
 
-  @Test @SuppressWarnings("static-method") public void objectStringTest() {
+  @Test public void objectStringTest() {
     final Object o = new Object();
     Assert.assertEquals(o + "", as.string(o));
   }
 
-  @Test @SuppressWarnings("static-method") public void charAsStringTest() {
+  @Test public void charAsStringTest() {
     Assert.assertEquals("A", as.string('A'));
   }
 
-  @Test @SuppressWarnings("static-method") public void nullAsStringTest() {
+  @Test public void nullAsStringTest() {
     Assert.assertEquals("null", as.string(null));
   }
 
-  @Test @SuppressWarnings({ "static-access", "static-method" }) public void StringasStringTest() {
+  @Test public void StringasStringTest() {
     Assert.assertEquals("hello world", as.string("hello world"));
   }
 
-  @Test @SuppressWarnings("static-method") public void iterableAsStringTest() {
+  @Test public void iterableAsStringTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
     Assert.assertEquals(l + "", as.string(l));
   }
 
-  @SuppressWarnings("static-method") @Test public void asBitOfFalse() {
+  @Test public void asBitOfFalse() {
     azzert.that(as.bit(false), azzert.is(0));
   }
 
-  @SuppressWarnings("static-method") @Test public void asBitOfTrue() {
+  @Test public void asBitOfTrue() {
     azzert.that(as.bit(true), azzert.is(1));
   }
 
-  @SuppressWarnings("static-method") @Test public void asIntArraySimple() {
+  @Test public void asIntArraySimple() {
     final int @NotNull [] is = as.intArray(100, 200, 200, 12, 13, 0);
     assertArrayEquals(is, as.intArray(as.ingeterList(is)));
   }
 
-  @SuppressWarnings("static-method") @Test public void asListSimple() {
+  @Test public void asListSimple() {
     // direct call `as.list(12, 13, 14)` kills Travis --or
     @SuppressWarnings("null") final @NotNull List<Integer> is = as.list(new int @NotNull [] { 12, 13, 14 });
     azzert.that(is.get(0), azzert.is(fluent.ly.box.it(12)));
@@ -142,11 +142,11 @@ public class asTest {
     azzert.that(is.size(), azzert.is(3));
   }
 
-  @SuppressWarnings("static-method") @Test public void stringOfNull() {
+  @Test public void stringOfNull() {
     azzert.that(as.string(null), azzert.is("null"));
   }
 
-  @SuppressWarnings("static-method") @Test public void stringWhenToStringReturnsNull() {
+  @Test public void stringWhenToStringReturnsNull() {
     azzert.that(as.string(new Object() {
       @Override @Nullable public String toString() {
         return null;
