@@ -10,11 +10,10 @@ public class PairsList {
       p=(Pair<Double, Double>) np;
     }
 
-    @SuppressWarnings({ "cast", "unchecked", "null" }) @Override public int compareTo(Object o) {
-      Double $ = (Double) ((PAIR<Double, Double>) o).p.first;
-      if (((Comparable) (Double) p.first).compareTo($) != 0)
-        return ((Comparable) (Double) p.first).compareTo($);
-      return ((Comparable) (Double) p.second).compareTo((Double) ((PAIR<Double, Double>) o).p.second); 
+    @SuppressWarnings({ "cast", "unchecked", "null" }) @Override public int compareTo(Object ¢) {
+      Double $ = (Double) ((PAIR<Double, Double>) ¢).p.first;
+      return ((Comparable) (Double) p.first).compareTo($) != 0 ? ((Comparable) (Double) p.first).compareTo($)
+          : ((Comparable) (Double) p.second).compareTo((Double) ((PAIR<Double, Double>) ¢).p.second);
     }
   }
   public ArrayList<PAIR<Double,Double>> l;
@@ -34,19 +33,34 @@ public class PairsList {
     return false;
   }
 
-  public void sortAsc() {
+  public ArrayList<PAIR<Double,Double>> sortAsc() {
     Collections.sort(l,new Comparator<PAIR<Double,Double>>(){
       @Override public int compare(PAIR<Double,Double> d, PAIR<Double,Double> e) {
         return d.compareTo(e);
       }
     });
+    return l;
   }
   
-  public void sortDesc() {
+  public ArrayList<PAIR<Double,Double>> sortDesc() {
     Collections.sort(l,new Comparator<PAIR<Double,Double>>(){
       @Override public int compare(PAIR<Double,Double> d, PAIR<Double,Double> e) {
         return -d.compareTo(e);
       }
     });
+    return l;
+  }
+
+  public Pair<Double,Double> max() {
+    return sortAsc().get(l.size()-1).p;
+  }
+
+  public Pair<Double,Double> min() {
+    return sortAsc().get(0).p;
+
+  }
+
+  public int size() {
+    return l.size();
   }
 }
