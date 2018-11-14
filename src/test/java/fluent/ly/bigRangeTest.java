@@ -67,15 +67,15 @@ import org.junit.*;
     Assert.assertEquals(BigInteger.valueOf(20), bigRange.from(2).to(8).withDiff(2).Sum());
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void SumToandFromandDiffof3() {
+  @Test @SuppressWarnings("static-method") public void SumToandFromandDiffof3() {
     Assert.assertEquals(BigInteger.valueOf(18), bigRange.from(3).to(9).withDiff(3).Sum());
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void impossibleRangeNegative() {
+  @Test @SuppressWarnings("static-method") public void impossibleRangeNegative() {
     Assert.assertEquals(null, bigRange.to(-5).withDiff(1));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void impossibleRangePossitive() {
+  @Test @SuppressWarnings("static-method") public void impossibleRangePossitive() {
     Assert.assertEquals(null, bigRange.from(2).to(5).withDiff(-1));
   }
 

@@ -13,7 +13,7 @@ public class asTest {
     azzert.assertTrue(!as.asIterable().iterator().hasNext());
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void iterableHasRange10Test() {
+  @Test @SuppressWarnings("static-method") public void iterableHasRange10Test() {
     @SuppressWarnings("boxing") final Iterator<Integer> i = as.asIterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).iterator();
     Assert.assertEquals(Integer.valueOf(1), i.next());
     Assert.assertEquals(Integer.valueOf(2), i.next());
@@ -44,7 +44,7 @@ public class asTest {
     azzert.assertEquals(1, as.bit(new Object()));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access", "rawtypes" }) public void emptyIterableListTest() {
+  @Test @SuppressWarnings({ "static-method", "rawtypes" }) public void emptyIterableListTest() {
     Assert.assertEquals(new ArrayList(), as.ingeterList());
   }
 
@@ -52,11 +52,11 @@ public class asTest {
     Assert.assertEquals(IntStream.range(1, 11).boxed().collect(Collectors.toList()), as.ingeterList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void range10ArrayTest() {
+  @Test @SuppressWarnings("static-method") public void range10ArrayTest() {
     Assert.assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, as.intArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
   }
 
-  @Test @SuppressWarnings({ "static-method", "boxing", "static-access" }) public void iteratorHasRange10Test() {
+  @Test @SuppressWarnings({ "static-method", "boxing" }) public void iteratorHasRange10Test() {
     final Iterator<Integer> i = as.iterator(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     Assert.assertEquals(Integer.valueOf(1), i.next());
     Assert.assertEquals(Integer.valueOf(2), i.next());
@@ -71,22 +71,22 @@ public class asTest {
     azzert.assertTrue(!i.hasNext());
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access", "rawtypes" }) public void emptyListTest() {
+  @Test @SuppressWarnings({ "static-method", "rawtypes" }) public void emptyListTest() {
     final Iterable<Integer> i = null;
     Assert.assertEquals(new ArrayList(), as.list(i));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void range10IterableTest() {
+  @Test @SuppressWarnings("static-method") public void range10IterableTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
     Assert.assertEquals(l, as.list(l));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void rangeA2zListTest() {
+  @Test @SuppressWarnings("static-method") public void rangeA2zListTest() {
     Assert.assertEquals(IntStream.range(0, 26).mapToObj(λ -> String.valueOf((char) (λ + 'A'))).collect(Collectors.toList()),
         as.list("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access", "boxing" }) public void setOf123Test() {
+  @Test @SuppressWarnings({ "static-method", "boxing" }) public void setOf123Test() {
     final Set<Integer> s = new HashSet<>();
     s.add(1);
     s.add(2);
@@ -94,20 +94,20 @@ public class asTest {
     Assert.assertEquals(s, as.set(1, 1, 2, 3, 2, 3, 1, 2, 3));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void nullStringTest() {
+  @Test @SuppressWarnings("static-method") public void nullStringTest() {
     Assert.assertEquals("null", as.string(null));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void objectStringTest() {
+  @Test @SuppressWarnings("static-method") public void objectStringTest() {
     final Object o = new Object();
     Assert.assertEquals(o + "", as.string(o));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void charAsStringTest() {
+  @Test @SuppressWarnings("static-method") public void charAsStringTest() {
     Assert.assertEquals("A", as.string('A'));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void nullAsStringTest() {
+  @Test @SuppressWarnings("static-method") public void nullAsStringTest() {
     Assert.assertEquals("null", as.string(null));
   }
 
@@ -115,7 +115,7 @@ public class asTest {
     Assert.assertEquals("hello world", as.string("hello world"));
   }
 
-  @Test @SuppressWarnings({ "static-method", "static-access" }) public void iterableAsStringTest() {
+  @Test @SuppressWarnings("static-method") public void iterableAsStringTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
     Assert.assertEquals(l + "", as.string(l));
   }
