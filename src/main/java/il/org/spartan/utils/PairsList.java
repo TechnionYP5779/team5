@@ -94,7 +94,7 @@ public class PairsList {
     double[] $ = new double[l.size()];
     for(int ¢=0;¢<l.size();¢++)
       $[¢] = "X".equals(axis) ? (double)l.get(¢).p.first : (double)l.get(¢).p.second;
-    return Statistics.sampleVariance($);
+    return Statistics.sampleVariance($);    
   }
 
   @SuppressWarnings({ "boxing", "cast" }) public double squaresSum(String axis) {
