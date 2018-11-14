@@ -6,20 +6,20 @@ import org.junit.*;
 
 import fluent.ly.*;
 
-public class StatisticsTest {
-  @Test @SuppressWarnings("static-method") public void testSampleMean() {
+@SuppressWarnings("static-method") public class StatisticsTest {
+  @Test public void testSampleMean() {
     azzert.that(2, is(Statistics.sampleMean(new double[] { 1, 2, 3 })));
   }
 
-  @Test @SuppressWarnings("static-method") public void testSampleVariance() {
+  @Test public void testSampleVariance() {
     azzert.that(1, is(Statistics.sampleVariance(new double[] { 1, 2, 3 })));
   }
 
-  @Test @SuppressWarnings("static-method") public void testMad() {
+  @Test public void testMad() {
     azzert.that(4, is(Statistics.mad(new double[] { 4, 8, 12.5 })));
   }
 
-  @Test @SuppressWarnings("static-method") public void testIsEmpty() {
+  @Test public void testIsEmpty() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -28,7 +28,7 @@ public class StatisticsTest {
     assert !s.isEmpty();
   }
 
-  @Test @SuppressWarnings("static-method") public void testMax() {
+  @Test public void testMax() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -37,7 +37,7 @@ public class StatisticsTest {
     azzert.that(10, is(s.max()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testMin() {
+  @Test public void testMin() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -46,7 +46,7 @@ public class StatisticsTest {
     azzert.that(10, is(s.min()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testMean() {
+  @Test public void testMean() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -55,7 +55,7 @@ public class StatisticsTest {
     azzert.that(5, is(s.mean()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testMissing() {
+  @Test public void testMissing() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -63,7 +63,7 @@ public class StatisticsTest {
     azzert.that(0, is(s.missing()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testSum2() {
+  @Test public void testSum2() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -72,7 +72,7 @@ public class StatisticsTest {
     azzert.that(1, is(s.sum2()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testSd() {
+  @Test public void testSd() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -81,7 +81,7 @@ public class StatisticsTest {
     azzert.that(0.5, is(s.sd()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testRelativeError() {
+  @Test public void testRelativeError() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -90,7 +90,7 @@ public class StatisticsTest {
     azzert.that(0, is(s.relativeError()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testRelativeError2() {
+  @Test public void testRelativeError2() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -99,7 +99,7 @@ public class StatisticsTest {
     azzert.that(1, is(s.relativeError()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testV() {
+  @Test public void testV() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -109,7 +109,7 @@ public class StatisticsTest {
     azzert.that(1.5, is(s.v()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testVariance() {
+  @Test public void testVariance() {
     final Statistics s = new Statistics() {
       // empty block
     };
@@ -119,7 +119,7 @@ public class StatisticsTest {
     azzert.that(0.75, is(s.variance()));
   }
 
-  @Test @SuppressWarnings("static-method") public void testCheckEmpty() {
+  @Test public void testCheckEmpty() {
     final Statistics s = new Statistics() {
       // empty block
     };

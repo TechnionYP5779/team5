@@ -273,9 +273,12 @@ import il.org.spartan.utils.*;
     azzert.that(string.strip("hell"), is("el"));
     try {
       string.strip("");
-    } catch (final RuntimeException ¢) {
-      ¢.printStackTrace();
+    } catch (@SuppressWarnings("unused") final RuntimeException ¢) {
+      // ¢.printStackTrace();
+      assert true;
+      return;
     }
+    assert false;
   }
 
   @Test public void test_toLines() {
