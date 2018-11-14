@@ -90,7 +90,7 @@ public class EnglishTest {
     azzert.that(English.trim(""), azzert.is(""));
   }
 
-  @SuppressWarnings("null") @Test public void testUnknownIfNull() {
+  @Test public void testUnknownIfNull() {
     azzert.that(English.unknownIfNull(box.box(10)), azzert.is("10"));
     azzert.that(English.unknownIfNull(null), azzert.is("???"));
     azzert.that(English.unknownIfNull(box.box(10), λ -> box.box(unbox.unbox(λ) + 1)), azzert.is("11"));
