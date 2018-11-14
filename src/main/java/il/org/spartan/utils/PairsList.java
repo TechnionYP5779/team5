@@ -2,6 +2,8 @@ package il.org.spartan.utils;
 
 import java.util.*;
 
+import il.org.spartan.statistics.*;
+
 public class PairsList {
   @SuppressWarnings({ "rawtypes", "hiding" }) public class PAIR<Double,Double1> implements Comparable{
     public Pair<Double,Double> p;
@@ -52,15 +54,53 @@ public class PairsList {
   }
 
   public Pair<Double,Double> max() {
-    return sortAsc().get(l.size()-1).p;
+    return l.isEmpty() ? null : sortAsc().get(l.size()-1).p;
   }
 
   public Pair<Double,Double> min() {
-    return sortAsc().get(0).p;
+    return l.isEmpty() ? null : sortAsc().get(0).p;
 
   }
 
   public int size() {
     return l.size();
+  }
+
+  /*
+   * @param cord: "X" if we want a mean on X values
+   *              "Y" if we want a mean on Y values
+   * @return mean value of wanted axis
+   */
+  @SuppressWarnings("boxing") public double mean(String axis) {
+    double[] $ = new double[l.size()];
+    for(int ¢=0;¢<l.size();¢++)
+      $[¢] = "X".equals(axis) ? (double)l.get(¢).p.first : (double)l.get(¢).p.second;
+    return Statistics.sampleMean($);
+  }
+  
+  /*
+   * @param cord: "X" if we want a median on X values
+   *              "Y" if we want a median on Y values
+   * @return mean value of wanted axis
+   */
+  @SuppressWarnings("boxing") public double median(String axis) {
+    double[] $ = new double[l.size()];
+    for(int ¢=0;¢<l.size();¢++)
+      $[¢] = "X".equals(axis) ? (double)l.get(¢).p.first : (double)l.get(¢).p.second;
+    return Statistics.median($);
+  }
+
+  @SuppressWarnings("boxing") public double variance(String axis) {
+    double[] $ = new double[l.size()];
+    for(int ¢=0;¢<l.size();¢++)
+      $[¢] = "X".equals(axis) ? (double)l.get(¢).p.first : (double)l.get(¢).p.second;
+    return Statistics.sampleVariance($);
+  }
+
+  @SuppressWarnings({ "boxing", "cast" }) public double squaresSum(String axis) {
+    int $ = 0;
+    for(int ¢=0;¢<l.size();¢++)
+      $+= "X".equals(axis) ? (double)l.get(¢).p.first*(double)l.get(¢).p.first : (double)l.get(¢).p.second*(double)l.get(¢).p.second;
+    return $;
   }
 }
