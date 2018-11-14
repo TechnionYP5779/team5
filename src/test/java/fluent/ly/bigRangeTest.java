@@ -29,7 +29,7 @@ import org.junit.*;
     }
   }
 
-  @Test  public void fromAndWithDiff() {
+  @Test public void fromAndWithDiff() {
     final Iterable<BigInteger> iter = bigRange.from(2).withDiff(3);
     BigInteger count = BigInteger.valueOf(2);
     for (final BigInteger i : iter) {
@@ -71,7 +71,7 @@ import org.junit.*;
     Assert.assertEquals(BigInteger.valueOf(18), bigRange.from(3).to(9).withDiff(3).Sum());
   }
 
-  @Test  public void impossibleRangeNegative() {
+  @Test public void impossibleRangeNegative() {
     Assert.assertEquals(null, bigRange.to(-5).withDiff(1));
   }
 
@@ -90,7 +90,7 @@ import org.junit.*;
     }
   }
 
-  @SuppressWarnings({  "static-method" }) @Test public void bigIntegersRange() {
+  @SuppressWarnings({ "static-method" }) @Test public void bigIntegersRange() {
     final Iterable<BigInteger> iter = bigRange.from(BigInteger.valueOf(5)).to(BigInteger.valueOf(123)).withDiff(BigInteger.valueOf(3));
     BigInteger count = BigInteger.valueOf(5);
     for (final BigInteger i : iter) {
