@@ -99,7 +99,7 @@ public class PairsList {
 
   @SuppressWarnings({ "boxing", "cast" }) public double squaresSum(String axis) {
     int $ = 0;
-    for(int ¢=0;¢<l.size();¢++)
+    for(int ¢=0;¢<l.size();¢++) 
       $+= "X".equals(axis) ? (double)l.get(¢).p.first*(double)l.get(¢).p.first : (double)l.get(¢).p.second*(double)l.get(¢).p.second;
     return $;
   }
