@@ -1,8 +1,10 @@
 package il.org.spartan.utils;
 
-/*
- * Since 2018-13-11
- *  Author: Lior Ben-Yamin
+/**
+ * A class for utility methods to create angles.
+ * @since 2018-11-13
+ * @author lior.b
+ *
  */
 
 public class angle {

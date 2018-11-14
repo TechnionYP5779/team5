@@ -9,10 +9,11 @@ import fluent.ly.*;
 import il.org.spartan.Utils.*;
 import il.org.spartan.Utils.FoundHandleForT.*;
 
+@SuppressWarnings("static-method") 
 public class UtilsTest {
   static final Integer i = null;
   
-  @Test @SuppressWarnings("static-method") public void addTest() {
+  @Test public void addTest() {
     ArrayList<Integer> a = new ArrayList<>();
     a.add(Integer.valueOf(5));
     Utils.add(a, Integer.valueOf(5));
@@ -32,8 +33,8 @@ public class UtilsTest {
             return new Iterator<Integer>() {
                 int current = from;
                 @Override public boolean hasNext() { return current < to; }
-                @Override @SuppressWarnings("boxing") public Integer next() {
-                  return current++;
+                @Override public Integer next() {
+                  return Integer.valueOf(current++) ;
                 }
             };
         }
@@ -41,7 +42,7 @@ public class UtilsTest {
 }
   
   
-  @Test @SuppressWarnings("static-method") public void addAllTest() {
+  @Test public void addAllTest() {
     ArrayList<Integer> a = new ArrayList<>();
     ArrayList<Integer> b = new ArrayList<>();
     b.add(Integer.valueOf(5));
@@ -56,53 +57,53 @@ public class UtilsTest {
     azzert.that(a.size(), azzert.is(4));
   }
   
-  @Test @SuppressWarnings({ "static-method", "null" }) public void appendTest() {
+  @Test public void appendTest() {
     azzert.that(Utils.append(new Integer[10], Integer.valueOf(5))[10], azzert.is(5));
   }
   
-  @Test @SuppressWarnings("static-method") public void canBeNullTest() {
+  @Test public void canBeNullTest() {
     azzert.that(Utils.canBeNull(Integer.valueOf(5)), azzert.is(5));
   }
   
-  @Test @SuppressWarnings("static-method") public void cantBeNullTest() {
+  @Test public void cantBeNullTest() {
     azzert.that(Utils.cantBeNull(Integer.valueOf(5)), azzert.is(5));
   }
   
-  @Test @SuppressWarnings("static-method") public void compareTest() {
+  @Test public void compareTest() {
     azzert.that(Utils.compare(false, false), azzert.is(0));
     azzert.that(Utils.compare(false, true), azzert.is(-1));
     azzert.that(Utils.compare(true, true), azzert.is(0));
     azzert.that(Utils.compare(true, false), azzert.is(1));
   }
   
-  @Test @SuppressWarnings("static-method") public void compressSpacesTest() {
+  @Test public void compressSpacesTest() {
     azzert.that(Utils.compressSpaces("Lior Has A  Lot Courses"), azzert.is("Lior Has A Lot Courses"));
   }
   
-  @Test @SuppressWarnings("static-method") public void containsTest() {
+  @Test public void containsTest() {
     azzert.that(Utils.contains("Lior Has A Lot Courses", "Courses"), azzert.is(true));
     azzert.that(Utils.contains("Lior Has A Lot Courses", "Dourses"), azzert.is(false));
     azzert.that(Utils.contains("Lior Has A Lot Courses", (String) null), azzert.is(false));
   }
   
-  @Test @SuppressWarnings({ "static-method", "boxing", "null" }) public void deleteTest() {
+  @Test public void deleteTest() {
     Integer[] Arr = new Integer[3];
-    Arr[0]=0;
-    Arr[1]=1;
-    Arr[2]=2;
+    Arr[0]=Integer.valueOf(0);
+    Arr[1]=Integer.valueOf(1);
+    Arr[2]=Integer.valueOf(2);
     azzert.that(Arr[1], azzert.is(1));
     Arr = Utils.delete(Arr, 1);
     azzert.that(Arr[1], azzert.is(2));
   }
   
-  @Test @SuppressWarnings("static-method") public void hasNullTest() {
+  @Test public void hasNullTest() {
     Integer x = Integer.valueOf(5);
     azzert.that(Utils.hasNull(x), azzert.is(false));
     x =null;
     azzert.that(Utils.hasNull(x), azzert.is(true));
   }
   
-  @Test @SuppressWarnings({ "static-method", "null" }) public void foundTest() {
+  @Test public void foundTest() {
     FoundHandleForInt f = Utils.found(5);
     azzert.that(f.candidate, azzert.is(5));
     azzert.that(f.in(5), azzert.is(true));
@@ -115,7 +116,7 @@ public class UtilsTest {
   }
   
   
-  @Test @SuppressWarnings("static-method") public void inRangeTest() {
+  @Test public void inRangeTest() {
     ArrayList<Integer> a = new ArrayList<>();
     a.add(Integer.valueOf(2));
     a.add(Integer.valueOf(2));
@@ -126,7 +127,7 @@ public class UtilsTest {
     azzert.that(Utils.inRange(-1, a), azzert.is(false));
   }
   
-  @Test @SuppressWarnings("static-method") public void lastTest() {
+  @Test public void lastTest() {
     ArrayList<Integer> a = new ArrayList<>();
     Integer x2 = Integer.valueOf(2);
     Integer x3 = Integer.valueOf(3);
@@ -136,7 +137,7 @@ public class UtilsTest {
     azzert.that(Utils.lastIn(x2, a),azzert.is(false));
   }
   
-  @Test @SuppressWarnings("static-method") public void intIsInTest() {
+  @Test public void intIsInTest() {
     int[] a = new int[3];
     a[0]=0;
     a[1]=1;
@@ -145,11 +146,11 @@ public class UtilsTest {
     azzert.that(Utils.intIsIn(3, a) ,azzert.is(false));
   }
   
-  @Test @SuppressWarnings("static-method") public void mustBeNullTest() {
+  @Test public void mustBeNullTest() {
     azzert.that(Utils.mustBeNull(null) ,azzert.is((Void)null));
   }
   
-  @Test @SuppressWarnings("static-method") public void runUtilsTests() {
+  @Test public void runUtilsTests() {
     TEST t = new TEST();
     t.addAllTypical();
     t.addTypical();
@@ -165,11 +166,11 @@ public class UtilsTest {
     t.swapTypicalCase();
   }
   
-  @Test @SuppressWarnings("static-method") public void nameTest() {
+  @Test public void nameTest() {
     azzert.that(Utils.name(new File("File1")) ,azzert.is("File1"));
   }
   
-  @Test @SuppressWarnings({ "static-method", "null" }) public void penultimateInTest() {
+  @Test public void penultimateInTest() {
     ArrayList<Integer> a = new ArrayList<>();
     Integer x2 = Integer.valueOf(2);
     Integer x3 = Integer.valueOf(3);
@@ -179,19 +180,19 @@ public class UtilsTest {
     azzert.that(Utils.penultimateIn(x3, a),azzert.is(false));
   }
   
-  @Test @SuppressWarnings("static-method") public void prependTest() {
+  @Test public void prependTest() {
     StringBuilder s = Utils.prepend(new StringBuilder(), 'c');
     azzert.that(s.charAt(0), azzert.is('c'));
     s = Utils.prepend(s, "str");
     azzert.that(s.charAt(0), azzert.is('s'));
   }
   
-  @Test @SuppressWarnings("static-method") public void quoteTest() {
+  @Test public void quoteTest() {
     azzert.that(Utils.quote("Lior"),azzert.is("\'Lior\'"));
     azzert.that(Utils.quote(null),azzert.is("<null reference>"));
   }
   
-  @Test @SuppressWarnings("static-method") public void removeTests() {
+  @Test public void removeTests() {
     ArrayList<Integer> a = new ArrayList<>();
     Integer x2 = Integer.valueOf(2);
     Integer x3 = Integer.valueOf(2);
@@ -204,7 +205,7 @@ public class UtilsTest {
     azzert.that(Utils.removeWhites("Lior Ben Yamin"),azzert.is("LiorBenYamin"));
   }
   
-  @Test @SuppressWarnings("static-method") public void sortTest() {
+  @Test public void sortTest() {
     int[] arr = Utils.sort(new int[] { 3, 2, 4, 1, 5 });
     azzert.that(arr[0],azzert.is(1));
     azzert.that(arr[1],azzert.is(2));
@@ -213,11 +214,11 @@ public class UtilsTest {
     azzert.that(arr[4],azzert.is(5));
   }
   
-  @Test @SuppressWarnings("static-method") public void sqrTest() {
+  @Test public void sqrTest() {
     azzert.that(Utils.sqr(4.0),azzert.is(16.0));
   }
   
-  @Test @SuppressWarnings("static-method") public void suffixedByTest() {
+  @Test public void suffixedByTest() {
     File f = new File("file1");
     File g = new File("file2");
     ArrayList<String> slist = new ArrayList<>();
