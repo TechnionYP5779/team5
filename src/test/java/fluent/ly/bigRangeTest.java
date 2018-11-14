@@ -29,7 +29,7 @@ import org.junit.*;
     }
   }
 
-  @Test @SuppressWarnings("static-method") public void fromAndWithDiff() {
+  @Test  public void fromAndWithDiff() {
     final Iterable<BigInteger> iter = bigRange.from(2).withDiff(3);
     BigInteger count = BigInteger.valueOf(2);
     for (final BigInteger i : iter) {
@@ -55,7 +55,7 @@ import org.junit.*;
     Assert.assertEquals(null, bigRange.withDiff(1).Sum());
   }
 
-  @Test @SuppressWarnings("static-method") public void finiteSumWithDiff() {
+  @Test public void finiteSumWithDiff() {
     Assert.assertEquals(BigInteger.valueOf(0), bigRange.withDiff(0).Sum());
   }
 
@@ -90,7 +90,7 @@ import org.junit.*;
     }
   }
 
-  @SuppressWarnings({ "static-access", "static-method" }) @Test public void bigIntegersRange() {
+  @SuppressWarnings({  "static-method" }) @Test public void bigIntegersRange() {
     final Iterable<BigInteger> iter = bigRange.from(BigInteger.valueOf(5)).to(BigInteger.valueOf(123)).withDiff(BigInteger.valueOf(3));
     BigInteger count = BigInteger.valueOf(5);
     for (final BigInteger i : iter) {
