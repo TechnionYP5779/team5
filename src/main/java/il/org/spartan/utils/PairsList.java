@@ -4,6 +4,11 @@ import java.util.*;
 
 import il.org.spartan.statistics.*;
 
+/**
+ * @author Shaked Sapir
+ * @since 2018-11-14
+ * 
+ */
 public class PairsList {
   @SuppressWarnings({ "rawtypes", "hiding" }) public class PAIR<Double,Double1> implements Comparable{
     public Pair<Double,Double> p;

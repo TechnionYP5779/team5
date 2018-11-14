@@ -19,12 +19,12 @@ public class unboxTest {
     azzert.assertArrayEquals(new short[] { 1, 2, 3, 4 }, unbox.unbox(new Short[] { Short.valueOf("1"), Short.valueOf("2"), Short.valueOf("3"), Short.valueOf("4") }));
   }
 
-  @Test @SuppressWarnings({ "static-method", "null" }) public void testUnboxDoubleArray() {
-    Assert.assertArrayEquals(new double[] { 1.1, 1.2, 1.3, 1.4 }, unbox.unbox(new Double[] { Double.valueOf(1.1), Double.valueOf(1.2), Double.valueOf(1.3), Double.valueOf(1.4) }), 0.001);
+  @Test @SuppressWarnings({ "static-method", "null", "static-access" }) public void testUnboxDoubleArray() {
+    azzert.assertArrayEquals(new double[] { 1.1, 1.2, 1.3, 1.4 }, unbox.unbox(new Double[] { Double.valueOf(1.1), Double.valueOf(1.2), Double.valueOf(1.3), Double.valueOf(1.4) }), 0.001);
   }
 
-  @Test @SuppressWarnings("static-method") public void testUnboxFloatArray() {
-    Assert.assertArrayEquals(new float[] { (float) 1.1, (float) 1.2, (float) 1.3, (float) 1.4 }, unbox.unbox(new Float[] { Float.valueOf((float) 1.1), Float.valueOf((float) 1.2), Float.valueOf((float) 1.3), Float.valueOf((float) 1.4) }), (float) 0.001);
+  @Test @SuppressWarnings({ "static-method", "static-access" }) public void testUnboxFloatArray() {
+    azzert.assertArrayEquals(new float[] { (float) 1.1, (float) 1.2, (float) 1.3, (float) 1.4 }, unbox.unbox(new Float[] { Float.valueOf((float) 1.1), Float.valueOf((float) 1.2), Float.valueOf((float) 1.3), Float.valueOf((float) 1.4) }), (float) 0.001);
   }
 
   @Test @SuppressWarnings({ "static-method", "null" }) public void testUnboxIntegerArray() {
