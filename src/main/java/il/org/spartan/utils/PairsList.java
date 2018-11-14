@@ -2,6 +2,9 @@ package il.org.spartan.utils;
 
 import java.util.*;
 
+import org.jetbrains.annotations.*;
+
+import fluent.ly.*;
 import il.org.spartan.statistics.*;
 
 /**
@@ -11,13 +14,13 @@ import il.org.spartan.statistics.*;
  */
 public class PairsList {
   @SuppressWarnings({ "rawtypes", "hiding" }) public class PAIR<Double,Double1> implements Comparable{
-    public Pair<Double,Double> p;
+    @NotNull public Pair<Double,Double> p;
     
-    @SuppressWarnings("unchecked") public PAIR(Pair<Double,Double1> np) {
+    @SuppressWarnings("unchecked") public PAIR(@NotNull Pair<Double,Double1> np) {
       p=(Pair<Double, Double>) np;
     }
 
-    @SuppressWarnings({ "cast", "unchecked", "null" }) @Override public int compareTo(Object ¢) {
+    @SuppressWarnings({ "cast", "unchecked"}) @Override public int compareTo(Object ¢) {
       Double $ = (Double) ((PAIR<Double, Double>) ¢).p.first;
       return ((Comparable) (Double) p.first).compareTo($) != 0 ? ((Comparable) (Double) p.first).compareTo($)
           : ((Comparable) (Double) p.second).compareTo((Double) ((PAIR<Double, Double>) ¢).p.second);
@@ -28,12 +31,12 @@ public class PairsList {
     l = new ArrayList<>();
   }
 
-  @SuppressWarnings("boxing") public void record(double d, double e) {
-    l.add(new PAIR<>(new Pair<>(d,e)));
+  public void record(double d, double e) {
+    l.add(new PAIR<>(new Pair<>(box.box(d),box.box(e))));
   }
 
-  @SuppressWarnings("boxing") public boolean contains(double d, double e) {
-    Pair<Double,Double> t = new Pair<>(d,e);
+  public boolean contains(double d, double e) {
+    Pair<Double,Double> t = new Pair<>(box.box(d),box.box(e));
     for (PAIR<Double,Double> x : l)
       if (x.p.equals(t))
         return true;
@@ -76,10 +79,10 @@ public class PairsList {
    *              "Y" if we want a mean on Y values
    * @return mean value of wanted axis
    */
-  @SuppressWarnings("boxing") public double mean(String axis) {
+  public double mean(String axis) {
     double[] $ = new double[l.size()];
     for(int ¢=0;¢<l.size();¢++)
-      $[¢] = "X".equals(axis) ? (double)l.get(¢).p.first : (double)l.get(¢).p.second;
+      $[¢] = "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second);
     return Statistics.sampleMean($);
   }
   
@@ -88,24 +91,31 @@ public class PairsList {
    *              "Y" if we want a median on Y values
    * @return mean value of wanted axis
    */
-  @SuppressWarnings("boxing") public double median(String axis) {
+  public double median(String axis) {
     double[] $ = new double[l.size()];
     for(int ¢=0;¢<l.size();¢++)
-      $[¢] = "X".equals(axis) ? (double)l.get(¢).p.first : (double)l.get(¢).p.second;
+      $[¢] = "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second);
     return Statistics.median($);
   }
 
-  @SuppressWarnings("boxing") public double variance(String axis) {
+  public double variance(String axis) {
     double[] $ = new double[l.size()];
     for(int ¢=0;¢<l.size();¢++)
-      $[¢] = "X".equals(axis) ? (double)l.get(¢).p.first : (double)l.get(¢).p.second;
+      $[¢] = "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second);
     return Statistics.sampleVariance($);    
   }
 
-  @SuppressWarnings({ "boxing", "cast" }) public double squaresSum(String axis) {
+  public double squaresSum(String axis) {
     int $ = 0;
     for(int ¢=0;¢<l.size();¢++) 
-      $+= "X".equals(axis) ? (double)l.get(¢).p.first*(double)l.get(¢).p.first : (double)l.get(¢).p.second*(double)l.get(¢).p.second;
+      $ += "X".equals(axis) ? unbox.unbox(l.get(¢).p.first)*unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second)*unbox.unbox(l.get(¢).p.second);
+    return $;
+  }
+
+   public double sum(String axis) {
+    int $ = 0;
+    for(int ¢=0;¢<l.size();¢++) 
+      $ += "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) : unbox.unbox(l.get(¢).p.second);
     return $;
   }
 }
