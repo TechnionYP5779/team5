@@ -1,5 +1,10 @@
 package il.org.spartan.utils;
 
+/*
+ * Since 2018-13-11
+ *  Author: Lior Ben-Yamin
+ */
+
 public class angle {
   
   public static final angle pi = new angle(180);
