@@ -1,10 +1,12 @@
 package fluent.ly;
+
 import static fluent.ly.azzert.*;
+
 import org.jetbrains.annotations.*;
 import org.junit.*;
-@SuppressWarnings("static-method")
-public class TestBox {
-  @Test  public void testBooleanBox() {
+
+@SuppressWarnings("static-method") public class TestBox {
+  @Test public void testBooleanBox() {
     Boolean b = box.box(true);
     azzert.that(b, is(Boolean.TRUE));
     b = box.box(false);
@@ -58,7 +60,7 @@ public class TestBox {
       azzert.that(DoubleArray[¢], is(box.box(¢ + 3.14)));
   }
 
-  @Test @SuppressWarnings( "boxing") public void testFloatBox() {
+  @Test @SuppressWarnings("boxing") public void testFloatBox() {
     final float diff = (float) 0.00005;
     Float b = box.box((float) 3.14);
     azzert.assertTrue(b <= box.box(diff + (float) 3.14) && b >= box.box((float) 3.14 - diff));

@@ -1,19 +1,19 @@
 package il.org.spartan;
 
+import static fluent.ly.azzert.*;
 
 import java.io.*;
 
 import org.junit.*;
 
 import fluent.ly.*;
-import fluent.ly.*;
-import static fluent.ly.azzert.*;
+
 enum Color {
   RED, GREEN, BLUE;
 }
-@SuppressWarnings("static-method")
-public class CSVTest {
-  @Test  public void combineTest() {
+
+@SuppressWarnings("static-method") public class CSVTest {
+  @Test public void combineTest() {
     final Class<?>[] cs = new Class<?>[7];
     cs[0] = Integer.class;
     cs[1] = Character.class;
@@ -41,22 +41,22 @@ public class CSVTest {
     azzert.that(CSV.escape(null), is("\\0"));
   }
 
- @Test public void loadAndSaveTest() {
-  azzert.that("\\n\\r\\t\\\\\\.", is(CSV.escape("\n\r\t\\,")));
-  final File f = new File("src/test/resources/csvTest");
-  try {
-    final String[][] csv = CSV.load(f);
-    azzert.that(csv[0][0], is("Sally Whittaker"));
-    azzert.that(csv[0][1], is("2018"));
-    azzert.that(csv[0][2], is("McCarren House"));
-    azzert.that(csv[0][3], is("312"));
-    azzert.that(csv[0][4], is("3.75"));
-    CSV.save(f, csv);
-  } catch (final IOException ¢) {
-    ¢.printStackTrace();
-    azzert.that(true, is(false)); //just for failing the text
+  @Test public void loadAndSaveTest() {
+    azzert.that("\\n\\r\\t\\\\\\.", is(CSV.escape("\n\r\t\\,")));
+    final File f = new File("src/test/resources/csvTest");
+    try {
+      final String[][] csv = CSV.load(f);
+      azzert.that(csv[0][0], is("Sally Whittaker"));
+      azzert.that(csv[0][1], is("2018"));
+      azzert.that(csv[0][2], is("McCarren House"));
+      azzert.that(csv[0][3], is("312"));
+      azzert.that(csv[0][4], is("3.75"));
+      CSV.save(f, csv);
+    } catch (final IOException ¢) {
+      ¢.printStackTrace();
+      azzert.that(true, is(false)); // just for failing the text
+    }
   }
-}
 
   @Test public void splitTest() {
     azzert.that(CSV.split("").length, is(0));
@@ -72,8 +72,7 @@ public class CSVTest {
     cs[3] = String.class;
     cs[4] = Float.class;
     cs[5] = Byte.class;
-    azzert.that(cs,
-        is(CSV.splitToClasses("java.lang.Integer,java.lang.Character,java.lang.Double,java.lang.String,java.lang.Float,java.lang.Byte")));
+    azzert.that(cs, is(CSV.splitToClasses("java.lang.Integer,java.lang.Character,java.lang.Double,java.lang.String,java.lang.Float,java.lang.Byte")));
   }
 
   @Test public void unescapeTest() {

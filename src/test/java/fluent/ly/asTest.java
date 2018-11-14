@@ -1,14 +1,16 @@
 package fluent.ly;
-import static fluent.ly.azzert.*;
+
 import static org.junit.Assert.*;
+
+import static fluent.ly.azzert.*;
 
 import java.util.*;
 import java.util.stream.*;
 
 import org.jetbrains.annotations.*;
 import org.junit.*;
-@SuppressWarnings("static-method") 
-public class asTest {
+
+@SuppressWarnings("static-method") public class asTest {
   @Test public void emptyAsIterableTest() {
     azzert.assertTrue(!as.asIterable().iterator().hasNext());
   }

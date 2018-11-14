@@ -1,10 +1,11 @@
 package il.org.spartan.utils;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
 
 import fluent.ly.*;
-import fluent.ly.*;
-import static fluent.ly.azzert.*;
+
 public class IntTest {
   @AfterClass public static void test_constrAndValueOf() {
     azzert.that(new Int(10).get(), is(10));

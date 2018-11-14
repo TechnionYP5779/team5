@@ -1,6 +1,7 @@
 package fluent.ly;
 
 import static fluent.ly.azzert.*;
+
 import java.io.*;
 import java.util.*;
 
@@ -10,13 +11,13 @@ import org.junit.*;
 import il.org.spartan.utils.*;
 
 @SuppressWarnings("static-method") public class stringTest {
-  @Test  public void test_test() {
+  @Test public void test_test() {
     azzert.that(string.MAX_FIRST, is(20));
   }
 
   double epsilon = 10e-5;
 
-  @Test  public void test_atod() {
+  @Test public void test_atod() {
     @NotNull final Double $ = box.box(string.atod("42.001"));
     @NotNull String s = new String("333");
     @NotNull final Double $2 = box.box(string.atod(s));
@@ -25,20 +26,19 @@ import il.org.spartan.utils.*;
     azzert.that(false, is(unbox.unbox($) == 42));
   }
 
-  @Test  public void test_atof() {
+  @Test public void test_atof() {
     final double $2 = string.atof(new String("333"));
     azzert.that(true, is(string.atof("42.001") > 42.00));
     azzert.that(true, is($2 == 333.0));
   }
 
-  @Test  public void test_atoi() {
+  @Test public void test_atoi() {
     final double $2 = string.atoi(new String("333"));
     azzert.that(true, is(string.atoi("42") == 42));
     azzert.that(true, is($2 == 333));
-
   }
 
-  @Test  public void test_atol() {
+  @Test public void test_atol() {
     final double $ = string.atol("42"), $2 = string.atol(new String("333"));
     azzert.that(true, is($ == 42));
     azzert.that(true, is($2 == 333));
@@ -54,7 +54,7 @@ import il.org.spartan.utils.*;
     azzert.that(s5, is("H"));
   }
 
-  @Test  public void test_cat() {
+  @Test public void test_cat() {
     @NotNull final String[] l1 = { "Hello", " ", "World" }, l2 = { " ", " what", " ", "happen" };
     final String s2 = string.cat(l1, l2);
     azzert.that(string.cat("Hello", " ", "World"), is("Hello World"));
@@ -66,7 +66,7 @@ import il.org.spartan.utils.*;
     azzert.that(true, is(Math.abs(0.2 / 6.9 - string.delta(d1, d2)) < epsilon));
     azzert.that(true, is(Math.abs(0.2 / 6.9 - string.delta(d2, d1)) < epsilon));
     azzert.that(true, is(string.delta(d1, d3) == 0));
-    azzert.that("NaN",is(string.delta(-1, 1)+""));
+    azzert.that("NaN", is(string.delta(-1, 1) + ""));
   }
 
   @Test public void test_dtoa() {
@@ -220,6 +220,7 @@ import il.org.spartan.utils.*;
     azzert.that(string.pluralize(20, "hope"), is("20 hopes"));
     azzert.that(string.pluralize(4, "party", "parties"), is("four parties"));
   }
+
   @Test public void test_pretty() {
     azzert.that(string.pretty("hope", new ArrayList<Integer>()), is(""));
     azzert.that(string.pretty("course", "courses", new ArrayList<>(Arrays.asList(box.box(234311)))), is("1 course: 234311\n"));
@@ -259,7 +260,7 @@ import il.org.spartan.utils.*;
     azzert.that(string.signum(-Double.MAX_VALUE), is(-1));
   }
 
-  @Test  public void test_sprintf() {
+  @Test public void test_sprintf() {
     @NotNull final String[] a = {}, b = { "hell" }, c = { "what %s %s", "the", "hell" };
     azzert.that(string.sprintf(a), is(""));
     azzert.that(string.sprintf(b), is("hell"));
@@ -297,7 +298,7 @@ import il.org.spartan.utils.*;
     azzert.that(string.upCounter(8), is("I"));
   }
 
-  @Test  public void test_visualize() {
+  @Test public void test_visualize() {
     azzert.that(string.visualize("\n"), is("\\n"));
     azzert.that(string.visualize("\r"), is("\\r"));
     azzert.that(string.visualize("\t"), is("\\t"));
@@ -307,7 +308,7 @@ import il.org.spartan.utils.*;
     azzert.that(string.visualize("\'"), is("\'"));
     azzert.that(string.visualize("\""), is("\""));
     azzert.that(string.visualize("g"), is("g"));
-//    azzert.that(string.visualize("hello"), is("hello"));
+    // azzert.that(string.visualize("hello"), is("hello"));
     azzert.that(string.visualize("he\bllo"), is("he\\bllo"));
     azzert.that(string.visualize("hel\\lo"), is("hel\\\\lo"));
     azzert.that(string.visualize("hel\"lo"), is("hel\"lo"));

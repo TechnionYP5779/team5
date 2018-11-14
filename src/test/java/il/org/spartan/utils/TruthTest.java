@@ -1,12 +1,13 @@
 package il.org.spartan.utils;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
 
 import fluent.ly.*;
-import static fluent.ly.azzert.*;
-@SuppressWarnings("static-method")
-public class TruthTest {
-  @Test  public void testTruthOf() {
+
+@SuppressWarnings("static-method") public class TruthTest {
+  @Test public void testTruthOf() {
     azzert.that(Truth.truthOf(() -> 1 == 2), is(Truth.F));
     azzert.that(Truth.truthOf(null), is(Truth.N));
     azzert.that(Truth.truthOf(() -> {

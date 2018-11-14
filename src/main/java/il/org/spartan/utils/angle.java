@@ -1,14 +1,9 @@
 package il.org.spartan.utils;
 
-/**
- * A class for utility methods to create angles.
+/** A class for utility methods to create angles.
  * @since 2018-11-13
- * @author lior.b
- *
- */
-
+ * @author lior.b */
 public class angle {
-  
   public static final angle pi = new angle(180);
   private static final double deg2Rad = Math.PI / 180;
   private static final double rad2Deg = 180 / Math.PI;
@@ -19,11 +14,11 @@ public class angle {
     deg = i;
     rad = i * deg2Rad;
   }
-  
+
   public double getDegrees() {
     return deg;
   }
-  
+
   public double getRadians() {
     return rad;
   }

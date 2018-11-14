@@ -1,15 +1,15 @@
 package fluent.ly;
 
+import static fluent.ly.azzert.*;
+
 import java.util.*;
 
 import org.junit.*;
 
 import fluent.ly.English.*;
 import il.org.spartan.utils.*;
-import fluent.ly.*;
-import static fluent.ly.azzert.*;
-@SuppressWarnings("static-method") 
-public class EnglishTest {
+
+@SuppressWarnings("static-method") public class EnglishTest {
   @Test public void testIndefinite() {
     final String s = "str";
     final Integer i = box.box(1);

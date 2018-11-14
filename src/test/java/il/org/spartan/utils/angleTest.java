@@ -1,9 +1,11 @@
 package il.org.spartan.utils;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
 
 import fluent.ly.*;
-import static fluent.ly.azzert.*;
+
 @SuppressWarnings("static-method") public class angleTest {
   @Test public void angleCreate() {
     azzert.that(angle.degrees(20).getDegrees(), is((double) 20));

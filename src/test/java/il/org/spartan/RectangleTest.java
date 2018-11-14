@@ -1,11 +1,13 @@
 package il.org.spartan;
 
-import org.junit.*;
-import fluent.ly.*;
 import static fluent.ly.azzert.*;
-@SuppressWarnings("static-method")
-public class RectangleTest {
-  @Test  public void test() {
+
+import org.junit.*;
+
+import fluent.ly.*;
+
+@SuppressWarnings("static-method") public class RectangleTest {
+  @Test public void test() {
     final Rectangle rec = new Rectangle(1.0, 1.0, 2.0, 2.0);
     azzert.that(rec.getLength(), is(1.0));
     azzert.that(rec.getWidth(), is(1.0));

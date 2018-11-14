@@ -1,9 +1,11 @@
 package fluent.ly;
 
+import static fluent.ly.azzert.*;
+
 import java.math.*;
 
 import org.junit.*;
-import static fluent.ly.azzert.*;
+
 @SuppressWarnings("static-method") public class bigRangeTest {
   @Test public void withDiffOnly() {
     final Iterable<BigInteger> iter = bigRange.withDiff(1);

@@ -1,9 +1,11 @@
 package il.org.spartan.statistics;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
 
 import fluent.ly.*;
-import static fluent.ly.azzert.*;
+
 public class StatisticsTest {
   @Test @SuppressWarnings("static-method") public void testSampleMean() {
     azzert.that(2, is(Statistics.sampleMean(new double[] { 1, 2, 3 })));
@@ -19,7 +21,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testIsEmpty() {
     final Statistics s = new Statistics() {
-      //empty block
+      // empty block
     };
     azzert.that(true, is(s.isEmpty()));
     s.n = 1;
@@ -28,7 +30,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testMax() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 1;
     s.max = s.moments[0] = 10;
@@ -37,7 +39,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testMin() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 1;
     s.min = s.moments[0] = 10;
@@ -46,7 +48,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testMean() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 2;
     s.moments[1] = 10;
@@ -55,7 +57,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testMissing() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.missing = 0;
     azzert.that(0, is(s.missing()));
@@ -63,7 +65,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testSum2() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 2;
     s.moments[2] = 1;
@@ -72,7 +74,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testSd() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 2;
     s.moments[2] = s.moments[1] = 1;
@@ -81,7 +83,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testRelativeError() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 1;
     s.moments[1] = 0;
@@ -90,7 +92,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testRelativeError2() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 2;
     s.moments[2] = s.moments[1] = 1;
@@ -99,7 +101,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testV() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 2;
     s.moments[1] = 1;
@@ -109,7 +111,7 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testVariance() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 2;
     s.moments[1] = 1;
@@ -119,13 +121,13 @@ public class StatisticsTest {
 
   @Test @SuppressWarnings("static-method") public void testCheckEmpty() {
     final Statistics s = new Statistics() {
-    //empty block
+      // empty block
     };
     s.n = 0;
     try {
       s.checkEmpty();
     } catch (@SuppressWarnings("unused") final Exception E) {
-    //empty block
+      // empty block
     }
   }
 }

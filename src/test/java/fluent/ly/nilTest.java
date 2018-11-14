@@ -1,11 +1,12 @@
 package fluent.ly;
 
+import static fluent.ly.azzert.*;
+
 import java.util.function.*;
 
 import org.junit.*;
-import static fluent.ly.azzert.*;
-@SuppressWarnings("static-method") 
-public class nilTest {
+
+@SuppressWarnings("static-method") public class nilTest {
   @Test public void testForgetting() {
     Object o = nil.forgetting(new Object());
     azzert.that(o, is((Object) null));

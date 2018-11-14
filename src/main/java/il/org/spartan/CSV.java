@@ -140,7 +140,8 @@ import fluent.ly.*;
   public static String toCsv(final @NotNull String[][] data) {
     final @NotNull StringWriter $ = new StringWriter();
     final @NotNull PrintWriter pw = new PrintWriter($);
-    if(data==null) return $+"";
+    if (data == null)
+      return $ + "";
     for (final @NotNull String[] line : data) {
       final @NotNull Separator comma = new Separator(",");
       for (final @NotNull String ¢ : line)

@@ -1,8 +1,8 @@
 package fluent.ly;
 
 import org.junit.*;
-@SuppressWarnings("static-method")
-public class anonymousTest {
+
+@SuppressWarnings("static-method") public class anonymousTest {
   @Test public void lyBooleanTest() {
     azzert.assertEquals(true, anonymous.ly(() -> true));
   }
@@ -11,7 +11,7 @@ public class anonymousTest {
     Assert.assertEquals(1.23, anonymous.ly(() -> 1.23), 0.0001);
   }
 
-  @Test  public void lyIntTest() {
+  @Test public void lyIntTest() {
     azzert.assertEquals(1, anonymous.ly(() -> 1));
   }
 
