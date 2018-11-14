@@ -11,7 +11,7 @@ public class emptyTest {
 
   @Test public void testEmptyIterable() {
     final Iterator<Object> testIterable = empty.iterable().iterator();
-    azzert.that(Boolean.valueOf(testIterable.hasNext()), azzert.is(Boolean.FALSE));
+    azzert.that(box.box(testIterable.hasNext()), azzert.is(Boolean.FALSE));
     azzert.isNull(testIterable.next());
   }
 }

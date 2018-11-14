@@ -11,11 +11,11 @@ import il.org.spartan.utils.*;
 public class EnglishTest {
   @Test public void testIndefinite() {
     final String s = "str";
-    final Integer i = Integer.valueOf(1);
+    final Integer i = box.box(1);
     azzert.that(English.indefinite(s), azzert.is("a str"));
     azzert.that(English.indefinite(i), azzert.is("a Integer"));
     azzert.that(English.indefinite("STR"), azzert.is("a ar"));
-    azzert.that(English.indefinite(Double.valueOf(1.1)), azzert.is("an Double"));
+    azzert.that(English.indefinite(box.box(1.1)), azzert.is("an Double"));
     azzert.that(English.indefinite("StrinG"), azzert.is("a StrinG"));
   }
 
@@ -48,22 +48,22 @@ public class EnglishTest {
 
   @Test public void testPlurales() {
     azzert.that(English.plurales("apple", 1), azzert.is("one apple"));
-    azzert.that(English.plurales("apple", Integer.valueOf(1)), azzert.is("one apple"));
-    azzert.that(English.plurales("apple", Int.valueOf(1)), azzert.is("one apple"));
+    azzert.that(English.plurales("apple", box.box(1)), azzert.is("one apple"));
+    azzert.that(English.plurales("apple", box.box(1)), azzert.is("one apple"));
     azzert.that(English.plurales("apples", 2), azzert.is("2 appleses"));
-    azzert.that(English.plurales("apples", Integer.valueOf(2)), azzert.is("2 appleses"));
-    azzert.that(English.plurales("apples", Int.valueOf(2)), azzert.is("2 appleses"));
+    azzert.that(English.plurales("apples", box.box(2)), azzert.is("2 appleses"));
+    azzert.that(English.plurales("apples", box.box(2)), azzert.is("2 appleses"));
     azzert.that(English.plurales("apple", (Integer) null), azzert.is("??? applees"));
     azzert.that(English.plurales("apple", (Integer) null), azzert.is("??? applees"));
   }
 
   @Test public void testPlurals() {
     azzert.that(English.plurals("apple", 1), azzert.is("one apple"));
-    azzert.that(English.plurals("apple", Integer.valueOf(1)), azzert.is("one apple"));
-    azzert.that(English.plurals("apple", Int.valueOf(1)), azzert.is("one apple"));
+    azzert.that(English.plurals("apple", box.box(1)), azzert.is("one apple"));
+    azzert.that(English.plurals("apple", box.box(1)), azzert.is("one apple"));
     azzert.that(English.plurals("apples", 2), azzert.is("2 appless"));
-    azzert.that(English.plurals("apples", Integer.valueOf(2)), azzert.is("2 appless"));
-    azzert.that(English.plurals("apples", Int.valueOf(2)), azzert.is("2 appless"));
+    azzert.that(English.plurals("apples", box.box(2)), azzert.is("2 appless"));
+    azzert.that(English.plurals("apples", box.box(2)), azzert.is("2 appless"));
     azzert.that(English.plurals("apple", (Integer) null), azzert.is("??? apples"));
     azzert.that(English.plurals("apple", (Int) null), azzert.is("??? apples"));
   }
@@ -90,10 +90,10 @@ public class EnglishTest {
     azzert.that(English.trim(""), azzert.is(""));
   }
 
-  @Test public void testUnknownIfNull() {
-    azzert.that(English.unknownIfNull(Integer.valueOf(10)), azzert.is("10"));
+  @SuppressWarnings("null") @Test public void testUnknownIfNull() {
+    azzert.that(English.unknownIfNull(box.box(10)), azzert.is("10"));
     azzert.that(English.unknownIfNull(null), azzert.is("???"));
-    azzert.that(English.unknownIfNull(Integer.valueOf(10), λ -> Integer.valueOf(λ.intValue() + 1)), azzert.is("11"));
+    azzert.that(English.unknownIfNull(box.box(10), λ -> box.box(unbox.unbox(λ) + 1)), azzert.is("11"));
     azzert.that(English.unknownIfNull(null, null), azzert.is("???"));
   }
 
