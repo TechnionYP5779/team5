@@ -42,7 +42,7 @@ import il.org.spartan.utils.*;
     final double $ = string.atol("42"), $2 = string.atol(new String("333"));
     azzert.that(true, azzert.is($ == 42));
     azzert.that(true, azzert.is($2 == 333));
-    azzert.that(false, azzert.is(Long.MAX_VALUE != $));
+    azzert.that(true, azzert.is(Long.MAX_VALUE != $));
   }
 
   @Test public void test_capitalize() {
