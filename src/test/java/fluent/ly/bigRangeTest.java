@@ -71,7 +71,7 @@ import org.junit.*;
     Assert.assertEquals(BigInteger.valueOf(18), bigRange.from(3).to(9).withDiff(3).Sum());
   }
 
-  @Test @SuppressWarnings("static-method") public void impossibleRangeNegative() {
+  @Test  public void impossibleRangeNegative() {
     Assert.assertEquals(null, bigRange.to(-5).withDiff(1));
   }
 
