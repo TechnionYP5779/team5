@@ -15,12 +15,12 @@ public class UtilsTest {
   
   @Test public void addTest() {
     ArrayList<Integer> a = new ArrayList<>();
-    a.add(Integer.valueOf(5));
-    Utils.add(a, Integer.valueOf(5));
+    a.add(box.box(5));
+    Utils.add(a, box.box(5));
     azzert.that(a.size(), azzert.is(2));
     ArrayList<Integer> b = new ArrayList<>();
     b.add(null);
-    b.add(Integer.valueOf(5));
+    b.add(box.box(5));
     Utils.add(a, b);
     azzert.that(a.size(), azzert.is(3));
     Utils.add(a, i);
@@ -34,7 +34,7 @@ public class UtilsTest {
                 int current = from;
                 @Override public boolean hasNext() { return current < to; }
                 @Override public Integer next() {
-                  return Integer.valueOf(current++) ;
+                  return box.box(current++) ;
                 }
             };
         }
@@ -45,11 +45,11 @@ public class UtilsTest {
   @Test public void addAllTest() {
     ArrayList<Integer> a = new ArrayList<>();
     ArrayList<Integer> b = new ArrayList<>();
-    b.add(Integer.valueOf(5));
+    b.add(box.box(5));
     azzert.that(a.size(), azzert.is(0));
     Utils.addAll(a, b);
     azzert.that(a.size(), azzert.is(1));
-    Utils.addAll(a, Integer.valueOf(5));
+    Utils.addAll(a, box.box(5));
     azzert.that(a.size(), azzert.is(2));
     Utils.addAll(a, i);
     azzert.that(a.size(), azzert.is(2));
@@ -58,15 +58,15 @@ public class UtilsTest {
   }
   
   @Test public void appendTest() {
-    azzert.that(Utils.append(new Integer[10], Integer.valueOf(5))[10], azzert.is(5));
+    azzert.that(Utils.append(new Integer[10], box.box(5))[10], azzert.is(5));
   }
   
   @Test public void canBeNullTest() {
-    azzert.that(Utils.canBeNull(Integer.valueOf(5)), azzert.is(5));
+    azzert.that(Utils.canBeNull(box.box(5)), azzert.is(5));
   }
   
   @Test public void cantBeNullTest() {
-    azzert.that(Utils.cantBeNull(Integer.valueOf(5)), azzert.is(5));
+    azzert.that(Utils.cantBeNull(box.box(5)), azzert.is(5));
   }
   
   @Test public void compareTest() {
@@ -88,16 +88,16 @@ public class UtilsTest {
   
   @Test public void deleteTest() {
     Integer[] Arr = new Integer[3];
-    Arr[0]=Integer.valueOf(0);
-    Arr[1]=Integer.valueOf(1);
-    Arr[2]=Integer.valueOf(2);
+    Arr[0]=box.box(0);
+    Arr[1]=box.box(1);
+    Arr[2]=box.box(2);
     azzert.that(Arr[1], azzert.is(1));
     Arr = Utils.delete(Arr, 1);
     azzert.that(Arr[1], azzert.is(2));
   }
   
   @Test public void hasNullTest() {
-    Integer x = Integer.valueOf(5);
+    Integer x = box.box(5);
     azzert.that(Utils.hasNull(x), azzert.is(false));
     x =null;
     azzert.that(Utils.hasNull(x), azzert.is(true));
@@ -108,18 +108,18 @@ public class UtilsTest {
     azzert.that(f.candidate, azzert.is(5));
     azzert.that(f.in(5), azzert.is(true));
     azzert.that(f.in(7), azzert.is(false));
-    FoundHandleForT<Integer> g = Utils.found(Integer.valueOf(6));
+    FoundHandleForT<Integer> g = Utils.found(box.box(6));
     azzert.that(g.candidate, azzert.is(6));
-    azzert.that(g.in(Integer.valueOf(6)), azzert.is(true));
-    azzert.that(g.in(Integer.valueOf(7)), azzert.is(false));
+    azzert.that(g.in(box.box(6)), azzert.is(true));
+    azzert.that(g.in(box.box(7)), azzert.is(false));
     azzert.that(g.in(i), azzert.is(false));
   }
   
   
   @Test public void inRangeTest() {
     ArrayList<Integer> a = new ArrayList<>();
-    a.add(Integer.valueOf(2));
-    a.add(Integer.valueOf(2));
+    a.add(box.box(2));
+    a.add(box.box(2));
     azzert.that(Utils.inRange(0, a), azzert.is(true));
     azzert.that(Utils.inRange(1, a), azzert.is(true));
     azzert.that(Utils.inRange(2, a), azzert.is(false));
@@ -129,8 +129,8 @@ public class UtilsTest {
   
   @Test public void lastTest() {
     ArrayList<Integer> a = new ArrayList<>();
-    Integer x2 = Integer.valueOf(2);
-    Integer x3 = Integer.valueOf(3);
+    Integer x2 = box.box(2);
+    Integer x3 = box.box(3);
     a.add(x2);
     a.add(x3);
     azzert.that(Utils.lastIn(x3, a),azzert.is(true));
@@ -172,8 +172,8 @@ public class UtilsTest {
   
   @Test public void penultimateInTest() {
     ArrayList<Integer> a = new ArrayList<>();
-    Integer x2 = Integer.valueOf(2);
-    Integer x3 = Integer.valueOf(3);
+    Integer x2 = box.box(2);
+    Integer x3 = box.box(3);
     a.add(x2);
     a.add(x3);
     azzert.that(Utils.penultimateIn(x2, a),azzert.is(true));
@@ -194,8 +194,8 @@ public class UtilsTest {
   
   @Test public void removeTests() {
     ArrayList<Integer> a = new ArrayList<>();
-    Integer x2 = Integer.valueOf(2);
-    Integer x3 = Integer.valueOf(2);
+    Integer x2 = box.box(2);
+    Integer x3 = box.box(2);
     a.add(x2);
     a.add(x3);
     Utils.removeDuplicates(a);

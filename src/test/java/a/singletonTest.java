@@ -9,19 +9,19 @@ import fluent.ly.*;
 @SuppressWarnings("static-method") 
 public class singletonTest {
   @Test public void testList() {
-    final List<Integer> l = singleton.list(Integer.valueOf(5));
+    final List<Integer> l = singleton.list(box.box(5));
     azzert.that(l.size(), azzert.is(1));
-    azzert.that(Boolean.valueOf(l.isEmpty()), azzert.is(Boolean.FALSE));
+    azzert.that(box.box(l.isEmpty()), azzert.is(Boolean.FALSE));
     final Iterator<Integer> itr = l.iterator();
-    azzert.that(itr.next(),azzert.is(Integer.valueOf(5)));
-    azzert.that(Boolean.valueOf(itr.hasNext()), azzert.is(Boolean.FALSE));
+    azzert.that(itr.next(),azzert.is(box.box(5)));
+    azzert.that(box.box(itr.hasNext()), azzert.is(Boolean.FALSE));
     l.remove(0);
-    azzert.that(Boolean.valueOf(l.isEmpty()), azzert.is(Boolean.TRUE));
+    azzert.that(box.box(l.isEmpty()), azzert.is(Boolean.TRUE));
   }
 
   @Test public void testArray() {
     final Object[] o = singleton.array(null);
     azzert.that(o[0], azzert.is((Object)null));
-    azzert.that(Integer.valueOf(o.length), azzert.is(Integer.valueOf(1)));
+    azzert.that(box.box(o.length), azzert.is(box.box(1)));
   }
 }
