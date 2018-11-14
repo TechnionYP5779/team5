@@ -11,10 +11,10 @@ import org.jetbrains.annotations.*;
  * @author Yossi Gil
  * @since 2017-04-12 */
 public interface the {
-  @SuppressWarnings("boxing") static int index(final int i, final int... is) {
+  @SuppressWarnings("null") static int index(final int i, final int... is) {
     for (final Integer $ : rangeOrig.from(0).to(is.length))
-      if (is[$] == i)
-        return $;
+      if (is[unbox.it($)] == i)
+        return unbox.it($);
     return -1;
   }
 

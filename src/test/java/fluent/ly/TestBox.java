@@ -60,18 +60,18 @@ import org.junit.*;
       azzert.that(DoubleArray[¢], is(box.box(¢ + 3.14)));
   }
 
-  @Test @SuppressWarnings("boxing") public void testFloatBox() {
+  @Test public void testFloatBox() {
     final float diff = (float) 0.00005;
     Float b = box.box((float) 3.14);
-    azzert.assertTrue(b <= box.box(diff + (float) 3.14) && b >= box.box((float) 3.14 - diff));
+    assert box.box(diff + (float) 3.14).compareTo(b) >= 0 && box.box((float) 3.14 - diff).compareTo(b) <= 0;
     b = box.box((float) 2.71);
-    azzert.assertTrue(b <= box.box(diff + (float) 2.71) && b >= box.box((float) 2.71 - diff));
+    assert box.box(diff + (float) 2.71).compareTo(b) >= 0 && box.box((float) 2.71 - diff).compareTo(b) <= 0;
     final float fArray[] = new float[10];
     for (int ¢ = 0; ¢ < 10; ++¢)
       fArray[¢] = (float) (¢ + 3.14);
     final Float FloatArray[] = box.box(fArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
-      azzert.assertTrue(FloatArray[¢] <= box.box(¢ + diff + (float) 3.14) && FloatArray[¢] >= box.box(¢ + (float) 3.14 - diff));
+      assert box.box(¢ + diff + (float) 3.14).compareTo(FloatArray[¢]) >= 0 && box.box(¢ + (float) 3.14 - diff).compareTo(FloatArray[¢]) <= 0;
   }
 
   @Test public void testIntegerBox() {
@@ -171,15 +171,15 @@ import org.junit.*;
   @Test public void testItFloatBox() {
     final float diff = (float) 0.00005;
     Float b = box.it((float) 3.14);
-    azzert.assertTrue(unbox.unbox(b) <= unbox.unbox(box.box(diff + (float) 3.14)) && unbox.unbox(b) >= (float) 3.14 - diff);
+    assert unbox.unbox(b) <= unbox.unbox(box.box(diff + (float) 3.14)) && unbox.unbox(b) >= (float) 3.14 - diff;
     b = box.it((float) 2.71);
-    azzert.assertTrue(unbox.unbox(b) <= diff + (float) 2.71 && unbox.unbox(b) >= (float) 2.71 - diff);
+    assert unbox.unbox(b) <= diff + (float) 2.71 && unbox.unbox(b) >= (float) 2.71 - diff;
     final float fArray[] = new float[10];
     for (int ¢ = 0; ¢ < 10; ++¢)
       fArray[¢] = (float) (¢ + 3.14);
     final @NotNull Float FloatArray[] = box.it(fArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
-      azzert.assertTrue(unbox.unbox(FloatArray[¢]) <= ¢ + diff + (float) 3.14 && unbox.unbox(FloatArray[¢]) >= ¢ + (float) 3.14 - diff);
+      assert unbox.unbox(FloatArray[¢]) <= ¢ + diff + (float) 3.14 && unbox.unbox(FloatArray[¢]) >= ¢ + (float) 3.14 - diff;
   }
 
   @Test public void testItIntegerBox() {

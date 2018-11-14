@@ -12,11 +12,12 @@ import org.junit.*;
 
 @SuppressWarnings("static-method") public class asTest {
   @Test public void emptyAsIterableTest() {
-    azzert.assertTrue(!as.asIterable().iterator().hasNext());
+    assert !as.asIterable().iterator().hasNext();
   }
 
   @Test public void iterableHasRange10Test() {
-    @SuppressWarnings("boxing") final Iterator<Integer> i = as.asIterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).iterator();
+    final Iterator<Integer> i = as
+        .asIterable(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9), box.it(10)).iterator();
     Assert.assertEquals(Integer.valueOf(1), i.next());
     Assert.assertEquals(Integer.valueOf(2), i.next());
     Assert.assertEquals(Integer.valueOf(3), i.next());
@@ -58,8 +59,9 @@ import org.junit.*;
     Assert.assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, as.intArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
   }
 
-  @Test @SuppressWarnings("boxing") public void iteratorHasRange10Test() {
-    final Iterator<Integer> i = as.iterator(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  @Test public void iteratorHasRange10Test() {
+    final Iterator<Integer> i = as.iterator(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9),
+        box.it(10));
     Assert.assertEquals(Integer.valueOf(1), i.next());
     Assert.assertEquals(Integer.valueOf(2), i.next());
     Assert.assertEquals(Integer.valueOf(3), i.next());
@@ -70,7 +72,7 @@ import org.junit.*;
     Assert.assertEquals(Integer.valueOf(8), i.next());
     Assert.assertEquals(Integer.valueOf(9), i.next());
     Assert.assertEquals(Integer.valueOf(10), i.next());
-    azzert.assertTrue(!i.hasNext());
+    assert !i.hasNext();
   }
 
   @Test public void emptyListTest() {
@@ -88,12 +90,12 @@ import org.junit.*;
         as.list("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"));
   }
 
-  @Test @SuppressWarnings("boxing") public void setOf123Test() {
+  @Test public void setOf123Test() {
     final Set<Integer> s = new HashSet<>();
-    s.add(1);
-    s.add(2);
-    s.add(3);
-    Assert.assertEquals(s, as.set(1, 1, 2, 3, 2, 3, 1, 2, 3));
+    s.add(box.it(1));
+    s.add(box.it(2));
+    s.add(box.it(3));
+    Assert.assertEquals(s, as.set(box.it(1), box.it(1), box.it(2), box.it(3), box.it(2), box.it(3), box.it(1), box.it(2), box.it(3)));
   }
 
   @Test public void nullStringTest() {
