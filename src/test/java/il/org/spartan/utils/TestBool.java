@@ -1,37 +1,35 @@
 package il.org.spartan.utils;
 
-import static fluent.ly.azzert.*;
-
 import org.junit.*;
 
 import fluent.ly.*;
 
 @SuppressWarnings("static-method") public class TestBool {
   @Test public void testValueOf() {
-    azzert.that(Bool.valueOf(true).get(), is(true));
+    assert Bool.valueOf(true).get();
   }
 
   @Test public void testClear() {
     final Bool b = new Bool(true);
     b.clear();
-    azzert.that(b.get(), is(false));
+    assert !b.get();
   }
 
   @Test public void testSet() {
     final Bool b = new Bool(true);
     b.set(false);
-    azzert.that(b.get(), is(false));
+    assert !b.get();
     b.set();
-    azzert.that(b.get(), is(true));
+    assert b.get();
   }
 
-  @Test public void testInner() {
-    azzert.that(Bool.valueOf(true).inner(), is(Boolean.TRUE));
-    azzert.that(Bool.valueOf(false).inner(), is(Boolean.FALSE));
+  @SuppressWarnings("null") @Test public void testInner() {
+    assert unbox.unbox(Bool.valueOf(true).inner());
+    assert !unbox.unbox(Bool.valueOf(false).inner());
   }
 
-  @Test public void testEmptyConst() {
-    azzert.that(new Bool().get(), is(false));
-    azzert.that(Bool.valueOf(false).inner(), is(Boolean.FALSE));
+  @SuppressWarnings("null") @Test public void testEmptyConst() {
+    assert !new Bool().get();
+    assert !unbox.unbox(Bool.valueOf(false).inner());
   }
 }

@@ -34,9 +34,9 @@ import fluent.ly.*;
   @Test public void test_equals() {
     final Pair<Integer, Integer> p1 = new Pair<>(box.box(1), box.box(2)), p2 = Pair.newPair(box.box(3), box.box(4)),
         p3 = Pair.newPair(box.box(1), box.box(2));
-    azzert.that(p1.equals(p1), is(true));
-    azzert.that(p1.equals(p2), is(false));
-    azzert.that(p1.equals(p3), is(true));
+    assert p1.equals(p1);
+    assert !p1.equals(p2);
+    assert p1.equals(p3);
   }
 
   @Test public void test_hash() {
@@ -47,6 +47,6 @@ import fluent.ly.*;
     final Pair<Integer, Integer> p2 = Pair.newPair(box.box(3), box.box(4)), p3 = Pair.newPair(box.box(1), box.box(2));
     azzert.that(new Pair<>(box.box(1), box.box(2)) + "", is("<1,2>"));
     azzert.that(p2 + "", is("<3,4>"));
-    azzert.that(false, is("<1, 2>".equals(p3 + "")));
+    assert !"<1, 2>".equals(p3 + "");
   }
 }

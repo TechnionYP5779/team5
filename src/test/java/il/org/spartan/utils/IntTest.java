@@ -17,7 +17,7 @@ public class IntTest {
     final Integer inner = i1.inner(), inner2 = i1.inner();
     azzert.that(inner.intValue(), is(10));
     azzert.that(inner2.intValue(), is(10));
-    azzert.that(inner.equals(inner2), is(true));
+    assert inner.equals(inner2);
   }
 
   @AfterClass public static void test_stepAndGet() {

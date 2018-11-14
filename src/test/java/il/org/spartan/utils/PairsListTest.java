@@ -10,7 +10,7 @@ import fluent.ly.*;
   @Test public void record() {
     PairsList p = new PairsList();
     p.record(1.1, 2.2);
-    azzert.that(p.contains(1.1, 2.2), is(true));
+    assert p.contains(1.1, 2.2);
   }
 
   @Test public void sort() {
@@ -19,10 +19,10 @@ import fluent.ly.*;
       p.record(10.0 - ¢, 20.0 - ¢);
     p.sortAsc();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      azzert.that(p.l.get(¢ - 1).p.equals(new Pair<>(box.box(1. * ¢), box.box(1. * (¢ + 10)))), is(true));
+      assert p.l.get(¢ - 1).p.equals(new Pair<>(box.box(1. * ¢), box.box(1. * (¢ + 10))));
     p.sortDesc();
     for (int ¢ = 0; ¢ < 10; ¢++)
-      azzert.that(p.l.get(¢).p.equals(new Pair<>(box.box(10.0 - ¢), box.box(20.0 - ¢))), is(true));
+      assert p.l.get(¢).p.equals(new Pair<>(box.box(10.0 - ¢), box.box(20.0 - ¢)));
   }
 
   @Test public void statistics0() {

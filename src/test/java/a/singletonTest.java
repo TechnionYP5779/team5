@@ -17,7 +17,7 @@ import fluent.ly.*;
     azzert.that(itr.next(), is(box.box(5)));
     azzert.that(box.box(itr.hasNext()), is(Boolean.FALSE));
     l.remove(0);
-    assert box.box(l.isEmpty());
+    assert l.isEmpty();
   }
 
   @Test public void testArray() {

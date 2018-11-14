@@ -15,7 +15,7 @@ import fluent.ly.*;
 
   @Test public void testEmptyIterable() {
     final Iterator<Object> testIterable = empty.iterable().iterator();
-    azzert.that(box.box(testIterable.hasNext()), is(Boolean.FALSE));
+    assert !testIterable.hasNext();
     isNull(testIterable.next());
   }
 }

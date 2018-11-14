@@ -23,9 +23,9 @@ public class StatisticsTest {
     final Statistics s = new Statistics() {
       // empty block
     };
-    azzert.that(true, is(s.isEmpty()));
+    assert s.isEmpty();
     s.n = 1;
-    azzert.that(false, is(s.isEmpty()));
+    assert !s.isEmpty();
   }
 
   @Test @SuppressWarnings("static-method") public void testMax() {

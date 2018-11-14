@@ -54,7 +54,7 @@ enum Color {
       CSV.save(f, csv);
     } catch (final IOException ¢) {
       ¢.printStackTrace();
-      azzert.that(true, is(false)); // just for failing the text
+      assert false;
     }
   }
 

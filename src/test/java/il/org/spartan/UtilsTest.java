@@ -86,9 +86,9 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void containsTest() {
-    azzert.that(Utils.contains("Lior Has A Lot Courses", "Courses"), is(true));
-    azzert.that(Utils.contains("Lior Has A Lot Courses", "Dourses"), is(false));
-    azzert.that(Utils.contains("Lior Has A Lot Courses", (String) null), is(false));
+    assert Utils.contains("Lior Has A Lot Courses", "Courses");
+    assert !Utils.contains("Lior Has A Lot Courses", "Dourses");
+    assert !Utils.contains("Lior Has A Lot Courses", (String) null);
   }
 
   @Test public void deleteTest() {
@@ -103,32 +103,32 @@ import il.org.spartan.Utils.FoundHandleForT.*;
 
   @Test public void hasNullTest() {
     Integer x = box.box(5);
-    azzert.that(Utils.hasNull(x), is(false));
+    assert !Utils.hasNull(x);
     x = null;
-    azzert.that(Utils.hasNull(x), is(true));
+    assert Utils.hasNull(x);
   }
 
   @Test public void foundTest() {
     FoundHandleForInt f = Utils.found(5);
     azzert.that(f.candidate, is(5));
-    azzert.that(f.in(5), is(true));
-    azzert.that(f.in(7), is(false));
+    assert f.in(5);
+    assert !f.in(7);
     FoundHandleForT<Integer> g = Utils.found(box.box(6));
     azzert.that(g.candidate, is(6));
-    azzert.that(g.in(box.box(6)), is(true));
-    azzert.that(g.in(box.box(7)), is(false));
-    azzert.that(g.in(i), is(false));
+    assert g.in(box.box(6));
+    assert !g.in(box.box(7));
+    assert !g.in(i);
   }
 
   @Test public void inRangeTest() {
     ArrayList<Integer> a = new ArrayList<>();
     a.add(box.box(2));
     a.add(box.box(2));
-    azzert.that(Utils.inRange(0, a), is(true));
-    azzert.that(Utils.inRange(1, a), is(true));
-    azzert.that(Utils.inRange(2, a), is(false));
-    azzert.that(Utils.inRange(3, a), is(false));
-    azzert.that(Utils.inRange(-1, a), is(false));
+    assert Utils.inRange(0, a);
+    assert Utils.inRange(1, a);
+    assert !Utils.inRange(2, a);
+    assert !Utils.inRange(3, a);
+    assert !Utils.inRange(-1, a);
   }
 
   @Test public void lastTest() {
@@ -137,8 +137,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     Integer x3 = box.box(3);
     a.add(x2);
     a.add(x3);
-    azzert.that(Utils.lastIn(x3, a), is(true));
-    azzert.that(Utils.lastIn(x2, a), is(false));
+    assert Utils.lastIn(x3, a);
+    assert !Utils.lastIn(x2, a);
   }
 
   @Test public void intIsInTest() {
@@ -146,8 +146,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     a[0] = 0;
     a[1] = 1;
     a[2] = 2;
-    azzert.that(Utils.intIsIn(2, a), is(true));
-    azzert.that(Utils.intIsIn(3, a), is(false));
+    assert Utils.intIsIn(2, a);
+    assert !Utils.intIsIn(3, a);
   }
 
   @Test public void mustBeNullTest() {
@@ -180,8 +180,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     Integer x3 = box.box(3);
     a.add(x2);
     a.add(x3);
-    azzert.that(Utils.penultimateIn(x2, a), is(true));
-    azzert.that(Utils.penultimateIn(x3, a), is(false));
+    assert Utils.penultimateIn(x2, a);
+    assert !Utils.penultimateIn(x3, a);
   }
 
   @Test public void prependTest() {
@@ -228,9 +228,9 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     ArrayList<String> slist = new ArrayList<>();
     slist.add("suf1");
     slist.add("e1");
-    azzert.that(Utils.suffixedBy(f, slist), is(true));
-    azzert.that(Utils.suffixedBy(g, slist), is(false));
-    azzert.that(Utils.suffixedBy(g, "e2"), is(true));
-    azzert.that(Utils.suffixedBy("file1", "e2"), is(false));
+    assert Utils.suffixedBy(f, slist);
+    assert !Utils.suffixedBy(g, slist);
+    assert Utils.suffixedBy(g, "e2");
+    assert !Utils.suffixedBy("file1", "e2");
   }
 }
