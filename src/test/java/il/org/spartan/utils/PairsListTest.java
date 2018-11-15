@@ -11,9 +11,10 @@ import fluent.ly.*;
     PairsList p = new PairsList();
     p.record(1.1, 2.2);
     assert p.contains(1.1, 2.2);
+    assert !p.contains(1.0, 2.2);
   }
 
-  @Test public void sort() {  
+  @Test public void sort() {
     PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 10; ¢++)
       p.record(10.0 - ¢, 20.0 - ¢);
@@ -25,11 +26,25 @@ import fluent.ly.*;
       assert p.l.get(¢).p.equals(new Pair<>(box.box(10.0 - ¢), box.box(20.0 - ¢)));
   }
 
+  @Test public void sort1() {
+    PairsList p = new PairsList();
+    p.record(3.1, 1.1);
+    p.record(3.1, 1.7);
+    p.record(1.1, 1.4);
+    p.record(2.1, 1.1);
+    p.sortAsc();
+    azzert.that(p.l.get(0).p, azzert.is(new Pair<>(box.box(1.1), box.box(1.4))));
+    p.sortDesc();
+    azzert.that(p.l.get(0).p, azzert.is(new Pair<>(box.box(3.1), box.box(1.7))));
+  }
+
   @Test public void statistics0() {
     PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 10; ¢++)
       p.record(10.0 - ¢, 20.0 - ¢);
     azzert.that(p.max(), is(new Pair<>(box.box(10.0), box.box(20.0))));
+    assert new PairsList().max() == null;
+    assert new PairsList().min() == null;
     azzert.that(p.min(), is(new Pair<>(box.box(1.0), box.box(11.0))));
     azzert.that(p.size(), is(10));
   }
@@ -58,12 +73,28 @@ import fluent.ly.*;
     azzert.that(p.firstQuarter("Y"), is(13.5));
   }
 
+  @Test public void statistics210() {
+    PairsList p = new PairsList();
+    for (int ¢ = 1; ¢ < 10; ¢++)
+      p.record(10.0 - ¢, 20.0 - ¢);
+    azzert.that(p.firstQuarter("X"), is(3.0));
+    azzert.that(p.firstQuarter("Y"), is(13.0));
+  }
+
   @Test public void statistics22() {
     PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 10; ¢++)
       p.record(10.0 - ¢, 20.0 - ¢);
     azzert.that(p.thirdQuarter("X"), is(8.5));
     azzert.that(p.thirdQuarter("Y"), is(18.5));
+  }
+
+  @Test public void statistics220() {
+    PairsList p = new PairsList();
+    for (int ¢ = 1; ¢ < 10; ¢++)
+      p.record(10.0 - ¢, 20.0 - ¢);
+    azzert.that(p.thirdQuarter("X"), is(7.0));
+    azzert.that(p.thirdQuarter("Y"), is(17.0));
   }
 
   @Test public void statistics3() {

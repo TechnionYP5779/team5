@@ -19,10 +19,10 @@ public class PairsList {
       p = (Pair<Double, Double>) np;
     }
 
-    @SuppressWarnings({ "cast", "unchecked" }) @Override public int compareTo(Object ¢) {
-      Double $ = (Double) ((PAIR<Double, Double>) ¢).p.first;
-      return ((Comparable) (Double) p.first).compareTo($) != 0 ? ((Comparable) (Double) p.first).compareTo($)
-          : ((Comparable) (Double) p.second).compareTo((Double) ((PAIR<Double, Double>) ¢).p.second);
+    @SuppressWarnings("unchecked") @Override public int compareTo(Object ¢) {
+      Double $ = ((PAIR<Double, Double>) ¢).p.first;
+      return ((Comparable) p.first).compareTo($) != 0 ? ((Comparable) p.first).compareTo($)
+          : ((Comparable) p.second).compareTo(((PAIR<Double, Double>) ¢).p.second);
     }
   }
 

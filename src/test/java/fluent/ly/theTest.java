@@ -82,7 +82,7 @@ import org.junit.*;
     assert the.headOf(null) == null;
   }
 
-  @SuppressWarnings("null") @Test  public void headOfEmpty() {
+  @SuppressWarnings("null") @Test public void headOfEmpty() {
     azzert.that(null, is(the.headOf(new ArrayList<Integer>())));
   }
 
@@ -106,7 +106,7 @@ import org.junit.*;
     azzert.that(null, is(the.lastOf(new ArrayList<Integer>())));
   }
 
-  @SuppressWarnings("null") @Test  public void lastOf() {
+  @SuppressWarnings("null") @Test public void lastOf() {
     final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(1));
     azzert.that(box.it(1), is(the.lastOf(l)));
@@ -137,7 +137,7 @@ import org.junit.*;
     azzert.that(null, is(the.onlyOneOf(new ArrayList<Integer>())));
   }
 
-  @Test  public void onlyOneOf() {
+  @Test public void onlyOneOf() {
     final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     azzert.that(box.it(0), is(the.onlyOneOf(l)));
@@ -151,7 +151,7 @@ import org.junit.*;
     azzert.that(null, is(the.secondOf(new ArrayList<Integer>())));
   }
 
-  @Test  public void secondOf() {
+  @Test public void secondOf() {
     final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     l.add(box.it(1));
@@ -174,11 +174,11 @@ import org.junit.*;
     assert the.last(null) == null;
   }
 
-  @SuppressWarnings("null") @Test  public void lastEmpty() {
+  @SuppressWarnings("null") @Test public void lastEmpty() {
     azzert.that(null, is(the.last(new ArrayList<Integer>())));
   }
 
-  @Test  public void last() {
+  @Test public void last() {
     final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     azzert.that(box.it(0), is(the.last(l)));
