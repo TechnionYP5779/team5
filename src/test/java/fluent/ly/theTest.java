@@ -82,8 +82,8 @@ import org.junit.*;
     assert the.headOf(null) == null;
   }
 
-  @SuppressWarnings("null") @Test  public void headOfEmpty() {
-    azzert.that(null, is(the.headOf(new ArrayList<>())));
+  @SuppressWarnings({ "null" }) @Test  public void headOfEmpty() {
+    azzert.that(null, is(the.headOf(new ArrayList<Integer>())));
   }
 
   @Test @SuppressWarnings("null") public void headOf() {
@@ -103,7 +103,7 @@ import org.junit.*;
   }
 
   @SuppressWarnings("null") @Test public void lastOfEpty() {
-    azzert.that(null, is(the.lastOf(new ArrayList<>())));
+    azzert.that(null, is(the.lastOf(new ArrayList<Integer>())));
   }
 
   @SuppressWarnings("null") @Test  public void lastOf() {
@@ -134,7 +134,7 @@ import org.junit.*;
   }
 
   @SuppressWarnings("null") @Test public void onlyOneOfEmpty() {
-    azzert.that(null, is(the.onlyOneOf(new ArrayList<>())));
+    azzert.that(null, is(the.onlyOneOf(new ArrayList<Integer>())));
   }
 
   @Test  public void onlyOneOf() {
@@ -148,7 +148,7 @@ import org.junit.*;
   }
 
   @SuppressWarnings("null") @Test public void secondOfEmpty() {
-    azzert.that(null, is(the.secondOf(new ArrayList<>())));
+    azzert.that(null, is(the.secondOf(new ArrayList<Integer>())));
   }
 
   @Test  public void secondOf() {
@@ -175,7 +175,7 @@ import org.junit.*;
   }
 
   @SuppressWarnings("null") @Test  public void lastEmpty() {
-    azzert.that(null, is(the.last(new ArrayList<>())));
+    azzert.that(null, is(the.last(new ArrayList<Integer>())));
   }
 
   @Test  public void last() {
