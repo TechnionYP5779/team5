@@ -82,7 +82,7 @@ import org.junit.*;
     assert the.headOf(null) == null;
   }
 
-  @SuppressWarnings({ "null" }) @Test  public void headOfEmpty() {
+  @SuppressWarnings("null") @Test  public void headOfEmpty() {
     azzert.that(null, is(the.headOf(new ArrayList<Integer>())));
   }
 

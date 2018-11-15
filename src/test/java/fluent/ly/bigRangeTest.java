@@ -47,38 +47,38 @@ import org.junit.*;
     final Iterable<BigInteger> iter = bigRange.from(5).to(123).withDiff(3);
     BigInteger count = BigInteger.valueOf(5);
     for (final BigInteger i : iter) {
-      Assert.assertEquals(count, i);
+      azzert.that(count, is(i));
       count.add(BigInteger.valueOf(1));
       count = count.add(BigInteger.valueOf(3));
     }
   }
 
   @Test public void infinitSumWithDiff() {
-    Assert.assertEquals(null, bigRange.withDiff(1).Sum());
+    azzert.that(null, is(bigRange.withDiff(1).Sum()));
   }
 
   @Test public void finiteSumWithDiff() {
-    Assert.assertEquals(BigInteger.valueOf(0), bigRange.withDiff(0).Sum());
+    azzert.that(BigInteger.valueOf(0), is(bigRange.withDiff(0).Sum()));
   }
 
   @Test public void sumWithFrom() {
-    Assert.assertEquals(null, bigRange.from(5).withDiff(2).Sum());
+    azzert.that(null, is(bigRange.from(5).withDiff(2).Sum()));
   }
 
   @Test public void SumToandFrom() {
-    Assert.assertEquals(BigInteger.valueOf(20), bigRange.from(2).to(8).withDiff(2).Sum());
+    azzert.that(BigInteger.valueOf(20), is(bigRange.from(2).to(8).withDiff(2).Sum()));
   }
 
   @Test public void SumToandFromandDiffof3() {
-    Assert.assertEquals(BigInteger.valueOf(18), bigRange.from(3).to(9).withDiff(3).Sum());
+    azzert.that(BigInteger.valueOf(18), is(bigRange.from(3).to(9).withDiff(3).Sum()));
   }
 
   @Test public void impossibleRangeNegative() {
-    Assert.assertEquals(null, bigRange.to(-5).withDiff(1));
+    azzert.that(null, is(bigRange.to(-5).withDiff(1)));
   }
 
   @Test public void impossibleRangePossitive() {
-    Assert.assertEquals(null, bigRange.from(2).to(5).withDiff(-1));
+    azzert.that(null, is(bigRange.from(2).to(5).withDiff(-1)));
   }
 
   @Test public void naturals() {
@@ -96,7 +96,17 @@ import org.junit.*;
     final Iterable<BigInteger> iter = bigRange.from(BigInteger.valueOf(5)).to(BigInteger.valueOf(123)).withDiff(BigInteger.valueOf(3));
     BigInteger count = BigInteger.valueOf(5);
     for (final BigInteger i : iter) {
-      Assert.assertEquals(count, i);
+      azzert.that(count, is(i));
+      count.add(BigInteger.valueOf(1));
+      count = count.add(BigInteger.valueOf(3));
+    }
+  }
+
+  @Test public void bigIntegerTo() {
+    final Iterable<BigInteger> iter = bigRange.to(BigInteger.valueOf(123)).withDiff(BigInteger.valueOf(3));
+    BigInteger count = BigInteger.valueOf(0);
+    for (final BigInteger i : iter) {
+      azzert.that(count, is(i));
       count.add(BigInteger.valueOf(1));
       count = count.add(BigInteger.valueOf(3));
     }

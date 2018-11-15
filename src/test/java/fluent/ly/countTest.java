@@ -6,8 +6,8 @@ import java.util.stream.*;
 import org.junit.*;
 
 @SuppressWarnings("static-method") public class countTest {
-  @Test @SuppressWarnings({"rawtypes", "unchecked"}) public void emptyIterableTest() {
-    azzert.assertEquals(0, count.of(new ArrayList()));
+  @Test public void emptyIterableTest() {
+    azzert.assertEquals(0, count.of(new ArrayList<Integer>()));
   }
 
   @Test public void Count100ObjectsTest() {
