@@ -13,7 +13,7 @@ import fluent.ly.*;
     assert p.contains(1.1, 2.2);
   }
 
-  @Test public void sort() {
+  @Test public void sort() {  
     PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 10; ¢++)
       p.record(10.0 - ¢, 20.0 - ¢);
