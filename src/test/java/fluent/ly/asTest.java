@@ -18,16 +18,16 @@ import org.junit.*;
   @Test public void iterableHasRange10Test() {
     final Iterator<Integer> i = as
         .asIterable(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9), box.it(10)).iterator();
-    Assert.assertEquals(Integer.valueOf(1), i.next());
-    Assert.assertEquals(Integer.valueOf(2), i.next());
-    Assert.assertEquals(Integer.valueOf(3), i.next());
-    Assert.assertEquals(Integer.valueOf(4), i.next());
-    Assert.assertEquals(Integer.valueOf(5), i.next());
-    Assert.assertEquals(Integer.valueOf(6), i.next());
-    Assert.assertEquals(Integer.valueOf(7), i.next());
-    Assert.assertEquals(Integer.valueOf(8), i.next());
-    Assert.assertEquals(Integer.valueOf(9), i.next());
-    Assert.assertEquals(Integer.valueOf(10), i.next());
+    Assert.assertEquals(box.it(1), i.next());
+    Assert.assertEquals(box.it(2), i.next());
+    Assert.assertEquals(box.it(3), i.next());
+    Assert.assertEquals(box.it(4), i.next());
+    Assert.assertEquals(box.it(5), i.next());
+    Assert.assertEquals(box.it(6), i.next());
+    Assert.assertEquals(box.it(7), i.next());
+    Assert.assertEquals(box.it(8), i.next());
+    Assert.assertEquals(box.it(9), i.next());
+    Assert.assertEquals(box.it(10), i.next());
     assert !i.hasNext();
   }
 
@@ -62,16 +62,16 @@ import org.junit.*;
   @Test public void iteratorHasRange10Test() {
     final Iterator<Integer> i = as.iterator(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9),
         box.it(10));
-    Assert.assertEquals(Integer.valueOf(1), i.next());
-    Assert.assertEquals(Integer.valueOf(2), i.next());
-    Assert.assertEquals(Integer.valueOf(3), i.next());
-    Assert.assertEquals(Integer.valueOf(4), i.next());
-    Assert.assertEquals(Integer.valueOf(5), i.next());
-    Assert.assertEquals(Integer.valueOf(6), i.next());
-    Assert.assertEquals(Integer.valueOf(7), i.next());
-    Assert.assertEquals(Integer.valueOf(8), i.next());
-    Assert.assertEquals(Integer.valueOf(9), i.next());
-    Assert.assertEquals(Integer.valueOf(10), i.next());
+    Assert.assertEquals(box.it(1), i.next());
+    Assert.assertEquals(box.it(2), i.next());
+    Assert.assertEquals(box.it(3), i.next());
+    Assert.assertEquals(box.it(4), i.next());
+    Assert.assertEquals(box.it(5), i.next());
+    Assert.assertEquals(box.it(6), i.next());
+    Assert.assertEquals(box.it(7), i.next());
+    Assert.assertEquals(box.it(8), i.next());
+    Assert.assertEquals(box.it(9), i.next());
+    Assert.assertEquals(box.it(10), i.next());
     assert !i.hasNext();
   }
 

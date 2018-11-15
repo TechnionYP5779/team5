@@ -9,11 +9,11 @@ import fluent.ly.*;
 @SuppressWarnings("static-method") public class PairTest {
   @Test public void test_constrAndNewPair() {
     final Pair<Integer, Integer> p1 = new Pair<>(box.box(1), box.box(2));
-    azzert.that(p1.first, is(Integer.valueOf(1)));
-    azzert.that(p1.second, is(Integer.valueOf(2)));
+    azzert.that(p1.first, is(box.it(1)));
+    azzert.that(p1.second, is(box.it(2)));
     final Pair<Integer, Integer> p2 = Pair.newPair(box.box(3), box.box(4));
-    azzert.that(p2.first, is(Integer.valueOf(3)));
-    azzert.that(p2.second, is(Integer.valueOf(4)));
+    azzert.that(p2.first, is(box.it(3)));
+    azzert.that(p2.second, is(box.it(4)));
   }
 
   @Test public void test_makePairs() {
@@ -26,8 +26,8 @@ import fluent.ly.*;
     for (int ¢ = 0; ¢ < 15; ¢++) {
       azzert.that(null, is(list2[¢]));
       list2[¢] = new Pair<>(box.box(3), box.box(4));
-      azzert.that(list2[¢].first, is(Integer.valueOf(3)));
-      azzert.that(list2[¢].second, is(Integer.valueOf(4)));
+      azzert.that(list2[¢].first, is(box.it(3)));
+      azzert.that(list2[¢].second, is(box.it(4)));
     }
   }
 

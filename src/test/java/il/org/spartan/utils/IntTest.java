@@ -12,10 +12,10 @@ public class IntTest {
     azzert.that(Int.valueOf(9).get(), is(9));
   }
 
-  @AfterClass public static void test_inner() {
+  @SuppressWarnings("null") @AfterClass public static void test_inner() {
     final Int i1 = new Int(10);
     final Integer inner = i1.inner(), inner2 = i1.inner();
-    azzert.that(inner.intValue(), is(10));
+    azzert.that(unbox.it(inner), is(10));
     azzert.that(inner2.intValue(), is(10));
     assert inner.equals(inner2);
   }

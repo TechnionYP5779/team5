@@ -34,13 +34,13 @@ import org.junit.*;
     azzert.that(null, is(the.penultimateOf(l)));
   }
 
-  @Test @SuppressWarnings("null") public void penuliateTest() {
+  @Test public void penuliateTest() {
     final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     l.add(box.it(1));
     l.add(box.it(2));
     l.add(box.it(3));
-    azzert.that(Integer.valueOf(2), is(the.penultimateOf(l)));
+    azzert.that(box.it(2), is(the.penultimateOf(l)));
   }
 
   @Test public void nullPrevoiusOf() {
