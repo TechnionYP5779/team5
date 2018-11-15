@@ -82,8 +82,8 @@ import org.junit.*;
     assert the.headOf(null) == null;
   }
 
-  @Test @SuppressWarnings({ "unchecked", "rawtypes" }) public void headOfEmpty() {
-    azzert.that(null, is(the.headOf(new ArrayList())));
+  @SuppressWarnings("null") @Test  public void headOfEmpty() {
+    azzert.that(null, is(the.headOf(new ArrayList<>())));
   }
 
   @Test @SuppressWarnings("null") public void headOf() {
@@ -102,12 +102,12 @@ import org.junit.*;
     azzert.that(null, is(the.lastOf((ArrayList<Integer>) null)));
   }
 
-  @Test @SuppressWarnings({ "unchecked", "rawtypes", "null" }) public void lastOfEpty() {
-    azzert.that(null, is(the.lastOf(new ArrayList())));
+  @SuppressWarnings("null") @Test public void lastOfEpty() {
+    azzert.that(null, is(the.lastOf(new ArrayList<>())));
   }
 
-  @Test @SuppressWarnings({ "unchecked", "rawtypes", "null" }) public void lastOf() {
-    final ArrayList l = new ArrayList();
+  @SuppressWarnings("null") @Test  public void lastOf() {
+    final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(1));
     azzert.that(box.it(1), is(the.lastOf(l)));
   }
@@ -120,8 +120,8 @@ import org.junit.*;
     azzert.that('w', is(the.beforeLastOf("hello world", 4)));
   }
 
-  @Test @SuppressWarnings({ "unchecked", "rawtypes", "null" }) public void lastOfIterable() {
-    final Iterator it = the.lastOf((Iterable) (ArrayList) IntStream.range(0, 5).boxed().collect(Collectors.toList())).iterator();
+  @SuppressWarnings("null") @Test public void lastOfIterable() {
+    final Iterator<?> it = the.lastOf((Iterable<?>) (ArrayList<?>) IntStream.range(0, 5).boxed().collect(Collectors.toList())).iterator();
     azzert.that(box.it(1), is(it.next()));
     azzert.that(box.it(2), is(it.next()));
     azzert.that(box.it(3), is(it.next()));
@@ -133,12 +133,12 @@ import org.junit.*;
     assert the.onlyOneOf(null) == null;
   }
 
-  @Test @SuppressWarnings({ "unchecked", "rawtypes" }) public void onlyOneOfEmpty() {
-    azzert.that(null, is(the.onlyOneOf(new ArrayList())));
+  @SuppressWarnings("null") @Test public void onlyOneOfEmpty() {
+    azzert.that(null, is(the.onlyOneOf(new ArrayList<>())));
   }
 
-  @Test @SuppressWarnings({ "rawtypes", "unchecked" }) public void onlyOneOf() {
-    final ArrayList l = new ArrayList();
+  @Test  public void onlyOneOf() {
+    final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     azzert.that(box.it(0), is(the.onlyOneOf(l)));
   }
@@ -147,12 +147,12 @@ import org.junit.*;
     assert the.secondOf(null) == null;
   }
 
-  @Test @SuppressWarnings({ "unchecked", "rawtypes" }) public void secondOfEmpty() {
-    azzert.that(null, is(the.secondOf(new ArrayList())));
+  @SuppressWarnings("null") @Test public void secondOfEmpty() {
+    azzert.that(null, is(the.secondOf(new ArrayList<>())));
   }
 
-  @Test @SuppressWarnings({ "rawtypes", "unchecked" }) public void secondOf() {
-    final ArrayList l = new ArrayList();
+  @Test  public void secondOf() {
+    final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     l.add(box.it(1));
     azzert.that(box.it(1), is(the.secondOf(l)));
@@ -174,12 +174,12 @@ import org.junit.*;
     assert the.last(null) == null;
   }
 
-  @Test @SuppressWarnings({ "unchecked", "rawtypes" }) public void lastEmpty() {
-    azzert.that(null, is(the.last(new ArrayList())));
+  @SuppressWarnings("null") @Test  public void lastEmpty() {
+    azzert.that(null, is(the.last(new ArrayList<>())));
   }
 
-  @Test @SuppressWarnings({ "rawtypes", "unchecked" }) public void last() {
-    final ArrayList l = new ArrayList();
+  @Test  public void last() {
+    final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     azzert.that(box.it(0), is(the.last(l)));
   }
