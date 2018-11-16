@@ -8,7 +8,7 @@ import org.junit.*;
   }
 
   @Test public void lyDoubleTest() {
-    Assert.assertEquals(1.23, anonymous.ly(() -> 1.23), 0.0001);
+    azzert.that(anonymous.ly(() -> 1.23), azzert.is(1.23));
   }
 
   @Test public void lyIntTest() {
@@ -16,11 +16,11 @@ import org.junit.*;
   }
 
   @Test public void lylongTest() {
-    Assert.assertEquals(Long.MAX_VALUE, anonymous.ly(() -> Long.MAX_VALUE));
+    azzert.that(anonymous.ly(() -> Long.MAX_VALUE),azzert.is(Long.MAX_VALUE));
   }
 
   @Test public void lyAnyTest() {
     final Object o = new Object();
-    Assert.assertEquals(o, anonymous.ly(() -> o));
+    azzert.that(anonymous.ly(() -> o), azzert.is(o));
   }
 }
