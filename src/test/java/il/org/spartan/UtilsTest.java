@@ -15,11 +15,11 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   static final Integer i = null;
 
   @Test public void addTest() {
-    ArrayList<Integer> a = new ArrayList<>();
+    final ArrayList<Integer> a = new ArrayList<>();
     a.add(box.box(5));
     Utils.add(a, box.box(5));
     azzert.that(a.size(), is(2));
-    ArrayList<Integer> b = new ArrayList<>();
+    final ArrayList<Integer> b = new ArrayList<>();
     b.add(null);
     b.add(box.box(5));
     Utils.add(a, b);
@@ -29,26 +29,22 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   static Iterable<Integer> range(final int from, final int to) {
-    return new Iterable<Integer>() {
-      @Override public Iterator<Integer> iterator() {
-        return new Iterator<Integer>() {
-          int current = from;
+    return () -> new Iterator<Integer>() {
+      int current = from;
 
-          @Override public boolean hasNext() {
-            return current < to;
-          }
+      @Override public boolean hasNext() {
+        return current < to;
+      }
 
-          @Override public Integer next() {
-            return box.box(current++);
-          }
-        };
+      @Override public Integer next() {
+        return box.box(current++);
       }
     };
   }
 
   @Test public void addAllTest() {
-    ArrayList<Integer> a = new ArrayList<>();
-    ArrayList<Integer> b = new ArrayList<>();
+    final ArrayList<Integer> a = new ArrayList<>();
+    final ArrayList<Integer> b = new ArrayList<>();
     b.add(box.box(5));
     azzert.that(a.size(), is(0));
     Utils.addAll(a, b);
@@ -62,7 +58,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void appendTest() {
-    int[] arr = new int[10];
+    final int[] arr = new int[10];
     azzert.that(Utils.append(box.box(arr), box.box(5))[10], is(5));
   }
 
@@ -109,11 +105,11 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void foundTest() {
-    FoundHandleForInt f = Utils.found(5);
+    final FoundHandleForInt f = Utils.found(5);
     azzert.that(f.candidate, is(5));
     assert f.in(5);
     assert !f.in(7);
-    FoundHandleForT<Integer> g = Utils.found(box.box(6));
+    final FoundHandleForT<Integer> g = Utils.found(box.box(6));
     azzert.that(g.candidate, is(6));
     assert g.in(box.box(6));
     assert !g.in(box.box(7));
@@ -121,7 +117,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void inRangeTest() {
-    ArrayList<Integer> a = new ArrayList<>();
+    final ArrayList<Integer> a = new ArrayList<>();
     a.add(box.box(2));
     a.add(box.box(2));
     assert Utils.inRange(0, a);
@@ -132,9 +128,9 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void lastTest() {
-    ArrayList<Integer> a = new ArrayList<>();
-    Integer x2 = box.box(2);
-    Integer x3 = box.box(3);
+    final ArrayList<Integer> a = new ArrayList<>();
+    final Integer x2 = box.box(2);
+    final Integer x3 = box.box(3);
     a.add(x2);
     a.add(x3);
     assert Utils.lastIn(x3, a);
@@ -142,7 +138,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void intIsInTest() {
-    int[] a = new int[3];
+    final int[] a = new int[3];
     a[0] = 0;
     a[1] = 1;
     a[2] = 2;
@@ -155,7 +151,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void runUtilsTests() {
-    TEST t = new TEST();
+    final TEST t = new TEST();
     t.addAllTypical();
     t.addTypical();
     t.cantBeNullOfNull();
@@ -175,9 +171,9 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void penultimateInTest() {
-    ArrayList<Integer> a = new ArrayList<>();
-    Integer x2 = box.box(2);
-    Integer x3 = box.box(3);
+    final ArrayList<Integer> a = new ArrayList<>();
+    final Integer x2 = box.box(2);
+    final Integer x3 = box.box(3);
     a.add(x2);
     a.add(x3);
     assert Utils.penultimateIn(x2, a);
@@ -197,9 +193,9 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void removeTests() {
-    ArrayList<Integer> a = new ArrayList<>();
-    Integer x2 = box.box(2);
-    Integer x3 = box.box(2);
+    final ArrayList<Integer> a = new ArrayList<>();
+    final Integer x2 = box.box(2);
+    final Integer x3 = box.box(2);
     a.add(x2);
     a.add(x3);
     Utils.removeDuplicates(a);
@@ -210,7 +206,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void sortTest() {
-    int[] arr = Utils.sort(new int[] { 3, 2, 4, 1, 5 });
+    final int[] arr = Utils.sort(new int[] { 3, 2, 4, 1, 5 });
     azzert.that(arr[0], is(1));
     azzert.that(arr[1], is(2));
     azzert.that(arr[2], is(3));
@@ -223,9 +219,9 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void suffixedByTest() {
-    File f = new File("file1");
-    File g = new File("file2");
-    ArrayList<String> slist = new ArrayList<>();
+    final File f = new File("file1");
+    final File g = new File("file2");
+    final ArrayList<String> slist = new ArrayList<>();
     slist.add("suf1");
     slist.add("e1");
     assert Utils.suffixedBy(f, slist);

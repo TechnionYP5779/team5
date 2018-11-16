@@ -7,10 +7,10 @@ public class angle {
   public static final angle pi = new angle(180);
   private static final double deg2Rad = Math.PI / 180;
   private static final double rad2Deg = 180 / Math.PI;
-  private double deg;
-  private double rad;
+  private final double deg;
+  private final double rad;
 
-  public angle(double i) {
+  public angle(final double i) {
     deg = i;
     rad = i * deg2Rad;
   }
@@ -23,11 +23,11 @@ public class angle {
     return rad;
   }
 
-  public static angle degrees(double i) {
+  public static angle degrees(final double i) {
     return new angle(i);
   }
 
-  public static angle radians(double i) {
+  public static angle radians(final double i) {
     return new angle(i * rad2Deg);
   }
 }

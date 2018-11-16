@@ -8,12 +8,12 @@ public class LinearLine {
   double beta1;
   double beta0;
 
-  public LinearLine(double b1, double b0) {
+  public LinearLine(final double b1, final double b0) {
     beta1 = b1;
     beta0 = b0;
   }
 
-  public double yOf(double x) {
+  public double yOf(final double x) {
     return beta0 + x * beta1;
   }
 }

@@ -19,7 +19,7 @@ import il.org.spartan.utils.*;
 
   @Test public void test_atod() {
     @NotNull final Double $ = box.box(string.atod("42.001"));
-    @NotNull String s = new String("333");
+    @NotNull final String s = new String("333");
     @NotNull final Double $2 = box.box(string.atod(s));
     azzert.that(true, is(unbox.unbox($) > 42.00));
     azzert.that(true, is(unbox.unbox($2) == 333.0));

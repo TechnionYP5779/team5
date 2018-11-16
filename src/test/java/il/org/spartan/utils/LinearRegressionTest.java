@@ -6,12 +6,12 @@ import fluent.ly.*;
 
 @SuppressWarnings("static-method") public class LinearRegressionTest {
   @Test public void constr1() {
-    double[] l1 = new double[5], l2 = new double[5];
+    final double[] l1 = new double[5], l2 = new double[5];
     for (int ¢ = 0; ¢ < 5; ¢++) {
       l1[¢] = ¢ + 1;
       l2[¢] = ¢ + 4;
     }
-    LinearRegression l = new LinearRegression(l1, l2);
+    final LinearRegression l = new LinearRegression(l1, l2);
     for (int ¢ = 0; ¢ < 5; ¢++) {
       azzert.that(l.getX()[¢], azzert.is(l1[¢]));
       azzert.that(l.getY()[¢], azzert.is(l2[¢]));
@@ -19,10 +19,10 @@ import fluent.ly.*;
   }
 
   @Test public void constr2() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢ + 1, ¢ + 4);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     for (int ¢ = 0; ¢ < 5; ¢++) {
       azzert.that(l.getX()[¢], azzert.is(p.l.get(¢).p.first));
       azzert.that(l.getY()[¢], azzert.is(p.l.get(¢).p.second));
@@ -30,74 +30,74 @@ import fluent.ly.*;
   }
 
   @Test public void testSetX() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢ + 1, ¢ + 4);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     l.setX(new double[] { 1.0, 1.0, 1.0, 1.0, 1.0 });
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.getX()[¢], azzert.is(1.0));
   }
 
   @Test public void testSetXnull() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢ + 1, ¢ + 4);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     l.setX(null);
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.getX()[¢], azzert.is(¢ + 1.0));
   }
 
   @Test public void testSetY() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢ + 1, ¢ + 4);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     l.setY(new double[] { 1.0, 1.0, 1.0, 1.0, 1.0 });
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.getY()[¢], azzert.is(1.0));
   }
 
   @Test public void testSetYnull() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢ + 1, ¢ + 4);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     l.setY(null);
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.getY()[¢], azzert.is(¢ + 4.0));
   }
 
   @Test public void sxx() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢, 0.0);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     azzert.that(l.SXX(), azzert.is(10.0));
   }
 
   @Test public void sxy() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢, 0.0);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     azzert.that(l.SXY(), azzert.is(0.0));
   }
 
   @Test public void syy() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢, 0.0);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     azzert.that(l.SYY(), azzert.is(0.0));
   }
 
   @Test public void predictZero() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢, 0.0);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     /** check existing dots **/
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.RegressionLine().yOf(¢ + 1), azzert.is(0.0));
@@ -107,10 +107,10 @@ import fluent.ly.*;
   }
 
   @Test public void predictConst() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(1.0, 4.0);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     /** check existing dots **/
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.RegressionLine().yOf(¢ + 1), azzert.is(4.0));
@@ -120,10 +120,10 @@ import fluent.ly.*;
   }
 
   @Test public void predictLinearUp() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢ + 1, ¢ + 4);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     /** check existing dots **/
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.RegressionLine().yOf(¢ + 1), azzert.is(¢ + 4.0));
@@ -133,10 +133,10 @@ import fluent.ly.*;
   }
 
   @Test public void predictLinearDown() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
       p.record(¢ + 1, ¢ - 4);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     /** check existing dots **/
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.predict(¢ + 1), azzert.is(¢ - 4.0));
@@ -146,13 +146,13 @@ import fluent.ly.*;
   }
 
   @Test public void predictAlmostConst() {
-    PairsList p = new PairsList();
+    final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 3000; ¢++)
       if (¢ % 2 == 0)
         p.record(¢ + 1, 4.0);
       else
         p.record(¢ + 1, 6.0);
-    LinearRegression l = new LinearRegression(p);
+    final LinearRegression l = new LinearRegression(p);
     /** check existing dots **/
     for (int ¢ = 0; ¢ < 5; ¢++)
       assert Math.abs(l.RegressionLine().yOf(¢ + 1) - 5) < 0.01;

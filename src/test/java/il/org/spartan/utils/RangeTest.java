@@ -16,7 +16,7 @@ import il.org.spartan.utils.Range.*;
 
   @Test public void Rangefrom() {
     assert range.from(2).from().hasNext();
-    RangeIterator it = range.from(2).from();
+    final RangeIterator it = range.from(2).from();
     azzert.that(it.next(), is(box.box(3)));
     assert it.hasNext();
     azzert.that(it.next(), is(box.box(4)));
@@ -26,12 +26,12 @@ import il.org.spartan.utils.Range.*;
   }
 
   @Test public void fromTo() {
-    Range r = range.from(2).to(6);
+    final Range r = range.from(2).to(6);
     azzert.that(r.getFrom(), is(2));
     azzert.that(r.getTo(), is(6));
     assert !r.isToInfinite();
     assert !r.isToNInfinite();
-    RangeIterator it = range.from(2).to(6).from();
+    final RangeIterator it = range.from(2).to(6).from();
     assert it.hasNext();
     azzert.that(it.next(), is(box.box(3)));
     assert it.hasNext();
@@ -46,7 +46,7 @@ import il.org.spartan.utils.Range.*;
   }
 
   @Test public void to() {
-    Range r = range.to(2);
+    final Range r = range.to(2);
     assert !r.isToInfinite();
     assert r.isToNInfinite();
     azzert.that(r.getTo(), is(2));
@@ -54,12 +54,12 @@ import il.org.spartan.utils.Range.*;
   }
 
   @Test public void toFrom() {
-    Range r = range.to(2).from(-5);
+    final Range r = range.to(2).from(-5);
     assert !r.isToInfinite();
     assert !r.isToNInfinite();
     azzert.that(r.getTo(), is(2));
     azzert.that(r.getFrom(), is(-5));
-    RangeIterator it = r.from();
+    final RangeIterator it = r.from();
     assert it.hasNext();
     azzert.that(it.next(), is(box.box(-4)));
     assert it.hasNext();
@@ -78,7 +78,7 @@ import il.org.spartan.utils.Range.*;
   }
 
   @Test public void numbers() {
-    RangeIterator it = range.numbers;
+    final RangeIterator it = range.numbers;
     for (int ¢ = 1; ¢ < 10000; ++¢) {
       assert it.hasNext();
       azzert.that(it.next(), is(box.box(Integer.MIN_VALUE + ¢)));
@@ -86,12 +86,12 @@ import il.org.spartan.utils.Range.*;
   }
 
   @Test public void intersect() {
-    Range r = range.to(10).interset(range.from(3));
+    final Range r = range.to(10).interset(range.from(3));
     assert !r.isToInfinite();
     assert !r.isToNInfinite();
     azzert.that(r.getTo(), is(10));
     azzert.that(r.getFrom(), is(3));
-    RangeIterator it = r.from();
+    final RangeIterator it = r.from();
     assert it.hasNext();
     azzert.that(it.next(), is(box.box(4)));
     assert it.hasNext();
@@ -109,7 +109,7 @@ import il.org.spartan.utils.Range.*;
   }
 
   @Test public void includes() {
-    Range r = range.from(5).to(20);
+    final Range r = range.from(5).to(20);
     assert !r.isToInfinite();
     assert !r.isToNInfinite();
     azzert.that(r.getTo(), is(20));

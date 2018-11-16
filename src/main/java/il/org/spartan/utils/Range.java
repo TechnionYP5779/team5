@@ -9,26 +9,26 @@ import fluent.ly.*;
 @SuppressWarnings("static-method") public class Range {
   public class RangeIterator implements Iterator<Integer> {
     @NotNull private Integer pos;
-    @NotNull private Integer to1;
+    @NotNull private final Integer to1;
 
-    public RangeIterator(@NotNull Integer From) {
+    public RangeIterator(@NotNull final Integer From) {
       pos = box.box(unbox.unbox(From));
       to1 = box.box(unbox.unbox(From) - 1);
     }
 
-    public RangeIterator(@NotNull Integer From, @NotNull Integer to) {
+    public RangeIterator(@NotNull final Integer From, @NotNull final Integer to) {
       pos = box.box(unbox.unbox(From));
       this.to1 = box.box(unbox.unbox(to));
     }
 
     @Override public boolean hasNext() {
-      return unbox.unbox(to1) < unbox.unbox(pos) || (unbox.unbox(pos) + 1) < unbox.unbox(to1);
+      return unbox.unbox(to1) < unbox.unbox(pos) || unbox.unbox(pos) + 1 < unbox.unbox(to1);
     }
 
     @Override public Integer next() {
       if (unbox.unbox(pos) >= unbox.unbox(to1) - 1 && unbox.unbox(pos) <= unbox.unbox(to1))
         return box.box(unbox.unbox(pos));
-      int $ = unbox.unbox(pos) + 1;
+      final int $ = unbox.unbox(pos) + 1;
       pos = box.box($);
       return box.box($);
     }
@@ -38,12 +38,12 @@ import fluent.ly.*;
   @NotNull private Integer to;
   private boolean Ninfinite;
 
-  public Range(int i) {
+  public Range(final int i) {
     from = box.box(i);
     to = box.box(unbox.unbox(from) - 1);
   }
 
-  public Range(int ¢, boolean b) {
+  public Range(final int ¢, final boolean b) {
     from = box.box(¢);
     to = box.box(¢);
     this.Ninfinite = b;
@@ -69,7 +69,7 @@ import fluent.ly.*;
     return new RangeIterator(from, to);
   }
 
-  public Range to(int ¢) {
+  public Range to(final int ¢) {
     this.to = box.box(¢);
     return this;
   }
@@ -78,17 +78,17 @@ import fluent.ly.*;
     return this.to;
   }
 
-  public Range from(int ¢) {
+  public Range from(final int ¢) {
     this.from = box.box(¢);
     this.Ninfinite = false;
     return this;
   }
 
-  public Range interset(@SuppressWarnings("unused") Range from2) {
+  public Range interset(@SuppressWarnings("unused") final Range from2) {
     return range.from(3).to(10);
   }
 
-  public boolean includes(int ¢) {
+  public boolean includes(final int ¢) {
     return ¢ >= unbox.unbox(this.from) && ¢ < unbox.unbox(this.to);
   }
 }
