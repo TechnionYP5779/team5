@@ -18,16 +18,16 @@ import org.junit.*;
   @Test public void iterableHasRange10Test() {
     final Iterator<Integer> i = as
         .asIterable(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9), box.it(10)).iterator();
-    Assert.assertEquals(box.it(1), i.next());
-    Assert.assertEquals(box.it(2), i.next());
-    Assert.assertEquals(box.it(3), i.next());
-    Assert.assertEquals(box.it(4), i.next());
-    Assert.assertEquals(box.it(5), i.next());
-    Assert.assertEquals(box.it(6), i.next());
-    Assert.assertEquals(box.it(7), i.next());
-    Assert.assertEquals(box.it(8), i.next());
-    Assert.assertEquals(box.it(9), i.next());
-    Assert.assertEquals(box.it(10), i.next());
+    azzert.that(box.it(1), azzert.is(i.next()));
+    azzert.that(box.it(2), azzert.is(i.next()));
+    azzert.that(box.it(3), azzert.is(i.next()));
+    azzert.that(box.it(4), azzert.is(i.next()));
+    azzert.that(box.it(5), azzert.is(i.next()));
+    azzert.that(box.it(6), azzert.is(i.next()));
+    azzert.that(box.it(7), azzert.is(i.next()));
+    azzert.that(box.it(8), azzert.is(i.next()));
+    azzert.that(box.it(9), azzert.is(i.next()));
+    azzert.that(box.it(10), azzert.is(i.next()));
     assert !i.hasNext();
   }
 
@@ -48,46 +48,46 @@ import org.junit.*;
   }
 
   @Test public void emptyIterableListTest() {
-    Assert.assertEquals(new ArrayList<>(), as.ingeterList());
+    azzert.that(new ArrayList<>(), azzert.is(as.ingeterList()));
   }
 
   @Test public void range10IterableList() {
-    Assert.assertEquals(IntStream.range(1, 11).boxed().collect(Collectors.toList()), as.ingeterList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+    azzert.that(IntStream.range(1, 11).boxed().collect(Collectors.toList()), azzert.is(as.ingeterList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
   }
 
   @Test public void range10ArrayTest() {
-    Assert.assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, as.intArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+    azzert.that(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, azzert.is(as.intArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
   }
 
   @Test public void iteratorHasRange10Test() {
     final Iterator<Integer> i = as.iterator(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9),
         box.it(10));
-    Assert.assertEquals(box.it(1), i.next());
-    Assert.assertEquals(box.it(2), i.next());
-    Assert.assertEquals(box.it(3), i.next());
-    Assert.assertEquals(box.it(4), i.next());
-    Assert.assertEquals(box.it(5), i.next());
-    Assert.assertEquals(box.it(6), i.next());
-    Assert.assertEquals(box.it(7), i.next());
-    Assert.assertEquals(box.it(8), i.next());
-    Assert.assertEquals(box.it(9), i.next());
-    Assert.assertEquals(box.it(10), i.next());
+    azzert.that(box.it(1), azzert.is(i.next()));
+    azzert.that(box.it(2), azzert.is(i.next()));
+    azzert.that(box.it(3), azzert.is(i.next()));
+    azzert.that(box.it(4), azzert.is(i.next()));
+    azzert.that(box.it(5), azzert.is(i.next()));
+    azzert.that(box.it(6), azzert.is(i.next()));
+    azzert.that(box.it(7), azzert.is(i.next()));
+    azzert.that(box.it(8), azzert.is(i.next()));
+    azzert.that(box.it(9), azzert.is(i.next()));
+    azzert.that(box.it(10), azzert.is(i.next()));
     assert !i.hasNext();
   }
 
   @Test public void emptyListTest() {
     final Iterable<Integer> i = null;
-    Assert.assertEquals(new ArrayList<>(), as.list(i));
+    azzert.that(new ArrayList<>(), azzert.is(as.list(i)));
   }
 
   @Test public void range10IterableTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
-    Assert.assertEquals(l, as.list(l));
+    azzert.that(l, azzert.is(as.list(l)));
   }
 
-  @Test public void rangeA2zListTest() {
-    Assert.assertEquals(IntStream.range(0, 26).mapToObj(λ -> String.valueOf((char) (λ + 'A'))).collect(Collectors.toList()),
-        as.list("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"));
+  @SuppressWarnings("null") @Test public void rangeA2zListTest() {
+    azzert.that(IntStream.range(0, 26).mapToObj(λ -> String.valueOf((char) (λ + 'A'))).collect(Collectors.toList()), azzert.is(
+        as.list("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")));
   }
 
   @Test public void setOf123Test() {
@@ -95,33 +95,33 @@ import org.junit.*;
     s.add(box.it(1));
     s.add(box.it(2));
     s.add(box.it(3));
-    Assert.assertEquals(s, as.set(box.it(1), box.it(1), box.it(2), box.it(3), box.it(2), box.it(3), box.it(1), box.it(2), box.it(3)));
+    azzert.that(s, azzert.is(as.set(box.it(1), box.it(1), box.it(2), box.it(3), box.it(2), box.it(3), box.it(1), box.it(2), box.it(3))));
   }
 
   @Test public void nullStringTest() {
-    Assert.assertEquals("null", as.string(null));
+    azzert.that("null", azzert.is(as.string(null)));
   }
 
   @Test public void objectStringTest() {
     final Object o = new Object();
-    Assert.assertEquals(o + "", as.string(o));
+    azzert.that(o + "", azzert.is(as.string(o)));
   }
 
   @Test public void charAsStringTest() {
-    Assert.assertEquals("A", as.string('A'));
+    azzert.that("A", azzert.is(as.string('A')));
   }
 
   @Test public void nullAsStringTest() {
-    Assert.assertEquals("null", as.string(null));
+    azzert.that("null", azzert.is(as.string(null)));
   }
 
   @Test public void StringasStringTest() {
-    Assert.assertEquals("hello world", as.string("hello world"));
+    azzert.that("hello world", azzert.is(as.string("hello world")));
   }
 
   @Test public void iterableAsStringTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
-    Assert.assertEquals(l + "", as.string(l));
+    azzert.that(l + "", azzert.is(as.string(l)));
   }
 
   @Test public void asBitOfFalse() {
