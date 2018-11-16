@@ -22,7 +22,7 @@ import fluent.ly.*;
     }
 
     @Override public boolean hasNext() {
-      return unbox.unbox(to1) < unbox.unbox(pos) || unbox.unbox(pos) + 1 < unbox.unbox(to1);
+      return unbox.unbox(to1) < unbox.unbox(pos) || unbox.unbox(pos) < unbox.unbox(to1) - 1;
     }
 
     @Override public Integer next() {

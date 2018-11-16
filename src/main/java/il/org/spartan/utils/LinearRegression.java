@@ -80,11 +80,11 @@ public class LinearRegression {
 
   public double SXY() {
     final double y_mean = Statistics.sampleMean(y_vals);
-    double sxy = 0;
+    double $ = 0;
     final double x_mean = Statistics.sampleMean(x_vals);
     for (int ¢ = 0; ¢ < x_vals.length; ¢++)
-      sxy += (x_vals[¢] - x_mean) * (y_vals[¢] - y_mean);
-    return sxy;
+      $ += (x_vals[¢] - x_mean) * (y_vals[¢] - y_mean);
+    return $;
   }
 
   public double SYY() {
