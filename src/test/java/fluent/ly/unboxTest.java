@@ -24,13 +24,13 @@ import org.junit.*;
         is(new short[] { 1, 2, 3, 4 }));
   }
 
-  @Test public void testUnboxDoubleArray() {
-    Assert.assertArrayEquals(new double[] { 1.1, 1.2, 1.3, 1.4 },
+  @SuppressWarnings("static-access") @Test public void testUnboxDoubleArray() {
+    azzert.assertArrayEquals(new double[] { 1.1, 1.2, 1.3, 1.4 },
         unbox.unbox(new Double[] { box.box(1.1), box.box(1.2), box.box(1.3), box.box(1.4) }), 0.001);
   }
 
-  @Test public void testUnboxFloatArray() {
-    Assert.assertArrayEquals(new float[] { (float) 1.1, (float) 1.2, (float) 1.3, (float) 1.4 },
+  @SuppressWarnings("static-access") @Test public void testUnboxFloatArray() {
+    azzert.assertArrayEquals(new float[] { (float) 1.1, (float) 1.2, (float) 1.3, (float) 1.4 },
         unbox.unbox(new Float[] { box.box((float) 1.1), box.box((float) 1.2), box.box((float) 1.3), box.box((float) 1.4) }), (float) 0.001);
   }
 

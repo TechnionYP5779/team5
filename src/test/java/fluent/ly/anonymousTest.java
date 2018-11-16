@@ -16,7 +16,7 @@ import org.junit.*;
   }
 
   @Test public void lylongTest() {
-    azzert.that(anonymous.ly(() -> Long.MAX_VALUE),azzert.is(Long.MAX_VALUE));
+    azzert.that(anonymous.ly(() -> Long.MAX_VALUE), azzert.is(Long.MAX_VALUE));
   }
 
   @Test public void lyAnyTest() {
