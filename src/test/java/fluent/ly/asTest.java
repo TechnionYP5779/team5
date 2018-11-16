@@ -1,7 +1,5 @@
 package fluent.ly;
 
-import static org.junit.Assert.*;
-
 import static fluent.ly.azzert.*;
 
 import java.util.*;
@@ -32,19 +30,19 @@ import org.junit.*;
   }
 
   public void falseShouldBe0bit() {
-    azzert.assertEquals(0, as.bit(false));
+    azzert.that(0, azzert.is(as.bit(false)));
   }
 
   @Test public void trueShouldBe1bit() {
-    azzert.assertEquals(1, as.bit(true));
+    azzert.that(1, azzert.is(as.bit(true)));
   }
 
   @Test public void nullShouldBe0bit() {
-    azzert.assertEquals(0, as.bit(null));
+    azzert.that(0, azzert.is(as.bit(null)));
   }
 
   @Test public void nonNUllShouldBe1bit() {
-    azzert.assertEquals(1, as.bit(new Object()));
+    azzert.that(1, azzert.is(as.bit(new Object())));
   }
 
   @Test public void emptyIterableListTest() {
@@ -134,7 +132,7 @@ import org.junit.*;
 
   @Test public void asIntArraySimple() {
     final int @NotNull [] is = as.intArray(100, 200, 200, 12, 13, 0);
-    assertArrayEquals(is, as.intArray(as.ingeterList(is)));
+    azzert.that(is, azzert.is(as.intArray(as.ingeterList(is))));
   }
 
   @Test public void asListSimple() {
