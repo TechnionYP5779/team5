@@ -139,7 +139,7 @@ import fluent.ly.*;
     final LinearRegression l = new LinearRegression(p);
     /** check existing dots **/
     for (int ¢ = 0; ¢ < 5; ¢++)
-      azzert.that(l.predict(¢ + 1), azzert.is(¢ - 4.0));
+      azzert.that(l.yOf(¢ + 1.0), azzert.is(¢ - 4.0));
     /** check new dots - predict **/
     for (int ¢ = 5; ¢ < 10; ¢++)
       azzert.that(l.RegressionLine().yOf(¢ + 1), azzert.is(¢ - 4.0));

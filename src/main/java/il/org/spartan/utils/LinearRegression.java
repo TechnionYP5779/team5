@@ -36,6 +36,16 @@ public class LinearRegression {
     }
   }
 
+  public double[] getX() {
+    return x_vals;
+  }
+
+  public double[] getY() {
+    return y_vals;
+  }
+
+  /** this function computes a representong linear line of the data and retrives
+   * it. **/
   public LinearLine RegressionLine() {
     final double x_mean = Statistics.sampleMean(x_vals), y_mean = Statistics.sampleMean(y_vals);
     double sxx = 0, sxy = 0;
@@ -46,18 +56,6 @@ public class LinearRegression {
     /** careful... sxx = 0 causes a constant line **/
     final double $ = sxx == 0 ? 0 : sxy / sxx;
     return new LinearLine($, y_mean - $ * x_mean);
-  }
-
-  public double predict(final double x) {
-    return RegressionLine().yOf(x);
-  }
-
-  public double[] getX() {
-    return x_vals;
-  }
-
-  public double[] getY() {
-    return y_vals;
   }
 
   public void setX(final double[] ¢) {
@@ -93,5 +91,9 @@ public class LinearRegression {
     for (int ¢ = 0; ¢ < x_vals.length; ¢++)
       $ += (y_vals[¢] - y_mean) * (y_vals[¢] - y_mean);
     return $;
+  }
+
+  public double yOf(double x) {
+    return RegressionLine().yOf(x);
   }
 }
