@@ -15,7 +15,7 @@ import fluent.ly.*;
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.getX()[¢], azzert.is(l1[¢]));
   }
-  
+
   @Test public void constr11() {
     final double[] l1 = new double[5], l2 = new double[5];
     for (int ¢ = 0; ¢ < 5; ¢++) {
@@ -35,7 +35,7 @@ import fluent.ly.*;
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.getX()[¢], azzert.is(p.l.get(¢).p.first));
   }
-  
+
   @Test public void constr21() {
     final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
@@ -118,7 +118,7 @@ import fluent.ly.*;
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.RegressionLine().yOf(¢ + 1), azzert.is(0.0));
   }
-  
+
   @Test public void predictZero2() {
     final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
@@ -138,7 +138,7 @@ import fluent.ly.*;
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.RegressionLine().yOf(¢ + 1), azzert.is(4.0));
   }
-  
+
   @Test public void predictConst2() {
     final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
@@ -158,7 +158,7 @@ import fluent.ly.*;
     for (int ¢ = 5; ¢ < 10; ¢++)
       azzert.that(l.RegressionLine().yOf(¢ + 1), azzert.is(¢ + 4.0));
   }
-  
+
   @Test public void predictLinearUp2() {
     final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
@@ -178,7 +178,7 @@ import fluent.ly.*;
     for (int ¢ = 0; ¢ < 5; ¢++)
       azzert.that(l.yOf(¢ + 1.0), azzert.is(¢ - 4.0));
   }
-  
+
   @Test public void predictLinearDown2() {
     final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 5; ¢++)
@@ -198,7 +198,7 @@ import fluent.ly.*;
     for (int ¢ = 0; ¢ < 5; ¢++)
       assert Math.abs(l.RegressionLine().yOf(¢ + 1) - 5) < 0.01;
   }
-  
+
   @Test public void predictAlmostConst2() {
     final PairsList p = new PairsList();
     for (int ¢ = 0; ¢ < 3000; ¢++)

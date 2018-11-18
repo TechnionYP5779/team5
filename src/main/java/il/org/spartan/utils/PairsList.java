@@ -111,7 +111,7 @@ public class PairsList {
   /* @param cord: "X" if we want the first quarter of X values, "Y" if we want it
    * on Y values
    *
-   * @return variance value of wanted axis */
+   * @return first quarter value of wanted axis */
   public double firstQuarterOf(final String axis) {
     final double[] $ = new double[sortAsc().size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
@@ -171,7 +171,7 @@ public class PairsList {
   /* @param cord: "X" if we want the squares-sum of X values, "Y" if we want it on
    * Y values
    *
-   * @return variance value of wanted axis */
+   * @return squares-sum value of wanted axis */
   public double squaresSumOf(final String axis) {
     int $ = 0;
     for (int ¢ = 0; ¢ < l.size(); ¢++)
@@ -183,7 +183,7 @@ public class PairsList {
   /* @param cord: "X" if we want the sum of X values, "Y" if we want it on Y
    * values
    *
-   * @return variance value of wanted axis */
+   * @return sum value of wanted axis */
   public double sumOf(final String axis) {
     int $ = 0;
     for (int ¢ = 0; ¢ < l.size(); ¢++)
@@ -194,7 +194,7 @@ public class PairsList {
   /* @param cord: "X" if we want the third quarter of X values, "Y" if we want it
    * on Y values
    *
-   * @return variance value of wanted axis */
+   * @return third quarter value of wanted axis */
   public double thirdQuarterOf(final String axis) {
     final double[] $ = new double[sortAsc().size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
