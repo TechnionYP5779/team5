@@ -11,6 +11,9 @@ import fluent.ly.*;
 import il.org.spartan.Utils.*;
 import il.org.spartan.Utils.FoundHandleForT.*;
 
+import static il.org.spartan.Utils.canBeNull;
+import static il.org.spartan.Utils.cantBeNull;
+
 @SuppressWarnings("static-method") public class UtilsTest {
   static final Integer i = null;
 
@@ -63,11 +66,11 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   @Test public void canBeNullTest() {
-    azzert.that(Utils.canBeNull(box.it(5)), is(5));
+    azzert.that(canBeNull(box.it(5)), is(5));
   }
 
   @Test public void cantBeNullTest() {
-    azzert.that(Utils.cantBeNull(box.it(5)), is(5));
+    azzert.that(cantBeNull(box.it(5)), is(5));
   }
 
   @Test public void compareTest() {
