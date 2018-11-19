@@ -262,7 +262,7 @@ import il.org.spartan.utils.Separate.*;
 
     public Ordered(final Renderer renderer) {
       super(renderer, new LinkedHashMap<String, String>());
-    }
+    }  
 
     public class Separated extends CSVLine.Ordered {
       @NotNull final String separator;
