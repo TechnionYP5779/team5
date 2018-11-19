@@ -9,7 +9,7 @@ import org.junit.*;
  *         set of objects */
 @SuppressWarnings("static-method") public class IsTest {
   @SuppressWarnings("null") @Test public void testIn() {
-    Integer a = null;
+    final Integer a = null;
     azzert.that(true, azzert.is(is.in("", "")));
     azzert.that(true, azzert.is(is.in("nir", "igor", "shaked", "shalev", "lior", "or", "nir")));
     azzert.that(false, azzert.is(is.in(box.box(1), a)));
@@ -37,10 +37,10 @@ import org.junit.*;
   // azzert.assertEquals(false, is.intIsIn(num, 1, 2, 3, 5, 6, 7, 8, 9, 10));
   // }
   @Test public void testIsEmptyNull() {
-    String s = null;
-    Object a[] = null;
-    Iterable<Object> it = null;
-    Collection<Object> coll = null;
+    final String s = null;
+    final Object a[] = null;
+    final Iterable<Object> it = null;
+    final Collection<Object> coll = null;
     azzert.that(true, azzert.is(is.empty(s)));
     azzert.that(true, azzert.is(is.empty(a)));
     azzert.that(true, azzert.is(is.empty(it)));
@@ -48,10 +48,10 @@ import org.junit.*;
   }
 
   @Test public void testIsEmpty() {
-    String s = "";
-    Object a[] = {};
-    Iterable<Object> it = new ArrayList<>();
-    Collection<Object> coll = new ArrayList<>();
+    final String s = "";
+    final Object a[] = {};
+    final Iterable<Object> it = new ArrayList<>();
+    final Collection<Object> coll = new ArrayList<>();
     azzert.that(true, azzert.is(is.empty(s)));
     azzert.that(true, azzert.is(is.empty(a)));
     azzert.that(true, azzert.is(is.empty(it)));
@@ -59,9 +59,9 @@ import org.junit.*;
   }
 
   @Test public void testIsNotEmpty() {
-    String s = "Hello World";
-    Integer a[] = { box.box(1), box.box(2), box.box(3), box.box(4) };
-    ArrayList<Integer> it = new ArrayList<>();
+    final String s = "Hello World";
+    final Integer a[] = { box.box(1), box.box(2), box.box(3), box.box(4) };
+    final ArrayList<Integer> it = new ArrayList<>();
     it.add(box.box(1));
     azzert.that(false, azzert.is(is.empty(s)));
     azzert.that(false, azzert.is(is.empty(a)));

@@ -42,7 +42,7 @@ import org.junit.*;
   }
 
   @Test public void and() {
-    assert !Proposition.AND(() -> true, () -> true).and(()->true,() -> false).eval();
+    assert !Proposition.AND(() -> true, () -> true).and(() -> true, () -> false).eval();
   }
 
   @Test public void reduce() {

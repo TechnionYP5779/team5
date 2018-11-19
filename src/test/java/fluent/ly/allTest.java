@@ -10,7 +10,7 @@ import org.junit.*;
 /** @author ShalevKuba */
 @SuppressWarnings("static-method") public class allTest {
   @Test public void NotNulltest() {
-    LinkedList<Integer> l = new LinkedList<>();
+    final LinkedList<Integer> l = new LinkedList<>();
     l.add(box.box(1));
     l.add(box.box(2));
     azzert.that(all.notNull(l), azzert.is(true));
@@ -19,7 +19,7 @@ import org.junit.*;
   }
 
   @SuppressWarnings("null") @Test public void ArrayNotNulltest() {
-    Integer[] a = new Integer[3];
+    final Integer[] a = new Integer[3];
     a[0] = box.box(1);
     a[1] = box.box(1);
     a[2] = box.box(1);
