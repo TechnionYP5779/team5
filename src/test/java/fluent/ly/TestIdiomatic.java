@@ -8,17 +8,17 @@ import fluent.ly.idiomatic.*;
 
 @SuppressWarnings("static-method") public class TestIdiomatic {
   @Test public void testHolder() {
-    final Holder<Integer> hold = idiomatic.eval(() -> box.box(42));
-    azzert.that(hold.when(true), is(box.box(42)));
-    azzert.that(hold.unless(false), is(box.box(42)));
+    final Holder<Integer> hold = idiomatic.eval(() -> box.it(42));
+    azzert.that(hold.when(true), is(box.it(42)));
+    azzert.that(hold.unless(false), is(box.it(42)));
     isNull(hold.unless(true));
     isNull(hold.when(false));
   }
 
   @Test public void testIncase() {
-    Integer val = idiomatic.incase(true, box.box(42));
-    azzert.that(val, is(box.box(42)));
-    val = idiomatic.incase(false, box.box(42));
+    Integer val = idiomatic.incase(true, box.it(42));
+    azzert.that(val, is(box.it(42)));
+    val = idiomatic.incase(false, box.it(42));
     isNull(val);
   }
 
@@ -28,14 +28,14 @@ import fluent.ly.idiomatic.*;
   }
 
   @Test public void testStorer() {
-    final Storer<Integer> storer = new Storer<>(box.box(42));
-    azzert.that(storer.when(true), is(box.box(42)));
+    final Storer<Integer> storer = new Storer<>(box.it(42));
+    azzert.that(storer.when(true), is(box.it(42)));
     isNull(storer.when(false));
-    azzert.that(storer.unless(false), is(box.box(42)));
+    azzert.that(storer.unless(false), is(box.it(42)));
     isNull(storer.unless(true));
-    azzert.that(storer.get(), is(box.box(42)));
-    azzert.that(idiomatic.take(box.box(42)).unless(false), is(box.box(42)));
-    isNull(idiomatic.take(box.box(42)).unless(true));
+    azzert.that(storer.get(), is(box.it(42)));
+    azzert.that(idiomatic.take(box.it(42)).unless(false), is(box.it(42)));
+    isNull(idiomatic.take(box.it(42)).unless(true));
   }
 
   @Test public void use0() {

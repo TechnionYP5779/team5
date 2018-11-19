@@ -12,25 +12,25 @@ import fluent.ly.*;
     @NotNull private final Integer to1;
 
     public RangeIterator(@NotNull final Integer From) {
-      pos = box.box(unbox.unbox(From));
-      to1 = box.box(unbox.unbox(From) - 1);
+      pos = box.it(unbox.it(From));
+      to1 = box.it(unbox.it(From) - 1);
     }
 
     public RangeIterator(@NotNull final Integer From, @NotNull final Integer to) {
-      pos = box.box(unbox.unbox(From));
-      to1 = box.box(unbox.unbox(to));
+      pos = box.it(unbox.it(From));
+      to1 = box.it(unbox.it(to));
     }
 
     @Override public boolean hasNext() {
-      return unbox.unbox(to1) < unbox.unbox(pos) || unbox.unbox(pos) < unbox.unbox(to1) - 1;
+      return unbox.it(to1) < unbox.it(pos) || unbox.it(pos) < unbox.it(to1) - 1;
     }
 
     @Override public Integer next() {
-      if (unbox.unbox(pos) >= unbox.unbox(to1) - 1 && unbox.unbox(pos) <= unbox.unbox(to1))
-        return box.box(unbox.unbox(pos));
-      final int $ = unbox.unbox(pos) + 1;
-      pos = box.box($);
-      return box.box($);
+      if (unbox.it(pos) >= unbox.it(to1) - 1 && unbox.it(pos) <= unbox.it(to1))
+        return box.it(unbox.it(pos));
+      final int $ = unbox.it(pos) + 1;
+      pos = box.it($);
+      return box.it($);
     }
   }
 
@@ -39,22 +39,22 @@ import fluent.ly.*;
   private boolean Ninfinite;
 
   public Range(final int i) {
-    from = box.box(i);
-    to = box.box(unbox.unbox(from) - 1);
+    from = box.it(i);
+    to = box.it(unbox.it(from) - 1);
   }
 
   public Range(final int ¢, final boolean b) {
-    from = box.box(¢);
-    to = box.box(¢);
+    from = box.it(¢);
+    to = box.it(¢);
     Ninfinite = b;
   }
 
   public Integer getFrom() {
-    return box.box(unbox.unbox(from));
+    return box.it(unbox.it(from));
   }
 
   public boolean isToInfinite() {
-    return unbox.unbox(to) < unbox.unbox(from);
+    return unbox.it(to) < unbox.it(from);
   }
 
   public boolean isToNInfinite() {
@@ -64,13 +64,13 @@ import fluent.ly.*;
   public RangeIterator from() {
     if (Ninfinite)
       return null;
-    if (unbox.unbox(to) < unbox.unbox(from))
+    if (unbox.it(to) < unbox.it(from))
       return new RangeIterator(from);
     return new RangeIterator(from, to);
   }
 
   public Range to(final int ¢) {
-    to = box.box(¢);
+    to = box.it(¢);
     return this;
   }
 
@@ -79,7 +79,7 @@ import fluent.ly.*;
   }
 
   public Range from(final int ¢) {
-    from = box.box(¢);
+    from = box.it(¢);
     Ninfinite = false;
     return this;
   }
@@ -89,6 +89,6 @@ import fluent.ly.*;
   }
 
   public boolean includes(final int ¢) {
-    return ¢ >= unbox.unbox(from) && ¢ < unbox.unbox(to);
+    return ¢ >= unbox.it(from) && ¢ < unbox.it(to);
   }
 }

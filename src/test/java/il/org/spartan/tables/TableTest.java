@@ -20,16 +20,15 @@ import il.org.spartan.utils.*;
   }
 
   @SuppressWarnings("resource") @Test public void test1() {
-    Integer in=new Integer(5);
+    Integer in = new Integer(5);
     Table table = new Table(in);
-    azzert.that(table.baseName(), azzert.is(system.tmp+".*"));
-    table.col("ints",5);
-    table.col("longs",1L * 6);
-    table.col("doubles",6.5);
-    String $ = "Table named  produced in 5 formats (versions) in " + table.baseName() + "\n" + 
-        "The table has 1 data rows, each consisting of 4 columns.\n" + 
-        "Table header is  [null, ints, longs, doubles]\n"
-        + "The table consists of 3 numerical columns: [ints, longs, doubles]\n"; 
+    azzert.that(table.baseName(), azzert.is(system.tmp + ".*"));
+    table.col("ints", 5);
+    table.col("longs", 1L * 6);
+    table.col("doubles", 6.5);
+    String $ = "Table named  produced in 5 formats (versions) in " + table.baseName() + "\n"
+        + "The table has 1 data rows, each consisting of 4 columns.\n" + "Table header is  [null, ints, longs, doubles]\n"
+        + "The table consists of 3 numerical columns: [ints, longs, doubles]\n";
     final Int n = new Int();
     List<RecordWriter> writers2 = an.empty.list();
     as.list(TableRenderer.builtin.values()).forEach(r -> {
@@ -40,23 +39,20 @@ import il.org.spartan.utils.*;
       }
     });
     $ += writers2.stream().map(λ -> "\t " + ++n.inner + ". " + λ.fileName + "\n").reduce((x, y) -> x + y).get();
-    
     azzert.that(table.description(), azzert.is($));
     table.nl();
   }
-  @SuppressWarnings("resource") @Test public void test2() {
-    Table table = new Table(Integer.class,".");
-    table = new Table(Integer.class,"././././");
-    table.noStatistics().add(Statistic.max).add(Statistic.min);
-    table.col("ints",5);
-    table.col("null",5);
-    table.col("longs",1L * 6);
-    table.col("doubles",6.5);
-    table.col("doubles",100.5);
-    table.noStatistics().add(Statistic.max).add(Statistic.min).add(Statistic.median).add(Statistic.mean).
-    remove(Statistic.median,Statistic.max,Statistic.min,Statistic.mean);
 
-    
-    
+  @SuppressWarnings("resource") @Test public void test2() {
+    Table table = new Table(Integer.class, ".");
+    table = new Table(Integer.class, "././././");
+    table.noStatistics().add(Statistic.max).add(Statistic.min);
+    table.col("ints", 5);
+    table.col("null", 5);
+    table.col("longs", 1L * 6);
+    table.col("doubles", 6.5);
+    table.col("doubles", 100.5);
+    table.noStatistics().add(Statistic.max).add(Statistic.min).add(Statistic.median).add(Statistic.mean).remove(Statistic.median, Statistic.max,
+        Statistic.min, Statistic.mean);
   }
 }

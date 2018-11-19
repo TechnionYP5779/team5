@@ -24,12 +24,12 @@ import fluent.ly.*;
   }
 
   @SuppressWarnings("null") @Test public void testInner() {
-    assert unbox.unbox(Bool.valueOf(true).inner());
-    assert !unbox.unbox(Bool.valueOf(false).inner());
+    assert unbox.it(Bool.valueOf(true).inner());
+    assert !unbox.it(Bool.valueOf(false).inner());
   }
 
   @SuppressWarnings("null") @Test public void testEmptyConst() {
     assert !new Bool().get();
-    assert !unbox.unbox(Bool.valueOf(false).inner());
+    assert !unbox.it(Bool.valueOf(false).inner());
   }
 }

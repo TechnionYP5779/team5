@@ -71,11 +71,11 @@ public class PairsList {
   }
 
   public void record(final double d, final double e) {
-    l.add(new PAIR<>(new Pair<>(box.box(d), box.box(e))));
+    l.add(new PAIR<>(new Pair<>(box.it(d), box.it(e))));
   }
 
   public boolean contains(final double d, final double e) {
-    final Pair<Double, Double> t = new Pair<>(box.box(d), box.box(e));
+    final Pair<Double, Double> t = new Pair<>(box.it(d), box.it(e));
     for (final PAIR<Double, Double> x : l)
       if (x.p.equals(t))
         return true;
@@ -115,7 +115,7 @@ public class PairsList {
   public double firstQuarterOf(final String axis) {
     final double[] $ = new double[sortAsc().size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
-      $[¢] = unbox.unbox("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
+      $[¢] = unbox.it("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
     return l.size() % 2 != 0 ? $[l.size() / 4] : ($[l.size() / 4] + $[l.size() / 4 + 1]) / 2;
   }
 
@@ -130,7 +130,7 @@ public class PairsList {
   public double meanOf(final String axis) {
     final double[] $ = new double[l.size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
-      $[¢] = unbox.unbox("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
+      $[¢] = unbox.it("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
     return Statistics.sampleMean($);
   }
 
@@ -141,7 +141,7 @@ public class PairsList {
   public double medianOf(final String axis) {
     final double[] $ = new double[l.size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
-      $[¢] = unbox.unbox("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
+      $[¢] = unbox.it("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
     return Statistics.median($);
   }
 
@@ -175,8 +175,7 @@ public class PairsList {
   public double squaresSumOf(final String axis) {
     int $ = 0;
     for (int ¢ = 0; ¢ < l.size(); ¢++)
-      $ += "X".equals(axis) ? unbox.unbox(l.get(¢).p.first) * unbox.unbox(l.get(¢).p.first)
-          : unbox.unbox(l.get(¢).p.second) * unbox.unbox(l.get(¢).p.second);
+      $ += "X".equals(axis) ? unbox.it(l.get(¢).p.first) * unbox.it(l.get(¢).p.first) : unbox.it(l.get(¢).p.second) * unbox.it(l.get(¢).p.second);
     return $;
   }
 
@@ -187,7 +186,7 @@ public class PairsList {
   public double sumOf(final String axis) {
     int $ = 0;
     for (int ¢ = 0; ¢ < l.size(); ¢++)
-      $ += unbox.unbox("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
+      $ += unbox.it("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
     return $;
   }
 
@@ -198,7 +197,7 @@ public class PairsList {
   public double thirdQuarterOf(final String axis) {
     final double[] $ = new double[sortAsc().size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
-      $[¢] = unbox.unbox("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
+      $[¢] = unbox.it("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
     return l.size() % 2 != 0 ? $[3 * l.size() / 4] : ($[3 * l.size() / 4] + $[3 * l.size() / 4 + 1]) / 2;
   }
 
@@ -209,7 +208,7 @@ public class PairsList {
   public double varianceOf(final String axis) {
     final double[] $ = new double[l.size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
-      $[¢] = unbox.unbox("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
+      $[¢] = unbox.it("X".equals(axis) ? l.get(¢).p.first : l.get(¢).p.second);
     return Statistics.sampleVariance($);
   }
 

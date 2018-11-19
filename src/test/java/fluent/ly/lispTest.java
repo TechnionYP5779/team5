@@ -12,35 +12,35 @@ import org.junit.*;
 
   @Test public void chop2() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
-    l1.add(box.box(1));
+    l1.add(box.it(1));
     for (int ¢ = 2; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢));
     }
     azzert.that(lisp.chop(l1), azzert.is(l2));
   }
 
   @Test public void cons() {
-    final ArrayList<Integer> l1 = new ArrayList<>(Arrays.asList(box.box(0), box.box(1))), l2 = new ArrayList<>(Arrays.asList(box.box(1)));
+    final ArrayList<Integer> l1 = new ArrayList<>(Arrays.asList(box.it(0), box.it(1))), l2 = new ArrayList<>(Arrays.asList(box.it(1)));
     assert l2 != null;
     for (int ¢ = 2; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢));
     }
-    azzert.that(lisp.cons(box.box(0), l2), azzert.is(l1));
+    azzert.that(lisp.cons(box.it(0), l2), azzert.is(l1));
   }
 
   @Test public void next1() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
-    azzert.that(lisp.next(0, l1), azzert.is(box.box(2)));
+      l1.add(box.it(¢));
+    azzert.that(lisp.next(0, l1), azzert.is(box.it(2)));
   }
 
   @Test public void next2() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
+      l1.add(box.it(¢));
     azzert.that(lisp.next(11, l1), azzert.is(10));
   }
 
@@ -52,21 +52,21 @@ import org.junit.*;
   @Test public void get2() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
+      l1.add(box.it(¢));
     azzert.that(lisp.get(l1, 2), azzert.is(4));
   }
 
   @Test public void prev1() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
+      l1.add(box.it(¢));
     azzert.that(lisp.prev(2, l1), azzert.is(2));
   }
 
   @Test public void prev2() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
+      l1.add(box.it(¢));
     azzert.that(lisp.prev(0, l1), azzert.is(1));
     azzert.that(lisp.prev(-7, l1), azzert.is(1));
   }
@@ -74,64 +74,64 @@ import org.junit.*;
   @Test public void replace1() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
-    azzert.that(null, azzert.is(lisp.replace(null, box.box(1), 2)));
+      l1.add(box.it(¢));
+    azzert.that(null, azzert.is(lisp.replace(null, box.it(1), 2)));
   }
 
   @Test public void replace2() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
-    azzert.that(l1, azzert.is(lisp.replace(l1, box.box(1), -1)));
-    azzert.that(l1, azzert.is(lisp.replace(l1, box.box(1), 20)));
+      l1.add(box.it(¢));
+    azzert.that(l1, azzert.is(lisp.replace(l1, box.it(1), -1)));
+    azzert.that(l1, azzert.is(lisp.replace(l1, box.it(1), 20)));
   }
 
   @Test public void replace3() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢ == 4 ? 7 : ¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢ == 4 ? 7 : ¢));
     }
-    azzert.that(l2, azzert.is(lisp.replace(l1, box.box(7), 3)));
+    azzert.that(l2, azzert.is(lisp.replace(l1, box.it(7), 3)));
   }
 
   @Test public void replaceFirst() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢ == 1 ? 7 : ¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢ == 1 ? 7 : ¢));
     }
-    azzert.that(l2, azzert.is(lisp.replaceFirst(l1, box.box(7))));
+    azzert.that(l2, azzert.is(lisp.replaceFirst(l1, box.it(7))));
   }
 
   @Test public void replaceLast() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢ == 10 ? 7 : ¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢ == 10 ? 7 : ¢));
     }
-    azzert.that(l2, azzert.is(lisp.replaceLast(l1, box.box(7))));
+    azzert.that(l2, azzert.is(lisp.replaceLast(l1, box.it(7))));
   }
 
   @Test public void rest2() {
     final ArrayList<Integer> l1 = new ArrayList<>();
     for (int ¢ = 1; ¢ <= 10; ¢++)
-      l1.add(box.box(¢));
-    azzert.that(box.box(3), azzert.is(lisp.rest2(l1).iterator().next()));
+      l1.add(box.it(¢));
+    azzert.that(box.it(3), azzert.is(lisp.rest2(l1).iterator().next()));
   }
 
   @Test public void areEqual() {
-    assert lisp.areEqual(box.box(4), box.box(4), box.box(4), box.box(4), box.box(4));
-    assert !lisp.areEqual(box.box(4), null, box.box(4), box.box(4), box.box(4), box.box(4));
+    assert lisp.areEqual(box.it(4), box.it(4), box.it(4), box.it(4), box.it(4));
+    assert !lisp.areEqual(box.it(4), null, box.it(4), box.it(4), box.it(4), box.it(4));
   }
 
   @Test public void chopLast1() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 2; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢));
     }
-    l1.add(box.box(10));
+    l1.add(box.it(10));
     azzert.that(lisp.chopLast(l1), azzert.is(l2));
   }
 
@@ -143,8 +143,8 @@ import org.junit.*;
   @Test public void removeFromList() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 2; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢));
     }
     lisp.removeFromList(l1, l2);
     azzert.that(new ArrayList<Integer>(), azzert.is(l2));
@@ -153,10 +153,10 @@ import org.junit.*;
   @Test public void removeLast() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 2; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢));
     }
-    l1.add(box.box(11));
+    l1.add(box.it(11));
     lisp.removeLast(l1);
     azzert.that(l1, azzert.is(l2));
   }
@@ -164,8 +164,8 @@ import org.junit.*;
   @Test public void swap1() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 2; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢));
     }
     azzert.that(l1, azzert.is(lisp.swap(l1, 10, 3)));
     azzert.that(l1, azzert.is(lisp.swap(l1, 3, 10)));
@@ -175,8 +175,8 @@ import org.junit.*;
   @Test public void swap2() {
     final ArrayList<Integer> l1 = new ArrayList<>(), l2 = new ArrayList<>();
     for (int ¢ = 2; ¢ <= 10; ¢++) {
-      l1.add(box.box(¢));
-      l2.add(box.box(¢ == 3 ? 7 : ¢ == 7 ? 3 : ¢));
+      l1.add(box.it(¢));
+      l2.add(box.it(¢ == 3 ? 7 : ¢ == 7 ? 3 : ¢));
     }
     azzert.that(l1, azzert.is(lisp.swap(l2, 1, 5)));
   }

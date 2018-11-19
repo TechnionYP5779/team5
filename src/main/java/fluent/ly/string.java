@@ -11,26 +11,26 @@ import il.org.spartan.etc.*;
 
 /** A bunch of string functions.
  * @author Yossi Gil */
-public enum string {
+@SuppressWarnings("null") public enum string {
   // No elements in this name space
   ;
   static final int MAX_FIRST = 20;
   static final int MAX_LAST = 10;
 
-  @SuppressWarnings("null") public static double atod(final @NotNull String ¢) {
-    return unbox.unbox(Double.valueOf(¢));
+  public static double atod(final @NotNull String ¢) {
+    return unbox.it(Double.valueOf(¢));
   }
 
-  @SuppressWarnings("null") public static float atof(final @NotNull String ¢) {
-    return unbox.unbox(Float.valueOf(¢));
+  public static float atof(final @NotNull String ¢) {
+    return unbox.it(Float.valueOf(¢));
   }
 
-  @SuppressWarnings("null") public static int atoi(final @NotNull String ¢) {
-    return unbox.unbox(Integer.valueOf(¢));
+  public static int atoi(final @NotNull String ¢) {
+    return unbox.it(Integer.valueOf(¢));
   }
 
-  @SuppressWarnings("null") public static long atol(final @NotNull String ¢) {
-    return unbox.unbox(Long.valueOf(¢));
+  public static long atol(final @NotNull String ¢) {
+    return unbox.it(Long.valueOf(¢));
   }
 
   @NotNull public static String capitalize(final @NotNull String ¢) {
@@ -94,7 +94,7 @@ public enum string {
   @NotNull public static String expandLeadingTabs(final @NotNull String s) {
     nonnull(s);
     for (@NotNull String $ = s;;) {
-      @SuppressWarnings("null") final @NotNull String newValue = $.replaceAll("(?m)^([\t]*)\t", "$1    ");
+      final @NotNull String newValue = $.replaceAll("(?m)^([\t]*)\t", "$1    ");
       if ($.equals(newValue))
         return $;
       $ = newValue;

@@ -160,7 +160,7 @@ import il.org.spartan.utils.Accumulator.*;
   @Test public void put8() {
     final Sorterd c = new Sorterd();
     final String s = "ddd";
-    c.put(s, box.box(4));
+    c.put(s, box.it(4));
     azzert.that(c.entries().iterator().next() + "", azzert.is("ddd=4"));
   }
 
@@ -191,7 +191,7 @@ import il.org.spartan.utils.Accumulator.*;
   @Test public void put11() {
     final Sorterd c = new Sorterd();
     final String s = "ddd";
-    final Double I = box.box(4.0);
+    final Double I = box.it(4.0);
     c.put(s, I);
     azzert.that(c.entries().iterator().next() + "", azzert.is("ddd=4.0"));
   }

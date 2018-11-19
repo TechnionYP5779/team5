@@ -31,8 +31,8 @@ public class LinearRegression {
     y_vals = new double[a.size()];
     int idx = 0;
     for (final PAIR<Double, Double> ¢ : a.l) {
-      x_vals[idx] = unbox.unbox(¢.p.first);
-      y_vals[idx++] = unbox.unbox(¢.p.second);
+      x_vals[idx] = unbox.it(¢.p.first);
+      y_vals[idx++] = unbox.it(¢.p.second);
     }
   }
 

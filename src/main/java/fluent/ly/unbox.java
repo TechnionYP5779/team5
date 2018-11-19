@@ -36,7 +36,7 @@ import org.jetbrains.annotations.*;
   }
 
   public static int it(final @NotNull Integer ¢) {
-    return unbox.unbox(¢);
+    return unbox(¢);
   }
 
   public static int @NotNull [] it(final @NotNull Integer[] ¢) {
@@ -45,6 +45,46 @@ import org.jetbrains.annotations.*;
 
   public static int @NotNull [] it(final @NotNull List<Integer> ¢) {
     return it(¢.toArray(new Integer[¢.size()]));
+  }
+
+  public static double it(@NotNull Double ¢) {
+    return unbox(¢);
+  }
+
+  public static long it(@NotNull Long ¢) {
+    return unbox(¢);
+  }
+
+  public static float it(@NotNull Float ¢) {
+    return unbox(¢);
+  }
+
+  public static char it(@NotNull Character ¢) {
+    return unbox(¢);
+  }
+
+  public static boolean it(@NotNull Boolean ¢) {
+    return unbox(¢);
+  }
+
+  public static boolean @NotNull [] it(@NotNull Boolean[] ¢) {
+    return unbox(¢);
+  }
+
+  public static byte @NotNull [] it(@NotNull Byte[] ¢) {
+    return unbox(¢);
+  }
+
+  public static char @NotNull [] it(Character[] ¢) {
+    return unbox(¢);
+  }
+
+  public static short @NotNull [] it(Short[] ¢) {
+    return unbox(¢);
+  }
+
+  public static long @NotNull [] it(Long[] ¢) {
+    return unbox(¢);
   }
 
   public static boolean unbox(final @NotNull Boolean ¢) {
@@ -156,7 +196,7 @@ import org.jetbrains.annotations.*;
       return new int[0];
     final int @NotNull [] $ = new int[is.length];
     for (int ¢ = 0; ¢ < is.length; ++¢)
-      $[¢] = unbox.unbox(is[¢]);
+      $[¢] = unbox.it(is[¢]);
     return $;
   }
 

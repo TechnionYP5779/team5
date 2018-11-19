@@ -30,7 +30,7 @@ public final class Bool {
 
   /** Function form, good substitute for auto-boxing */
   public Boolean inner() {
-    return box.box(inner);
+    return box.it(inner);
   }
 
   public Bool set() {

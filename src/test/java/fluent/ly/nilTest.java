@@ -10,7 +10,7 @@ import org.junit.*;
   @Test public void testForgetting() {
     Object o = nil.forgetting(new Object());
     azzert.that(o, is((Object) null));
-    o = nil.forgetting(box.box(3), box.box(7));
+    o = nil.forgetting(box.it(3), box.it(7));
     azzert.that(o, is((Object) null));
   }
 
@@ -18,9 +18,9 @@ import org.junit.*;
     final String helloString1 = "Hello";
     final String nullString1 = null;
     final Integer i1 = nil.guardingly(String::length).on(helloString1);
-    azzert.that(i1, is(box.box(5)));
+    azzert.that(i1, is(box.it(5)));
     final Integer i2 = nil.guardingly(String::length).on(nullString1);
-    azzert.that(i1, is(box.box(5)));
+    azzert.that(i1, is(box.it(5)));
     azzert.that(i2, is((String) null));
   }
 

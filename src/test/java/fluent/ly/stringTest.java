@@ -18,12 +18,12 @@ import il.org.spartan.utils.*;
   double epsilon = 10e-5;
 
   @Test public void test_atod() {
-    @NotNull final Double $ = box.box(string.atod("42.001"));
+    @NotNull final Double $ = box.it(string.atod("42.001"));
     @NotNull final String s = new String("333");
-    @NotNull final Double $2 = box.box(string.atod(s));
-    azzert.that(true, is(unbox.unbox($) > 42.00));
-    azzert.that(true, is(unbox.unbox($2) == 333.0));
-    azzert.that(false, is(unbox.unbox($) == 42));
+    @NotNull final Double $2 = box.it(string.atod(s));
+    azzert.that(true, is(unbox.it($) > 42.00));
+    azzert.that(true, is(unbox.it($2) == 333.0));
+    azzert.that(false, is(unbox.it($) == 42));
   }
 
   @Test public void test_atof() {
@@ -75,12 +75,12 @@ import il.org.spartan.utils.*;
   }
 
   @Test public void test_eq() {
-    azzert.that(true, is(string.eq(box.box(4), box.box(4))));
-    azzert.that(false, is(string.eq(box.box(3), box.box(4))));
+    azzert.that(true, is(string.eq(box.it(4), box.it(4))));
+    azzert.that(false, is(string.eq(box.it(3), box.it(4))));
     azzert.that(true, is(string.eq(null, null)));
-    azzert.that(false, is(string.eq(box.box(4), null)));
-    azzert.that(false, is(string.eq(null, box.box(4))));
-    azzert.that(true, is(string.eq(new Pair<>(box.box(1), box.box(2)), new Pair<>(box.box(1), box.box(2)))));
+    azzert.that(false, is(string.eq(box.it(4), null)));
+    azzert.that(false, is(string.eq(null, box.it(4))));
+    azzert.that(true, is(string.eq(new Pair<>(box.it(1), box.it(2)), new Pair<>(box.it(1), box.it(2)))));
   }
 
   @Test public void test_esc() {
@@ -201,9 +201,9 @@ import il.org.spartan.utils.*;
   }
 
   @Test public void test_paren() {
-    azzert.that(string.paren(box.box(4)), is("(4)"));
+    azzert.that(string.paren(box.it(4)), is("(4)"));
     azzert.that(string.paren("$"), is("($)"));
-    azzert.that(string.paren(new Pair<>(box.box(1), box.box(2))), is("(<1,2>)"));
+    azzert.that(string.paren(new Pair<>(box.it(1), box.it(2))), is("(<1,2>)"));
   }
 
   @Test public void test_pluralize() {
@@ -223,10 +223,10 @@ import il.org.spartan.utils.*;
 
   @Test public void test_pretty() {
     azzert.that(string.pretty("hope", new ArrayList<Integer>()), is(""));
-    azzert.that(string.pretty("course", "courses", new ArrayList<>(Arrays.asList(box.box(234311)))), is("1 course: 234311\n"));
+    azzert.that(string.pretty("course", "courses", new ArrayList<>(Arrays.asList(box.it(234311)))), is("1 course: 234311\n"));
     final List<Integer> l = new ArrayList<>();
     for (int ¢ = 0; ¢ < 50; ¢++)
-      l.add(box.box(¢));
+      l.add(box.it(¢));
     String s1 = "10 hopes:\n", s2 = "40 hopes:\n";
     for (int ¢ = 0; ¢ < 20; ¢++) {
       if (¢ < 10)
@@ -243,7 +243,7 @@ import il.org.spartan.utils.*;
   @Test public void test_quote() {
     azzert.that(string.quote("let it be epsilon>0"), is("'let it be epsilon>0'"));
     azzert.that(string.quote("\tlet it be epsilon>0\t"), is("'\tlet it be epsilon>0\t'"));
-    azzert.that(string.quote(box.box(42)), is("'42'"));
+    azzert.that(string.quote(box.it(42)), is("'42'"));
   }
 
   @Test public void test_repeat() {

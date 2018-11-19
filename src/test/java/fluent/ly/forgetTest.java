@@ -6,12 +6,12 @@ import il.org.spartan.utils.*;
 
 @SuppressWarnings("static-method") public class forgetTest {
   @Test public void test_all() {
-    forget.all(new Pair<>(box.box(1), box.box(2)), new Pair<>(box.box(1), box.box(2)), new Pair<>(box.box(1), box.box(2)),
-        new Pair<>(box.box(1), box.box(2)));
-    forget.all(new Pair<>(box.box(1), box.box(2)));
-    forget.all(new String(), new Pair<>(box.box(1), box.box(2)), new Pair<>(box.box(1), box.box(2)), new Pair<>(box.box(1), box.box(2)));
+    forget.all(new Pair<>(box.it(1), box.it(2)), new Pair<>(box.it(1), box.it(2)), new Pair<>(box.it(1), box.it(2)),
+        new Pair<>(box.it(1), box.it(2)));
+    forget.all(new Pair<>(box.it(1), box.it(2)));
+    forget.all(new String(), new Pair<>(box.it(1), box.it(2)), new Pair<>(box.it(1), box.it(2)), new Pair<>(box.it(1), box.it(2)));
     forget.all(new String());
-    forget.all(new String(), new Pair<>(box.box(1), box.box(2)), new Pair<>(box.box(1), box.box(2)), "varargs");
+    forget.all(new String(), new Pair<>(box.it(1), box.it(2)), new Pair<>(box.it(1), box.it(2)), "varargs");
   }
 
   @Test public void test_it() {
@@ -22,7 +22,7 @@ import il.org.spartan.utils.*;
     forget.it(Double.MAX_VALUE);
     forget.it(Double.MIN_VALUE);
     forget.it(Long.MAX_VALUE);
-    forget.it(new Pair<>(box.box(1), box.box(2)));
+    forget.it(new Pair<>(box.it(1), box.it(2)));
     forget.it(Long.MAX_VALUE);
   }
 

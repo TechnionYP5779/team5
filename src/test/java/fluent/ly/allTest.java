@@ -11,8 +11,8 @@ import org.junit.*;
 @SuppressWarnings("static-method") public class allTest {
   @Test public void NotNulltest() {
     final LinkedList<Integer> l = new LinkedList<>();
-    l.add(box.box(1));
-    l.add(box.box(2));
+    l.add(box.it(1));
+    l.add(box.it(2));
     azzert.that(all.notNull(l), azzert.is(true));
     l.add(null);
     azzert.that(all.notNull(l), azzert.is(false));
@@ -20,9 +20,9 @@ import org.junit.*;
 
   @SuppressWarnings("null") @Test public void ArrayNotNulltest() {
     final Integer[] a = new Integer[3];
-    a[0] = box.box(1);
-    a[1] = box.box(1);
-    a[2] = box.box(1);
+    a[0] = box.it(1);
+    a[1] = box.it(1);
+    a[2] = box.it(1);
     azzert.that(all.notNull(a), azzert.is(true));
     a[2] = null;
     azzert.that(all.notNull(a), azzert.is(false));

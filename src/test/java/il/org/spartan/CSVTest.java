@@ -26,7 +26,7 @@ enum Color {
         is("java.lang.Integer,java.lang.Character,java.lang.Double,java.lang.String,java.lang.Float,java.lang.Byte," + null));
     final Integer[] intArr = new Integer[5];
     for (int ¢ = 0; ¢ < 5; ¢++)
-      intArr[¢] = box.box(¢);
+      intArr[¢] = box.it(¢);
     azzert.that(CSV.combine(intArr), is("0,1,2,3,4"));
     final Color[] colorArr = new Color[4];
     colorArr[0] = Color.RED;

@@ -71,18 +71,18 @@ import fluent.ly.*;
   @Test public void alternateTwoIntegerSingletonListsReturnListWithBothIntegers() {
     final List<Integer> lst1 = new ArrayList<>();
     final List<Integer> lst2 = new ArrayList<>();
-    lst1.add(box.box(100));
-    lst2.add(box.box(200));
+    lst1.add(box.it(100));
+    lst2.add(box.it(200));
     azzert.that(iterables.alternate(lst1, lst2).iterator().next(), azzert.is(100));
   }
 
   @Test public void alternateAddUntilTheShortestFirst() {
     final List<Integer> lst1 = new ArrayList<>();
     final List<Integer> lst2 = new ArrayList<>();
-    lst2.add(box.box(1));
-    lst1.add(box.box(2));
-    lst2.add(box.box(3));
-    lst2.add(box.box(4));
+    lst2.add(box.it(1));
+    lst1.add(box.it(2));
+    lst2.add(box.it(3));
+    lst2.add(box.it(4));
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
     azzert.that(new_lst_it.next(), azzert.is(2));
     azzert.that(new_lst_it.next(), azzert.is(1));
@@ -92,9 +92,9 @@ import fluent.ly.*;
   @Test public void alternateAddUntilTheShortestSecond() {
     final List<Integer> lst1 = new ArrayList<>();
     final List<Integer> lst2 = new ArrayList<>();
-    lst1.add(box.box(1));
-    lst2.add(box.box(2));
-    lst1.add(box.box(3));
+    lst1.add(box.it(1));
+    lst2.add(box.it(2));
+    lst1.add(box.it(3));
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
     azzert.that(new_lst_it.next(), azzert.is(1));
     azzert.that(new_lst_it.next(), azzert.is(2));

@@ -16,12 +16,12 @@ import il.org.spartan.Utils.FoundHandleForT.*;
 
   @Test public void addTest() {
     final ArrayList<Integer> a = new ArrayList<>();
-    a.add(box.box(5));
-    Utils.add(a, box.box(5));
+    a.add(box.it(5));
+    Utils.add(a, box.it(5));
     azzert.that(a.size(), is(2));
     final ArrayList<Integer> b = new ArrayList<>();
     b.add(null);
-    b.add(box.box(5));
+    b.add(box.it(5));
     Utils.add(a, b);
     azzert.that(a.size(), is(3));
     Utils.add(a, i);
@@ -37,7 +37,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
       }
 
       @Override public Integer next() {
-        return box.box(current++);
+        return box.it(current++);
       }
     };
   }
@@ -45,11 +45,11 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   @Test public void addAllTest() {
     final ArrayList<Integer> a = new ArrayList<>();
     final ArrayList<Integer> b = new ArrayList<>();
-    b.add(box.box(5));
+    b.add(box.it(5));
     azzert.that(a.size(), is(0));
     Utils.addAll(a, b);
     azzert.that(a.size(), is(1));
-    Utils.addAll(a, box.box(5));
+    Utils.addAll(a, box.it(5));
     azzert.that(a.size(), is(2));
     Utils.addAll(a, i);
     azzert.that(a.size(), is(2));
@@ -59,15 +59,15 @@ import il.org.spartan.Utils.FoundHandleForT.*;
 
   @Test public void appendTest() {
     final int[] arr = new int[10];
-    azzert.that(Utils.append(box.box(arr), box.box(5))[10], is(5));
+    azzert.that(Utils.append(box.it(arr), box.it(5))[10], is(5));
   }
 
   @Test public void canBeNullTest() {
-    azzert.that(Utils.canBeNull(box.box(5)), is(5));
+    azzert.that(Utils.canBeNull(box.it(5)), is(5));
   }
 
   @Test public void cantBeNullTest() {
-    azzert.that(Utils.cantBeNull(box.box(5)), is(5));
+    azzert.that(Utils.cantBeNull(box.it(5)), is(5));
   }
 
   @Test public void compareTest() {
@@ -89,16 +89,16 @@ import il.org.spartan.Utils.FoundHandleForT.*;
 
   @Test public void deleteTest() {
     Integer[] Arr = new Integer[3];
-    Arr[0] = box.box(0);
-    Arr[1] = box.box(1);
-    Arr[2] = box.box(2);
+    Arr[0] = box.it(0);
+    Arr[1] = box.it(1);
+    Arr[2] = box.it(2);
     azzert.that(Arr[1], is(1));
     Arr = Utils.delete(Arr, 1);
     azzert.that(Arr[1], is(2));
   }
 
   @Test public void hasNullTest() {
-    Integer x = box.box(5);
+    Integer x = box.it(5);
     assert !Utils.hasNull(x);
     x = null;
     assert Utils.hasNull(x);
@@ -109,17 +109,17 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     azzert.that(f.candidate, is(5));
     assert f.in(5);
     assert !f.in(7);
-    final FoundHandleForT<Integer> g = Utils.found(box.box(6));
+    final FoundHandleForT<Integer> g = Utils.found(box.it(6));
     azzert.that(g.candidate, is(6));
-    assert g.in(box.box(6));
-    assert !g.in(box.box(7));
+    assert g.in(box.it(6));
+    assert !g.in(box.it(7));
     assert !g.in(i);
   }
 
   @Test public void inRangeTest() {
     final ArrayList<Integer> a = new ArrayList<>();
-    a.add(box.box(2));
-    a.add(box.box(2));
+    a.add(box.it(2));
+    a.add(box.it(2));
     assert Utils.inRange(0, a);
     assert Utils.inRange(1, a);
     assert !Utils.inRange(2, a);
@@ -129,8 +129,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
 
   @Test public void lastTest() {
     final ArrayList<Integer> a = new ArrayList<>();
-    final Integer x2 = box.box(2);
-    final Integer x3 = box.box(3);
+    final Integer x2 = box.it(2);
+    final Integer x3 = box.it(3);
     a.add(x2);
     a.add(x3);
     assert Utils.lastIn(x3, a);
@@ -172,8 +172,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
 
   @Test public void penultimateInTest() {
     final ArrayList<Integer> a = new ArrayList<>();
-    final Integer x2 = box.box(2);
-    final Integer x3 = box.box(3);
+    final Integer x2 = box.it(2);
+    final Integer x3 = box.it(3);
     a.add(x2);
     a.add(x3);
     assert Utils.penultimateIn(x2, a);
@@ -194,8 +194,8 @@ import il.org.spartan.Utils.FoundHandleForT.*;
 
   @Test public void removeTests() {
     final ArrayList<Integer> a = new ArrayList<>();
-    final Integer x2 = box.box(2);
-    final Integer x3 = box.box(2);
+    final Integer x2 = box.it(2);
+    final Integer x3 = box.it(2);
     a.add(x2);
     a.add(x3);
     Utils.removeDuplicates(a);

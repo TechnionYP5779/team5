@@ -12,22 +12,22 @@ import org.junit.*;
     final Integer a = null;
     azzert.that(true, azzert.is(is.in("", "")));
     azzert.that(true, azzert.is(is.in("nir", "igor", "shaked", "shalev", "lior", "or", "nir")));
-    azzert.that(false, azzert.is(is.in(box.box(1), a)));
-    azzert.that(false, azzert.is(is.in(box.box(1), box.box(3), box.box(8), box.box(5))));
+    azzert.that(false, azzert.is(is.in(box.it(1), a)));
+    azzert.that(false, azzert.is(is.in(box.it(1), box.it(3), box.it(8), box.it(5))));
     azzert.that(false, azzert.is(is.in("")));
   }
 
   @Test public void testNot() {
     azzert.that(false, azzert.is(is.not.in("", "")));
     azzert.that(false, azzert.is(is.not.in("nir", "igor", "shaked", "shalev", "lior", "or", "nir")));
-    azzert.that(true, azzert.is(is.not.in(box.box(1), box.box(3), box.box(8), box.box(5))));
+    azzert.that(true, azzert.is(is.not.in(box.it(1), box.it(3), box.it(8), box.it(5))));
     azzert.that(true, azzert.is(is.not.in("")));
   }
 
   @Test public void testOut() {
     azzert.that(false, azzert.is(is.out("", "")));
     azzert.that(false, azzert.is(is.out("nir", "igor", "shaked", "shalev", "lior", "or", "nir")));
-    azzert.that(true, azzert.is(is.out(box.box(1), box.box(3), box.box(8), box.box(5))));
+    azzert.that(true, azzert.is(is.out(box.it(1), box.it(3), box.it(8), box.it(5))));
     azzert.that(true, azzert.is(is.out("")));
   }
 
@@ -60,9 +60,9 @@ import org.junit.*;
 
   @Test public void testIsNotEmpty() {
     final String s = "Hello World";
-    final Integer a[] = { box.box(1), box.box(2), box.box(3), box.box(4) };
+    final Integer a[] = { box.it(1), box.it(2), box.it(3), box.it(4) };
     final ArrayList<Integer> it = new ArrayList<>();
-    it.add(box.box(1));
+    it.add(box.it(1));
     azzert.that(false, azzert.is(is.empty(s)));
     azzert.that(false, azzert.is(is.empty(a)));
     azzert.that(false, azzert.is(is.empty(it)));

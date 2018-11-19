@@ -17,11 +17,11 @@ import il.org.spartan.utils.Range.*;
   @Test public void Rangefrom() {
     assert range.from(2).from().hasNext();
     final RangeIterator it = range.from(2).from();
-    azzert.that(it.next(), is(box.box(3)));
+    azzert.that(it.next(), is(box.it(3)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(4)));
+    azzert.that(it.next(), is(box.it(4)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(5)));
+    azzert.that(it.next(), is(box.it(5)));
     assert it.hasNext();
   }
 
@@ -33,15 +33,15 @@ import il.org.spartan.utils.Range.*;
     assert !r.isToNInfinite();
     final RangeIterator it = range.from(2).to(6).from();
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(3)));
+    azzert.that(it.next(), is(box.it(3)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(4)));
+    azzert.that(it.next(), is(box.it(4)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(5)));
+    azzert.that(it.next(), is(box.it(5)));
     assert !it.hasNext();
-    azzert.that(it.next(), is(box.box(5)));
+    azzert.that(it.next(), is(box.it(5)));
     assert !it.hasNext();
-    azzert.that(it.next(), is(box.box(5)));
+    azzert.that(it.next(), is(box.it(5)));
     assert !it.hasNext();
   }
 
@@ -61,19 +61,19 @@ import il.org.spartan.utils.Range.*;
     azzert.that(r.getFrom(), is(-5));
     final RangeIterator it = r.from();
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(-4)));
+    azzert.that(it.next(), is(box.it(-4)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(-3)));
+    azzert.that(it.next(), is(box.it(-3)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(-2)));
+    azzert.that(it.next(), is(box.it(-2)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(-1)));
+    azzert.that(it.next(), is(box.it(-1)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(0)));
+    azzert.that(it.next(), is(box.it(0)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(1)));
+    azzert.that(it.next(), is(box.it(1)));
     assert !it.hasNext();
-    azzert.that(it.next(), is(box.box(1)));
+    azzert.that(it.next(), is(box.it(1)));
     assert !it.hasNext();
   }
 
@@ -81,7 +81,7 @@ import il.org.spartan.utils.Range.*;
     final RangeIterator it = range.numbers;
     for (int ¢ = 1; ¢ < 10000; ++¢) {
       assert it.hasNext();
-      azzert.that(it.next(), is(box.box(Integer.MIN_VALUE + ¢)));
+      azzert.that(it.next(), is(box.it(Integer.MIN_VALUE + ¢)));
     }
   }
 
@@ -93,19 +93,19 @@ import il.org.spartan.utils.Range.*;
     azzert.that(r.getFrom(), is(3));
     final RangeIterator it = r.from();
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(4)));
+    azzert.that(it.next(), is(box.it(4)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(5)));
+    azzert.that(it.next(), is(box.it(5)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(6)));
+    azzert.that(it.next(), is(box.it(6)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(7)));
+    azzert.that(it.next(), is(box.it(7)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(8)));
+    azzert.that(it.next(), is(box.it(8)));
     assert it.hasNext();
-    azzert.that(it.next(), is(box.box(9)));
+    azzert.that(it.next(), is(box.it(9)));
     assert !it.hasNext();
-    azzert.that(it.next(), is(box.box(9)));
+    azzert.that(it.next(), is(box.it(9)));
   }
 
   @Test public void includes() {
