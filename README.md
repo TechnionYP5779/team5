@@ -8,7 +8,7 @@
 
 ## Team 5 development status 
 [![Build Status](https://travis-ci.org/TechnionYP5779/team5.svg?branch=master)](https://travis-ci.org/TechnionYP5779/team5)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/TechnionYP5779/team5.svg?logo=lgtm&logoWidth=18)]
+![Total alerts](https://img.shields.io/lgtm/alerts/g/TechnionYP5779/team5.svg?logo=lgtm&logoWidth=18)
 [![GitHub issues](https://img.shields.io/github/issues/TechnionYP5779/team5.svg)](https://github.com/TechnionYP5779/team5/issues)
 [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/TechnionYP5779/team5.svg?maxAge=2592000)]()
 [![codecov](https://codecov.io/gh/TechnionYP5779/team5/branch/master/graph/badge.svg)](https://codecov.io/gh/TechnionYP5779/team5)
