@@ -26,16 +26,16 @@ public class StrTest {
   
   @Test public void emptyTest() {
     Str s = new Str();
-    azzert.that(true, azzert.is(s.isEmptyx()));
+    assert s.isEmptyx();
     s.set("World");
-    azzert.that(false, azzert.is(s.isEmptyx()));
+    assert !s.isEmptyx();
   }
   
   @Test public void notemptyTest() {
     Str s = new Str();
-    azzert.that(false, azzert.is(s.notEmpty()));
+    assert !s.notEmpty();
     s.set("World");
-    azzert.that(true, azzert.is(s.notEmpty()));
+    assert s.notEmpty();
 
   }
 }
