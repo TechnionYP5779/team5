@@ -7,7 +7,7 @@ import java.util.stream.*;
 
 import org.junit.*;
 
-@SuppressWarnings({"static-method","null"}) public class theTest {
+@SuppressWarnings({ "static-method", "null" }) public class theTest {
   @Test public void indexTest() {
     azzert.that(2, is(the.index(5, 1, 2, 5, 3, 4)));
   }

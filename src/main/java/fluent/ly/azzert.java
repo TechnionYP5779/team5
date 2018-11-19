@@ -668,7 +668,7 @@ public class azzert extends org.junit.Assert {
   }
 
   public static void that(final float f, final @NotNull Matcher<? super @Nullable Float> m) {
-    assertThat("",box.box(f), m);
+    assertThat("", box.box(f), m);
   }
 
   public static void that(final int i, final @NotNull Matcher<? super @Nullable Integer> m) {
@@ -684,7 +684,7 @@ public class azzert extends org.junit.Assert {
   }
 
   public static void that(final short s, final @NotNull Matcher<? super @Nullable Short> m) {
-    assertThat("",box.box(s), m);
+    assertThat("", box.box(s), m);
   }
 
   public static void that(final @NotNull String reason, final boolean b, final @NotNull Matcher<? super Boolean> m) {
