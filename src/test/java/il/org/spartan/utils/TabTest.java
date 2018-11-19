@@ -7,7 +7,7 @@ import org.junit.*;
 
 import fluent.ly.*;
 
-@SuppressWarnings("static-method") public class TabTest {
+@SuppressWarnings({"static-method","null"}) public class TabTest {
   @NotNull private static String cat(final @NotNull String s1, final @NotNull String s2) {
     return "[[" + s1 + "]][[" + s2 + "]]";
   }
@@ -26,13 +26,13 @@ import fluent.ly.*;
     assert new Tab().isEmpty();
   }
 
-  @SuppressWarnings("null") @Test public void testBeginAtLevelOne() {
+  @Test public void testBeginAtLevelOne() {
     final @NotNull Tab t = new Tab("abc");
     t.more();
     azzert.that(cat(t.begin(), t + ""), is(cat("abc", "abcabc")));
   }
 
-  @SuppressWarnings("null") @Test public void testBeginAtZero() {
+  @Test public void testBeginAtZero() {
     final @NotNull Tab t = new Tab("abc");
     azzert.that(cat(t.begin(), t + ""), is(cat("", "abc")));
   }
@@ -46,20 +46,20 @@ import fluent.ly.*;
     assert new Tab().isEmpty();
   }
 
-  @SuppressWarnings("null") @Test public void testEndAtLevelOne() {
+  @Test public void testEndAtLevelOne() {
     final @NotNull Tab t = new Tab("abc");
     t.more();
     azzert.that(cat(t.end(), t + ""), is(cat("", "")));
   }
 
-  @SuppressWarnings("null") @Test public void testEndAtLevelTwo() {
+  @Test public void testEndAtLevelTwo() {
     final @NotNull Tab t = new Tab("abc");
     t.more();
     t.more();
     azzert.that(cat(t.end(), t + ""), is(cat("abc", "abc")));
   }
 
-  @SuppressWarnings("null") @Test(expected = ___.Bug.Contract.Precondition.class) //
+  @Test(expected = ___.Bug.Contract.Precondition.class) //
   public void testEndAtLevelZero() {
     final @NotNull Tab t = new Tab("abc");
     azzert.that(cat(t.end(), t + ""), is(cat("", "")));

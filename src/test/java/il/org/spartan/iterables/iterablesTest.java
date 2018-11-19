@@ -16,7 +16,7 @@ import fluent.ly.*;
  * @author Yossi Gil
  * @since 2014-05-31 */
 
-@SuppressWarnings({"static-method", "boxing"})
+@SuppressWarnings("static-method")
 public class iterablesTest {
   @Test public void containsDegenerate() {
     azzert.nay(contains("Hello"));
@@ -74,18 +74,18 @@ public class iterablesTest {
   @Test public void alternateTwoIntegerSingletonListsReturnListWithBothIntegers() {
     List<Integer> lst1 = new ArrayList<>();
     List<Integer> lst2 = new ArrayList<>();
-    lst1.add(100);
-    lst2.add(200);
+    lst1.add(box.box(100));
+    lst2.add(box.box(200));
     azzert.assertEquals(100, iterables.alternate(lst1, lst2).iterator().next());
   }
   
   @Test public void alternateAddUntilTheShortestFirst() {
     List<Integer> lst1 = new ArrayList<>();
     List<Integer> lst2 = new ArrayList<>();
-    lst2.add(1);
-    lst1.add(2);
-    lst2.add(3);
-    lst2.add(4);
+    lst2.add(box.box(1));
+    lst1.add(box.box(2));
+    lst2.add(box.box(3));
+    lst2.add(box.box(4));
     Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
     azzert.assertEquals(2,new_lst_it.next());
     azzert.assertEquals(1, new_lst_it.next());
@@ -95,9 +95,9 @@ public class iterablesTest {
   @Test public void alternateAddUntilTheShortestSecond() {
     List<Integer> lst1 = new ArrayList<>();
     List<Integer> lst2 = new ArrayList<>();
-    lst1.add(1);
-    lst2.add(2);
-    lst1.add(3);
+    lst1.add(box.box(1));
+    lst2.add(box.box(2));
+    lst1.add(box.box(3));
     Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
     azzert.assertEquals(1,new_lst_it.next());
     azzert.assertEquals(2, new_lst_it.next());
