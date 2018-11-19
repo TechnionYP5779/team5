@@ -9,9 +9,11 @@ import org.junit.*;
 
 import fluent.ly.*;
 import il.org.spartan.AbstractStringProperties.*;
+
 import il.org.spartan.CSVLine.*;
 import il.org.spartan.CSVLine.Ordered.*;
 import il.org.spartan.utils.*;
+import il.org.spartan.utils.Accumulator.*;
 
 @SuppressWarnings("static-method") public class CSVLineTest {
   @Test public void aggregating() {
@@ -70,11 +72,46 @@ import il.org.spartan.utils.*;
   }
   
   /** add put tests with Accumulator **/
+  @Test public void putAcc() {
+    CSVLine c = new Sorterd();
+    Last a = new Last("strike");
+    c=c.put(a);
+    azzert.that(c.keys().iterator().next()+"",azzert.is("strike"));
+  }
+  
+  /** add put tests with Accumulator **/
+  @Test public void putAcc1() {
+    CSVLine c = new Sorterd();
+    Last a = new Last("strike");
+    a.add(5);
+    c=c.put(a);
+    azzert.that(c.values().iterator().next()+"",azzert.is("5"));
+  }
+  
+  @Test public void putAcc2() {
+    CSVLine c = new Sorterd();
+    Last a = new Last("s");
+    a.add(1);
+    Last b = new Last("t");
+    b.add(2);
+    Last d = new Last("u");
+    d.add(3);
+    c=c.put(a,b,d);
+    azzert.that(c.keys().iterator().next(), azzert.is("s"));
+  }
+  
   @Test public void put0() {
     Sorterd c = new Sorterd();
     Truth f = Truth.F;
     c.put(f,4);
     azzert.that(c.entries().iterator().next()+"", azzert.is("false=4"));
+  }
+  
+  @Test public void put00() {
+    Sorterd c = new Sorterd();
+    Truth f = Truth.F;
+    c.put(f,"ddd");
+    azzert.that(c.entries().iterator().next()+"", azzert.is("false=ddd"));
   }
   
   @Test public void put1() {
@@ -104,14 +141,7 @@ import il.org.spartan.utils.*;
     c.put(s,'\t');
     azzert.that(c.entries().iterator().next()+"", azzert.is("ddd=\t"));
   }
-  
-//  @Test public void put5() {
-//    Sorterd c = new Sorterd();
-//    String s = "ddd";
-//    c.put(s,4.0);
-//    azzert.that(c.entries().iterator().next()+"", azzert.is("ddd=4.0"));
-//  }
-  
+    
   @Test public void put6() {
     Sorterd c = new Sorterd();
     String s = "ddd";
@@ -222,6 +252,18 @@ import il.org.spartan.utils.*;
     azzert.that(d.entries().iterator().next()+"", azzert.is("sss=ddd"));
   }
   
+  @Test public void putAgg() {
+    CSVLine c =new Sorterd();
+    c=c.putAggregatorColumn("counter", "strike");
+    azzert.that(c.keys().iterator().next(), azzert.is("counter"));
+  }
+  
+  @Test public void putAgg1() {
+    CSVLine c =new Sorterd();
+    c=c.putAggregatorColumn("counter", "strike");
+    azzert.that(c.values().iterator().next(), azzert.is("strike"));
+  }
+  
   @Test public void size() {
     Sorterd c = new Sorterd();
     c.map.put("Shaked", "Sapir");
@@ -252,14 +294,4 @@ import il.org.spartan.utils.*;
     assert !o.aggregating();
   } 
   
-//  @SuppressWarnings("null") @Test public void Agg() {
-//    Ordered o = new Ordered(Renderer.CSV);
-//    ArrayList<String> l = new ArrayList<>();
-//    l.add("shak");
-//    l.add("shal");
-//    ListProperties ll = new ListProperties();
-//    ll.put(l.get(0), l.get(0));
-//    ll.put(l.get(1), l.get(1));
-//    o.addAggregates(ll,o.aggregations().iterator().next());
-//  }
 }
