@@ -38,7 +38,7 @@ public class PairsList {
 
     public PLIterator() {
       idx = 0;
-      this.current = l.get(idx);
+      current = l.get(idx);
     }
 
     @Override public boolean hasNext() {
@@ -49,10 +49,10 @@ public class PairsList {
       try {
         if (!hasNext())
           return l.get(l.size() - 1);
-        PAIR<Double, Double> $ = current;
+        final PAIR<Double, Double> $ = current;
         current = l.get(++idx);
-        return $;     
-      } catch (@SuppressWarnings("unused") IndexOutOfBoundsException ¢) {
+        return $;
+      } catch (@SuppressWarnings("unused") final IndexOutOfBoundsException ¢) {
         return l.get(l.size() - 1);
       }
     }

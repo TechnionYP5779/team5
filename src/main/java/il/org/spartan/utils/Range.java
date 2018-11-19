@@ -18,7 +18,7 @@ import fluent.ly.*;
 
     public RangeIterator(@NotNull final Integer From, @NotNull final Integer to) {
       pos = box.box(unbox.unbox(From));
-      this.to1 = box.box(unbox.unbox(to));
+      to1 = box.box(unbox.unbox(to));
     }
 
     @Override public boolean hasNext() {
@@ -46,15 +46,15 @@ import fluent.ly.*;
   public Range(final int ¢, final boolean b) {
     from = box.box(¢);
     to = box.box(¢);
-    this.Ninfinite = b;
+    Ninfinite = b;
   }
 
   public Integer getFrom() {
-    return box.box(unbox.unbox(this.from));
+    return box.box(unbox.unbox(from));
   }
 
   public boolean isToInfinite() {
-    return unbox.unbox(this.to) < unbox.unbox(this.from);
+    return unbox.unbox(to) < unbox.unbox(from);
   }
 
   public boolean isToNInfinite() {
@@ -62,7 +62,7 @@ import fluent.ly.*;
   }
 
   public RangeIterator from() {
-    if (this.Ninfinite)
+    if (Ninfinite)
       return null;
     if (unbox.unbox(to) < unbox.unbox(from))
       return new RangeIterator(from);
@@ -70,17 +70,17 @@ import fluent.ly.*;
   }
 
   public Range to(final int ¢) {
-    this.to = box.box(¢);
+    to = box.box(¢);
     return this;
   }
 
   public Integer getTo() {
-    return this.to;
+    return to;
   }
 
   public Range from(final int ¢) {
-    this.from = box.box(¢);
-    this.Ninfinite = false;
+    from = box.box(¢);
+    Ninfinite = false;
     return this;
   }
 
@@ -89,6 +89,6 @@ import fluent.ly.*;
   }
 
   public boolean includes(final int ¢) {
-    return ¢ >= unbox.unbox(this.from) && ¢ < unbox.unbox(this.to);
+    return ¢ >= unbox.unbox(from) && ¢ < unbox.unbox(to);
   }
 }
