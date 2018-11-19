@@ -1,5 +1,7 @@
 package il.org.spartan.utils;
 
+import fluent.ly.*;
+
 /** A poor man's approximation of a mutable int, which is so much more
  * convenient than {@link Integer}
  * @author Yossi Gil
@@ -16,7 +18,7 @@ public final class Int {
 
   /** Function form, good substitute for auto-boxing */
   public Integer inner() {
-    return Integer.valueOf(inner);
+    return box.box(inner);
   }
 
   /** @param ¢ JD
