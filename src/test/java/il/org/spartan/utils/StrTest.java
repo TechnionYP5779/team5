@@ -3,8 +3,6 @@
  * @since year-month-day */
 package il.org.spartan.utils;
 
-import static org.junit.Assert.*;
-
 import org.junit.*;
 
 import fluent.ly.*;
@@ -13,10 +11,11 @@ import fluent.ly.*;
  * @author Nir Chachamovitz
  *
  */
+@SuppressWarnings("static-method") 
 public class StrTest {
   @Test public void constructorTest() {
-    Str s1 = new Str();
     Str s2 = new Str(new String("Hello"));
+    s2.set("Hello");
   }
   
   @Test public void setTest() {
