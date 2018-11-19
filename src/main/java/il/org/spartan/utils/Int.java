@@ -1,7 +1,5 @@
 package il.org.spartan.utils;
 
-import fluent.ly.*;
-
 /** A poor man's approximation of a mutable int, which is so much more
  * convenient than {@link Integer}
  * @author Yossi Gil
@@ -10,7 +8,6 @@ public final class Int {
   public int inner;
 
   public Int() {
-    ___.______unused();
   }
 
   public Int(final int inner) {

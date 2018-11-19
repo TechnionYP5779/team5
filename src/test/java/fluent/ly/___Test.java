@@ -212,7 +212,7 @@ import fluent.ly.___.Bug.Contract.*;
       azzert.assertEquals(0, v.value());
     }
     try {
-      fluent.ly.___.unused(new fluent.ly.___.Variant(-1));
+      fluent.ly.forget.all(new fluent.ly.___.Variant(-1));
     } catch (final Initial e) {
       azzert.assertEquals("Initial variant value (-1) is negative", e.getMessage());
     }
