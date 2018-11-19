@@ -4,7 +4,7 @@ import static fluent.ly.azzert.*;
 
 import org.junit.*;
 
-@SuppressWarnings("static-method") public class unboxTest {
+@SuppressWarnings({"static-method","static-access"}) public class unboxTest {
   @Test public void testUnboxBooleanArray() {
     azzert.that(unbox.unbox(new Boolean[] { Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE }),
         is(new boolean[] { false, true, true, false }));
@@ -25,12 +25,12 @@ import org.junit.*;
   }
 
   @Test public void testUnboxDoubleArray() {
-    Assert.assertArrayEquals(new double[] { 1.1, 1.2, 1.3, 1.4 },
+    azzert.assertArrayEquals(new double[] { 1.1, 1.2, 1.3, 1.4 },
         unbox.unbox(new Double[] { box.box(1.1), box.box(1.2), box.box(1.3), box.box(1.4) }), 0.001);
   }
 
   @Test public void testUnboxFloatArray() {
-    Assert.assertArrayEquals(new float[] { (float) 1.1, (float) 1.2, (float) 1.3, (float) 1.4 },
+    azzert.assertArrayEquals(new float[] { (float) 1.1, (float) 1.2, (float) 1.3, (float) 1.4 },
         unbox.unbox(new Float[] { box.box((float) 1.1), box.box((float) 1.2), box.box((float) 1.3), box.box((float) 1.4) }), (float) 0.001);
   }
 

@@ -1,6 +1,5 @@
 package fluent.ly;
 
-import static org.junit.Assert.*;
 
 import org.junit.*;
 
@@ -9,23 +8,23 @@ import fluent.ly.___.Bug.Assertion.Value.Numerical.*;
 import fluent.ly.___.Bug.Assertion.Variant.*;
 import fluent.ly.___.Bug.Contract.*;
 
-@SuppressWarnings("static-method") public class ___Test {
+@SuppressWarnings({"static-method","static-access"}) public class ___Test {
   @Test public void ensure() {
     ___.ensure(true);
     try {
       ___.ensure(false);
     } catch (final Postcondition e) {
-      assertEquals("", e.getMessage());
+      azzert.assertEquals("", e.getMessage());
     }
     try {
       ___.ensure(false, "ensure");
     } catch (final Postcondition e) {
-      assertEquals("ensure", e.getMessage());
+      azzert.assertEquals("ensure", e.getMessage());
     }
     try {
       ___.ensure(false, "ensure %s message %s", "this", "now");
     } catch (final Postcondition e) {
-      assertEquals("ensure this message now", e.getMessage());
+      azzert.assertEquals("ensure this message now", e.getMessage());
     }
   }
 
@@ -36,22 +35,22 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.negative(0);
     } catch (final Negative ¢) {
-      assertEquals("Found 0 while expecting a negative integer.", ¢.getMessage());
+      azzert.assertEquals("Found 0 while expecting a negative integer.", ¢.getMessage());
     }
     try {
       ___.negative(0.0);
     } catch (final Negative ¢) {
-      assertEquals("Found 0.00000 while expecting a negative number.", ¢.getMessage());
+      azzert.assertEquals("Found 0.00000 while expecting a negative number.", ¢.getMessage());
     }
     try {
       ___.negative(-1);
     } catch (final Negative ¢) {
-      assertEquals("Found -1 while expecting a negative integer.", ¢.getMessage());
+      azzert.assertEquals("Found -1 while expecting a negative integer.", ¢.getMessage());
     }
     try {
       ___.negative(-1.0);
     } catch (final Negative ¢) {
-      assertEquals("Found -1.00000 while expecting a negative number.", ¢.getMessage());
+      azzert.assertEquals("Found -1.00000 while expecting a negative number.", ¢.getMessage());
     }
   }
 
@@ -64,12 +63,12 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.nonnegative(1);
     } catch (final NonNegative ¢) {
-      assertEquals("Found -1 while expecting a negative integer.", ¢.getMessage());
+      azzert.assertEquals("Found -1 while expecting a negative integer.", ¢.getMessage());
     }
     try {
       ___.nonnegative(1.0);
     } catch (final NonNegative ¢) {
-      assertEquals("Found -1.00000 while expecting a negative number.", ¢.getMessage());
+      azzert.assertEquals("Found -1.00000 while expecting a negative number.", ¢.getMessage());
     }
   }
 
@@ -78,17 +77,17 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.nonnull(null);
     } catch (final Exception ¢) {
-      assertEquals("", ¢.getMessage());
+      azzert.assertEquals("", ¢.getMessage());
     }
     try {
       ___.nonnull(null, "nonnull");
     } catch (final Exception ¢) {
-      assertEquals("nonnull", ¢.getMessage());
+      azzert.assertEquals("nonnull", ¢.getMessage());
     }
     try {
       ___.nonnull(null, "nonnull %s message %s", "this", "now");
     } catch (final Exception ¢) {
-      assertEquals("nonnull this message now", ¢.getMessage());
+      azzert.assertEquals("nonnull this message now", ¢.getMessage());
     }
   }
 
@@ -101,12 +100,12 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.nonpositive(-1);
     } catch (final NonPositive ¢) {
-      assertEquals("Found -1 while expecting a nonpositive integer.", ¢.getMessage());
+      azzert.assertEquals("Found -1 while expecting a nonpositive integer.", ¢.getMessage());
     }
     try {
       ___.nonpositive(-1.0);
     } catch (final NonPositive ¢) {
-      assertEquals("Found -1.00000 while expecting a nonpositive number.", ¢.getMessage());
+      azzert.assertEquals("Found -1.00000 while expecting a nonpositive number.", ¢.getMessage());
     }
   }
 
@@ -117,22 +116,22 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.positive(0);
     } catch (final Positive ¢) {
-      assertEquals("Found 0 while expecting a positive integer.", ¢.getMessage());
+      azzert.assertEquals("Found 0 while expecting a positive integer.", ¢.getMessage());
     }
     try {
       ___.positive(0.0);
     } catch (final Positive ¢) {
-      assertEquals("Found 0.00000 while expecting a positive number.", ¢.getMessage());
+      azzert.assertEquals("Found 0.00000 while expecting a positive number.", ¢.getMessage());
     }
     try {
       ___.positive(-1);
     } catch (final Positive ¢) {
-      assertEquals("Found -1 while expecting a positive integer.", ¢.getMessage());
+      azzert.assertEquals("Found -1 while expecting a positive integer.", ¢.getMessage());
     }
     try {
       ___.positive(-1.0);
     } catch (final Positive ¢) {
-      assertEquals("Found -1.00000 while expecting a positive number.", ¢.getMessage());
+      azzert.assertEquals("Found -1.00000 while expecting a positive number.", ¢.getMessage());
     }
   }
 
@@ -141,17 +140,17 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.require(false);
     } catch (final Precondition ¢) {
-      assertEquals("", ¢.getMessage());
+      azzert.assertEquals("", ¢.getMessage());
     }
     try {
       ___.require(false, "requireMessage");
     } catch (final Precondition ¢) {
-      assertEquals("requireMessage", ¢.getMessage());
+      azzert.assertEquals("requireMessage", ¢.getMessage());
     }
     try {
       ___.require(false, "require %s message %s", "this", "now");
     } catch (final Precondition ¢) {
-      assertEquals("require this message now", ¢.getMessage());
+      azzert.assertEquals("require this message now", ¢.getMessage());
     }
   }
 
@@ -168,17 +167,17 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.sure(false);
     } catch (final Invariant e) {
-      assertEquals("", e.getMessage());
+      azzert.assertEquals("", e.getMessage());
     }
     try {
       ___.sure(false, "sure");
     } catch (final Invariant e) {
-      assertEquals("sure", e.getMessage());
+      azzert.assertEquals("sure", e.getMessage());
     }
     try {
       ___.sure(false, "sure %s message %s", "this", "now");
     } catch (final Invariant e) {
-      assertEquals("sure this message now", e.getMessage());
+      azzert.assertEquals("sure this message now", e.getMessage());
     }
   }
 
@@ -186,50 +185,50 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.unreachable();
     } catch (final Reachability ¢) {
-      assertEquals("", ¢.getMessage());
+      azzert.assertEquals("", ¢.getMessage());
     }
     try {
       ___.unreachable("unreachable message");
     } catch (final Reachability ¢) {
-      assertEquals("unreachable message", ¢.getMessage());
+      azzert.assertEquals("unreachable message", ¢.getMessage());
     }
     try {
       ___.unreachable("unreachable %s message %s", "this", "now");
     } catch (final Reachability ¢) {
-      assertEquals("unreachable this message now", ¢.getMessage());
+      azzert.assertEquals("unreachable this message now", ¢.getMessage());
     }
   }
 
   @Test public void variant() {
     {
       final fluent.ly.___.Variant v = new fluent.ly.___.Variant(10);
-      assertEquals(10, v.value());
+      azzert.assertEquals(10, v.value());
       v.check(9);
       v.check(8);
       v.check(4);
       v.check(2);
       v.check(1);
       v.check(0);
-      assertEquals(0, v.value());
+      azzert.assertEquals(0, v.value());
     }
     try {
       fluent.ly.___.unused(new fluent.ly.___.Variant(-1));
     } catch (final Initial e) {
-      assertEquals("Initial variant value (-1) is negative", e.getMessage());
+      azzert.assertEquals("Initial variant value (-1) is negative", e.getMessage());
     }
     try {
       final fluent.ly.___.Variant v = new fluent.ly.___.Variant(10);
       v.check(8);
       v.check(9);
     } catch (final Nondecreasing ¢) {
-      assertEquals("New variant value (9) should be less than previous value (8)", ¢.getMessage());
+      azzert.assertEquals("New variant value (9) should be less than previous value (8)", ¢.getMessage());
     }
     try {
       final fluent.ly.___.Variant v = new fluent.ly.___.Variant(10);
       v.check(8);
       v.check(-2);
     } catch (final Underflow ¢) {
-      assertEquals("New variant value (-2) is negative", ¢.getMessage());
+      azzert.assertEquals("New variant value (-2) is negative", ¢.getMessage());
     }
   }
 }

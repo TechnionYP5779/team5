@@ -1,7 +1,6 @@
 package il.org.spartan.iterables;
 
 import static il.org.spartan.Utils.*;
-import static org.junit.Assert.*;
 
 import java.util.*;
 
@@ -40,19 +39,19 @@ public class iterablesTest {
   }
 
   @Test public void countDoesNotIncludeNull() {
-    assertEquals(3, iterables.count(iterable.over(null, "One", null, "Two", null, "Three")));
+    azzert.assertEquals(3, iterables.count(iterable.over(null, "One", null, "Two", null, "Three")));
   }
 
   @Test public void countEmpty() {
-    assertEquals(0, iterables.count(iterables.<String> empty()));
+    azzert.assertEquals(0, iterables.count(iterables.<String> empty()));
   }
 
   @Test public void countSingleton() {
-    assertEquals(1, iterables.count(iterable.singleton(new Object())));
+    azzert.assertEquals(1, iterables.count(iterable.singleton(new Object())));
   }
 
   @Test public void countThree() {
-    assertEquals(3, iterables.count(iterable.over("One", "Two", "Three")));
+    azzert.assertEquals(3, iterables.count(iterable.over("One", "Two", "Three")));
   }
   
   @Test public void alternateNewIntegerIterablesTest() {
