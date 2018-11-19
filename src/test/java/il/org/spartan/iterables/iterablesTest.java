@@ -39,19 +39,19 @@ public class iterablesTest {
   }
 
   @Test public void countDoesNotIncludeNull() {
-    azzert.assertEquals(3, iterables.count(iterable.over(null, "One", null, "Two", null, "Three")));
+    azzert.that(3, azzert.is(iterables.count(iterable.over(null, "One", null, "Two", null, "Three"))));
   }
 
   @Test public void countEmpty() {
-    azzert.assertEquals(0, iterables.count(iterables.<String> empty()));
+    azzert.that(0, azzert.is(iterables.count(iterables.<String> empty())));
   }
 
   @Test public void countSingleton() {
-    azzert.assertEquals(1, iterables.count(iterable.singleton(new Object())));
+    azzert.that(1, azzert.is(iterables.count(iterable.singleton(new Object()))));
   }
 
   @Test public void countThree() {
-    azzert.assertEquals(3, iterables.count(iterable.over("One", "Two", "Three")));
+    azzert.that(3, azzert.is(iterables.count(iterable.over("One", "Two", "Three"))));
   }
   
   @Test public void alternateNewIntegerIterablesTest() {
@@ -76,7 +76,7 @@ public class iterablesTest {
     List<Integer> lst2 = new ArrayList<>();
     lst1.add(box.box(100));
     lst2.add(box.box(200));
-    azzert.assertEquals(100, iterables.alternate(lst1, lst2).iterator().next());
+    azzert.that(iterables.alternate(lst1, lst2).iterator().next(),azzert.is(100) );
   }
   
   @Test public void alternateAddUntilTheShortestFirst() {
@@ -87,9 +87,9 @@ public class iterablesTest {
     lst2.add(box.box(3));
     lst2.add(box.box(4));
     Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
-    azzert.assertEquals(2,new_lst_it.next());
-    azzert.assertEquals(1, new_lst_it.next());
-    azzert.assertEquals(false, new_lst_it.hasNext());
+    azzert.that(new_lst_it.next(),azzert.is(2));
+    azzert.that(new_lst_it.next(),azzert.is(1));
+    azzert.that(new_lst_it.hasNext(),azzert.is(false));
   }
   
   @Test public void alternateAddUntilTheShortestSecond() {
@@ -99,8 +99,8 @@ public class iterablesTest {
     lst2.add(box.box(2));
     lst1.add(box.box(3));
     Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
-    azzert.assertEquals(1,new_lst_it.next());
-    azzert.assertEquals(2, new_lst_it.next());
-    azzert.assertEquals(false, new_lst_it.hasNext());
+    azzert.that(new_lst_it.next(),azzert.is(1));
+    azzert.that( new_lst_it.next(), azzert.is(2));
+    azzert.that( new_lst_it.hasNext(),azzert.is(false));
   }
 }

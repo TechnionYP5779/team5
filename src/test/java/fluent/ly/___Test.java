@@ -202,14 +202,14 @@ import fluent.ly.___.Bug.Contract.*;
   @Test public void variant() {
     {
       final fluent.ly.___.Variant v = new fluent.ly.___.Variant(10);
-      azzert.assertEquals(10, v.value());
+      azzert.that(10, azzert.is(v.value()));
       v.check(9);
       v.check(8);
       v.check(4);
       v.check(2);
       v.check(1);
       v.check(0);
-      azzert.assertEquals(0, v.value());
+      azzert.that(0, azzert.is(v.value()));
     }
     try {
       fluent.ly.forget.all(new fluent.ly.___.Variant(-1));

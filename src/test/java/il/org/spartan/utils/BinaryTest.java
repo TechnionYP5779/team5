@@ -16,7 +16,7 @@ import fluent.ly.*;
   @Test public void hashCodeTest() {
     Binary b = Binary.T.clone();
     int res = b.hashCode();
-    azzert.assertEquals(1, res);
+    azzert.that(1, azzert.is(res));
   }
 
   @Test public void andTest() {
