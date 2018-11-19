@@ -28,7 +28,7 @@ public class StrTest {
     Str s = new Str();
     assert s.isEmptyx();
     s.set("World");
-    assert !s.isEmptyx();
+    assert  !s.isEmptyx();
   }
   
   @Test public void notemptyTest() {
