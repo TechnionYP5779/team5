@@ -4,7 +4,7 @@ import org.junit.*;
 
 @SuppressWarnings("static-method") public class anonymousTest {
   @Test public void lyBooleanTest() {
-    azzert.assertEquals(true, anonymous.ly(() -> true));
+    azzert.that(true, azzert.is(anonymous.ly(() -> true)));
   }
 
   @Test public void lyDoubleTest() {
@@ -12,7 +12,7 @@ import org.junit.*;
   }
 
   @Test public void lyIntTest() {
-    azzert.assertEquals(1, anonymous.ly(() -> 1));
+    azzert.that(1, azzert.is(anonymous.ly(() -> 1)));
   }
 
   @Test public void lylongTest() {

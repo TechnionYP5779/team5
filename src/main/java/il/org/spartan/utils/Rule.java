@@ -203,9 +203,9 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
       super(inner);
     }
 
-    @Override public Void before(final @NotNull String key, final Object... arguments) {
-      count.putIfAbsent(key, Integer.valueOf(0));
-      count.put(key, box.it(count.get(key).intValue() + 1));
+    @SuppressWarnings("null") @Override public Void before(final @NotNull String key, final Object... arguments) {
+      count.putIfAbsent(key, box.box(0));
+      count.put(key, box.it(unbox.unbox(count.get(key))+ 1));
       return super.before(key, arguments);
     }
   }

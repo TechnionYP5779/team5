@@ -10,7 +10,6 @@ public final class Int {
   public int inner;
 
   public Int() {
-    ___.______unused();
   }
 
   public Int(final int inner) {
@@ -19,7 +18,7 @@ public final class Int {
 
   /** Function form, good substitute for auto-boxing */
   public Integer inner() {
-    return Integer.valueOf(inner);
+    return box.box(inner);
   }
 
   /** @param ¢ JD

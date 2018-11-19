@@ -93,7 +93,7 @@ public class LinearRegression {
     return $;
   }
 
-  public double yOf(double x) {
+  public double yOf(final double x) {
     return RegressionLine().yOf(x);
   }
 }

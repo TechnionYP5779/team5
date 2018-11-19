@@ -46,4 +46,16 @@ public enum iterables {
   public static <T> Iterator<T> singletonIterator(final T $) {
     return iterable.singleton($).iterator();
   }
+
+  public static <T> Iterable<T> alternate(final Iterable<T> it1, final Iterable<T> it2) {
+    // TODO Auto-generated method stub
+    if (it1 == null || it2 == null)
+      return null;
+    final List<T> $ = new ArrayList<>();
+    for (Iterator<T> iter1 = it1.iterator(), iter2 = it2.iterator(); iter1.hasNext() && iter2.hasNext();) {
+      $.add(iter1.next());
+      $.add(iter2.next());
+    }
+    return $;
+  }
 }

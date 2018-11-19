@@ -7,7 +7,7 @@ import java.util.stream.*;
 
 import org.junit.*;
 
-@SuppressWarnings("static-method") public class theTest {
+@SuppressWarnings({"static-method","null"}) public class theTest {
   @Test public void indexTest() {
     azzert.that(2, is(the.index(5, 1, 2, 5, 3, 4)));
   }
@@ -28,7 +28,7 @@ import org.junit.*;
     assert the.penultimateOf(null) == null;
   }
 
-  @Test @SuppressWarnings("null") public void penuliateofOneTest() {
+  @Test public void penuliateofOneTest() {
     final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(0));
     azzert.that(null, is(the.penultimateOf(l)));
@@ -62,7 +62,7 @@ import org.junit.*;
     azzert.that(box.it(1), is(the.previous(box.it(2), l)));
   }
 
-  @Test @SuppressWarnings("null") public void tailOfTest() {
+  @Test public void tailOfTest() {
     azzert.that(IntStream.range(1, 5).boxed().collect(Collectors.toList()),
         is(the.tailOf(IntStream.range(0, 5).boxed().collect(Collectors.toList()))));
   }
@@ -82,11 +82,11 @@ import org.junit.*;
     assert the.headOf(null) == null;
   }
 
-  @SuppressWarnings("null") @Test public void headOfEmpty() {
+  @Test public void headOfEmpty() {
     azzert.that(null, is(the.headOf(new ArrayList<Integer>())));
   }
 
-  @Test @SuppressWarnings("null") public void headOf() {
+  @Test public void headOf() {
     azzert.that(box.it(0), is(the.headOf(IntStream.range(0, 6).boxed().collect(Collectors.toList()))));
   }
 
@@ -102,11 +102,11 @@ import org.junit.*;
     azzert.that(null, is(the.lastOf((ArrayList<Integer>) null)));
   }
 
-  @SuppressWarnings("null") @Test public void lastOfEpty() {
+  @Test public void lastOfEpty() {
     azzert.that(null, is(the.lastOf(new ArrayList<Integer>())));
   }
 
-  @SuppressWarnings("null") @Test public void lastOf() {
+  @Test public void lastOf() {
     final ArrayList<Integer> l = new ArrayList<>();
     l.add(box.it(1));
     azzert.that(box.it(1), is(the.lastOf(l)));
@@ -120,7 +120,7 @@ import org.junit.*;
     azzert.that('w', is(the.beforeLastOf("hello world", 4)));
   }
 
-  @SuppressWarnings("null") @Test public void lastOfIterable() {
+  @Test public void lastOfIterable() {
     final Iterator<?> it = the.lastOf((Iterable<?>) (ArrayList<?>) IntStream.range(0, 5).boxed().collect(Collectors.toList())).iterator();
     azzert.that(box.it(1), is(it.next()));
     azzert.that(box.it(2), is(it.next()));
@@ -133,7 +133,7 @@ import org.junit.*;
     assert the.onlyOneOf(null) == null;
   }
 
-  @SuppressWarnings("null") @Test public void onlyOneOfEmpty() {
+  @Test public void onlyOneOfEmpty() {
     azzert.that(null, is(the.onlyOneOf(new ArrayList<Integer>())));
   }
 
@@ -147,7 +147,7 @@ import org.junit.*;
     assert the.secondOf(null) == null;
   }
 
-  @SuppressWarnings("null") @Test public void secondOfEmpty() {
+  @Test public void secondOfEmpty() {
     azzert.that(null, is(the.secondOf(new ArrayList<Integer>())));
   }
 
@@ -174,7 +174,7 @@ import org.junit.*;
     assert the.last(null) == null;
   }
 
-  @SuppressWarnings("null") @Test public void lastEmpty() {
+  @Test public void lastEmpty() {
     azzert.that(null, is(the.last(new ArrayList<Integer>())));
   }
 

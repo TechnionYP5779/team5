@@ -1,7 +1,8 @@
 package il.org.spartan.iterables;
 
 import static il.org.spartan.Utils.*;
-import static org.junit.Assert.*;
+
+import java.util.*;
 
 import org.junit.*;
 
@@ -14,7 +15,9 @@ import fluent.ly.*;
  * begin with the name of the method they check.
  * @author Yossi Gil
  * @since 2014-05-31 */
-@SuppressWarnings("static-method") public class iterablesTest {
+
+@SuppressWarnings("static-method")
+public class iterablesTest {
   @Test public void containsDegenerate() {
     azzert.nay(contains("Hello"));
   }
@@ -36,18 +39,68 @@ import fluent.ly.*;
   }
 
   @Test public void countDoesNotIncludeNull() {
-    assertEquals(3, iterables.count(iterable.over(null, "One", null, "Two", null, "Three")));
+    azzert.that(3, azzert.is(iterables.count(iterable.over(null, "One", null, "Two", null, "Three"))));
   }
 
   @Test public void countEmpty() {
-    assertEquals(0, iterables.count(iterables.<String> empty()));
+    azzert.that(0, azzert.is(iterables.count(iterables.<String> empty())));
   }
 
   @Test public void countSingleton() {
-    assertEquals(1, iterables.count(iterable.singleton(new Object())));
+    azzert.that(1, azzert.is(iterables.count(iterable.singleton(new Object()))));
   }
 
   @Test public void countThree() {
-    assertEquals(3, iterables.count(iterable.over("One", "Two", "Three")));
+    azzert.that(3, azzert.is(iterables.count(iterable.over("One", "Two", "Three"))));
+  }
+  
+  @Test public void alternateNewIntegerIterablesTest() {
+    Iterable<Integer> it1 = new ArrayList<>();
+    Iterable<Integer> it2 = new ArrayList<>();
+    iterables.alternate(it1, it2);
+  }
+  
+  @Test public void alternateFirstIterableNullTest() {
+    Iterable<Integer> it1 = new ArrayList<>();
+    azzert.isNull(iterables.alternate(it1, null));
+    azzert.isNull(iterables.alternate(null, it1));
+    
+  }
+  
+  @Test public void alternateGenericAlternate() {
+    iterables.alternate(new ArrayList<>(), new ArrayList<>());
+  }
+  
+  @Test public void alternateTwoIntegerSingletonListsReturnListWithBothIntegers() {
+    List<Integer> lst1 = new ArrayList<>();
+    List<Integer> lst2 = new ArrayList<>();
+    lst1.add(box.box(100));
+    lst2.add(box.box(200));
+    azzert.that(iterables.alternate(lst1, lst2).iterator().next(),azzert.is(100) );
+  }
+  
+  @Test public void alternateAddUntilTheShortestFirst() {
+    List<Integer> lst1 = new ArrayList<>();
+    List<Integer> lst2 = new ArrayList<>();
+    lst2.add(box.box(1));
+    lst1.add(box.box(2));
+    lst2.add(box.box(3));
+    lst2.add(box.box(4));
+    Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
+    azzert.that(new_lst_it.next(),azzert.is(2));
+    azzert.that(new_lst_it.next(),azzert.is(1));
+    azzert.that(new_lst_it.hasNext(),azzert.is(false));
+  }
+  
+  @Test public void alternateAddUntilTheShortestSecond() {
+    List<Integer> lst1 = new ArrayList<>();
+    List<Integer> lst2 = new ArrayList<>();
+    lst1.add(box.box(1));
+    lst2.add(box.box(2));
+    lst1.add(box.box(3));
+    Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
+    azzert.that(new_lst_it.next(),azzert.is(1));
+    azzert.that( new_lst_it.next(), azzert.is(2));
+    azzert.that( new_lst_it.hasNext(),azzert.is(false));
   }
 }

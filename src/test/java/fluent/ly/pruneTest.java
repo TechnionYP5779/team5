@@ -1,6 +1,5 @@
 package fluent.ly;
 
-import static org.junit.Assert.assertEquals;
 
 import static fluent.ly.azzert.*;
 
@@ -20,35 +19,35 @@ import org.junit.*;
       null, null, null);
 
   @Test public void nullsNotNullArrayLength() {
-    assertEquals(nonNullArray.length, prune.nulls(nonNullArray).length);
+    azzert.that(nonNullArray.length, azzert.is(prune.nulls(nonNullArray).length));
   }
 
   @Test public void nullsNullArrayItems() {
-    assertEquals("1", prune.nulls(nonNullArray)[0]);
-    assertEquals("2", prune.nulls(nonNullArray)[1]);
-    assertEquals("4", prune.nulls(nonNullArray)[2]);
+    azzert.that("1", azzert.is(prune.nulls(nonNullArray)[0]));
+    azzert.that("2", azzert.is(prune.nulls(nonNullArray)[1]));
+    azzert.that("4", azzert.is(prune.nulls(nonNullArray)[2]));
   }
 
   @Test public void nullsPruneArrayAltenatingItems() {
-    assertEquals("A", prune.nulls(alternatingArray)[0]);
-    assertEquals("B", prune.nulls(alternatingArray)[1]);
-    assertEquals("C", prune.nulls(alternatingArray)[2]);
+    azzert.that("A", azzert.is(prune.nulls(alternatingArray)[0]));
+    azzert.that("B", azzert.is(prune.nulls(alternatingArray)[1]));
+    azzert.that("C", azzert.is(prune.nulls(alternatingArray)[2]));
   }
 
   @Test public void nullsPruneArrayAltenatingLength() {
-    assertEquals(3, prune.nulls(alternatingArray).length);
+    azzert.that(3, azzert.is(prune.nulls(alternatingArray).length));
   }
 
   @Test public void nullsPruneSparseCollectionContents() {
     final String[] a = prune.nulls(sparseCollection).toArray(new String[3]);
-    assertEquals("A", a[0]);
-    assertEquals("B", a[1]);
-    assertEquals("C", a[2]);
-    assertEquals(3, a.length);
+    azzert.that("A", azzert.is(a[0]));
+    azzert.that("B", azzert.is(a[1]));
+    azzert.that("C", azzert.is(a[2]));
+    azzert.that(3, azzert.is(a.length));
   }
 
   @Test public void nullsPruneSparseCollectionLength() {
-    assertEquals(3, prune.nulls(sparseCollection).size());
+    azzert.that(3, azzert.is(prune.nulls(sparseCollection).size()));
   }
 
   @Test public void nullsPrunNotNull() {
@@ -56,19 +55,19 @@ import org.junit.*;
   }
 
   @Test public void shrinkArray() {
-    assertEquals(0, prune.shrink(new Object[10]).length);
+    azzert.that(0, azzert.is(prune.shrink(new Object[10]).length));
   }
 
   @Test public void shrinkEmptyArray() {
-    assertEquals(0, prune.shrink(new Object[0]).length);
+    azzert.that(0, azzert.is(prune.shrink(new Object[0]).length));
   }
 
   @Test public void whitesEmptyArray() {
-    assertEquals(0, prune.whites().length);
+    azzert.that(0, azzert.is(prune.whites().length));
   }
 
   @Test public void whitesEmptyList() {
-    assertEquals(0, prune.whites().length);
+    azzert.that(0, azzert.is(prune.whites().length));
   }
 
   @NotNull final Supplier<List<String>> x = () -> {

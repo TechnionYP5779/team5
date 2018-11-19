@@ -38,7 +38,7 @@ public class PairsList {
 
     public PLIterator() {
       idx = 0;
-      this.current = l.get(idx);
+      current = l.get(idx);
     }
 
     @Override public boolean hasNext() {
@@ -49,10 +49,10 @@ public class PairsList {
       try {
         if (!hasNext())
           return l.get(l.size() - 1);
-        PAIR<Double, Double> $ = current;
+        final PAIR<Double, Double> $ = current;
         current = l.get(++idx);
         return $;
-      } catch (@SuppressWarnings("unused") IndexOutOfBoundsException ¢) {
+      } catch (@SuppressWarnings("unused") final IndexOutOfBoundsException ¢) {
         return l.get(l.size() - 1);
       }
     }
@@ -111,7 +111,7 @@ public class PairsList {
   /* @param cord: "X" if we want the first quarter of X values, "Y" if we want it
    * on Y values
    *
-   * @return variance value of wanted axis */
+   * @return first quarter value of wanted axis */
   public double firstQuarterOf(final String axis) {
     final double[] $ = new double[sortAsc().size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
@@ -171,7 +171,7 @@ public class PairsList {
   /* @param cord: "X" if we want the squares-sum of X values, "Y" if we want it on
    * Y values
    *
-   * @return variance value of wanted axis */
+   * @return squares-sum value of wanted axis */
   public double squaresSumOf(final String axis) {
     int $ = 0;
     for (int ¢ = 0; ¢ < l.size(); ¢++)
@@ -183,7 +183,7 @@ public class PairsList {
   /* @param cord: "X" if we want the sum of X values, "Y" if we want it on Y
    * values
    *
-   * @return variance value of wanted axis */
+   * @return sum value of wanted axis */
   public double sumOf(final String axis) {
     int $ = 0;
     for (int ¢ = 0; ¢ < l.size(); ¢++)
@@ -194,7 +194,7 @@ public class PairsList {
   /* @param cord: "X" if we want the third quarter of X values, "Y" if we want it
    * on Y values
    *
-   * @return variance value of wanted axis */
+   * @return third quarter value of wanted axis */
   public double thirdQuarterOf(final String axis) {
     final double[] $ = new double[sortAsc().size()];
     for (int ¢ = 0; ¢ < l.size(); ¢++)
