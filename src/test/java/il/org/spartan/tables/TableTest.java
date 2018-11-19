@@ -24,7 +24,7 @@ import il.org.spartan.utils.*;
     Table table = new Table(in);
     azzert.that(table.baseName(), azzert.is(system.tmp+".*"));
     table.col("ints",5);
-    table.col("longs",(long)6);
+    table.col("longs",1L * 6);
     table.col("doubles",6.5);
     String $ = "Table named  produced in 5 formats (versions) in " + table.baseName() + "\n" + 
         "The table has 1 data rows, each consisting of 4 columns.\n" + 
@@ -39,7 +39,7 @@ import il.org.spartan.utils.*;
         fail("Runtime Error");
       }
     });
-    $=$ + writers2.stream().map(λ -> "\t " + ++n.inner + ". " + λ.fileName + "\n").reduce((x, y) -> x + y).get();
+    $ += writers2.stream().map(λ -> "\t " + ++n.inner + ". " + λ.fileName + "\n").reduce((x, y) -> x + y).get();
     
     azzert.that(table.description(), azzert.is($));
     table.nl();
@@ -50,7 +50,7 @@ import il.org.spartan.utils.*;
     table.noStatistics().add(Statistic.max).add(Statistic.min);
     table.col("ints",5);
     table.col("null",5);
-    table.col("longs",(long)6);
+    table.col("longs",1L * 6);
     table.col("doubles",6.5);
     table.col("doubles",100.5);
     table.noStatistics().add(Statistic.max).add(Statistic.min).add(Statistic.median).add(Statistic.mean).
