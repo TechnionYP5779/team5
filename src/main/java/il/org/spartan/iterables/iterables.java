@@ -4,7 +4,6 @@ package il.org.spartan.iterables;
 import java.util.*;
 
 import org.jetbrains.annotations.*;
-
 import an.*;
 import fluent.ly.*;
 
@@ -46,4 +45,18 @@ public enum iterables {
   public static <T> Iterator<T> singletonIterator(final T $) {
     return iterable.singleton($).iterator();
   }
+
+  public static <T> Iterable<T> alternate(Iterable<T> it1, Iterable<T> it2) {
+    // TODO Auto-generated method stub
+    if (it1 == null || it2 == null) {
+      return null;
+    }
+    List<T> new_it = new ArrayList<>();
+    for(Iterator<T> iter1 = it1.iterator(), iter2 = it2.iterator(); iter1.hasNext() && iter2.hasNext(); ) {
+      new_it.add(iter1.next());
+      new_it.add(iter2.next());
+    }
+    return new_it;
+  }
+
 }
