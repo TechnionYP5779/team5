@@ -51,11 +51,11 @@ public enum iterables {
     // TODO Auto-generated method stub
     if (it1 == null || it2 == null)
       return null;
-    final List<T> new_it = new ArrayList<>();
+    final List<T> $ = new ArrayList<>();
     for (Iterator<T> iter1 = it1.iterator(), iter2 = it2.iterator(); iter1.hasNext() && iter2.hasNext();) {
-      new_it.add(iter1.next());
-      new_it.add(iter2.next());
+      $.add(iter1.next());
+      $.add(iter2.next());
     }
-    return new_it;
+    return $;
   }
 }

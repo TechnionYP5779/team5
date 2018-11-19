@@ -21,7 +21,7 @@ public enum string {
     return unbox.unbox(Double.valueOf(¢));
   }
 
-  public static float atof(final @NotNull String ¢) {
+  @SuppressWarnings("null") public static float atof(final @NotNull String ¢) {
     return unbox.unbox(Float.valueOf(¢));
   }
 
@@ -29,7 +29,7 @@ public enum string {
     return unbox.unbox(Integer.valueOf(¢));
   }
 
-  public static long atol(final @NotNull String ¢) {
+  @SuppressWarnings("null") public static long atol(final @NotNull String ¢) {
     return unbox.unbox(Long.valueOf(¢));
   }
 
