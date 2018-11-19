@@ -8,7 +8,10 @@
 
 ## Team 5 development status 
 [![Build Status](https://travis-ci.org/TechnionYP5779/team5.svg?branch=master)](https://travis-ci.org/TechnionYP5779/team5)
+
 [![GitHub issues open](https://img.shields.io/github/issues/TechnionYP5779/team5.svg?maxAge=2592000)]() 
+
+![coverage](https://img.shields.io/badge/coverage-80%25-yellowgreen.svg?maxAge=2592000)
 
 ## Articles
 
