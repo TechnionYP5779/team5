@@ -1,6 +1,5 @@
 package fluent.ly;
 
-
 import org.junit.*;
 
 import fluent.ly.___.Bug.Assertion.*;
@@ -116,7 +115,7 @@ import fluent.ly.___.Bug.Contract.*;
     try {
       ___.positive(0);
     } catch (final Positive ¢) {
-      azzert.that("Found 0 while expecting a positive integer.",azzert.is( ¢.getMessage()));
+      azzert.that("Found 0 while expecting a positive integer.", azzert.is(¢.getMessage()));
     }
     try {
       ___.positive(0.0);

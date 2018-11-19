@@ -4,7 +4,7 @@ import static fluent.ly.azzert.*;
 
 import org.junit.*;
 
-@SuppressWarnings({"static-method","static-access"}) public class unboxTest {
+@SuppressWarnings({ "static-method", "static-access" }) public class unboxTest {
   @Test public void testUnboxBooleanArray() {
     azzert.that(unbox.unbox(new Boolean[] { Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE }),
         is(new boolean[] { false, true, true, false }));
