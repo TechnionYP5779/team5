@@ -64,6 +64,10 @@ The refactorings made by this plug-in are based on the concept of Spartan Progra
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
+## Additional Links
+* [team5 at Sonarqube](https://sonarcloud.io/dashboard?id=0a9d7e0d9cbe7bf65aeddc34f4ad28e99cd09382)
+* [lgtm](https://lgtm.com/)
+
 ## Acknowledgments
 
 * **Prof. Yossi Gil**
