@@ -11,7 +11,7 @@
 
 [![GitHub issues open](https://img.shields.io/github/issues/TechnionYP5779/team5.svg?maxAge=2592000)]() 
 
-![coverage](https://sonarcloud.io/api/project_badges/measure?project=0a9d7e0d9cbe7bf65aeddc34f4ad28e99cd09382&metric=coverage)
+[![Coverage Status](https://coveralls.io/repos/github/TechnionYP5779/team5/badge.svg?branch=master)](https://coveralls.io/github/TechnionYP5779/team5?branch=master)
 
 ## Articles
 
