@@ -52,11 +52,11 @@ import il.org.spartan.utils.*;
   }
 
   /** Adds a key and a {@code double</b><code> value to this instance &#64;param
-      <<<<<<< HEAD
-                               * key The key to be added; must not be {@code null &#64;param value The value
-      =======
-                                  * key The key to be added; must not be {@code null &#64;param value The value
-      >>>>>>> branch 'master' of https://github.com/TechnionYP5779/team5.git
+       <<<<<<< HEAD
+                                * key The key to be added; must not be {@code null &#64;param value The value
+       =======
+                                   * key The key to be added; must not be {@code null &#64;param value The value
+       >>>>>>> branch 'master' of https://github.com/TechnionYP5779/team5.git
    * associated with the key @return {@code this} */
   public Self col(final @NotNull String key, final double value) {
     return col(key, value + "");
