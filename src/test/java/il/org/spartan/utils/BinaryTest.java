@@ -7,7 +7,10 @@ import org.junit.*;
 import static fluent.ly.azzert.is;
 import fluent.ly.*;
 
-/** @author Nir Chachamovitz */
+/** A test for class Binary.java
+ * @author Nir Chachamovitz 
+ *  @since 2018-11-20
+ *  */
 @SuppressWarnings("static-method") public class BinaryTest {
   @Test public void cloneTest() {
     Binary.T.clone();
