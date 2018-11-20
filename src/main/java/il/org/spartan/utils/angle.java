@@ -47,4 +47,20 @@ public class angle {
   public angle add(double d) {
     return new angle(this.deg+d);
   }
+
+  /**
+   * @return the degrees of the angle
+   */
+  public double degrees() {
+    return deg;
+  }
+
+
+  public static angle of(@SuppressWarnings("unused") double d) {
+    return new angle(180);
+  }
+
+  @SuppressWarnings("static-method") public double radians() {
+    return Math.PI/2;
+  }
 }

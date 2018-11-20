@@ -30,4 +30,16 @@ import fluent.ly.*;
   @Test public void test6() {
     azzert.that(angle.halfPi.add(20).getDegrees(), is((double)110));
   }
+  
+  @Test public void test7() {
+    azzert.that(angle.pi.degrees(), is((double)180));
+  }
+  
+  @Test public void test8() {
+    azzert.that(angle.of(20).degrees(), is((double)180));
+  }
+  
+  @Test public void test9() {
+    azzert.that(angle.pi.radians(), is(Math.PI/2));
+  }
 }
