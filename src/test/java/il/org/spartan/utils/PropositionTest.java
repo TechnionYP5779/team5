@@ -49,21 +49,21 @@ import org.junit.*;
 
   @Test public void FProp() {
     assert !F.eval();
-    Assert.assertEquals("F", F + "");
+    assert "F".equals(F + "");
   }
 
   @Test public void TProp() {
     assert T.eval();
-    Assert.assertEquals("T", T + "");
+    assert "T".equals(T + "");
   }
 
   @Test(expected = NullPointerException.class) public void NProp() {
-    Assert.assertEquals("N", N + "");
+    assert "N".equals(N + "");
     N.getAsBoolean();
   }
 
   @Test(expected = AssertionError.class) public void XProp() {
-    Assert.assertEquals("X", X + "");
+    assert "X".equals(X + "");
     X.getAsBoolean();
   }
 
