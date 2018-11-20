@@ -13,9 +13,9 @@ import org.junit.*;
     final LinkedList<Integer> l = new LinkedList<>();
     l.add(box.it(1));
     l.add(box.it(2));
-    azzert.that(all.notNull(l), azzert.is(true));
+    assert all.notNull(l);
     l.add(null);
-    azzert.that(all.notNull(l), azzert.is(false));
+    assert !all.notNull(l);
   }
 
   @SuppressWarnings("null") @Test public void ArrayNotNulltest() {
@@ -23,8 +23,8 @@ import org.junit.*;
     a[0] = box.it(1);
     a[1] = box.it(1);
     a[2] = box.it(1);
-    azzert.that(all.notNull(a), azzert.is(true));
+    assert all.notNull(a);
     a[2] = null;
-    azzert.that(all.notNull(a), azzert.is(false));
+    assert !all.notNull(a);
   }
 }

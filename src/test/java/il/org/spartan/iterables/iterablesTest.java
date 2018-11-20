@@ -86,7 +86,7 @@ import fluent.ly.*;
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
     azzert.that(new_lst_it.next(), azzert.is(2));
     azzert.that(new_lst_it.next(), azzert.is(1));
-    azzert.that(new_lst_it.hasNext(), azzert.is(false));
+    assert !new_lst_it.hasNext();
   }
 
   @Test public void alternateAddUntilTheShortestSecond() {
@@ -98,6 +98,6 @@ import fluent.ly.*;
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
     azzert.that(new_lst_it.next(), azzert.is(1));
     azzert.that(new_lst_it.next(), azzert.is(2));
-    azzert.that(new_lst_it.hasNext(), azzert.is(false));
+    assert !new_lst_it.hasNext();
   }
 }
