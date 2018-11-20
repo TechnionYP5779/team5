@@ -84,8 +84,8 @@ import fluent.ly.*;
     lst2.add(box.it(3));
     lst2.add(box.it(4));
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
-    azzert.that(new_lst_it.next(), is(2));
-    azzert.that(new_lst_it.next(), is(1));
+    azzert.that(new_lst_it.next(), azzert.is(2));
+    azzert.that(new_lst_it.next(), azzert.is(1));
     assert !new_lst_it.hasNext();
   }
 
@@ -96,8 +96,8 @@ import fluent.ly.*;
     lst2.add(box.it(2));
     lst1.add(box.it(3));
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
-    azzert.that(new_lst_it.next(), is(1));
-    azzert.that(new_lst_it.next(), is(2));
+    azzert.that(new_lst_it.next(), azzert.is(1));
+    azzert.that(new_lst_it.next(), azzert.is(2));
     assert !new_lst_it.hasNext();
   }
 }

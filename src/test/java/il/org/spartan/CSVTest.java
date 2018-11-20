@@ -2,9 +2,6 @@ package il.org.spartan;
 
 import static fluent.ly.azzert.*;
 
-import java.io.*;
-import java.nio.file.*;
-
 import org.junit.*;
 
 import fluent.ly.*;
@@ -13,7 +10,7 @@ enum Color {
   RED, GREEN, BLUE;
 }
 
-@SuppressWarnings({"static-method", "resource"}) public class CSVTest {
+@SuppressWarnings("static-method") public class CSVTest {
   @Test public void combineTest() {
     final Class<?>[] cs = new Class<?>[7];
     cs[0] = Integer.class;
