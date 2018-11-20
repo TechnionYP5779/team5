@@ -1,5 +1,7 @@
 package il.org.spartan;
 
+import static il.org.spartan.Utils.*;
+
 import static fluent.ly.azzert.*;
 
 import java.io.*;
@@ -10,9 +12,6 @@ import org.junit.*;
 import fluent.ly.*;
 import il.org.spartan.Utils.*;
 import il.org.spartan.Utils.FoundHandleForT.*;
-
-import static il.org.spartan.Utils.canBeNull;
-import static il.org.spartan.Utils.cantBeNull;
 
 @SuppressWarnings("static-method") public class UtilsTest {
   static final Integer i = null;
