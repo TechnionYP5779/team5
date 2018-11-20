@@ -16,14 +16,6 @@ public class angle {
     rad = i * deg2Rad;
   }
 
-  public double getDegrees() {
-    return deg;
-  }
-
-  public double getRadians() {
-    return rad;
-  }
-
   public static angle degrees(final double i) {
     return new angle(i);
   }
@@ -56,11 +48,11 @@ public class angle {
   }
 
 
-  public static angle of(@SuppressWarnings("unused") double d) {
-    return new angle(180);
+  public static angle of(double d) {
+    return new angle(d);
   }
 
-  @SuppressWarnings("static-method") public double radians() {
-    return Math.PI/2;
+  public double radians() {
+    return rad;
   }
 }
