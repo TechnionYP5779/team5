@@ -6,19 +6,19 @@ package fluent.ly;
 /** @author Shaked Sapir this class handles old man's memories, if he doesn't
  *         use them the compiler supports this, therefore all methods are
  *         labeled as "unused". */
-public interface forget {
-  @SuppressWarnings("unused") static void all(final Object _1, final Object... _2) {
+@SuppressWarnings("unused") public interface forget {
+  static void all(final Object _1, final Object... _2) {
     /**/ }
 
-  @SuppressWarnings("unused") static void it(final boolean __) {
+  static void it(final boolean __) {
     /**/ }
 
-  @SuppressWarnings("unused") static void it(final double __) {
+  static void it(final double __) {
     /**/ }
 
-  @SuppressWarnings("unused") static void it(final long __) {
+  static void it(final long __) {
     /**/ }
 
-  @SuppressWarnings("unused") static void it(final Object __) {
+  static void it(final Object __) {
     /**/ }
 }
