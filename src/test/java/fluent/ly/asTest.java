@@ -16,75 +16,75 @@ import org.junit.*;
   @Test public void iterableHasRange10Test() {
     final Iterator<Integer> i = as
         .asIterable(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9), box.it(10)).iterator();
-    azzert.that(box.it(1), azzert.is(i.next()));
-    azzert.that(box.it(2), azzert.is(i.next()));
-    azzert.that(box.it(3), azzert.is(i.next()));
-    azzert.that(box.it(4), azzert.is(i.next()));
-    azzert.that(box.it(5), azzert.is(i.next()));
-    azzert.that(box.it(6), azzert.is(i.next()));
-    azzert.that(box.it(7), azzert.is(i.next()));
-    azzert.that(box.it(8), azzert.is(i.next()));
-    azzert.that(box.it(9), azzert.is(i.next()));
-    azzert.that(box.it(10), azzert.is(i.next()));
+    azzert.that(box.it(1), is(i.next()));
+    azzert.that(box.it(2), is(i.next()));
+    azzert.that(box.it(3), is(i.next()));
+    azzert.that(box.it(4), is(i.next()));
+    azzert.that(box.it(5), is(i.next()));
+    azzert.that(box.it(6), is(i.next()));
+    azzert.that(box.it(7), is(i.next()));
+    azzert.that(box.it(8), is(i.next()));
+    azzert.that(box.it(9), is(i.next()));
+    azzert.that(box.it(10), is(i.next()));
     assert !i.hasNext();
   }
 
   public void falseShouldBe0bit() {
-    azzert.that(0, azzert.is(as.bit(false)));
+    azzert.that(0, is(as.bit(false)));
   }
 
   @Test public void trueShouldBe1bit() {
-    azzert.that(1, azzert.is(as.bit(true)));
+    azzert.that(1, is(as.bit(true)));
   }
 
   @Test public void nullShouldBe0bit() {
-    azzert.that(0, azzert.is(as.bit(null)));
+    azzert.that(0, is(as.bit(null)));
   }
 
   @Test public void nonNUllShouldBe1bit() {
-    azzert.that(1, azzert.is(as.bit(new Object())));
+    azzert.that(1, is(as.bit(new Object())));
   }
 
   @Test public void emptyIterableListTest() {
-    azzert.that(new ArrayList<>(), azzert.is(as.ingeterList()));
+    azzert.that(new ArrayList<>(), is(as.ingeterList()));
   }
 
   @Test public void range10IterableList() {
-    azzert.that(IntStream.range(1, 11).boxed().collect(Collectors.toList()), azzert.is(as.ingeterList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+    azzert.that(IntStream.range(1, 11).boxed().collect(Collectors.toList()), is(as.ingeterList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
   }
 
   @Test public void range10ArrayTest() {
-    azzert.that(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, azzert.is(as.intArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+    azzert.that(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, is(as.intArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
   }
 
   @Test public void iteratorHasRange10Test() {
     final Iterator<Integer> i = as.iterator(box.it(1), box.it(2), box.it(3), box.it(4), box.it(5), box.it(6), box.it(7), box.it(8), box.it(9),
         box.it(10));
-    azzert.that(box.it(1), azzert.is(i.next()));
-    azzert.that(box.it(2), azzert.is(i.next()));
-    azzert.that(box.it(3), azzert.is(i.next()));
-    azzert.that(box.it(4), azzert.is(i.next()));
-    azzert.that(box.it(5), azzert.is(i.next()));
-    azzert.that(box.it(6), azzert.is(i.next()));
-    azzert.that(box.it(7), azzert.is(i.next()));
-    azzert.that(box.it(8), azzert.is(i.next()));
-    azzert.that(box.it(9), azzert.is(i.next()));
-    azzert.that(box.it(10), azzert.is(i.next()));
+    azzert.that(box.it(1), is(i.next()));
+    azzert.that(box.it(2), is(i.next()));
+    azzert.that(box.it(3), is(i.next()));
+    azzert.that(box.it(4), is(i.next()));
+    azzert.that(box.it(5), is(i.next()));
+    azzert.that(box.it(6), is(i.next()));
+    azzert.that(box.it(7), is(i.next()));
+    azzert.that(box.it(8), is(i.next()));
+    azzert.that(box.it(9), is(i.next()));
+    azzert.that(box.it(10), is(i.next()));
     assert !i.hasNext();
   }
 
   @Test public void emptyListTest() {
     final Iterable<Integer> i = null;
-    azzert.that(new ArrayList<>(), azzert.is(as.list(i)));
+    azzert.that(new ArrayList<>(), is(as.list(i)));
   }
 
   @Test public void range10IterableTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
-    azzert.that(l, azzert.is(as.list(l)));
+    azzert.that(l, is(as.list(l)));
   }
 
   @SuppressWarnings("null") @Test public void rangeA2zListTest() {
-    azzert.that(IntStream.range(0, 26).mapToObj(λ -> String.valueOf((char) (λ + 'A'))).collect(Collectors.toList()), azzert.is(
+    azzert.that(IntStream.range(0, 26).mapToObj(λ -> String.valueOf((char) (λ + 'A'))).collect(Collectors.toList()), is(
         as.list("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")));
   }
 
@@ -93,33 +93,33 @@ import org.junit.*;
     s.add(box.it(1));
     s.add(box.it(2));
     s.add(box.it(3));
-    azzert.that(s, azzert.is(as.set(box.it(1), box.it(1), box.it(2), box.it(3), box.it(2), box.it(3), box.it(1), box.it(2), box.it(3))));
+    azzert.that(s, is(as.set(box.it(1), box.it(1), box.it(2), box.it(3), box.it(2), box.it(3), box.it(1), box.it(2), box.it(3))));
   }
 
   @Test public void nullStringTest() {
-    azzert.that("null", azzert.is(as.string(null)));
+    azzert.that("null", is(as.string(null)));
   }
 
   @Test public void objectStringTest() {
     final Object o = new Object();
-    azzert.that(o + "", azzert.is(as.string(o)));
+    azzert.that(o + "", is(as.string(o)));
   }
 
   @Test public void charAsStringTest() {
-    azzert.that("A", azzert.is(as.string('A')));
+    azzert.that("A", is(as.string('A')));
   }
 
   @Test public void nullAsStringTest() {
-    azzert.that("null", azzert.is(as.string(null)));
+    azzert.that("null", is(as.string(null)));
   }
 
   @Test public void StringasStringTest() {
-    azzert.that("hello world", azzert.is(as.string("hello world")));
+    azzert.that("hello world", is(as.string("hello world")));
   }
 
   @Test public void iterableAsStringTest() {
     final List<Integer> l = IntStream.range(1, 11).boxed().collect(Collectors.toList());
-    azzert.that(l + "", azzert.is(as.string(l)));
+    azzert.that(l + "", is(as.string(l)));
   }
 
   @Test public void asBitOfFalse() {
@@ -132,7 +132,7 @@ import org.junit.*;
 
   @Test public void asIntArraySimple() {
     final int @NotNull [] is = as.intArray(100, 200, 200, 12, 13, 0);
-    azzert.that(is, azzert.is(as.intArray(as.ingeterList(is))));
+    azzert.that(is, is(as.intArray(as.ingeterList(is))));
   }
 
   @Test public void asListSimple() {

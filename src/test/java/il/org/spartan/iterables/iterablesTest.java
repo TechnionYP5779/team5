@@ -3,9 +3,9 @@ package il.org.spartan.iterables;
 import static il.org.spartan.Utils.*;
 
 import java.util.*;
-
+import static fluent.ly.azzert.is;
 import org.junit.*;
-
+import static fluent.ly.azzert.isNull;
 import an.*;
 import fluent.ly.*;
 
@@ -37,19 +37,19 @@ import fluent.ly.*;
   }
 
   @Test public void countDoesNotIncludeNull() {
-    azzert.that(3, azzert.is(iterables.count(iterable.over(null, "One", null, "Two", null, "Three"))));
+    azzert.that(3, is(iterables.count(iterable.over(null, "One", null, "Two", null, "Three"))));
   }
 
   @Test public void countEmpty() {
-    azzert.that(0, azzert.is(iterables.count(iterables.<String> empty())));
+    azzert.that(0, is(iterables.count(iterables.<String> empty())));
   }
 
   @Test public void countSingleton() {
-    azzert.that(1, azzert.is(iterables.count(iterable.singleton(new Object()))));
+    azzert.that(1, is(iterables.count(iterable.singleton(new Object()))));
   }
 
   @Test public void countThree() {
-    azzert.that(3, azzert.is(iterables.count(iterable.over("One", "Two", "Three"))));
+    azzert.that(3, is(iterables.count(iterable.over("One", "Two", "Three"))));
   }
 
   @Test public void alternateNewIntegerIterablesTest() {
@@ -60,8 +60,8 @@ import fluent.ly.*;
 
   @Test public void alternateFirstIterableNullTest() {
     final Iterable<Integer> it1 = new ArrayList<>();
-    azzert.isNull(iterables.alternate(it1, null));
-    azzert.isNull(iterables.alternate(null, it1));
+    isNull(iterables.alternate(it1, null));
+    isNull(iterables.alternate(null, it1));
   }
 
   @Test public void alternateGenericAlternate() {
@@ -73,7 +73,7 @@ import fluent.ly.*;
     final List<Integer> lst2 = new ArrayList<>();
     lst1.add(box.it(100));
     lst2.add(box.it(200));
-    azzert.that(iterables.alternate(lst1, lst2).iterator().next(), azzert.is(100));
+    azzert.that(iterables.alternate(lst1, lst2).iterator().next(), is(100));
   }
 
   @Test public void alternateAddUntilTheShortestFirst() {
@@ -84,8 +84,8 @@ import fluent.ly.*;
     lst2.add(box.it(3));
     lst2.add(box.it(4));
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
-    azzert.that(new_lst_it.next(), azzert.is(2));
-    azzert.that(new_lst_it.next(), azzert.is(1));
+    azzert.that(new_lst_it.next(), is(2));
+    azzert.that(new_lst_it.next(), is(1));
     assert !new_lst_it.hasNext();
   }
 
@@ -96,8 +96,8 @@ import fluent.ly.*;
     lst2.add(box.it(2));
     lst1.add(box.it(3));
     final Iterator<Integer> new_lst_it = iterables.alternate(lst1, lst2).iterator();
-    azzert.that(new_lst_it.next(), azzert.is(1));
-    azzert.that(new_lst_it.next(), azzert.is(2));
+    azzert.that(new_lst_it.next(), is(1));
+    azzert.that(new_lst_it.next(), is(2));
     assert !new_lst_it.hasNext();
   }
 }

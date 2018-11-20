@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 import java.io.*;
 import java.util.*;
-
+import static fluent.ly.azzert.is;
 import org.junit.*;
 
 import fluent.ly.*;
@@ -15,14 +15,14 @@ import il.org.spartan.utils.*;
 
 @SuppressWarnings("static-method") public class TableTest {
   @Test public void classToNormalizedFileName() {
-    azzert.that(Table.classToNormalizedFileName("Integer_Shalev_Shaked"), azzert.is("shalev-shaked"));
-    azzert.that(Table.classToNormalizedFileName(___Test.class), azzert.is("--test"));
+    azzert.that(Table.classToNormalizedFileName("Integer_Shalev_Shaked"), is("shalev-shaked"));
+    azzert.that(Table.classToNormalizedFileName(___Test.class), is("--test"));
   }
 
   @SuppressWarnings("resource") @Test public void test1() {
     Integer in = new Integer(5);
     Table table = new Table(in);
-    azzert.that(table.baseName(), azzert.is(system.tmp + ".*"));
+    azzert.that(table.baseName(), is(system.tmp + ".*"));
     table.col("ints", 5);
     table.col("longs", 1L * 6);
     table.col("doubles", 6.5);
@@ -39,7 +39,7 @@ import il.org.spartan.utils.*;
       }
     });
     $ += writers2.stream().map(λ -> "\t " + ++n.inner + ". " + λ.fileName + "\n").reduce((x, y) -> x + y).get();
-    azzert.that(table.description(), azzert.is($));
+    azzert.that(table.description(), is($));
     table.nl();
   }
 

@@ -4,7 +4,7 @@
 package il.org.spartan.utils;
 
 import org.junit.*;
-
+import static fluent.ly.azzert.is;
 import fluent.ly.*;
 
 /** @author Nir Chachamovitz */
@@ -16,7 +16,7 @@ import fluent.ly.*;
   @Test public void hashCodeTest() {
     final Binary b = Binary.T.clone();
     final int res = b.hashCode();
-    azzert.that(1, azzert.is(res));
+    azzert.that(1, is(res));
   }
 
   @Test public void andTest() {
@@ -24,7 +24,7 @@ import fluent.ly.*;
     final Binary true_b = Binary.of(true);
     final Binary false_b = Binary.of(false);
     Binary.and(true_b, false_b);
-    azzert.that(Binary.F, azzert.is(Binary.of(false)));
+    azzert.that(Binary.F, is(Binary.of(false)));
     final Binary true_b2 = Binary.of(true);
     Binary.and(true_b, true_b2);
     Binary.and(false_b, false_b);
@@ -56,7 +56,7 @@ import fluent.ly.*;
     final Binary true_b = Binary.of(true);
     final Binary false_b = Binary.of(false);
     Binary.or(true_b, false_b);
-    azzert.that(Binary.F, azzert.is(Binary.of(false)));
+    azzert.that(Binary.F, is(Binary.of(false)));
     final Binary true_b2 = Binary.of(true);
     Binary.or(true_b, true_b2);
     Binary.or(false_b, false_b);

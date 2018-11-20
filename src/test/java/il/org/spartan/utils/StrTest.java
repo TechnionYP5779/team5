@@ -4,7 +4,7 @@
 package il.org.spartan.utils;
 
 import org.junit.*;
-
+import static fluent.ly.azzert.is;
 import fluent.ly.*;
 
 /** @author Nir Chachamovitz */
@@ -17,7 +17,7 @@ import fluent.ly.*;
   @Test public void setTest() {
     final Str s1 = new Str();
     s1.set("World");
-    azzert.that(s1.inner(), azzert.is("World"));
+    azzert.that(s1.inner(), is("World"));
   }
 
   @Test public void emptyTest() {

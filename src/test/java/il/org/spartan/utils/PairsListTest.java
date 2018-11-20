@@ -47,7 +47,7 @@ import il.org.spartan.utils.PairsList.*;
     p.record(1.1, 1.4);
     p.record(2.1, 1.1);
     p.sortAsc();
-    azzert.that(p.l.get(0).p, azzert.is(new Pair<>(box.it(1.1), box.it(1.4))));
+    azzert.that(p.l.get(0).p, is(new Pair<>(box.it(1.1), box.it(1.4))));
   }
 
   @Test public void sort4() {
@@ -57,7 +57,7 @@ import il.org.spartan.utils.PairsList.*;
     p.record(1.1, 1.4);
     p.record(2.1, 1.1);
     p.sortDesc();
-    azzert.that(p.l.get(0).p, azzert.is(new Pair<>(box.it(3.1), box.it(1.7))));
+    azzert.that(p.l.get(0).p, is(new Pair<>(box.it(3.1), box.it(1.7))));
   }
 
   @Test public void iter1() {
@@ -67,9 +67,9 @@ import il.org.spartan.utils.PairsList.*;
     double d = 0;
     final Iterator<PAIR<Double, Double>> itr = p.iterator();
     for (; itr.hasNext(); d++)
-      azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(d + 1.0), box.it(d + 11.0))));
-    azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
-    azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
+      azzert.that(itr.next().p, is(new Pair<>(box.it(d + 1.0), box.it(d + 11.0))));
+    azzert.that(itr.next().p, is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
+    azzert.that(itr.next().p, is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
   }
 
   @Test public void iter2() {
@@ -80,7 +80,7 @@ import il.org.spartan.utils.PairsList.*;
     final Iterator<PAIR<Double, Double>> itr = p.iterator();
     for (; itr.hasNext(); d++)
       itr.next();
-    azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
+    azzert.that(itr.next().p, is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
   }
 
   @Test public void iter3() {
@@ -92,7 +92,7 @@ import il.org.spartan.utils.PairsList.*;
     for (; itr.hasNext(); d++)
       itr.next();
     itr.next();
-    azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
+    azzert.that(itr.next().p, is(new Pair<>(box.it(d + 1.0 - 1), box.it(d + 11.0 - 1))));
   }
 
   @Test public void reti1() {
@@ -102,7 +102,7 @@ import il.org.spartan.utils.PairsList.*;
     double d = 0;
     final Iterator<PAIR<Double, Double>> itr = p.revIterator().iterator();
     for (; itr.hasNext(); d++)
-      azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(10.0 - d), box.it(20.0 - d))));
+      azzert.that(itr.next().p, is(new Pair<>(box.it(10.0 - d), box.it(20.0 - d))));
   }
 
   @Test public void reti2() {
@@ -113,7 +113,7 @@ import il.org.spartan.utils.PairsList.*;
     final Iterator<PAIR<Double, Double>> itr = p.revIterator();
     for (; itr.hasNext(); d++)
       itr.next();
-    azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(-d + 10.0 + 1), box.it(-d + 20.0 + 1))));
+    azzert.that(itr.next().p, is(new Pair<>(box.it(-d + 10.0 + 1), box.it(-d + 20.0 + 1))));
   }
 
   @Test public void reti3() {
@@ -125,7 +125,7 @@ import il.org.spartan.utils.PairsList.*;
     for (; itr.hasNext(); d++)
       itr.next();
     itr.next();
-    azzert.that(itr.next().p, azzert.is(new Pair<>(box.it(-d + 10.0 + 1), box.it(-d + 20.0 + 1))));
+    azzert.that(itr.next().p, is(new Pair<>(box.it(-d + 10.0 + 1), box.it(-d + 20.0 + 1))));
   }
 
   @Test public void statistics0() {
@@ -344,6 +344,6 @@ import il.org.spartan.utils.PairsList.*;
     for (int ¢ = 0; ¢ < 10; ¢++)
       p.record(10.0 - ¢, 20.0 - ¢);
     for (int ¢ = 0; ¢ < 10; ¢++)
-      azzert.that(p.LinearRegression().yOf(10.0 - ¢), azzert.is(20.0 - ¢));
+      azzert.that(p.LinearRegression().yOf(10.0 - ¢), is(20.0 - ¢));
   }
 }
