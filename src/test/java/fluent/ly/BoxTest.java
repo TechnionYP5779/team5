@@ -5,7 +5,7 @@ import static fluent.ly.azzert.*;
 import org.jetbrains.annotations.*;
 import org.junit.*;
 
-@SuppressWarnings("static-method") public class TestBox {
+@SuppressWarnings("static-method") public class BoxTest {
   @Test public void testBooleanBox() {
     Boolean b = box.it(true);
     azzert.that(b, is(Boolean.TRUE));

@@ -4,7 +4,7 @@ import org.junit.*;
 
 import fluent.ly.*;
 
-@SuppressWarnings("static-method") public class TestBool {
+@SuppressWarnings("static-method") public class BoolTest {
   @Test public void testValueOf() {
     assert Bool.valueOf(true).get();
   }
@@ -33,3 +33,4 @@ import fluent.ly.*;
     assert !unbox.it(Bool.valueOf(false).inner());
   }
 }
+ 

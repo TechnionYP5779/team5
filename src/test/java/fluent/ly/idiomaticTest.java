@@ -6,7 +6,7 @@ import org.junit.*;
 
 import fluent.ly.idiomatic.*;
 
-@SuppressWarnings("static-method") public class TestIdiomatic {
+@SuppressWarnings("static-method") public class idiomaticTest {
   @Test public void testHolder() {
     final Holder<Integer> hold = idiomatic.eval(() -> box.it(42));
     azzert.that(hold.when(true), is(box.it(42)));
