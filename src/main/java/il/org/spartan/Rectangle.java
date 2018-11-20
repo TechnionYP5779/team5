@@ -1,11 +1,18 @@
 package il.org.spartan;
 
+/** Since 2018/11/20
+ * @author Igor Bashmashnikov A class that represents a rectangle by two
+ *         points */
 public class Rectangle {
   private final double x1;
   private final double y1;
   private final double x2;
   private final double y2;
 
+  /** @param x1 x coordinate of first point
+   * @param y1 y coordinate of first point
+   * @param x2 x coordinate of second point
+   * @param y2 y coordinate of second point */
   public Rectangle(final double x1, final double y1, final double x2, final double y2) {
     this.x1 = x1;
     this.y1 = y1;
