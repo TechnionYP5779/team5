@@ -12,7 +12,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/TechnionYP5779/team5.svg)](https://github.com/TechnionYP5779/team5/issues)
 [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/TechnionYP5779/team5.svg?maxAge=2592000)]()
 [![codecov](https://codecov.io/gh/TechnionYP5779/team5/branch/master/graph/badge.svg)](https://codecov.io/gh/TechnionYP5779/team5)
-[![sonarqube](https://sonarcloud.io/api/project_badges/measure?project=0a9d7e0d9cbe7bf65aeddc34f4ad28e99cd09382&metric=alert_status)
+![sonarqube](https://sonarcloud.io/api/project_badges/measure?project=0a9d7e0d9cbe7bf65aeddc34f4ad28e99cd09382&metric=alert_status)
 
 ## Articles
 
