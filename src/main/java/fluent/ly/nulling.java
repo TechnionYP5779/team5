@@ -4,8 +4,6 @@ import java.util.function.*;
 
 import org.jetbrains.annotations.*;
 
-import fluent.ly.*;
-
 /** TODO Yossi Gil: document class
  * @author Yossi Gil
  * @since 2017-04-12 */

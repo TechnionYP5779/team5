@@ -27,7 +27,7 @@ import il.org.spartan.utils.*;
     table.col("longs", 1L * 6);
     table.col("doubles", 6.5);
     String $ = "Table named  produced in 5 formats (versions) in " + table.baseName() + "\n"
-        + "The table has 1 data rows, each consisting of 4 columns.\n" + "Table header is  [null, ints, longs, doubles]\n"
+        + "The table has 1 data rows, each consisting of 4 columns.\nTable header is  [null, ints, longs, doubles]\n"
         + "The table consists of 3 numerical columns: [ints, longs, doubles]\n";
     final Int n = new Int();
     List<RecordWriter> writers2 = an.empty.list();
