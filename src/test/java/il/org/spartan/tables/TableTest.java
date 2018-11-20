@@ -3,11 +3,13 @@
  * @since 2018-11-19 */
 package il.org.spartan.tables;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
+
+import static fluent.ly.azzert.*;
 
 import java.io.*;
 import java.util.*;
-import static fluent.ly.azzert.is;
+
 import org.junit.*;
 
 import fluent.ly.*;
@@ -20,8 +22,8 @@ import il.org.spartan.utils.*;
   }
 
   @SuppressWarnings("resource") @Test public void test1() {
-    Integer in = new Integer(5);
-    Table table = new Table(in);
+    final Integer in = new Integer(5);
+    final Table table = new Table(in);
     azzert.that(table.baseName(), is(system.tmp + ".*"));
     table.col("ints", 5);
     table.col("longs", 1L * 6);
@@ -30,7 +32,7 @@ import il.org.spartan.utils.*;
         + "The table has 1 data rows, each consisting of 4 columns.\nTable header is  [null, ints, longs, doubles]\n"
         + "The table consists of 3 numerical columns: [ints, longs, doubles]\n";
     final Int n = new Int();
-    List<RecordWriter> writers2 = an.empty.list();
+    final List<RecordWriter> writers2 = an.empty.list();
     as.list(TableRenderer.builtin.values()).forEach(r -> {
       try {
         writers2.add(new RecordWriter(r, system.tmp));

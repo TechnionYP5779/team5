@@ -2,50 +2,81 @@
  * @since 2018-11-19 */
 package il.org.spartan.utils;
 
+import static il.org.spartan.utils.Proposition.*;
+
 import org.junit.*;
 
 @SuppressWarnings("static-method") public class PropositionTest {
   @Test public void simpleAND() {
-    assert !Proposition.AND(() -> true, () -> false).eval();
-    assert Proposition.AND(() -> true, () -> true).eval();
-    assert !Proposition.AND(() -> false, () -> true).eval();
-    assert !Proposition.AND(() -> false, () -> false).eval();
+    assert !AND(() -> true, () -> false).eval();
+    assert AND(() -> true, () -> true).eval();
+    assert !AND(() -> false, () -> true).eval();
+    assert !AND(() -> false, () -> false).eval();
   }
 
   @Test public void simpleOR() {
-    assert Proposition.OR(() -> true, () -> false).eval();
-    assert Proposition.OR(() -> true, () -> true).eval();
-    assert Proposition.OR(() -> false, () -> true).eval();
-    assert !Proposition.OR(() -> false, () -> false).eval();
+    assert OR(() -> true, () -> false).eval();
+    assert OR(() -> true, () -> true).eval();
+    assert OR(() -> false, () -> true).eval();
+    assert !OR(() -> false, () -> false).eval();
   }
 
   @Test public void simplenot() {
-    assert !Proposition.not(() -> true).eval();
-    assert Proposition.not(() -> false).eval();
+    assert !not(() -> true).eval();
+    assert not(() -> false).eval();
   }
 
   @Test public void simplethat() {
-    assert Proposition.that(() -> true).eval();
-    assert !Proposition.that(() -> false).eval();
+    assert that(() -> true).eval();
+    assert !that(() -> false).eval();
   }
 
   @Test public void nullStringAND() {
-    assert !Proposition.AND((String) null, () -> true, () -> false).eval();
+    assert !AND((String) null, () -> true, () -> false).eval();
   }
 
   @Test public void EmptyStringOR() {
-    assert Proposition.OR("", () -> true, () -> false).eval();
+    assert OR("", () -> true, () -> false).eval();
   }
 
   @Test public void or() {
-    assert Proposition.OR(() -> true, () -> false).or(() -> false, () -> false).eval();
+    assert OR(() -> true, () -> false).or(() -> false, () -> false).eval();
   }
 
   @Test public void and() {
-    assert !Proposition.AND(() -> true, () -> true).and(() -> true, () -> false).eval();
+    assert !AND(() -> true, () -> true).and(() -> true, () -> false).eval();
   }
 
-  @Test public void reduce() {
-    // TODO: finish
+  @Test public void FProp() {
+    assert !F.eval();
+    Assert.assertEquals("F", F + "");
+  }
+
+  @Test public void TProp() {
+    assert T.eval();
+    Assert.assertEquals("T", T + "");
+  }
+
+  @Test(expected = NullPointerException.class) public void NProp() {
+    Assert.assertEquals("N", N + "");
+    N.getAsBoolean();
+  }
+
+  @Test(expected = AssertionError.class) public void XProp() {
+    Assert.assertEquals("X", X + "");
+    X.getAsBoolean();
+  }
+
+  @Test public void stringand() {
+    assert !AND(() -> true, () -> true).and("", () -> false).eval();
+  }
+
+  @Test public void stringor() {
+    assert OR(() -> true, () -> false).or("", () -> false).eval();
+  }
+
+  @Test public void complexthat() {
+    assert !that(() -> true).and(() -> false).eval();
+    assert that(() -> false).or(() -> true).eval();
   }
 }
