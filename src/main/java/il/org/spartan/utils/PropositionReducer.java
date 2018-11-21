@@ -81,7 +81,7 @@ import il.org.spartan.utils.Proposition.*;
 
   protected abstract R map(BooleanSupplier ¢);
 
-  protected R post( final Proposition.Not __) {
+  protected R post(final Proposition.Not __) {
     return reduce();
   }
 

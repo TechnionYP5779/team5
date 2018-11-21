@@ -24,49 +24,38 @@ public class angle {
     return new angle(i * rad2Deg);
   }
 
-  /**
-   * @param angle a
-   * @return new angle that is the sum of a and this
-   */
+  /** @param angle a
+   * @return new angle that is the sum of a and this */
   public angle add(angle ¢) {
-    return new angle(this.deg+¢.deg);
+    return new angle(this.deg + ¢.deg);
   }
 
-  /**
-   * @param double i
-   * @return new angle that is the substract of this angle and d degrees
-   */
+  /** @param double i
+   * @return new angle that is the substract of this angle and d degrees */
   public angle substract(double ¢) {
-    return new angle(this.deg-¢);
-  }
-  
-  /**
-   * @param angle a
-   * @return new angle that is the substract of a and this
-   */
-  public angle substract(angle ¢) {
-    return new angle(this.deg-¢.deg);
+    return new angle(this.deg - ¢);
   }
 
-  /**
-   * @param double i
-   * @return new angle that is the sum of this angle and d degrees
-   */
-  public angle add(double ¢) {
-    return new angle(this.deg+¢);
+  /** @param angle a
+   * @return new angle that is the substract of a and this */
+  public angle substract(angle ¢) {
+    return new angle(this.deg - ¢.deg);
   }
-  
+
+  /** @param double i
+   * @return new angle that is the sum of this angle and d degrees */
+  public angle add(double ¢) {
+    return new angle(this.deg + ¢);
+  }
+
   public angle negate() {
     return new angle(-this.deg);
   }
 
-  /**
-   * @return the degrees of the angle
-   */
+  /** @return the degrees of the angle */
   public double degrees() {
     return deg;
   }
-
 
   public static angle of(double ¢) {
     return new angle(¢);

@@ -22,7 +22,7 @@ import il.org.spartan.utils.*;
   }
 
   @SuppressWarnings("resource") @Test public void test1() {
-    final Integer in =  box.it(5);
+    final Integer in = box.it(5);
     final Table table = new Table(in);
     azzert.that(table.baseName(), is(system.tmp + ".*"));
     table.col("ints", 5);

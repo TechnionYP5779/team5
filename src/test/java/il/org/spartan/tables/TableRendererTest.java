@@ -9,7 +9,7 @@ import fluent.ly.*;
 
 /** @author Nir Chachamovitz
  * @since 2018-11-20 */
-@SuppressWarnings({"static-method", "static-access" }) public class TableRendererTest {
+@SuppressWarnings({ "static-method", "static-access" }) public class TableRendererTest {
   @Test public void TEX2test() {
     azzert.that(TableRenderer.builtin.TEX2.afterHeader(), azzert.is("\\hline" + TableRenderer.builtin.NL));
     azzert.that(TableRenderer.builtin.TEX2.afterTable(), azzert.is("\\hline" + TableRenderer.builtin.NL));
@@ -36,16 +36,18 @@ import fluent.ly.*;
   }
 
   @Test public void MARKDOWNtest() {
-//    azzert.that(TableRenderer.builtin.MARKDOWN.afterHeader(), azzert.is("| " + TableRenderer.builtin.NL));
+    // azzert.that(TableRenderer.builtin.MARKDOWN.afterHeader(), azzert.is("| " +
+    // TableRenderer.builtin.NL));
     azzert.that(TableRenderer.builtin.MARKDOWN.afterTable(), azzert.is(TableRenderer.builtin.NL));
-//    azzert.that(TableRenderer.builtin.MARKDOWN.arraySeparator(), azzert.is("; "));
+    // azzert.that(TableRenderer.builtin.MARKDOWN.arraySeparator(), azzert.is(";
+    // "));
     azzert.that(TableRenderer.builtin.MARKDOWN.beforeTable(), azzert.is(TableRenderer.builtin.NL));
     azzert.that(TableRenderer.builtin.MARKDOWN.recordBegin(), azzert.is("|"));
     azzert.that(TableRenderer.builtin.MARKDOWN.recordEnd(), azzert.is(" |" + TableRenderer.builtin.NL));
     azzert.that(TableRenderer.builtin.MARKDOWN.recordSeparator(), azzert.is(" | "));
     TableRenderer.builtin.MARKDOWN.setHeaderCount(1);
-    azzert.that(TableRenderer.builtin.MARKDOWN.cellReal( box.it(4.3)), azzert.is("4"));
-    azzert.that(TableRenderer.builtin.MARKDOWN.cellReal( box.it(Double.NaN)), azzert.is("NaN"));
+    azzert.that(TableRenderer.builtin.MARKDOWN.cellReal(box.it(4.3)), azzert.is("4"));
+    azzert.that(TableRenderer.builtin.MARKDOWN.cellReal(box.it(Double.NaN)), azzert.is("NaN"));
     azzert.that(TableRenderer.empty(), azzert.is(""));
     azzert.that(TableRenderer.tab(), azzert.is("\t"));
     azzert.that(TableRenderer.builtin.MARKDOWN.afterFooter(), azzert.is(""));
@@ -54,7 +56,7 @@ import fluent.ly.*;
     azzert.that(TableRenderer.builtin.CSV.beforeFooter(), azzert.is(""));
     azzert.that(TableRenderer.builtin.CSV.beforeHeader(), azzert.is(""));
     azzert.that(TableRenderer.builtin.CSV.beforeTable(), azzert.is(""));
-    azzert.that(TableRenderer.builtin.CSV.cellInt( box.it(1L * 4)), azzert.is("4"));
+    azzert.that(TableRenderer.builtin.CSV.cellInt(box.it(1L * 4)), azzert.is("4"));
     azzert.that(TableRenderer.builtin.CSV.extension(), azzert.is("csv"));
     azzert.that(TableRenderer.builtin.CSV.footerBegin(), azzert.is(""));
     azzert.that(TableRenderer.builtin.TXT.footerEnd(), azzert.is(TableRenderer.builtin.NL + ""));
