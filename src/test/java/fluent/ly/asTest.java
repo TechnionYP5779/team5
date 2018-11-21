@@ -149,7 +149,8 @@ import org.junit.*;
   }
   
   @Test public void asIterable() {
-    Iterator<Integer> it=as.asIterable(box.it(1),box.it(2),box.it(3)).iterator();
+    Iterator<Integer> it=as.asIterableEssence(box.it(1),box.it(2),box.it(3)).iterator();
+    assert it.hasNext();
     assert box.it(1)==it.next();
     assert box.it(2)==it.next();
     assert box.it(3)==it.next();
