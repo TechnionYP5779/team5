@@ -42,4 +42,16 @@ import fluent.ly.*;
   @Test public void test9() {
     azzert.that(angle.pi.radians(), is(Math.PI));
   }
+  
+  @Test public void test10() {
+    azzert.that(angle.pi.negate().radians(), is(-Math.PI));
+  }
+  
+  @Test public void test11() {
+    azzert.that(angle.halfPi.substract(angle.degrees(20)).degrees(), is((double)70));
+  }
+  
+  @Test public void test12() {
+    azzert.that(angle.halfPi.substract(20).degrees(), is((double)70));
+  }
 }
