@@ -30,7 +30,7 @@ import fluent.ly.*;
   }
 
   @Test public void seperateBy2Test() {
-    final Integer[] arr = { new Integer(1), new Integer(2), new Integer(3), new Integer(4), new Integer(5) };
+    final Integer[] arr = { box.it(1),  box.it(2),  box.it(3),  box.it(4),  box.it(5) };
     final String s = new String("@ ");
     final String after_sep = Separator.separateBy(s, arr);
     azzert.that(after_sep, is("1@ 2@ 3@ 4@ 5"));
@@ -41,11 +41,11 @@ import fluent.ly.*;
 
   @Test public void seperateBy3Test() {
     final ArrayList<Integer> ts = new ArrayList<>();
-    ts.add(new Integer(1));
-    ts.add(new Integer(2));
-    ts.add(new Integer(3));
-    ts.add(new Integer(4));
-    ts.add(new Integer(5));
+    ts.add( box.it(1));
+    ts.add( box.it(2));
+    ts.add( box.it(3));
+    ts.add( box.it(4));
+    ts.add( box.it(5));
     final String wrap = new String("\nHere it goes and ends!\n");
     final String between = new String(", ");
     final String after_sep = Separator.wrap(wrap, ts, between);
