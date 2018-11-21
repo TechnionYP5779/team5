@@ -147,6 +147,14 @@ import org.junit.*;
   @Test public void stringOfNull() {
     azzert.that(as.string(null), is("null"));
   }
+  
+  @Test public void asIterable() {
+    Iterator<Integer> it=as.asIterable(box.it(1),box.it(2),box.it(3)).iterator();
+    assert box.it(1)==it.next();
+    assert box.it(2)==it.next();
+    assert box.it(3)==it.next();
+    assert !it.hasNext();
+  }
 
   @Test public void stringWhenToStringReturnsNull() {
     azzert.that(as.string(new Object() {
@@ -155,4 +163,6 @@ import org.junit.*;
       }
     }), is("null"));
   }
+  
+  
 }
