@@ -6,7 +6,7 @@ import org.junit.*;
 
 import fluent.ly.*;
 
-public class IntTest {
+@SuppressWarnings("static-method") public class IntTest {
   @AfterClass public static void test_constrAndValueOf() {
     azzert.that(new Int(10).get(), is(10));
     azzert.that(unbox.it(box.it(9)), is(9));
@@ -88,9 +88,8 @@ public class IntTest {
     azzert.that(i.get(), is(old));
   }
 
-  @Test public void test_last() {
-    /***
-     *
-     */
+  @Test public void testValueOf() {
+    Int j = Int.valueOf(5);
+    azzert.that(j.inner, azzert.is(5));
   }
 }
