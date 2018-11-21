@@ -17,13 +17,10 @@ import org.junit.*;
     final Boolean BooleanArray[] = box.it(bArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
       azzert.that(BooleanArray[¢], is(box.it(¢ % 2 == 0)));
-    
-    boolean[] arr= {true,true,true,true};
-    @NotNull Boolean[] arrBoxed=box.box(arr);
+    boolean[] arr = { true, true, true, true };
+    @NotNull Boolean[] arrBoxed = box.box(arr);
     for (int ¢ = 0; ¢ < 4; ++¢)
-      azzert.that(unbox.it(arrBoxed[¢]),azzert.is(true));    
-    
-    
+      azzert.that(unbox.it(arrBoxed[¢]), azzert.is(true));
   }
 
   @Test public void testByteBox() {
@@ -39,10 +36,9 @@ import org.junit.*;
     final Byte ByteArray[] = box.it(bArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
       azzert.that(ByteArray[¢], is(box.it((byte) ¢)));
-    
-    byte[] arr= {1,1,1,1};
-    @NotNull Byte[] arrBoxed=box.box(arr);
-    azzert.that(unbox.it(arrBoxed),azzert.is(arr));    
+    byte[] arr = { 1, 1, 1, 1 };
+    @NotNull Byte[] arrBoxed = box.box(arr);
+    azzert.that(unbox.it(arrBoxed), azzert.is(arr));
   }
 
   @Test public void testCharBox() {
@@ -95,11 +91,10 @@ import org.junit.*;
     final Float FloatArray[] = box.it(fArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
       assert box.it(¢ + diff + (float) 3.14).compareTo(FloatArray[¢]) >= 0 && box.it(¢ + (float) 3.14 - diff).compareTo(FloatArray[¢]) <= 0;
-      final Float Float2Array[] = box.box(fArray);
-      for (int ¢ = 0; ¢ < 10; ++¢)
-        assert box.it(¢ + diff + (float) 3.14).compareTo(Float2Array[¢]) >= 0 && box.it(¢ + (float) 3.14 - diff).compareTo(FloatArray[¢]) <= 0;
-    
-   }
+    final Float Float2Array[] = box.box(fArray);
+    for (int ¢ = 0; ¢ < 10; ++¢)
+      assert box.it(¢ + diff + (float) 3.14).compareTo(Float2Array[¢]) >= 0 && box.it(¢ + (float) 3.14 - diff).compareTo(FloatArray[¢]) <= 0;
+  }
 
   @Test public void testIntegerBox() {
     Integer b = box.it(3);

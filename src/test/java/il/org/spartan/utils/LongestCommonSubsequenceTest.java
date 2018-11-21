@@ -1,4 +1,4 @@
-/**add here documentation for file 
+/** add here documentation for file
  * @author Fname Sname
  * @since year-month-day */
 package il.org.spartan.utils;
@@ -8,12 +8,8 @@ import org.junit.*;
 
 import fluent.ly.*;
 
-/**
- * @author Igor Bashmashnikov
- *
- */
-@SuppressWarnings("static-method") 
-public class LongestCommonSubsequenceTest {
+/** @author Igor Bashmashnikov */
+@SuppressWarnings("static-method") public class LongestCommonSubsequenceTest {
   @Test public void testSimilarity() {
     String str1 = "abcdefg";
     String str2 = "bcde";
