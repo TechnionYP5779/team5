@@ -7,8 +7,6 @@ import java.util.*;
 
 import org.jetbrains.annotations.*;
 
-import il.org.spartan.etc.*;
-
 /** A bunch of string functions.
  * @author Yossi Gil */
 @SuppressWarnings("null") public enum string {

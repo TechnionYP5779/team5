@@ -1,9 +1,7 @@
 // <a href=http://ssdl-linux.cs.technion.ac.il/wiki/index.php>SSDLPedia</a>
-package il.org.spartan.etc;
+package fluent.ly;
 
 import org.jetbrains.annotations.*;
-
-import fluent.ly.*;
 
 /** A class to manage printing a {@link String} exactly once. In the first
  * invocation of {@link #toString()}, the initial value is returned. In all
