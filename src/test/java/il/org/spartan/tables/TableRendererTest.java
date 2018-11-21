@@ -31,7 +31,7 @@ import fluent.ly.*;
   }
 
   @Test public void CSVtest() {
-    azzert.that(TableRenderer.builtin.CSV.footerEnd(), azzert.is("" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.CSV.footerEnd(), azzert.is(TableRenderer.builtin.NL + ""));
     azzert.that(TableRenderer.builtin.CSV.recordSeparator(), azzert.is(","));
   }
 
@@ -57,10 +57,10 @@ import fluent.ly.*;
     azzert.that(TableRenderer.builtin.CSV.cellInt(new Long(4)), azzert.is("4"));
     azzert.that(TableRenderer.builtin.CSV.extension(), azzert.is("csv"));
     azzert.that(TableRenderer.builtin.CSV.footerBegin(), azzert.is(""));
-    azzert.that(TableRenderer.builtin.TXT.footerEnd(), azzert.is("" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.TXT.footerEnd(), azzert.is(TableRenderer.builtin.NL + ""));
     azzert.that(TableRenderer.builtin.CSV.footerSeparator(), azzert.is(","));
     azzert.that(TableRenderer.builtin.CSV.headerLineBegin(), azzert.is(""));
-    azzert.that(TableRenderer.builtin.CSV.headerLineEnd(), azzert.is("" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.CSV.headerLineEnd(), azzert.is(TableRenderer.builtin.NL + ""));
     azzert.that(TableRenderer.builtin.CSV.headerSeparator(), azzert.is(","));
     azzert.that(TableRenderer.builtin.CSV.nil(), azzert.is("Nº"));
     azzert.that(TableRenderer.builtin.TXT.recordSeparator(), azzert.is("\t"));

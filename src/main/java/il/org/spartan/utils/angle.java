@@ -28,32 +28,32 @@ public class angle {
    * @param angle a
    * @return new angle that is the sum of a and this
    */
-  public angle add(angle a) {
-    return new angle(this.deg+a.deg);
+  public angle add(angle ¢) {
+    return new angle(this.deg+¢.deg);
   }
 
   /**
    * @param double i
    * @return new angle that is the substract of this angle and d degrees
    */
-  public angle substract(double d) {
-    return new angle(this.deg-d);
+  public angle substract(double ¢) {
+    return new angle(this.deg-¢);
   }
   
   /**
    * @param angle a
    * @return new angle that is the substract of a and this
    */
-  public angle substract(angle a) {
-    return new angle(this.deg-a.deg);
+  public angle substract(angle ¢) {
+    return new angle(this.deg-¢.deg);
   }
 
   /**
    * @param double i
    * @return new angle that is the sum of this angle and d degrees
    */
-  public angle add(double d) {
-    return new angle(this.deg+d);
+  public angle add(double ¢) {
+    return new angle(this.deg+¢);
   }
   
   public angle negate() {
@@ -68,8 +68,8 @@ public class angle {
   }
 
 
-  public static angle of(double d) {
-    return new angle(d);
+  public static angle of(double ¢) {
+    return new angle(¢);
   }
 
   public double radians() {

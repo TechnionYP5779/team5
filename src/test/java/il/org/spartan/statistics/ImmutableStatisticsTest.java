@@ -9,7 +9,7 @@ import fluent.ly.*;
 
 /** @author Nir Chachamovitz
  * @since 2018-11-20 */
-@SuppressWarnings({ "static-method" }) public class ImmutableStatisticsTest {
+@SuppressWarnings("static-method") public class ImmutableStatisticsTest {
   @Test public void flippingTest() {
     azzert.that(new ImmutableStatistics() {
       static final long serialVersionUID = 1;
