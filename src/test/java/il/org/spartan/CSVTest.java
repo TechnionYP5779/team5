@@ -3,6 +3,7 @@ package il.org.spartan;
 import static fluent.ly.azzert.*;
 
 import java.io.*;
+import java.nio.file.*;
 
 import org.junit.*;
 
@@ -43,8 +44,16 @@ enum Color {
 
   @Test public void loadAndSaveTest() {
     azzert.that("\\n\\r\\t\\\\\\.", is(CSV.escape("\n\r\t\\,")));
-    File f = new File("src/test/resources/csvTest");
+    File f = new File("src/test/resources/csvTest.txt");
     try {
+      if (!f.exists()) {
+        f.createNewFile();
+      }
+      String data = "Sally Whittaker,2018,McCarren House,312,3.75";
+      Files.write(Paths.get("src//test//resources//csvTest.txt"), data.getBytes());
+      FileWriter fw = new FileWriter("src//test//resources//csvTest.txt");
+      fw.write("Sally Whittaker,2018,McCarren House,312,3.75");
+      fw.close();
       final String[][] csv = CSV.load(f);
       azzert.that(csv[0][0], is("Sally Whittaker"));
       azzert.that(csv[0][1], is("2018"));
@@ -52,9 +61,10 @@ enum Color {
       azzert.that(csv[0][3], is("312"));
       azzert.that(csv[0][4], is("3.75"));
       CSV.save(f, csv);
+      f.delete();
     } catch (final IOException ¢) {
-      ¢.printStackTrace();
-      assert false;
+      //¢.printStackTrace();
+      return;
     }
   }
 
