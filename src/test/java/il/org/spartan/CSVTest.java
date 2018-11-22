@@ -62,7 +62,7 @@ enum Color {
       CSV.save(f, csv);
       f.delete();
     } catch (final IOException ¢) {
-      ¢.printStackTrace();
+      notNull(¢);
       return;
     }
   }
