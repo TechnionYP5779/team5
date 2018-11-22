@@ -43,10 +43,10 @@ import org.jetbrains.annotations.*;
   // bounded = false => bounded below
   // bounded = true => bounded above
   public range(final int a, final boolean bounded) {
-    from = bounded ? Integer.MIN_VALUE : box.it(a);
+    from = !bounded ? box.it(a) : Integer.MIN_VALUE;
     to = bounded ? box.it(a) : Integer.MAX_VALUE;
-    bounded_below = bounded ? false : true;
-    bounded_above = bounded ? true : false;
+    bounded_below = !bounded;
+    bounded_above = bounded;
   }
 
   public range(final int a, final int b) {
@@ -68,9 +68,6 @@ import org.jetbrains.annotations.*;
   // to = box.it(¢);
   // Ninfinite = b;
   // }
-  public Integer getFrom() {
-    return box.it(unbox.it(from));
-  }
 
   public boolean isToInfinite() {
     return bounded_below && !bounded_above;
@@ -96,9 +93,6 @@ import org.jetbrains.annotations.*;
   // return new range(from, box.it(¢));
   // return new range(box.it(¢), true);
   // }
-  public Integer getTo() {
-    return to;
-  }
 
   public static rangedFrom from(final int ¢) {
     // from = box.it(¢);
@@ -151,11 +145,11 @@ import org.jetbrains.annotations.*;
     }
 
     public boolean isToInfinite() {
-      return bounded_below && !bounded_above;
+      return bounded_below;
     }
 
     public boolean isFromInfinite() {
-      return bounded_above && !bounded_below;
+      return !bounded_below;
     }
     // range from(final int ¢) {
     // return new range(¢, false);

@@ -46,9 +46,8 @@ enum Color {
     azzert.that("\\n\\r\\t\\\\\\.", is(CSV.escape("\n\r\t\\,")));
     File f = new File("src/test/resources/csvTest.txt");
     try {
-      if (!f.exists()) {
+      if (!f.exists())
         f.createNewFile();
-      }
       String data = "Sally Whittaker,2018,McCarren House,312,3.75";
       Files.write(Paths.get("src//test//resources//csvTest.txt"), data.getBytes());
       @SuppressWarnings("resource") FileWriter fw = new FileWriter("src//test//resources//csvTest.txt");

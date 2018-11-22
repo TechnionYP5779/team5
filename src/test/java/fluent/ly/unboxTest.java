@@ -33,6 +33,7 @@ import org.junit.*;
 
   @Test public void testUnboxIntegerArray() {
     azzert.that(unbox.it(new Integer[] { box.it(1), box.it(2), box.it(3), box.it(4) }), is(new int[] { 1, 2, 3, 4 }));
+   azzert.that(unbox.it(new Character('a')), is('a'));
   }
 
   @Test public void testUnboxLongArray() {
