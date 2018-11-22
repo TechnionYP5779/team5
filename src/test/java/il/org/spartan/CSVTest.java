@@ -51,7 +51,7 @@ enum Color {
       }
       String data = "Sally Whittaker,2018,McCarren House,312,3.75";
       Files.write(Paths.get("src//test//resources//csvTest.txt"), data.getBytes());
-      FileWriter fw = new FileWriter("src//test//resources//csvTest.txt");
+      @SuppressWarnings("resource") FileWriter fw = new FileWriter("src//test//resources//csvTest.txt");
       fw.write("Sally Whittaker,2018,McCarren House,312,3.75");
       fw.close();
       final String[][] csv = CSV.load(f);
@@ -63,7 +63,7 @@ enum Color {
       CSV.save(f, csv);
       f.delete();
     } catch (final IOException ¢) {
-      //¢.printStackTrace();
+      ¢.printStackTrace();
       return;
     }
   }
