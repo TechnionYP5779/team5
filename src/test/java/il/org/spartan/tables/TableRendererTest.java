@@ -9,7 +9,7 @@ import fluent.ly.*;
 
 /** @author Nir Chachamovitz
  * @since 2018-11-20 */
-@SuppressWarnings({ "static-method", "static-access" }) public class TableRendererTest {
+@SuppressWarnings({ "static-method" }) public class TableRendererTest {
   @Test public void TEX2test() {
     azzert.that(TableRenderer.builtin.TEX2.afterHeader(), azzert.is("\\hline" + TableRenderer.NL));
     azzert.that(TableRenderer.builtin.TEX2.afterTable(), azzert.is("\\hline" + TableRenderer.NL));

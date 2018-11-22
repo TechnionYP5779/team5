@@ -10,7 +10,6 @@ import java.util.*;
 import org.junit.*;
 
 import fluent.ly.*;
-import il.org.spartan.Utils.*;
 import il.org.spartan.Utils.FoundHandleForT.*;
 
 @SuppressWarnings("static-method") public class UtilsTest {

@@ -21,12 +21,12 @@ import org.junit.*;
     azzert.that(unbox.it(new Short[] { box.it((short) 1), box.it((short) 2), box.it((short) 3), box.it((short) 4) }), is(new short[] { 1, 2, 3, 4 }));
   }
 
-  @SuppressWarnings("static-access") @Test public void testUnboxDoubleArray() {
+  @Test public void testUnboxDoubleArray() {
     Assert.assertArrayEquals(new double[] { 1.1, 1.2, 1.3, 1.4 }, unbox.it(new Double[] { box.it(1.1), box.it(1.2), box.it(1.3), box.it(1.4) }),
         0.001);
   }
 
-  @SuppressWarnings("static-access") @Test public void testUnboxFloatArray() {
+  @Test public void testUnboxFloatArray() {
     Assert.assertArrayEquals(new float[] { (float) 1.1, (float) 1.2, (float) 1.3, (float) 1.4 },
         unbox.it(new Float[] { box.it((float) 1.1), box.it((float) 1.2), box.it((float) 1.3), box.it((float) 1.4) }), (float) 0.001);
   }
