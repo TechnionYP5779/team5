@@ -1,7 +1,8 @@
 package fluent.ly;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
-import static fluent.ly.azzert.is;
 
 @SuppressWarnings("static-method") public class anonymousTest {
   @Test public void lyBooleanTest() {

@@ -1,7 +1,9 @@
 package fluent.ly;
 
+import static fluent.ly.azzert.*;
+
 import java.util.*;
-import static fluent.ly.azzert.is;
+
 import org.junit.*;
 
 @SuppressWarnings({ "static-method", "null" }) public class lispTest {

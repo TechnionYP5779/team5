@@ -2,10 +2,12 @@ package il.org.spartan.iterables;
 
 import static il.org.spartan.Utils.*;
 
+import static fluent.ly.azzert.*;
+
 import java.util.*;
-import static fluent.ly.azzert.is;
+
 import org.junit.*;
-import static fluent.ly.azzert.isNull;
+
 import an.*;
 import fluent.ly.*;
 

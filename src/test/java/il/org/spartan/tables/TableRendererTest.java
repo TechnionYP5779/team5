@@ -11,39 +11,39 @@ import fluent.ly.*;
  * @since 2018-11-20 */
 @SuppressWarnings({ "static-method", "static-access" }) public class TableRendererTest {
   @Test public void TEX2test() {
-    azzert.that(TableRenderer.builtin.TEX2.afterHeader(), azzert.is("\\hline" + TableRenderer.builtin.NL));
-    azzert.that(TableRenderer.builtin.TEX2.afterTable(), azzert.is("\\hline" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.TEX2.afterHeader(), azzert.is("\\hline" + TableRenderer.NL));
+    azzert.that(TableRenderer.builtin.TEX2.afterTable(), azzert.is("\\hline" + TableRenderer.NL));
     azzert.that(TableRenderer.builtin.TEX2.arraySeparator(), azzert.is(", "));
-    azzert.that(TableRenderer.builtin.TEX2.beforeFooter(), azzert.is("\\hline" + TableRenderer.builtin.NL));
-    azzert.that(TableRenderer.builtin.TEX2.beforeTable(), azzert.is("\\hline" + TableRenderer.builtin.NL));
-    azzert.that(TableRenderer.builtin.TEX2.footerEnd(), azzert.is("\\\\" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.TEX2.beforeFooter(), azzert.is("\\hline" + TableRenderer.NL));
+    azzert.that(TableRenderer.builtin.TEX2.beforeTable(), azzert.is("\\hline" + TableRenderer.NL));
+    azzert.that(TableRenderer.builtin.TEX2.footerEnd(), azzert.is("\\\\" + TableRenderer.NL));
     azzert.that(TableRenderer.builtin.TEX2.recordSeparator(), azzert.is("\t&\t"));
   }
 
   @Test public void TXTtest() {
-    azzert.that(TableRenderer.builtin.TEX.afterHeader(), azzert.is("\\midrule" + TableRenderer.builtin.NL));
-    azzert.that(TableRenderer.builtin.TEX.afterTable(), azzert.is("\\bottomrule" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.TEX.afterHeader(), azzert.is("\\midrule" + TableRenderer.NL));
+    azzert.that(TableRenderer.builtin.TEX.afterTable(), azzert.is("\\bottomrule" + TableRenderer.NL));
     azzert.that(TableRenderer.builtin.TEX.arraySeparator(), azzert.is(", "));
-    azzert.that(TableRenderer.builtin.TEX.beforeFooter(), azzert.is("\\midrule" + TableRenderer.builtin.NL));
-    azzert.that(TableRenderer.builtin.TEX.beforeTable(), azzert.is("\\toprule" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.TEX.beforeFooter(), azzert.is("\\midrule" + TableRenderer.NL));
+    azzert.that(TableRenderer.builtin.TEX.beforeTable(), azzert.is("\\toprule" + TableRenderer.NL));
     azzert.that(TableRenderer.builtin.TEX.nil(), azzert.is("$\\#$"));
     azzert.that(TableRenderer.builtin.TEX.recordSeparator(), azzert.is("\t&\t"));
   }
 
   @Test public void CSVtest() {
-    azzert.that(TableRenderer.builtin.CSV.footerEnd(), azzert.is(TableRenderer.builtin.NL + ""));
+    azzert.that(TableRenderer.builtin.CSV.footerEnd(), azzert.is(TableRenderer.NL + ""));
     azzert.that(TableRenderer.builtin.CSV.recordSeparator(), azzert.is(","));
   }
 
   @Test public void MARKDOWNtest() {
     // azzert.that(TableRenderer.builtin.MARKDOWN.afterHeader(), azzert.is("| " +
     // TableRenderer.builtin.NL));
-    azzert.that(TableRenderer.builtin.MARKDOWN.afterTable(), azzert.is(TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.MARKDOWN.afterTable(), azzert.is(TableRenderer.NL));
     // azzert.that(TableRenderer.builtin.MARKDOWN.arraySeparator(), azzert.is(";
     // "));
-    azzert.that(TableRenderer.builtin.MARKDOWN.beforeTable(), azzert.is(TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.MARKDOWN.beforeTable(), azzert.is(TableRenderer.NL));
     azzert.that(TableRenderer.builtin.MARKDOWN.recordBegin(), azzert.is("|"));
-    azzert.that(TableRenderer.builtin.MARKDOWN.recordEnd(), azzert.is(" |" + TableRenderer.builtin.NL));
+    azzert.that(TableRenderer.builtin.MARKDOWN.recordEnd(), azzert.is(" |" + TableRenderer.NL));
     azzert.that(TableRenderer.builtin.MARKDOWN.recordSeparator(), azzert.is(" | "));
     TableRenderer.builtin.MARKDOWN.setHeaderCount(1);
     azzert.that(TableRenderer.builtin.MARKDOWN.cellReal(box.it(4.3)), azzert.is("4"));
@@ -59,10 +59,10 @@ import fluent.ly.*;
     azzert.that(TableRenderer.builtin.CSV.cellInt(box.it(1L * 4)), azzert.is("4"));
     azzert.that(TableRenderer.builtin.CSV.extension(), azzert.is("csv"));
     azzert.that(TableRenderer.builtin.CSV.footerBegin(), azzert.is(""));
-    azzert.that(TableRenderer.builtin.TXT.footerEnd(), azzert.is(TableRenderer.builtin.NL + ""));
+    azzert.that(TableRenderer.builtin.TXT.footerEnd(), azzert.is(TableRenderer.NL + ""));
     azzert.that(TableRenderer.builtin.CSV.footerSeparator(), azzert.is(","));
     azzert.that(TableRenderer.builtin.CSV.headerLineBegin(), azzert.is(""));
-    azzert.that(TableRenderer.builtin.CSV.headerLineEnd(), azzert.is(TableRenderer.builtin.NL + ""));
+    azzert.that(TableRenderer.builtin.CSV.headerLineEnd(), azzert.is(TableRenderer.NL + ""));
     azzert.that(TableRenderer.builtin.CSV.headerSeparator(), azzert.is(","));
     azzert.that(TableRenderer.builtin.CSV.nil(), azzert.is("Nº"));
     azzert.that(TableRenderer.builtin.TXT.recordSeparator(), azzert.is("\t"));

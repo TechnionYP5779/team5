@@ -12,10 +12,10 @@ import fluent.ly.*;
   @Test public void testList() {
     final List<Integer> l = singleton.list(box.it(5));
     azzert.that(l.size(), is(1));
-    azzert.that(box.it(l.isEmpty()), is(Boolean.FALSE));
+    assert !l.isEmpty();
     final Iterator<Integer> itr = l.iterator();
     azzert.that(itr.next(), is(box.it(5)));
-    azzert.that(box.it(itr.hasNext()), is(Boolean.FALSE));
+    assert !itr.hasNext();
     l.remove(0);
     assert l.isEmpty();
   }

@@ -11,7 +11,7 @@ import fluent.ly.range.*;
     azzert.that(range.from(2).getFrom(), is(2));
     assert range.from(2).isToInfinite();
     assert !range.from(2).isFromInfinite();
-    range r = new range(1, true);
+    final range r = new range(1, true);
     assert r.isFromInfinite();
     assert !r.isToInfinite();
   }
@@ -40,7 +40,6 @@ import fluent.ly.range.*;
     azzert.that(it.next(), is(box.it(5)));
     assert it.hasNext();
   }
-
 
   @Test public void to() {
     final rangedTo r = range.to(2);
@@ -78,7 +77,8 @@ import fluent.ly.range.*;
     azzert.that(it.next(), is(box.it(1)));
     assert it.hasNext();
   }
-//
+
+  //
   @Test public void numbers() {
     final rangeIterator it = range.numbers;
     for (int ¢ = 1; ¢ < 10000; ++¢) {

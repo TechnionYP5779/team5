@@ -3,8 +3,10 @@
  * @since year-month-day */
 package il.org.spartan.utils;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
-import static fluent.ly.azzert.is;
+
 import fluent.ly.*;
 
 /** A test for class Binary.java

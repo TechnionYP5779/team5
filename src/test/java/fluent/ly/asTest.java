@@ -149,7 +149,7 @@ import org.junit.*;
   }
 
   @Test public void asIterable() {
-    Iterator<Integer> it = as.asIterableEssence(box.it(1), box.it(2), box.it(3)).iterator();
+    final Iterator<Integer> it = as.asIterableEssence(box.it(1), box.it(2), box.it(3)).iterator();
     assert it.hasNext();
     assert box.it(1) == it.next();
     assert box.it(2) == it.next();
@@ -158,7 +158,7 @@ import org.junit.*;
   }
 
   @Test public void asIterablelambda() {
-    Iterator<Integer> it = as.asIterableLambda(box.it(1), box.it(2), box.it(3)).iterator();
+    final Iterator<Integer> it = as.asIterableLambda(box.it(1), box.it(2), box.it(3)).iterator();
     assert it.hasNext();
     assert box.it(1) == it.next();
     assert box.it(2) == it.next();

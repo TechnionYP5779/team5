@@ -1,7 +1,9 @@
 package il.org.spartan.utils;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
-import static fluent.ly.azzert.is;
+
 import fluent.ly.*;
 
 @SuppressWarnings("static-method") public class LinearLineTest {

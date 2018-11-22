@@ -1,9 +1,10 @@
 package fluent.ly;
 
+import static fluent.ly.azzert.*;
+
 import java.util.*;
 import java.util.stream.*;
-import static fluent.ly.azzert.is;
-import static fluent.ly.azzert.isNull;
+
 import org.junit.*;
 
 @SuppressWarnings("static-method") public class listTest {

@@ -6,7 +6,7 @@ import org.jetbrains.annotations.*;
 
 /** @author Nir Chachamovitz
  * @since 2018-11-22 */
-@SuppressWarnings({"static-method", "boxing"}) public class range {
+@SuppressWarnings({ "static-method", "boxing" }) public class range {
   public class rangeIterator implements Iterator<Integer> {
     @NotNull private Integer pos;
     @NotNull private final Integer to1;
@@ -58,7 +58,7 @@ import org.jetbrains.annotations.*;
   }
 
   /**
-   * 
+   *
    */
   @SuppressWarnings("null") public range() {
   }
@@ -68,7 +68,6 @@ import org.jetbrains.annotations.*;
   // to = box.it(¢);
   // Ninfinite = b;
   // }
-
   public boolean isToInfinite() {
     return bounded_below && !bounded_above;
   }
@@ -93,7 +92,6 @@ import org.jetbrains.annotations.*;
   // return new range(from, box.it(¢));
   // return new range(box.it(¢), true);
   // }
-
   public static rangedFrom from(final int ¢) {
     // from = box.it(¢);
     // bounded_below = true;

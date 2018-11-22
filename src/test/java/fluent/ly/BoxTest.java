@@ -8,19 +8,19 @@ import org.junit.*;
 @SuppressWarnings("static-method") public class BoxTest {
   @Test public void testBooleanBox() {
     Boolean b = box.it(true);
-    azzert.that(b, is(Boolean.TRUE));
+    assert unbox.it(b);
     b = box.it(false);
-    azzert.that(b, is(Boolean.FALSE));
+    assert !unbox.it(b);
     final boolean bArray[] = new boolean[10];
     for (int ¢ = 0; ¢ < 10; ++¢)
       bArray[¢] = ¢ % 2 == 0;
     final Boolean BooleanArray[] = box.it(bArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
       azzert.that(BooleanArray[¢], is(box.it(¢ % 2 == 0)));
-    boolean[] arr = { true, true, true, true };
-    @NotNull Boolean[] arrBoxed = box.box(arr);
+    final boolean[] arr = { true, true, true, true };
+    @NotNull final Boolean[] arrBoxed = box.box(arr);
     for (int ¢ = 0; ¢ < 4; ++¢)
-      azzert.that(unbox.it(arrBoxed[¢]), azzert.is(true));
+      assert unbox.it(arrBoxed[¢]);
   }
 
   @Test public void testByteBox() {
@@ -36,15 +36,15 @@ import org.junit.*;
     final Byte ByteArray[] = box.it(bArray);
     for (int ¢ = 0; ¢ < 10; ++¢)
       azzert.that(ByteArray[¢], is(box.it((byte) ¢)));
-    byte[] arr = { 1, 1, 1, 1 };
-    @NotNull Byte[] arrBoxed = box.box(arr);
+    final byte[] arr = { 1, 1, 1, 1 };
+    @NotNull final Byte[] arrBoxed = box.box(arr);
     azzert.that(unbox.it(arrBoxed), azzert.is(arr));
   }
 
   @Test public void testCharBox() {
     Character b = box.it('a');
     azzert.that(b, is(box.it('a')));
-    Character d = box.box('a');
+    final Character d = box.box('a');
     azzert.that(d, is(box.box('a')));
     b = box.it('b');
     azzert.that(b, is(box.it('b')));
@@ -62,7 +62,7 @@ import org.junit.*;
   @Test public void testDoubleBox() {
     Double b = box.it(3.14);
     azzert.that(b, is(box.it(3.14)));
-    Double d = box.box(3.14);
+    final Double d = box.box(3.14);
     azzert.that(d, is(box.it(3.14)));
     b = box.it(2.71);
     azzert.that(b, is(box.it(2.71)));
@@ -81,7 +81,7 @@ import org.junit.*;
     final float diff = (float) 0.00005;
     Float b = box.it((float) 3.14);
     assert box.it(diff + (float) 3.14).compareTo(b) >= 0 && box.it((float) 3.14 - diff).compareTo(b) <= 0;
-    Float d = box.box((float) 3.14);
+    final Float d = box.box((float) 3.14);
     assert box.it(diff + (float) 3.14).compareTo(d) >= 0 && box.it((float) 3.14 - diff).compareTo(d) <= 0;
     b = box.it((float) 2.71);
     assert box.it(diff + (float) 2.71).compareTo(b) >= 0 && box.it((float) 2.71 - diff).compareTo(b) <= 0;
@@ -113,7 +113,7 @@ import org.junit.*;
     final long offset = (long) 1e7;
     Long b = box.it(3 * offset);
     azzert.that(b, is(box.it(3 * offset)));
-    Long d = box.box(3 * offset);
+    final Long d = box.box(3 * offset);
     azzert.that(d, is(box.it(3 * offset)));
     b = box.it(-3 * offset);
     azzert.that(b, is(box.it(-3 * offset)));
@@ -131,7 +131,7 @@ import org.junit.*;
   @Test public void testShortBox() {
     Short b = box.it((short) 3);
     azzert.that(b, is(box.it((short) 3)));
-    Short d = box.box((short) 3);
+    final Short d = box.box((short) 3);
     azzert.that(d, is(box.it((short) 3)));
     b = box.it((short) -2);
     azzert.that(b, is(box.it((short) -2)));
@@ -148,9 +148,9 @@ import org.junit.*;
 
   @Test public void testItBooleanBox() {
     Boolean b = box.it(true);
-    azzert.that(b, is(Boolean.TRUE));
+    assert unbox.it(b);
     b = box.it(false);
-    azzert.that(b, is(Boolean.FALSE));
+    assert !unbox.it(b);
     final boolean bArray[] = new boolean[10];
     for (int ¢ = 0; ¢ < 10; ++¢)
       bArray[¢] = ¢ % 2 == 0;

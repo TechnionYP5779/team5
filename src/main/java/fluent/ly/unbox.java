@@ -47,43 +47,43 @@ import org.jetbrains.annotations.*;
     return it(¢.toArray(new Integer[¢.size()]));
   }
 
-  public static double it(@NotNull Double ¢) {
+  public static double it(@NotNull final Double ¢) {
     return unbox(¢);
   }
 
-  public static long it(@NotNull Long ¢) {
+  public static long it(@NotNull final Long ¢) {
     return unbox(¢);
   }
 
-  public static float it(@NotNull Float ¢) {
+  public static float it(@NotNull final Float ¢) {
     return unbox(¢);
   }
 
-  public static char it(@NotNull Character ¢) {
+  public static char it(@NotNull final Character ¢) {
     return unbox(¢);
   }
 
-  public static boolean it(@NotNull Boolean ¢) {
+  public static boolean it(@NotNull final Boolean ¢) {
     return unbox(¢);
   }
 
-  public static boolean @NotNull [] it(@NotNull Boolean[] ¢) {
+  public static boolean @NotNull [] it(@NotNull final Boolean[] ¢) {
     return unbox(¢);
   }
 
-  public static byte @NotNull [] it(@NotNull Byte[] ¢) {
+  public static byte @NotNull [] it(@NotNull final Byte[] ¢) {
     return unbox(¢);
   }
 
-  public static char @NotNull [] it(Character[] ¢) {
+  public static char @NotNull [] it(final Character[] ¢) {
     return unbox(¢);
   }
 
-  public static short @NotNull [] it(Short[] ¢) {
+  public static short @NotNull [] it(final Short[] ¢) {
     return unbox(¢);
   }
 
-  public static long @NotNull [] it(Long[] ¢) {
+  public static long @NotNull [] it(final Long[] ¢) {
     return unbox(¢);
   }
 

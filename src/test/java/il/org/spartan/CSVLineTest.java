@@ -3,10 +3,12 @@
  * @since 2018-11-19 */
 package il.org.spartan;
 
+import static fluent.ly.azzert.*;
+
 import java.util.*;
 
 import org.junit.*;
-import static fluent.ly.azzert.is;
+
 import fluent.ly.*;
 import il.org.spartan.AbstractStringProperties.*;
 import il.org.spartan.CSVLine.*;

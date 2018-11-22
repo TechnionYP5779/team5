@@ -1,12 +1,13 @@
 package fluent.ly;
 
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
 
 import fluent.ly.___.Bug.Assertion.*;
 import fluent.ly.___.Bug.Assertion.Value.Numerical.*;
 import fluent.ly.___.Bug.Assertion.Variant.*;
 import fluent.ly.___.Bug.Contract.*;
-import static fluent.ly.azzert.is;
 
 @SuppressWarnings("static-method") public class ___Test {
   @Test public void ensure() {

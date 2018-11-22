@@ -44,13 +44,13 @@ enum Color {
 
   @Test public void loadAndSaveTest() {
     azzert.that("\\n\\r\\t\\\\\\.", is(CSV.escape("\n\r\t\\,")));
-    File f = new File("src/test/resources/csvTest.txt");
+    final File f = new File("src/test/resources/csvTest.txt");
     try {
       if (!f.exists())
         f.createNewFile();
-      String data = "Sally Whittaker,2018,McCarren House,312,3.75";
+      final String data = "Sally Whittaker,2018,McCarren House,312,3.75";
       Files.write(Paths.get("src//test//resources//csvTest.txt"), data.getBytes());
-      @SuppressWarnings("resource") FileWriter fw = new FileWriter("src//test//resources//csvTest.txt");
+      @SuppressWarnings("resource") final FileWriter fw = new FileWriter("src//test//resources//csvTest.txt");
       fw.write("Sally Whittaker,2018,McCarren House,312,3.75");
       fw.close();
       final String[][] csv = CSV.load(f);

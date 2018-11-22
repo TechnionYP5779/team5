@@ -4,6 +4,7 @@
 package il.org.spartan.utils;
 
 import java.util.*;
+
 import org.junit.*;
 
 import fluent.ly.*;
@@ -16,14 +17,14 @@ public class ExamplesTest {
   }
 
   @Test public void addTest() {
-    Examples e = new Examples();
-    Ex ex = new ExamplesTest.Ex();
+    final Examples e = new Examples();
+    final Ex ex = new ExamplesTest.Ex();
     e.add(ex);
-    Iterator<Example> it = e.iterator();
-    Spliterator<Example> split = e.spliterator();
-    Converter cv = e.convert("Hello");
-    Examples new_s = cv.to("hi");
-    Examples exs = e.ignores("123").add(ex);
+    final Iterator<Example> it = e.iterator();
+    final Spliterator<Example> split = e.spliterator();
+    final Converter cv = e.convert("Hello");
+    final Examples new_s = cv.to("hi");
+    final Examples exs = e.ignores("123").add(ex);
     azzert.notNull(it);
     azzert.notNull(new_s);
     azzert.notNull(split);
