@@ -9,12 +9,13 @@ import java.util.*;
  * A class for describing a transaction transaction
  */
 public class Transaction {
+  private static final long msInHour = 3600000;
   private static int count;
   private int id;
   private double price;
-  private Calendar transactionDate;
-  private Calendar rentStart;
-  private Calendar rentEnd;
+  private Date transactionDate;
+  private Date rentStart;
+  private Date rentEnd;
   private int parkingId;
   private int tenantId;
   private int landlordId;
@@ -27,7 +28,7 @@ public class Transaction {
    * @param tenantId - the identifier of the tenant
    * @param landlordId - the identifier of the landlordF
    */
-  public Transaction(double price, Calendar transactionDate, Calendar rentStart, Calendar rentEnd,
+  public Transaction(double price, Date transactionDate, Date rentStart, Date rentEnd,
       int parkingId, int tenantId, int landlordId) {
     this.setId(++count);
     this.setPrice(price);
@@ -70,42 +71,42 @@ public class Transaction {
   /**
    * @return the transactionDate
    */
-  public Calendar getTransactionDate() {
+  public Date getTransactionDate() {
     return transactionDate;
   }
 
   /**
    * @param transactionDate the transactionDate to set
    */
-  public void setTransactionDate(Calendar transactionDate2) {
+  public void setTransactionDate(Date transactionDate2) {
     this.transactionDate = transactionDate2;
   }
 
   /**
    * @return the rentStart
    */
-  public Calendar getRentStart() {
+  public Date getRentStart() {
     return rentStart;
   }
 
   /**
    * @param rentStart the rentStart to set
    */
-  public void setRentStart(Calendar rentStart2) {
+  public void setRentStart(Date rentStart2) {
     this.rentStart = rentStart2;
   }
 
   /**
    * @return the rentEnd
    */
-  public Calendar getRentEnd() {
+  public Date getRentEnd() {
     return rentEnd;
   }
 
   /**
    * @param rentEnd the rentEnd to set
    */
-  public void setRentEnd(Calendar rentEnd2) {
+  public void setRentEnd(Date rentEnd2) {
     this.rentEnd = rentEnd2;
   }
 
@@ -179,7 +180,7 @@ public class Transaction {
    * @return the duration of the current transactions' rent
    */
   public int rentDuration() {
-    return this.rentEnd.get(Calendar.HOUR_OF_DAY) - this.rentStart.get(Calendar.HOUR_OF_DAY);
+    return (int)((this.rentEnd.getTime()-this.rentStart.getTime())/msInHour);
   }
   
   /**
