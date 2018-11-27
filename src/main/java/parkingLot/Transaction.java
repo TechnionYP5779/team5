@@ -1,6 +1,3 @@
-/**add here documentation for file 
- * @author Fname Sname
- * @since year-month-day */
 package parkingLot;
 
 import java.util.*;
@@ -8,8 +5,8 @@ import java.util.*;
 
 /**
  * @author Lior Ben-Yamin, Nir Chachamovitz
- * @since 27/11/18
- *
+ * @since 2018-11-27
+ * A class for describing a transaction transaction
  */
 public class Transaction {
   private static int count;
