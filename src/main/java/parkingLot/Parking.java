@@ -1,140 +1,204 @@
-package parkingLot; 
+package parkingLot;
 
 /** protected methods are expected to be invoked by the parking owner **/
 
-/**add here documentation for file 
+/** add here documentation for file
  * @author Shaked Sapir, Shalev Kuba
  * @since 2018-11-27 */
-
 import java.util.*;
 import java.util.stream.*;
 
-/**
- * @author Shaked Sapir, Shalev Kuba
- *
- */
+/** @author Shaked Sapir, Shalev Kuba */
 public class Parking {
-    int id;
-    User owner;
+  enum size {
+    PRIVATE_CAR, MOTORCYCLE, TRANSIT, BUS
+  }
+  public class Slot {
+    /** Slot fields **/
+    Date from;
+    Date to;
+    double price_for_hour;
     
-
-    enum size{
-        PRIVATE_CAR, MOTORCYCLE, TRANSIT, BUS
-    }
-    size sz;
-    public class AvailableSlot{
-        Date from;
-        Date to;
-
-        public Date getFrom() {
-            return from;
-        }
-
-        protected void setFrom(Date from) {
-            this.from = from;
-        }
-
-        public Date getTo() {
-            return to;
-        }
-
-        protected void setTo(Date to) {
-            this.to = to;
-        }
-
-        public double getPrice_for_hour() {
-            return price_for_hour;
-        }
-
-        protected void setPrice_for_hour(double price_for_hour) {
-            this.price_for_hour = price_for_hour;
-        }
-
-        double price_for_hour;
-
-        public AvailableSlot(Date _from, Date _to, double price) {
-            this.from = _from;
-            this.to = _to;
-            this.price_for_hour = price;
-        }
+    /** Constructors **/
+    public Slot(Date _from, Date _to, double price) {
+      this.from = _from;
+      this.to = _to;
+      this.price_for_hour = price;
     }
 
-    /** Format: State, city, street, apratment no. **/
-    String location;
-    List<AvailableSlot> availableSlots;
+    public Slot(Slot s) {
+      this.from = s.getFrom();
+      this.to = s.getTo();
+      this.price_for_hour = s.getPrice_for_hour();
+    }
+    
+    /** getters & setters **/
+    public Date getFrom() {
+      return from;
+    }
 
-   public Parking(int id, User owner, size sz, String location) {
-     this.id = id;
-     this.owner = owner;
-     this.sz = sz;
-     this.location = location;
-     this.availableSlots = new ArrayList<>();
-   }
+    protected void setFrom(Date from) {
+      this.from = from;
+    }
+
+    public Date getTo() {
+      return to;
+    }
+
+    protected void setTo(Date to) {
+      this.to = to;
+    }
+
+    public double getPrice_for_hour() {
+      return price_for_hour;
+    }
+
+    protected void setPrice_for_hour(double price_for_hour) {
+      this.price_for_hour = price_for_hour;
+    }
+  }
+  
+  /** Parking fields **/
+  /** location Format: State, city, street, apratment no. 
+   *  we will try to use google maps locationType.
+   *  we will do it when the time comes**/
+  String location;
+  int id;
+  User owner;
+  size sz;
+  List<Slot> availableSlots;
+
+  /** Constructor **/
+  public Parking(int id, User owner, size sz, String location) {
+    this.id = id;
+    this.owner = owner;
+    this.sz = sz;
+    this.location = location;
+    this.availableSlots = new ArrayList<>();
+  }
+
   /** getters & setters **/
-    
-    public int getId() {
-      return id;
+  public int getId() {
+    return id;
   }
 
   public User getOwner() {
-     return owner;
-  }
-  protected void setLocation(String location) {
-      this.location = location;
+    return owner;
   }
 
-  protected void setAvailableSlots(List<AvailableSlot> availableSlots) {
-      this.availableSlots = availableSlots;
+  protected void setLocation(String location) {
+    this.location = location;
+  }
+
+  protected void setAvailableSlots(List<Slot> availableSlots) {
+    this.availableSlots = availableSlots;
   }
 
   public String getLocation() {
-      return location;
+    return location;
   }
 
-  public List<AvailableSlot> getAvailableSlots() {
-      return availableSlots;
+  protected List<Slot> getAvailableSlots() {
+    return availableSlots;
   }
-  
+
   /** some basic functionality **/
-  protected Parking addSlot(Date from, Date to, double price) {
-    AvailableSlot slot = new AvailableSlot(from,to,price);
-    /** if the argument slot intersects with another slot in the list, dont insert it **/
-    if(availableSlots.stream().filter
-       (e->e.from.compareTo(slot.from)<0 || e.to.compareTo(slot.to)>0).count()>0)
-        return this;
-    this.availableSlots.add(slot);
+  /**
+   * @param from - intervals start date
+   * @param to - intervals end date
+   * @param price- intervals hourly price
+   * @return adds the new Slot to the Available Slots of this Parking
+   * only if the argument slot isn't intersecting with another available slot
+   * of this Parking and the intervals length is bigger than 0 (really an interval)
+   */
+  protected Parking addAvailavbleSlot(Date from, Date to, double price) {
+    if (to.getTime() - from.getTime() == 0)
+      return this;
+    if (availableSlots.stream().filter(λ -> λ.from.compareTo(from) < 0 || λ.to.compareTo(to) > 0).count() > 0)
+      return this;
+    this.availableSlots.add(new Slot(from, to, price));
     return this;
+  }
 
+  /**
+   * @param ¢ - new available slot
+   * @return adds the new Slot to the Available Slots of this Parking
+   * only if the argument slot isn't intersecting with another available slot
+   * of this Parking
+   */
+  protected Parking addAvailavbleSlot(Slot ¢) {
+    return addAvailavbleSlot(¢.getFrom(), ¢.getTo(), ¢.getPrice_for_hour());
   }
-  
-  protected Parking addSlot(AvailableSlot slot) {
-    /** if the argument slot intersects with another slot in the list, dont insert it **/
-    if(availableSlots.stream().filter
-       (e->e.from.compareTo(slot.from)<0 || e.to.compareTo(slot.to)>0).count()>0)
-        return this;
-    this.availableSlots.add(slot);
-    return this;
-  }
-  
-  protected Parking removeSlot(Date from, Date to) {
-    availableSlots = availableSlots.stream().filter
-        (λ -> (!λ.from.equals(from) || !λ.to.equals(to))).collect(Collectors.toList());
-    return this;
-  }
-  
-  protected Parking removeSlot(AvailableSlot slot) {
-    availableSlots = availableSlots.stream().filter
-        (λ -> (!λ.equals(slot))).collect(Collectors.toList());
-    return this;
-  }
-  
-  public double getPriceOfSlot(Date from,Date to) {
-    ArrayList<AvailableSlot> legit = (ArrayList<AvailableSlot>) availableSlots.stream()
-        .filter(e->e.from.compareTo(from)<=0 && e.to.compareTo(to)>=0).collect(Collectors.toList());
-    if(legit.size()>0)
-      return (legit.get(0).getPrice_for_hour())*((to.getTime()-from.getTime())/3600000);
-    /** if reached here, bad **/
-    return -1;
 
+  /**
+   * 
+   * @param from -  intervals start date
+   * @param to -  intervals end date
+   * @return removes the slot from the available slots of this parking
+   */
+  protected Parking removeAvailavbleSlot(Date from, Date to) {
+    availableSlots = availableSlots.stream().filter(λ -> (!λ.from.equals(from) || !λ.to.equals(to))).collect(Collectors.toList());
+    return this;
+  }
+
+  /**
+   * @param s -   interval of available slot
+   * @return removes the slot from the available slots of this parking
+   */
+  protected Parking removeAvailavbleSlot(Slot s) {
+    availableSlots = availableSlots.stream().filter(λ -> (!λ.equals(s))).collect(Collectors.toList());
+    return this;
+  }
+
+  /**
+   * 
+   * @param from - intervals start date
+   * @param to - intervals end date
+   * @return available slot thats contains the desired slot with positive price_for_hour ,
+   * or slot with negative price_for_hour if there isn't such slot.
+   */
+  protected Slot getSlot(Date from, Date to) {
+    ArrayList<Slot> $ = (ArrayList<Slot>) availableSlots.stream().filter(λ -> λ.from.compareTo(from) <= 0 && λ.to.compareTo(to) >= 0)
+        .collect(Collectors.toList());
+    if ($.isEmpty())
+      return new Slot(from, from, -1);
+    return new Slot($.get(0));
+  }
+
+  /**
+   * 
+   * @param ¢ - the desired slot
+   * @return available slot thats contains the desired slot with positive price_for_hour ,
+   * or slot with negative price_for_hour if there isn't such slot.
+   */
+  protected Slot getSlot(Slot ¢) {
+    return this.getSlot(¢.getFrom(), ¢.getTo());
+  }
+
+  /**
+   * 
+   * @param from - intervals start date
+   * @param to - intervals end date
+   * @return: split the available slot that contains the desired slot to 2 new available slots,
+   * and returns the desired slot.
+   */
+  protected Slot OrderSlot(Date from, Date to) {
+    Slot $ = new Slot(this.getSlot(from, to));
+    /* negative price symbolizes failure of this function */
+    if ($.getPrice_for_hour() < 0)
+      return new Slot(from, from, -1);
+    this.removeAvailavbleSlot(this.getSlot(from, to)).addAvailavbleSlot(new Slot($.getFrom(), from, $.getPrice_for_hour()))
+        .addAvailavbleSlot(new Slot(to, $.getTo(), $.getPrice_for_hour()));
+    return $;
+  }
+  
+  /**
+   * 
+   * @param slot - the desired slot
+   * @return: split the available slot that contains the desired slot to 2 new available slots,
+   * and returns the desired slot.
+   */
+  protected Slot OrderSlot(Slot ¢) {
+    return this.OrderSlot(¢.getFrom(), ¢.getTo());
   }
 }
