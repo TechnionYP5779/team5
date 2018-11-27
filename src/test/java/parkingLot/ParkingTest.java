@@ -4,10 +4,12 @@
 package parkingLot;
 
 
+
 import org.junit.*;
 
+
 public class ParkingTest {
-  @Test public void test() {
-    /**/
+  @Test public void slotTesting() {
+    /****/
   }
 }

@@ -13,50 +13,6 @@ public class Parking {
   enum size {
     PRIVATE_CAR, MOTORCYCLE, TRANSIT, BUS
   }
-  public class Slot {
-    /** Slot fields **/
-    Date from;
-    Date to;
-    double price_for_hour;
-    
-    /** Constructors **/
-    public Slot(Date _from, Date _to, double price) {
-      this.from = _from;
-      this.to = _to;
-      this.price_for_hour = price;
-    }
-
-    public Slot(Slot s) {
-      this.from = s.getFrom();
-      this.to = s.getTo();
-      this.price_for_hour = s.getPrice_for_hour();
-    }
-    
-    /** getters & setters **/
-    public Date getFrom() {
-      return from;
-    }
-
-    protected void setFrom(Date from) {
-      this.from = from;
-    }
-
-    public Date getTo() {
-      return to;
-    }
-
-    protected void setTo(Date to) {
-      this.to = to;
-    }
-
-    public double getPrice_for_hour() {
-      return price_for_hour;
-    }
-
-    protected void setPrice_for_hour(double price_for_hour) {
-      this.price_for_hour = price_for_hour;
-    }
-  }
   
   /** Parking fields **/
   /** location Format: State, city, street, apratment no. 
@@ -112,7 +68,7 @@ public class Parking {
    * of this Parking and the intervals length is bigger than 0 (really an interval)
    */
   protected Parking addAvailavbleSlot(Date from, Date to, double price) {
-    if (to.getTime() - from.getTime() == 0)
+    if (to.getTime() - from.getTime() <= 0)
       return this;
     if (availableSlots.stream().filter(λ -> λ.from.compareTo(from) < 0 || λ.to.compareTo(to) > 0).count() > 0)
       return this;
