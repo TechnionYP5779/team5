@@ -37,17 +37,13 @@ public class Parking {
   public int getId() {
     return id;
   }
+  
+  public size getSize() {
+    return sz;
+  }
 
   public User getOwner() {
     return owner;
-  }
-
-  protected void setLocation(String location) {
-    this.location = location;
-  }
-
-  protected void setAvailableSlots(List<Slot> availableSlots) {
-    this.availableSlots = availableSlots;
   }
 
   public String getLocation() {
@@ -70,7 +66,7 @@ public class Parking {
   protected Parking addAvailavbleSlot(Date from, Date to, double price) {
     if (to.getTime() - from.getTime() <= 0)
       return this;
-    if (availableSlots.stream().filter(λ -> λ.from.compareTo(from) < 0 || λ.to.compareTo(to) > 0).count() > 0)
+    if (availableSlots.stream().filter(λ -> (λ.from.compareTo(from) < 0 && λ.to.compareTo(from)>0) || (λ.to.compareTo(to) > 0 &&λ.from.compareTo(to) < 0)).count() > 0)
       return this;
     this.availableSlots.add(new Slot(from, to, price));
     return this;
@@ -101,9 +97,8 @@ public class Parking {
    * @param s -   interval of available slot
    * @return removes the slot from the available slots of this parking
    */
-  protected Parking removeAvailavbleSlot(Slot s) {
-    availableSlots = availableSlots.stream().filter(λ -> (!λ.equals(s))).collect(Collectors.toList());
-    return this;
+  protected Parking removeAvailavbleSlot(Slot ¢) {
+    return this.removeAvailavbleSlot(¢.getFrom(), ¢.getTo());
   }
 
   /**
@@ -143,9 +138,9 @@ public class Parking {
     /* negative price symbolizes failure of this function */
     if ($.getPrice_for_hour() < 0)
       return new Slot(from, from, -1);
-    this.removeAvailavbleSlot(this.getSlot(from, to)).addAvailavbleSlot(new Slot($.getFrom(), from, $.getPrice_for_hour()))
-        .addAvailavbleSlot(new Slot(to, $.getTo(), $.getPrice_for_hour()));
-    return $;
+    this.removeAvailavbleSlot(this.getSlot(from, to)).addAvailavbleSlot(new Slot( $.getFrom(),from, $.getPrice_for_hour()));
+    this.addAvailavbleSlot(new Slot(to, $.getTo(), $.getPrice_for_hour()));
+    return new Slot(from, to,$.getPrice_for_hour());
   }
   
   /**
