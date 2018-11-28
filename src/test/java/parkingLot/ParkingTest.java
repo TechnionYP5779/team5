@@ -24,35 +24,35 @@ import java.util.Date;
     @SuppressWarnings("null") User s=Mockito.mock(User.class);
     Parking p=new Parking(3,s,size.PRIVATE_CAR,"Israel, Holon, Hahartsit, 8");
     
-    p.addAvailavbleSlot(new Date(2018, 11, 27,19,00),new Date(2018, 11, 27,18,00),5.5);
-    p.addAvailavbleSlot(new Date(2018, 11, 27,12,00),new Date(2018, 11, 27,12,00),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,19,00),new Date(2018, 11, 27,18,00),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,12,00),new Date(2018, 11, 27,12,00),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(0));  
-    p.addAvailavbleSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
-    p.addAvailavbleSlot(new Date(2018, 11, 27,8,30),new Date(2018, 11, 27,9,30),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,8,30),new Date(2018, 11, 27,9,30),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
-    p.addAvailavbleSlot(new Date(2018, 11, 27,7,30),new Date(2018, 11, 27,8,30),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,7,30),new Date(2018, 11, 27,8,30),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
     azzert.that(p.getAvailableSlots().get(0),
         azzert.is(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5)));
     azzert.that(p.getAvailableSlots().get(0).getPrice_for_hour(), azzert.is(5.5));
-    p.removeAvailavbleSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 28,9,00));
+    p.removeAvailableSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 28,9,00));
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
-    p.removeAvailavbleSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00));
+    p.removeAvailableSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00));
     azzert.that(p.getAvailableSlots().size(), azzert.is(0));
     
-    p.addAvailavbleSlot(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5));
+    p.addAvailableSlot(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5));
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
-    p.addAvailavbleSlot(new Date(2018, 11, 27,8,30),new Date(2018, 11, 27,9,30),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,8,30),new Date(2018, 11, 27,9,30),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
-    p.addAvailavbleSlot(new Date(2018, 11, 27,7,30),new Date(2018, 11, 27,8,30),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,7,30),new Date(2018, 11, 27,8,30),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
-    p.removeAvailavbleSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00));
+    p.removeAvailableSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00));
     azzert.that(p.getAvailableSlots().size(), azzert.is(0));
     
-    p.addAvailavbleSlot(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5));
+    p.addAvailableSlot(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5));
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
-    p.removeAvailavbleSlot(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5));
+    p.removeAvailableSlot(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,9,00),5.5));
     azzert.that(p.getAvailableSlots().size(), azzert.is(0));
     
   }
@@ -63,7 +63,7 @@ import java.util.Date;
     azzert.that(p.getSlot(new Date(2018, 11, 27,12,00),new Date(2018, 11, 27,14,00)).getPrice_for_hour(),
         azzert.is((double)-1));
     
-    p.addAvailavbleSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,20,00),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,20,00),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
     azzert.that(p.getSlot(new Date(2018, 11, 27,12,00),new Date(2018, 11, 27,14,00)),
         azzert.is(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,20,00),5.5)));
@@ -79,7 +79,7 @@ import java.util.Date;
     azzert.that(p.OrderSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,20,00)),
         azzert.is(new Slot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,20,00),5.5)));
     azzert.that(p.getAvailableSlots().size(), azzert.is(0));
-    p.addAvailavbleSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,20,00),5.5);
+    p.addAvailableSlot(new Date(2018, 11, 27,8,00),new Date(2018, 11, 27,20,00),5.5);
     azzert.that(p.getAvailableSlots().size(), azzert.is(1));
     
     azzert.that(p.OrderSlot(new Date(2018, 11, 27,12,00),new Date(2018, 11, 27,14,00)),

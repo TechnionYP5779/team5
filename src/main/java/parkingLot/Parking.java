@@ -63,7 +63,7 @@ public class Parking {
    * only if the argument slot isn't intersecting with another available slot
    * of this Parking and the intervals length is bigger than 0 (really an interval)
    */
-  protected Parking addAvailavbleSlot(Date from, Date to, double price) {
+  protected Parking addAvailableSlot(Date from, Date to, double price) {
     if (to.getTime() - from.getTime() <= 0)
       return this;
     if (availableSlots.stream().filter(λ -> (λ.from.compareTo(from) < 0 && λ.to.compareTo(from)>0) || (λ.to.compareTo(to) > 0 &&λ.from.compareTo(to) < 0)).count() > 0)
@@ -78,8 +78,8 @@ public class Parking {
    * only if the argument slot isn't intersecting with another available slot
    * of this Parking
    */
-  protected Parking addAvailavbleSlot(Slot ¢) {
-    return addAvailavbleSlot(¢.getFrom(), ¢.getTo(), ¢.getPrice_for_hour());
+  protected Parking addAvailableSlot(Slot ¢) {
+    return addAvailableSlot(¢.getFrom(), ¢.getTo(), ¢.getPrice_for_hour());
   }
 
   /**
@@ -88,7 +88,7 @@ public class Parking {
    * @param to -  intervals end date
    * @return removes the slot from the available slots of this parking
    */
-  protected Parking removeAvailavbleSlot(Date from, Date to) {
+  protected Parking removeAvailableSlot(Date from, Date to) {
     availableSlots = availableSlots.stream().filter(λ -> (!λ.from.equals(from) || !λ.to.equals(to))).collect(Collectors.toList());
     return this;
   }
@@ -97,8 +97,8 @@ public class Parking {
    * @param s -   interval of available slot
    * @return removes the slot from the available slots of this parking
    */
-  protected Parking removeAvailavbleSlot(Slot ¢) {
-    return this.removeAvailavbleSlot(¢.getFrom(), ¢.getTo());
+  protected Parking removeAvailableSlot(Slot ¢) {
+    return this.removeAvailableSlot(¢.getFrom(), ¢.getTo());
   }
 
   /**
@@ -138,8 +138,8 @@ public class Parking {
     /* negative price symbolizes failure of this function */
     if ($.getPrice_for_hour() < 0)
       return new Slot(from, from, -1);
-    this.removeAvailavbleSlot(this.getSlot(from, to)).addAvailavbleSlot(new Slot( $.getFrom(),from, $.getPrice_for_hour()));
-    this.addAvailavbleSlot(new Slot(to, $.getTo(), $.getPrice_for_hour()));
+    this.removeAvailableSlot(this.getSlot(from, to)).addAvailableSlot(new Slot( $.getFrom(),from, $.getPrice_for_hour()));
+    this.addAvailableSlot(new Slot(to, $.getTo(), $.getPrice_for_hour()));
     return new Slot(from, to,$.getPrice_for_hour());
   }
   
