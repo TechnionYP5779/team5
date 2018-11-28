@@ -4,7 +4,6 @@
 package parkingLot;
 
 import org.junit.*;
-import org.mockito.*;
 
 import fluent.ly.*;
 import parkingLot.Parking.*;
@@ -12,17 +11,15 @@ import java.util.Date;
 
 @SuppressWarnings("static-method") public class ParkingTest {
   @Test public void setsAndGets() {
-    @SuppressWarnings("null") User s=Mockito.mock(User.class);
-    Parking p=new Parking(3,s,size.PRIVATE_CAR,"Israel, Holon, Hahartsit, 8");
+    Parking p=new Parking(3,1,size.PRIVATE_CAR,"Israel, Holon, Hahartsit, 8");
     azzert.that(p.getId(), azzert.is(3));
-    azzert.that(p.getOwner(), azzert.is(s));
+    azzert.that(p.getOwner(), azzert.is(1));
     azzert.that(p.getSize(), azzert.is(size.PRIVATE_CAR));
     azzert.that(p.getLocation(), azzert.is("Israel, Holon, Hahartsit, 8"));
     azzert.that(p.getAvailableSlots().size(), azzert.is(0));  
     }
   @SuppressWarnings("deprecation") @Test public void availableSlotTest() {
-    @SuppressWarnings("null") User s=Mockito.mock(User.class);
-    Parking p=new Parking(3,s,size.PRIVATE_CAR,"Israel, Holon, Hahartsit, 8");
+    Parking p=new Parking(3,1,size.PRIVATE_CAR,"Israel, Holon, Hahartsit, 8");
     
     p.addAvailableSlot(new Date(2018, 11, 27,19,00),new Date(2018, 11, 27,18,00),5.5);
     p.addAvailableSlot(new Date(2018, 11, 27,12,00),new Date(2018, 11, 27,12,00),5.5);
@@ -58,8 +55,7 @@ import java.util.Date;
   }
   
   @SuppressWarnings("deprecation") @Test public void getSlot() {
-    @SuppressWarnings("null") User s=Mockito.mock(User.class);
-    Parking p=new Parking(3,s,size.PRIVATE_CAR,"Israel, Holon, Hahartsit, 8");
+    Parking p=new Parking(3,1,size.PRIVATE_CAR,"Israel, Holon, Hahartsit, 8");
     azzert.that(p.getSlot(new Date(2018, 11, 27,12,00),new Date(2018, 11, 27,14,00)).getPrice_for_hour(),
         azzert.is((double)-1));
     
