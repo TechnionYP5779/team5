@@ -4,6 +4,7 @@
 package parkingLot;
 
 import static fluent.ly.azzert.*;
+import static parkingLot.User.FEEDBACK;
 
 import org.junit.*;
 
@@ -28,23 +29,23 @@ import fluent.ly.*;
 
   @Test public void testBuyersFeedback() {
     final User user = new User("or", "or@or", 123456);
-    azzert.that(user.getBuyerFeedback(), is(0.0));
-    user.addBuyerFeedback(2.0);
-    user.addBuyerFeedback(11.0);
-    user.addBuyerFeedback(1.0);
-    azzert.that(user.getBuyerFeedback(), is(1.5));
-    user.addBuyerFeedback(3.0);
-    azzert.that(user.getBuyerFeedback(), is(2.0));
+    azzert.that(user.getBuyerRank(), is(0.0));
+    user.addBuyerFeedback(FEEDBACK.FINE);
+    user.addBuyerFeedback(FEEDBACK.EXCELLENT);
+    user.addBuyerFeedback(FEEDBACK.GOOD);
+    azzert.that(user.getBuyerRank(), is(4.0));
+    user.addBuyerFeedback(FEEDBACK.BAD);
+    azzert.that(user.getBuyerRank(), is(3.5));
   }
 
   @Test public void testSellersFeedback() {
     final User user = new User("or", "or@or", 123456);
-    azzert.that(user.getSellerFeedback(), is(0.0));
-    user.addSellerFeedback(2.0);
-    user.addSellerFeedback(11.0);
-    user.addSellerFeedback(1.0);
-    azzert.that(user.getSellerFeedback(), is(1.5));
-    user.addSellerFeedback(3.0);
-    azzert.that(user.getSellerFeedback(), is(2.0));
+    azzert.that(user.getBuyerRank(), is(0.0));
+    user.addSellerFeedback(FEEDBACK.FINE);
+    user.addSellerFeedback(FEEDBACK.EXCELLENT);
+    user.addSellerFeedback(FEEDBACK.GOOD);
+    azzert.that(user.getSellerRank(), is(4.0));
+    user.addSellerFeedback(FEEDBACK.BAD);
+    azzert.that(user.getSellerRank(), is(3.5));
   }
 }
