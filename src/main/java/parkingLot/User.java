@@ -52,8 +52,8 @@ public class User {
   }
 
   /** @param feedback the feedback to add to the Seller Feedback */
-  public void addSellerFeedback(final FEEDBACK feedback) {
-    this.sellerRank = (feedback.getFeedback() + this.sellerRank * this.numberOfSellersFeedback) / (this.numberOfSellersFeedback + 1);
+  public void addSellerFeedback(final FEEDBACK ¢) {
+    this.sellerRank = (¢.getFeedback() + this.sellerRank * this.numberOfSellersFeedback) / (this.numberOfSellersFeedback + 1);
     this.numberOfSellersFeedback++;
   }
 
@@ -63,8 +63,8 @@ public class User {
   }
 
   /** @param feedback the feedback to add to the Buyer Feedback */
-  public void addBuyerFeedback(final FEEDBACK feedback) {
-    this.buyerRank = (feedback.getFeedback() + this.buyerRank * this.numberOfBuyersFeedback) / (this.numberOfBuyersFeedback + 1);
+  public void addBuyerFeedback(final FEEDBACK ¢) {
+    this.buyerRank = (¢.getFeedback() + this.buyerRank * this.numberOfBuyersFeedback) / (this.numberOfBuyersFeedback + 1);
     this.numberOfBuyersFeedback++;
   }
 

@@ -11,7 +11,7 @@ public class bigRange {
   public static theRange withDiff(final BigInteger i) {
     return new theRange() {
       @Override public Iterator<BigInteger> iterator() {
-        return new Iterator<BigInteger>() {
+        return new Iterator<>() {
           BigInteger current = BigInteger.valueOf(0).subtract(i);
 
           @Override public boolean hasNext() {
@@ -72,7 +72,7 @@ public class bigRange {
         return null;
       return new theRange() {
         @Override public Iterator<BigInteger> iterator() {
-          return new Iterator<BigInteger>() {
+          return new Iterator<>() {
             BigInteger current = first.subtract(i);
 
             @Override public boolean hasNext() {

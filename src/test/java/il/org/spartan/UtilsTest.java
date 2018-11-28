@@ -30,7 +30,7 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   }
 
   static Iterable<Integer> range(final int from, final int to) {
-    return () -> new Iterator<Integer>() {
+    return () -> new Iterator<>() {
       int current = from;
 
       @Override public boolean hasNext() {
