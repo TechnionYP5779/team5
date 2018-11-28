@@ -8,6 +8,7 @@ package parkingLot;
 import java.util.*;
 import java.util.stream.*;
 
+
 /** @author Shaked Sapir, Shalev Kuba */
 public class Parking {
   enum size {
@@ -20,14 +21,14 @@ public class Parking {
    *  we will do it when the time comes**/
   String location;
   int id;
-  User owner;
+  int ownerId;
   size sz;
   List<Slot> availableSlots;
 
   /** Constructor **/
-  public Parking(int id, User owner, size sz, String location) {
+  public Parking(int id, int owner, size sz, String location) {
     this.id = id;
-    this.owner = owner;
+    this.ownerId = owner;
     this.sz = sz;
     this.location = location;
     this.availableSlots = new ArrayList<>();
@@ -42,8 +43,8 @@ public class Parking {
     return sz;
   }
 
-  public User getOwner() {
-    return owner;
+  public int getOwner() {
+    return ownerId;
   }
 
   public String getLocation() {
