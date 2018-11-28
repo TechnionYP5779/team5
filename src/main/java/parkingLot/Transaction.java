@@ -29,12 +29,13 @@ public class Transaction {
    */
   public Transaction(Date transactionDate, Slot rentTime,
       int parkingId, int tenantId, int landlordId) {
-    this.setId(++count);
-    this.setPrice(rentDuration() * rentTime.getPrice_for_hour());
-    this.setTransactionDate(transactionDate);
-    this.setParkingId(parkingId);
-    this.setTenantId(tenantId);
-    this.setLandlordId(landlordId);
+    this.id = ++count;
+    this.setRentTime(rentTime);
+    this.transactionDate = transactionDate;
+    this.parkingId = parkingId;
+    this.tenantId = tenantId;
+    this.landlordId = landlordId;
+    this.price = rentDuration() * rentTime.getPrice_for_hour();
   }
 
   /**
@@ -43,14 +44,6 @@ public class Transaction {
   public int getTenantId() {
     return tenantId;
   }
-
-  /**
-   * @param tenantId the tenantId to set
-   */
-  public void setTenantId(int tenantId) {
-    this.tenantId = tenantId;
-  }
-
   /**
    * @return the id
    */
@@ -59,24 +52,10 @@ public class Transaction {
   }
 
   /**
-   * @param id the id to set
-   */
-  private void setId(int id) {
-    this.id = id;
-  }
-
-  /**
    * @return the transactionDate
    */
   public Date getTransactionDate() {
     return transactionDate;
-  }
-
-  /**
-   * @param transactionDate the transactionDate to set
-   */
-  public void setTransactionDate(Date transactionDate2) {
-    this.transactionDate = transactionDate2;
   }
 
   /**
@@ -114,12 +93,6 @@ public class Transaction {
     return parkingId;
   }
 
-  /**
-   * @param parkingId the parkingId to set
-   */
-  public void setParkingId(int parkingId) {
-    this.parkingId = parkingId;
-  }
 
   /**
    * @return the landlordId
@@ -129,26 +102,12 @@ public class Transaction {
   }
 
   /**
-   * @param landlordId the landlordId to set
-   */
-  public void setLandlordId(int landlordId) {
-    this.landlordId = landlordId;
-  }
-
-  /**
    * @return the price
    */
   public double getPrice() {
     return price;
   }
 
-  /**
-   * @param price the price to set
-   */
-  public void setPrice(double price) {
-    this.price = price;
-  }
-  
   /**
    * @param Transaction t
    * @return whether this transaction was made before the given transaction
