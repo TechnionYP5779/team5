@@ -13,15 +13,29 @@ import java.util.*;
 public class User {
   private static int currentId = 1;
   private final int id = currentId++;
-  private double sellerFeedback;
+  private double sellerRank;
   private long numberOfSellersFeedback;
-  private double buyerFeedback;
+  private double buyerRank;
   private long numberOfBuyersFeedback;
   private String name;
   private String email;
   private int phoneNumber;
-  private final List<Parking> parkingsList = new ArrayList<>();
-  private final List<Transaction> transctionsList = new ArrayList<>();
+  private final List<Integer> parkingsList = new ArrayList<>();
+  private final List<Integer> transctionsList = new ArrayList<>();
+  
+  public  enum FEEDBACK{
+    HORRIBLE(1), BAD(2), FINE(3), GOOD(4), EXCELLENT(5);  
+
+    private double feedback;
+    
+    FEEDBACK(int f) {
+      this.feedback=f;
+    }
+    
+    public double getFeedback() {
+      return feedback;
+    }
+  }
 
   /** @param name    the name of user
    * @param email       the email of the user
@@ -33,28 +47,24 @@ public class User {
   }
 
   /** @return the sellerFeedback */
-  public double getSellerFeedback() {
-    return sellerFeedback;
+  public double getSellerRank() {
+    return sellerRank;
   }
 
   /** @param feedback the feedback to add to the Seller Feedback */
-  public void addSellerFeedback(final double feedback) {
-    if (feedback < 0 || feedback > 10.0)
-      return;
-    this.sellerFeedback = (feedback + this.sellerFeedback * this.numberOfSellersFeedback) / (this.numberOfSellersFeedback + 1);
+  public void addSellerFeedback(final FEEDBACK feedback) {
+    this.sellerRank = (feedback.getFeedback() + this.sellerRank * this.numberOfSellersFeedback) / (this.numberOfSellersFeedback + 1);
     this.numberOfSellersFeedback++;
   }
 
   /** @return the buyerFeedback */
-  public double getBuyerFeedback() {
-    return buyerFeedback;
+  public double getBuyerRank() {
+    return buyerRank;
   }
 
   /** @param feedback the feedback to add to the Buyer Feedback */
-  public void addBuyerFeedback(final double feedback) {
-    if (feedback < 0 || feedback > 10.0)
-      return;
-    this.buyerFeedback = (feedback + this.buyerFeedback * this.numberOfBuyersFeedback) / (this.numberOfBuyersFeedback + 1);
+  public void addBuyerFeedback(final FEEDBACK feedback) {
+    this.buyerRank = (feedback.getFeedback() + this.buyerRank * this.numberOfBuyersFeedback) / (this.numberOfBuyersFeedback + 1);
     this.numberOfBuyersFeedback++;
   }
 
@@ -89,33 +99,33 @@ public class User {
   }
 
   /** @return the parkingsList */
-  public List<Parking> getParkingsList() {
+  public List<Integer> getParkingsList() {
     return parkingsList;
   }
 
   /** @param parking the parking to add to the parkings list */
-  public void addParkingSpot(final Parking ¢) {
+  public void addParkingSpot(final Integer ¢) {
     this.parkingsList.add(¢);
   }
 
   /** @param parking the parking to remove from the parkings list */
-  public void removeParkingSpot(final Parking ¢) {
+  public void removeParkingSpot(final Integer ¢) {
     this.parkingsList.remove(¢);
   }
 
   /** @return the transctionsList */
-  public List<Transaction> getTransctionsList() {
+  public List<Integer> getTransctionsList() {
     return transctionsList;
   }
 
   /** @param transaction the transaction to add to the transactions list */
-  public void setTransctionsList(final Transaction ¢) {
+  public void setTransctionsList(final Integer ¢) {
     if (!transctionsList.contains(¢))
       this.transctionsList.add(¢);
   }
 
   /** @param transaction the transaction to remove from the transactions list */
-  public void removeTransctionsList(final Transaction ¢) {
+  public void removeTransctionsList(final Integer ¢) {
     this.transctionsList.add(¢);
   }
 
