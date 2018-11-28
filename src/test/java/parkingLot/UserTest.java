@@ -4,11 +4,11 @@
 package parkingLot;
 
 import static fluent.ly.azzert.*;
-import static parkingLot.User.FEEDBACK;
 
 import org.junit.*;
 
 import fluent.ly.*;
+import parkingLot.User.*;
 
 /** @author Igor Bashmashnikov */
 @SuppressWarnings("static-method") public class UserTest {

@@ -22,16 +22,15 @@ public class User {
   private int phoneNumber;
   private final List<Integer> parkingsList = new ArrayList<>();
   private final List<Integer> transctionsList = new ArrayList<>();
-  
-  public  enum FEEDBACK{
-    HORRIBLE(1), BAD(2), FINE(3), GOOD(4), EXCELLENT(5);  
 
+  public enum FEEDBACK {
+    HORRIBLE(1), BAD(2), FINE(3), GOOD(4), EXCELLENT(5);
     private double feedback;
-    
-    FEEDBACK(int f) {
-      this.feedback=f;
+
+    FEEDBACK(final int f) {
+      this.feedback = f;
     }
-    
+
     public double getFeedback() {
       return feedback;
     }

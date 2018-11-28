@@ -8,17 +8,15 @@ package parkingLot;
 import java.util.*;
 import java.util.stream.*;
 
-
 /** @author Shaked Sapir, Shalev Kuba */
 public class Parking {
   enum size {
     PRIVATE_CAR, MOTORCYCLE, TRANSIT, BUS
   }
-  
+
   /** Parking fields **/
-  /** location Format: State, city, street, apratment no. 
-   *  we will try to use google maps locationType.
-   *  we will do it when the time comes**/
+  /** location Format: State, city, street, apratment no. we will try to use
+   * google maps locationType. we will do it when the time comes **/
   String location;
   int id;
   int ownerId;
@@ -26,7 +24,7 @@ public class Parking {
   List<Slot> availableSlots;
 
   /** Constructor **/
-  public Parking(int id, int owner, size sz, String location) {
+  public Parking(final int id, final int owner, final size sz, final String location) {
     this.id = id;
     this.ownerId = owner;
     this.sz = sz;
@@ -38,7 +36,7 @@ public class Parking {
   public int getId() {
     return id;
   }
-  
+
   public size getSize() {
     return sz;
   }
@@ -56,101 +54,84 @@ public class Parking {
   }
 
   /** some basic functionality **/
-  /**
-   * @param from - intervals start date
-   * @param to - intervals end date
-   * @param price- intervals hourly price
-   * @return adds the new Slot to the Available Slots of this Parking
-   * only if the argument slot isn't intersecting with another available slot
-   * of this Parking and the intervals length is bigger than 0 (really an interval)
-   */
-  protected Parking addAvailableSlot(Date from, Date to, double price) {
+  /** @param from - intervals start date
+   * @param to   - intervals end date
+   * @param      price- intervals hourly price
+   * @return adds the new Slot to the Available Slots of this Parking only if the
+   *         argument slot isn't intersecting with another available slot of this
+   *         Parking and the intervals length is bigger than 0 (really an
+   *         interval) */
+  protected Parking addAvailableSlot(final Date from, final Date to, final double price) {
     if (to.getTime() - from.getTime() <= 0)
       return this;
-    if (availableSlots.stream().filter(λ -> (λ.from.compareTo(from) < 0 && λ.to.compareTo(from)>0) || (λ.to.compareTo(to) > 0 &&λ.from.compareTo(to) < 0)).count() > 0)
+    if (availableSlots.stream()
+        .filter(λ -> λ.from.compareTo(from) < 0 && λ.to.compareTo(from) > 0 || λ.to.compareTo(to) > 0 && λ.from.compareTo(to) < 0).count() > 0)
       return this;
     this.availableSlots.add(new Slot(from, to, price));
     return this;
   }
 
-  /**
-   * @param ¢ - new available slot
-   * @return adds the new Slot to the Available Slots of this Parking
-   * only if the argument slot isn't intersecting with another available slot
-   * of this Parking
-   */
-  protected Parking addAvailableSlot(Slot ¢) {
+  /** @param ¢ - new available slot
+   * @return adds the new Slot to the Available Slots of this Parking only if the
+   *         argument slot isn't intersecting with another available slot of this
+   *         Parking */
+  protected Parking addAvailableSlot(final Slot ¢) {
     return addAvailableSlot(¢.getFrom(), ¢.getTo(), ¢.getPrice_for_hour());
   }
 
-  /**
-   * 
-   * @param from -  intervals start date
-   * @param to -  intervals end date
-   * @return removes the slot from the available slots of this parking
-   */
-  protected Parking removeAvailableSlot(Date from, Date to) {
+  /** @param from - intervals start date
+   * @param to   - intervals end date
+   * @return removes the slot from the available slots of this parking */
+  protected Parking removeAvailableSlot(final Date from, final Date to) {
     availableSlots = availableSlots.stream().filter(λ -> (!λ.from.equals(from) || !λ.to.equals(to))).collect(Collectors.toList());
     return this;
   }
 
-  /**
-   * @param s -   interval of available slot
-   * @return removes the slot from the available slots of this parking
-   */
-  protected Parking removeAvailableSlot(Slot ¢) {
+  /** @param s - interval of available slot
+   * @return removes the slot from the available slots of this parking */
+  protected Parking removeAvailableSlot(final Slot ¢) {
     return this.removeAvailableSlot(¢.getFrom(), ¢.getTo());
   }
 
-  /**
-   * 
-   * @param from - intervals start date
-   * @param to - intervals end date
-   * @return available slot thats contains the desired slot with positive price_for_hour ,
-   * or slot with negative price_for_hour if there isn't such slot.
-   */
-  protected Slot getSlot(Date from, Date to) {
-    ArrayList<Slot> $ = (ArrayList<Slot>) availableSlots.stream().filter(λ -> λ.from.compareTo(from) <= 0 && λ.to.compareTo(to) >= 0)
+  /** @param from - intervals start date
+   * @param to   - intervals end date
+   * @return available slot thats contains the desired slot with positive
+   *         price_for_hour , or slot with negative price_for_hour if there isn't
+   *         such slot. */
+  protected Slot getSlot(final Date from, final Date to) {
+    final ArrayList<Slot> $ = (ArrayList<Slot>) availableSlots.stream().filter(λ -> λ.from.compareTo(from) <= 0 && λ.to.compareTo(to) >= 0)
         .collect(Collectors.toList());
     if ($.isEmpty())
       return new Slot(from, from, -1);
     return new Slot($.get(0));
   }
 
-  /**
-   * 
-   * @param ¢ - the desired slot
-   * @return available slot thats contains the desired slot with positive price_for_hour ,
-   * or slot with negative price_for_hour if there isn't such slot.
-   */
-  protected Slot getSlot(Slot ¢) {
+  /** @param ¢ - the desired slot
+   * @return available slot thats contains the desired slot with positive
+   *         price_for_hour , or slot with negative price_for_hour if there isn't
+   *         such slot. */
+  protected Slot getSlot(final Slot ¢) {
     return this.getSlot(¢.getFrom(), ¢.getTo());
   }
 
-  /**
-   * 
-   * @param from - intervals start date
-   * @param to - intervals end date
-   * @return: split the available slot that contains the desired slot to 2 new available slots,
-   * and returns the desired slot.
-   */
-  protected Slot OrderSlot(Date from, Date to) {
-    Slot $ = new Slot(this.getSlot(from, to));
+  /** @param from - intervals start date
+   * @param to   - intervals end date
+   * @return: split the available slot that contains the desired slot to 2 new
+   *          available slots, and returns the desired slot. */
+  protected Slot OrderSlot(final Date from, final Date to) {
+    final Slot $ = new Slot(this.getSlot(from, to));
     /* negative price symbolizes failure of this function */
     if ($.getPrice_for_hour() < 0)
       return new Slot(from, from, -1);
-    this.removeAvailableSlot(this.getSlot(from, to)).addAvailableSlot(new Slot( $.getFrom(),from, $.getPrice_for_hour()));
+    this.removeAvailableSlot(this.getSlot(from, to)).addAvailableSlot(new Slot($.getFrom(), from, $.getPrice_for_hour()));
     this.addAvailableSlot(new Slot(to, $.getTo(), $.getPrice_for_hour()));
-    return new Slot(from, to,$.getPrice_for_hour());
+    return new Slot(from, to, $.getPrice_for_hour());
   }
-  
-  /**
-   * 
-   * @param slot - the desired slot
-   * @return: split the available slot that contains the desired slot to 2 new available slots,
-   * and returns the desired slot.
-   */
-  protected Slot OrderSlot(Slot ¢) {
+
+  /** @param slot - the desired slot
+   * @return: split the available slot that contains the desired slot to 2 new
+   *          available slots, and returns the desired slot. */
+  protected Slot OrderSlot(final Slot ¢) {
     return this.OrderSlot(¢.getFrom(), ¢.getTo());
   }
 }
