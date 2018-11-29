@@ -3,8 +3,10 @@
  * @since year-month-day */
 package parkingLot;
 
+import static fluent.ly.azzert.*;
+
 import java.util.*;
-import static fluent.ly.azzert.is;
+
 import org.junit.*;
 
 import fluent.ly.*;

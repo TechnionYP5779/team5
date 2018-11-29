@@ -2,8 +2,9 @@
  * @author Fname Sname
  * @since year-month-day */
 package il.org.spartan.statistics;
-import static fluent.ly.azzert.isNull;
-import static fluent.ly.azzert.is;
+
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
 
 import fluent.ly.*;

@@ -2,7 +2,9 @@
  * @author Fname Sname
  * @since year-month-day */
 package fluent.ly;
-import static fluent.ly.azzert.is;
+
+import static fluent.ly.azzert.*;
+
 import org.junit.*;
 
 /** @author Lior */
