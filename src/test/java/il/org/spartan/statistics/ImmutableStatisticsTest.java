@@ -2,7 +2,8 @@
  * @author Fname Sname
  * @since year-month-day */
 package il.org.spartan.statistics;
-
+import static fluent.ly.azzert.isNull;
+import static fluent.ly.azzert.is;
 import org.junit.*;
 
 import fluent.ly.*;
@@ -13,7 +14,7 @@ import fluent.ly.*;
   @Test public void flippingTest() {
     azzert.that(new ImmutableStatistics() {
       static final long serialVersionUID = 1;
-    }.flipping(), azzert.is(Double.NaN));
+    }.flipping(), is(Double.NaN));
   }
 
   @Test public void madTest() {
@@ -28,7 +29,7 @@ import fluent.ly.*;
   // }.mad();
   // }
   @Test public void unitTest() {
-    azzert.isNull(new ImmutableStatistics() {
+    isNull(new ImmutableStatistics() {
       static final long serialVersionUID = 1;
     }.unit());
   }

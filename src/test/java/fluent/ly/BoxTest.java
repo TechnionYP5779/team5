@@ -38,7 +38,7 @@ import org.junit.*;
       azzert.that(ByteArray[¢], is(box.it((byte) ¢)));
     final byte[] arr = { 1, 1, 1, 1 };
     @NotNull final Byte[] arrBoxed = box.box(arr);
-    azzert.that(unbox.it(arrBoxed), azzert.is(arr));
+    azzert.that(unbox.it(arrBoxed), is(arr));
   }
 
   @Test public void testCharBox() {

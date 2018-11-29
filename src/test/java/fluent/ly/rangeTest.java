@@ -57,7 +57,7 @@ import fluent.ly.range.*;
     final range rr_in2 = new range(1, false);
     assert rr_in2.isToInfinite();
     assert !rr_in2.isFromInfinite();
-    azzert.isNull(rr_in1.from());
+    isNull(rr_in1.from());
     final rangedTo in = rr.interset(rr);
     final rangeIterator itt = rr.from();
     final rangeIterator it = r.from();

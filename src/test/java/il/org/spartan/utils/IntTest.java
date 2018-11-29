@@ -90,6 +90,6 @@ import fluent.ly.*;
 
   @Test public void testValueOf() {
     final Int j = Int.valueOf(5);
-    azzert.that(j.inner, azzert.is(5));
+    azzert.that(j.inner, is(5));
   }
 }
