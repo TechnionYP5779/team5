@@ -256,7 +256,8 @@ import org.jetbrains.annotations.*;
   }
 
   @NotNull public static String quote(final Object ¢) {
-    if(¢ == null) return "<null reference>";
+    if (¢ == null)
+      return "<null reference>";
     return wrap('\'', ¢ + "");
   }
 
