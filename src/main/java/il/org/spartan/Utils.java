@@ -19,7 +19,6 @@ import il.org.spartan.Utils.FoundHandleForT.*;
  * @author Yossi Gil <code><yossi.gil [at] gmail.com></code>
  * @since 2013/07/01 */
 @SuppressWarnings("null") public interface Utils {
-  String QUOTE = "'";
   String WHITES = "(?m)\\s+";
 
   @NotNull static <T, C extends Collection<T>> C add(final @NotNull C $, final Iterable<? extends T> ts) {
@@ -262,13 +261,6 @@ import il.org.spartan.Utils.FoundHandleForT.*;
    *         prepended to it */
   static StringBuilder prepend(final @NotNull StringBuilder $, final @NotNull String s) {
     return cantBeNull($.insert(0, s));
-  }
-
-  /** Quote a given {@link String}
-   * @param $ some {@link String} to be quoted
-   * @return parameter, quoted */
-  static String quote(final @Nullable String $) {
-    return $ != null ? QUOTE + $ + QUOTE : "<null reference>";
   }
 
   /** Remove any duplicates that may be present in a given {@link List}
@@ -524,15 +516,15 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     }
 
     @Test public void quoteEmptyString() {
-      azzert.that(idiomatic.quote(""), is("''"));
+      azzert.that(string.quote(""), is("''"));
     }
 
     @Test public void quoteNull() {
-      azzert.that(idiomatic.quote(null), is("<null reference>"));
+      azzert.that(string.quote(null), is("<null reference>"));
     }
 
     @Test public void quoteSimpleString() {
-      azzert.that(idiomatic.quote("A"), is("'A'"));
+      azzert.that(string.quote("A"), is("'A'"));
     }
 
     @Test public void swapDegenerate() {

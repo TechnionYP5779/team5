@@ -188,11 +188,6 @@ import il.org.spartan.Utils.FoundHandleForT.*;
     azzert.that(s.charAt(0), is('s'));
   }
 
-  @Test public void quoteTest() {
-    azzert.that(Utils.quote("Lior"), is("\'Lior\'"));
-    azzert.that(Utils.quote(null), is("<null reference>"));
-  }
-
   @Test public void removeTests() {
     final ArrayList<Integer> a = new ArrayList<>();
     final Integer x2 = box.it(2);

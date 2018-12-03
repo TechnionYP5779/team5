@@ -22,11 +22,6 @@ import fluent.ly.idiomatic.*;
     isNull(val);
   }
 
-  @Test public void testQuote() {
-    azzert.that(idiomatic.quote("helloWorld"), is("'helloWorld'"));
-    azzert.that(idiomatic.quote(null), is("<null reference>"));
-  }
-
   @Test public void testStorer() {
     final Storer<Integer> storer = new Storer<>(box.it(42));
     azzert.that(storer.when(true), is(box.it(42)));

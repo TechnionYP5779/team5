@@ -52,13 +52,6 @@ public interface idiomatic {
     }
   }
 
-  /** Quote a given {@link String}
-   * @param $ some {@link String} to be quoted
-   * @return parameter, quoted */
-  @NotNull static String quote(final @Nullable String $) {
-    return $ != null ? QUOTE + $ + QUOTE : "<null reference>";
-  }
-
   /** @param ¢ JD
    * @return an identical runnable which is also a {@link Runner} */
   @NotNull static Runner run(final Runnable ¢) {
