@@ -10,29 +10,29 @@ import fluent.ly.*;
 /** @author ShalevKuba, Shaked Sapir */
 public class Slot {
   /** Slot fields **/
-  Date from;
-  Date to;
+  Calendar from;
+  Calendar to;
   double price_for_hour;
 
   /** Constructors **/
-  public Slot(final Date _from, final Date _to, final double price) {
+  public Slot(final Calendar _from, final Calendar _to, final double price) {
     this.from = _from;
     this.to = _to;
     this.price_for_hour = price;
   }
 
   public Slot(final Slot s) {
-    this.from = (Date) s.getFrom().clone();
-    this.to = (Date) s.getTo().clone();
+    this.from = (Calendar) s.getFrom().clone();
+    this.to = (Calendar) s.getTo().clone();
     this.price_for_hour = s.getPrice_for_hour();
   }
 
   /** getters & setters **/
-  public Date getFrom() {
+  public Calendar getFrom() {
     return from;
   }
 
-  public Date getTo() {
+  public Calendar getTo() {
     return to;
   }
 

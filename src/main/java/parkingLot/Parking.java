@@ -61,8 +61,8 @@ public class Parking {
    *         argument slot isn't intersecting with another available slot of this
    *         Parking and the intervals length is bigger than 0 (really an
    *         interval) */
-  protected Parking addAvailableSlot(final Date from, final Date to, final double price) {
-    if (to.getTime() - from.getTime() <= 0)
+  protected Parking addAvailableSlot(final Calendar from, final Calendar to, final double price) {
+    if (to.compareTo(from) <=0)
       return this;
     if (availableSlots.stream()
         .filter(λ -> λ.from.compareTo(from) < 0 && λ.to.compareTo(from) > 0 || λ.to.compareTo(to) > 0 && λ.from.compareTo(to) < 0).count() > 0)
@@ -82,7 +82,7 @@ public class Parking {
   /** @param from - intervals start date
    * @param to   - intervals end date
    * @return removes the slot from the available slots of this parking */
-  protected Parking removeAvailableSlot(final Date from, final Date to) {
+  protected Parking removeAvailableSlot(final Calendar from, final Calendar to) {
     availableSlots = availableSlots.stream().filter(λ -> (!λ.from.equals(from) || !λ.to.equals(to))).collect(Collectors.toList());
     return this;
   }
@@ -98,7 +98,7 @@ public class Parking {
    * @return available slot thats contains the desired slot with positive
    *         price_for_hour , or slot with negative price_for_hour if there isn't
    *         such slot. */
-  protected Slot getSlot(final Date from, final Date to) {
+  protected Slot getSlot(final Calendar from, final Calendar to) {
     final ArrayList<Slot> $ = (ArrayList<Slot>) availableSlots.stream().filter(λ -> λ.from.compareTo(from) <= 0 && λ.to.compareTo(to) >= 0)
         .collect(Collectors.toList());
     if ($.isEmpty())
@@ -118,10 +118,10 @@ public class Parking {
    * @param to   - intervals end date
    * @return: split the available slot that contains the desired slot to 2 new
    *          available slots, and returns the desired slot. */
-  protected Slot OrderSlot(final Date from, final Date to) {
+  protected Slot OrderSlot(final Calendar from, final Calendar to) {
     final Slot $ = new Slot(this.getSlot(from, to));
-    /* negative price symbolizes failure of this function */
-    if ($.getPrice_for_hour() < 0)
+    /* negative price / to before from symbolize failure of this function */
+    if ($.getPrice_for_hour() < 0 || to.before(from))
       return new Slot(from, from, -1);
     this.removeAvailableSlot(this.getSlot(from, to)).addAvailableSlot(new Slot($.getFrom(), from, $.getPrice_for_hour()));
     this.addAvailableSlot(new Slot(to, $.getTo(), $.getPrice_for_hour()));
