@@ -9,7 +9,7 @@ public class Transaction {
   private static int count;
   private final int id;
   private final double price;
-  private final Date transactionDate;
+  private final Calendar transactionCalendar;
   private Slot rentTime; // rentTime contains the start time, end time and price per hour
   private final int parkingId;
   private final int tenantId;
@@ -17,7 +17,7 @@ public class Transaction {
 
   /* @param price - the price of the transaction
    *
-   * @param transactionDate - the date in which the transaction was made
+   * @param transactionCalendar - the date in which the transaction was made
    *
    * @param rentTime.from - the date in which the rent starts
    *
@@ -28,10 +28,10 @@ public class Transaction {
    * @param tenantId - the identifier of the tenant
    *
    * @param landlordId - the identifier of the landlordF */
-  public Transaction(final Date transactionDate, final Slot rentTime, final int parkingId, final int tenantId, final int landlordId) {
+  public Transaction(final Calendar transactionCalendar, final Slot rentTime, final int parkingId, final int tenantId, final int landlordId) {
     this.id = ++count;
     this.setRentTime(rentTime);
-    this.transactionDate = transactionDate;
+    this.transactionCalendar = transactionCalendar;
     this.parkingId = parkingId;
     this.tenantId = tenantId;
     this.landlordId = landlordId;
@@ -48,28 +48,28 @@ public class Transaction {
     return id;
   }
 
-  /** @return the transactionDate */
-  public Date getTransactionDate() {
-    return transactionDate;
+  /** @return the transactionCalendar */
+  public Calendar getTransactionCalendar() {
+    return transactionCalendar;
   }
 
   /** @return the rentTime.from */
-  public Date getRentStart() {
+  public Calendar getRentStart() {
     return rentTime.from;
   }
 
   /** @param rentTime.from the rentTime.from to set */
-  public void setRentStart(final Date rentTime) {
+  public void setRentStart(final Calendar rentTime) {
     this.rentTime.from = rentTime;
   }
 
   /** @return the rentTime.to */
-  public Date getRentEnd() {
+  public Calendar getRentEnd() {
     return rentTime.to;
   }
 
   /** @param rentTime.to the rentTime.to to set */
-  public void setRentEnd(final Date rentTime) {
+  public void setRentEnd(final Calendar rentTime) {
     this.rentTime.to = rentTime;
   }
 
@@ -91,7 +91,7 @@ public class Transaction {
   /** @param Transaction t
    * @return whether this transaction was made before the given transaction */
   public boolean madeBefore(final Transaction ¢) {
-    return this.transactionDate.before(¢.getTransactionDate());
+    return this.transactionCalendar.before(¢.getTransactionCalendar());
   }
 
   /** @param Transaction t
@@ -110,7 +110,7 @@ public class Transaction {
 
   /** @return the duration of the current transactions' rent */
   public int rentDuration() {
-    return (int) ((this.rentTime.to.getTime() - this.rentTime.from.getTime()) / msInHour);
+    return (int) ((this.rentTime.to.getTime().getTime() - this.rentTime.from.getTime().getTime()) / msInHour);
   }
 
   /** @return amount of already made transactions */
