@@ -62,7 +62,7 @@ public class Parking {
    *         Parking and the intervals length is bigger than 0 (really an
    *         interval) */
   protected Parking addAvailableSlot(final Calendar from, final Calendar to, final double price) {
-    if (to.compareTo(from) <=0)
+    if (to.compareTo(from) <= 0)
       return this;
     if (availableSlots.stream()
         .filter(λ -> λ.from.compareTo(from) < 0 && λ.to.compareTo(from) > 0 || λ.to.compareTo(to) > 0 && λ.from.compareTo(to) < 0).count() > 0)

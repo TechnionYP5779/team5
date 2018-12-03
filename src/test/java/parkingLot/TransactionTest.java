@@ -14,7 +14,7 @@ import fluent.ly.*;
   @Test public void TestMadeBefore() {
     final Calendar calendar1 = new GregorianCalendar(2018, 1, 31);
     final Calendar calendar2 = new GregorianCalendar(2018, 2, 31);
-    final Transaction t1 = new Transaction(calendar1,new Slot(calendar1, calendar1, 100.0), 1, 1, 1);
+    final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 1, 1);
     final Transaction t2 = new Transaction(calendar2, new Slot(calendar2, calendar2, 100.0), 1, 1, 1);
     assert t1.madeBefore(t2);
     assert !t2.madeBefore(t1);
