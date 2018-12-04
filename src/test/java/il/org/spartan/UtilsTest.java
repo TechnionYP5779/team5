@@ -1,12 +1,14 @@
 package il.org.spartan;
 
 import static il.org.spartan.Utils.*;
+import static org.junit.Assert.*;
 
 import static fluent.ly.azzert.*;
 
 import java.io.*;
 import java.util.*;
 
+import org.jetbrains.annotations.*;
 import org.junit.*;
 
 import fluent.ly.*;
@@ -150,21 +152,104 @@ import il.org.spartan.Utils.FoundHandleForT.*;
   @Test public void mustBeNullTest() {
     azzert.that(Utils.mustBeNull(null), is((Void) null));
   }
+  
+  /** A static nested class hosting 12 unit tests for the nesting class Unit test for
+   * the containing class. Note the naming convention: a) names of test methods do
+   * not use are not prefixed by "test". This prefix is redundant. b) test methods
+   * begin with the name of the method they check.
+   * @author Yossi Gil
+   * @since 2014-05-31 */
+  
+  @SuppressWarnings("null") @NotNull public Integer[] intToIntegers(final int... is) {
+    final Integer @NotNull [] $ = new Integer @NotNull [is.length];
+    for (int ¢ = 0; ¢ < is.length; ++¢)
+      $[¢] = fluent.ly.box.it(is[¢]);
+    return $;
+  }
+  
+  @Test @SuppressWarnings({ "unchecked", "null" }) public void addAllTypicalTest() {
+    final Set<String> ss = new HashSet<>();
+    accumulate.to(ss).addAll(as.set("A", "B"), null, as.set("B", "C", "D"));
+    azzert.nay(ss.contains("E"));
+    azzert.nay(ss.contains(null));
+    azzert.that(ss.size(), is(4));
+    for (final @NotNull String ¢ : ss)
+      azzert.aye("", ss.contains(¢));
+  }
 
-  @Test public void runUtilsTests() {
-    final TEST t = new TEST();
-    t.addAllTypical();
-    t.addTypical();
-    t.cantBeNullOfNull();
-    t.cantBeNullTypical();
-    t.isNullTypical();
-    t.mustBeNullOfNotNull();
-    t.quoteEmptyString();
-    t.quoteNull();
-    t.quoteSimpleString();
-    t.swapDegenerate();
-    t.swapTypical();
-    t.swapTypicalCase();
+  @SuppressWarnings("null") @Test public void addTypicalTest() {
+    final Set<String> ss = new HashSet<>();
+    accumulate.to(ss).add(null, "A", null, "B", "B", null, "C", "D", null);
+    azzert.nay(ss.contains("E"));
+    azzert.nay(ss.contains(null));
+    azzert.that(ss.size(), is(4));
+    for (final @NotNull String ¢ : ss)
+      azzert.aye("", ss.contains(¢));
+    azzert.aye(ss.contains("A"));
+  }
+
+  @Test public void cantBeNullOfNullTest() {
+    try {
+      cantBeNull(null);
+      azzert.fail("AssertionError expected prior to this line.");
+    } catch (final AssertionError ¢) {
+      forget.it(¢);
+      azzert.aye("", true);
+    }
+  }
+
+  @Test public void cantBeNullTypicalTest() {
+    assert cantBeNull(new Object()) != null;
+  }
+
+  @Test public void isNullTypicalTest() {
+    try {
+      isNull(mustBeNull(null));
+      azzert.fail("AssertionError expected prior to this line.");
+    } catch (final AssertionError ¢) {
+      forget.it(¢);
+      azzert.aye("", true);
+    }
+  }
+
+  @Test public void mustBeNullOfNotNullTest() {
+    try {
+      mustBeNull(new Object());
+      azzert.fail("AssertionError expected prior to this line.");
+    } catch (final AssertionError ¢) {
+      forget.it(¢);
+      azzert.aye("", true);
+    }
+  }
+
+  @Test public void quoteEmptyStringTest() {
+    azzert.that(string.quote(""), is("''"));
+  }
+
+  @Test public void quoteNullTest() {
+    azzert.that(string.quote(null), is("<null reference>"));
+  }
+
+  @Test public void quoteSimpleStringTest() {
+    azzert.that(string.quote("A"), is("'A'"));
+  }
+
+  @Test public void swapDegenerateTest() {
+    @SuppressWarnings("null") final @NotNull String @NotNull [] ss = as.array("A", "B", "C", "D");
+    swap(ss, 1, 1);
+    assertArrayEquals(as.array("A", "B", "C", "D"), ss);
+  }
+
+  @Test public void swapTypicalTest() {
+    @SuppressWarnings("null") final @NotNull String @NotNull [] ss = as.array("A", "B", "C", "D");
+    swap(ss, 1, 2);
+    assertArrayEquals(as.array("A", "C", "B", "D"), ss);
+  }
+
+  @Test public void swapTypicalCaseTest() {
+    @SuppressWarnings("null") final Integer @NotNull [] $ = intToIntegers(29, 1, 60);
+    swap($, 0, 1);
+    assertArrayEquals(intToIntegers(1, 29, 60), $);
   }
 
   @Test public void nameTest() {
