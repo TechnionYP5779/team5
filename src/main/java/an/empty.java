@@ -4,24 +4,29 @@ import java.util.*;
 
 import org.jetbrains.annotations.*;
 
-/** TODO Yossi Gil: document class
+/**
+ * TODO Yossi Gil: document class
+ * 
  * @author Yossi Gil
- * @since 2017-04-01 */
+ * @since 2017-04-01
+ */
 public enum empty {
-  ;
-  public static <T> @NotNull List<T> list() {
-    return new ArrayList<>();
-  }
+	;
+	public static <T> @NotNull List<T> list() {
+		return new ArrayList<>();
+	}
 
-  public static <@Nullable T> Iterable<T> iterable() {
-    return () -> new Iterator<>() {
-      @Override public boolean hasNext() {
-        return false;
-      }
+	public static <@Nullable T> Iterable<T> iterable() {
+		return () -> new Iterator<T>() {
+			@Override
+			public boolean hasNext() {
+				return false;
+			}
 
-      @Override public T next() {
-        return null;
-      }
-    };
-  }
+			@Override
+			public T next() {
+				return null;
+			}
+		};
+	}
 }

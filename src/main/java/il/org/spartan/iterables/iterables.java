@@ -8,54 +8,65 @@ import org.jetbrains.annotations.*;
 import an.*;
 import fluent.ly.*;
 
-/** No values in an 'enum' used as name space for a collection of 'static'
+/**
+ * No values in an 'enum' used as name space for a collection of 'static'
  * functions.
- * @author Yossi Gil <Yossi.Gil@GMail.COM> */
+ * 
+ * @author Yossi Gil <Yossi.Gil@GMail.COM>
+ */
 public enum iterables {
-  ;
-  /** Counts the number of items in an {@link Iterable}.
-   * @param    <T> some arbitrary type
-   * @param ts some iterable over items whose type is the type parameter
-   * @return number of items the given iterable yields. */
-  public static <T> int count(final @Nullable Iterable<T> ts) {
-    int $ = 0;
-    if (ts != null)
-      for (final @Nullable T ¢ : ts)
-        $ += as.bit(¢ != null);
-    return $;
-  }
+	;
+	/**
+	 * Counts the number of items in an {@link Iterable}.
+	 * 
+	 * @param    <T> some arbitrary type
+	 * @param ts some iterable over items whose type is the type parameter
+	 * @return number of items the given iterable yields.
+	 */
+	public static <T> int count(final @Nullable Iterable<T> ts) {
+		int $ = 0;
+		if (ts != null)
+			for (final @Nullable T ¢ : ts)
+				$ += as.bit(¢ != null);
+		return $;
+	}
 
-  /** @param <T> JD
-   * @return <code><b>true</b></code> <i>iff</i> the receive is empty */
-  public static <T> Iterable<T> empty() {
-    return iterable.over();
-  }
+	/**
+	 * @param <T> JD
+	 * @return <code><b>true</b></code> <i>iff</i> the receive is empty
+	 */
+	public static <T> Iterable<T> empty() {
+		return iterable.over();
+	}
 
-  /** @param os JD */
-  public static boolean isEmpty(final Iterable<?> os) {
-    for (final @Nullable Object name2 : os)
-      if (name2 != null)
-        return false;
-    return true;
-  }
+	/** @param os JD */
+	public static boolean isEmpty(final Iterable<?> os) {
+		for (final @Nullable Object name2 : os)
+			if (name2 != null)
+				return false;
+		return true;
+	}
 
-  /** wraps a value in a singleton iterator form
-   * @param   <T> JD
-   * @param $ JD
-   * @return parameter, but in a singleton iterator form */
-  public static <T> Iterator<T> singletonIterator(final T $) {
-    return iterable.singleton($).iterator();
-  }
+	/**
+	 * wraps a value in a singleton iterator form
+	 * 
+	 * @param   <T> JD
+	 * @param $ JD
+	 * @return parameter, but in a singleton iterator form
+	 */
+	public static <T> Iterator<T> singletonIterator(final T $) {
+		return iterable.singleton($).iterator();
+	}
 
-  public static <T> Iterable<T> alternate(final Iterable<T> it1, final Iterable<T> it2) {
-    // TODO Auto-generated method stub
-    if (it1 == null || it2 == null)
-      return null;
-    final List<T> $ = new ArrayList<>();
-    for (Iterator<T> iter1 = it1.iterator(), iter2 = it2.iterator(); iter1.hasNext() && iter2.hasNext();) {
-      $.add(iter1.next());
-      $.add(iter2.next());
-    }
-    return $;
-  }
+	public static <T> Iterable<T> alternate(final Iterable<T> it1, final Iterable<T> it2) {
+		// TODO Auto-generated method stub
+		if (it1 == null || it2 == null)
+			return null;
+		final List<T> $ = new ArrayList<>();
+		for (Iterator<T> iter1 = it1.iterator(), iter2 = it2.iterator(); iter1.hasNext() && iter2.hasNext();) {
+			$.add(iter1.next());
+			$.add(iter2.next());
+		}
+		return $;
+	}
 }

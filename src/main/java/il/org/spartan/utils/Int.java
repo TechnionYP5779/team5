@@ -2,62 +2,68 @@ package il.org.spartan.utils;
 
 import fluent.ly.*;
 
-/** A poor man's approximation of a mutable int, which is so much more
- * convenient than {@link Integer}
+/**
+ * A poor man's approximation of a mutable int, which is so much more convenient
+ * than {@link Integer}
+ * 
  * @author Yossi Gil
- * @since Sep 12, 2016 */
+ * @since Sep 12, 2016
+ */
 public final class Int {
-  public int inner;
+	public int inner;
 
-  public Int() {
-  }
+	public Int() {
+	}
 
-  public Int(final int inner) {
-    this.inner = inner;
-  }
+	public Int(final int inner) {
+		this.inner = inner;
+	}
 
-  /** Function form, good substitute for auto-boxing */
-  public Integer inner() {
-    return box.it(inner);
-  }
+	/** Function form, good substitute for auto-boxing */
+	public Integer inner() {
+		return box.it(inner);
+	}
 
-  /** @param ¢ JD
-   * @return */
-  public static Int valueOf(final int ¢) {
-    final Int $ = new Int();
-    $.inner = ¢;
-    return $;
-  }
+	/**
+	 * @param ¢ JD
+	 * @return
+	 */
+	public static Int valueOf(final int ¢) {
+		final Int $ = new Int();
+		$.inner = ¢;
+		return $;
+	}
 
-  public void step() {
-    ++inner;
-  }
+	public void step() {
+		++inner;
+	}
 
-  public int get() {
-    return inner;
-  }
+	public int get() {
+		return inner;
+	}
 
-  public void add(final int value) {
-    inner += value;
-  }
+	public void add(final int value) {
+		inner += value;
+	}
 
-  public void set(final int inner) {
-    this.inner = inner;
-  }
+	public void set(final int inner) {
+		this.inner = inner;
+	}
 
-  @Override public String toString() {
-    return inner + "";
-  }
+	@Override
+	public String toString() {
+		return inner + "";
+	}
 
-  public int next() {
-    return ++inner;
-  }
+	public int next() {
+		return ++inner;
+	}
 
-  public void add(final Int other) {
-    inner += other.get();
-  }
+	public void add(final Int other) {
+		inner += other.get();
+	}
 
-  public void clear() {
-    inner = 0;
-  }
+	public void clear() {
+		inner = 0;
+	}
 }

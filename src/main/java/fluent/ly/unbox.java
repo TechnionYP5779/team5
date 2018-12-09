@@ -4,7 +4,8 @@ import java.util.*;
 
 import org.jetbrains.annotations.*;
 
-/** A utility class, offering a collection of function to unbox arrays and
+/**
+ * A utility class, offering a collection of function to unbox arrays and
  * collection of the boxed versions of the primitive types. The input of each
  * unboxing function is a {@link Collection} or an array of one the following
  * eight reference types
@@ -22,214 +23,244 @@ import org.jetbrains.annotations.*;
  * <p>
  * Note that unboxing of a single value of a reference type is easy using a
  * function such as {@link Long#longValue()}
+ * 
  * @author Yossi Gil.
- * @see box */
-@SuppressWarnings("null") public enum unbox {
-  // A namespace: no values to this <code><b>enum</b></code>
-  ;
-  public static double @NotNull [] it(final @NotNull Double[] ¢) {
-    return unbox(¢);
-  }
+ * @see box
+ */
+@SuppressWarnings("null")
+public enum unbox {
+	// A namespace: no values to this <code><b>enum</b></code>
+	;
+	public static double @NotNull [] it(final @NotNull Double[] ¢) {
+		return unbox(¢);
+	}
 
-  public static float @NotNull [] it(final Float[] ¢) {
-    return unbox(¢);
-  }
+	public static float @NotNull [] it(final Float[] ¢) {
+		return unbox(¢);
+	}
 
-  public static int it(final @NotNull Integer ¢) {
-    return unbox(¢);
-  }
+	public static int it(final @NotNull Integer ¢) {
+		return unbox(¢);
+	}
 
-  public static int @NotNull [] it(final @NotNull Integer[] ¢) {
-    return unbox(¢);
-  }
+	public static int @NotNull [] it(final @NotNull Integer[] ¢) {
+		return unbox(¢);
+	}
 
-  public static int @NotNull [] it(final @NotNull List<Integer> ¢) {
-    return it(¢.toArray(new Integer[¢.size()]));
-  }
+	public static int @NotNull [] it(final @NotNull List<Integer> ¢) {
+		return it(¢.toArray(new Integer[¢.size()]));
+	}
 
-  public static double it(@NotNull final Double ¢) {
-    return unbox(¢);
-  }
+	public static double it(@NotNull final Double ¢) {
+		return unbox(¢);
+	}
 
-  public static long it(@NotNull final Long ¢) {
-    return unbox(¢);
-  }
+	public static long it(@NotNull final Long ¢) {
+		return unbox(¢);
+	}
 
-  public static float it(@NotNull final Float ¢) {
-    return unbox(¢);
-  }
+	public static float it(@NotNull final Float ¢) {
+		return unbox(¢);
+	}
 
-  public static char it(@NotNull final Character ¢) {
-    return unbox(¢);
-  }
+	public static char it(@NotNull final Character ¢) {
+		return unbox(¢);
+	}
 
-  public static boolean it(@NotNull final Boolean ¢) {
-    return unbox(¢);
-  }
+	public static boolean it(@NotNull final Boolean ¢) {
+		return unbox(¢);
+	}
 
-  public static boolean @NotNull [] it(@NotNull final Boolean[] ¢) {
-    return unbox(¢);
-  }
+	public static boolean @NotNull [] it(@NotNull final Boolean[] ¢) {
+		return unbox(¢);
+	}
 
-  public static byte @NotNull [] it(@NotNull final Byte[] ¢) {
-    return unbox(¢);
-  }
+	public static byte @NotNull [] it(@NotNull final Byte[] ¢) {
+		return unbox(¢);
+	}
 
-  public static char @NotNull [] it(final Character[] ¢) {
-    return unbox(¢);
-  }
+	public static char @NotNull [] it(final Character[] ¢) {
+		return unbox(¢);
+	}
 
-  public static short @NotNull [] it(final Short[] ¢) {
-    return unbox(¢);
-  }
+	public static short @NotNull [] it(final Short[] ¢) {
+		return unbox(¢);
+	}
 
-  public static long @NotNull [] it(final Long[] ¢) {
-    return unbox(¢);
-  }
+	public static long @NotNull [] it(final Long[] ¢) {
+		return unbox(¢);
+	}
 
-  public static boolean unbox(final @NotNull Boolean ¢) {
-    return ¢.booleanValue();
-  }
+	public static boolean unbox(final @NotNull Boolean ¢) {
+		return ¢.booleanValue();
+	}
 
-  /** unbox an array of {@link Boolean}s into an array of
-   * <code><b>boolean</b></code>s.
-   * @param bs an array of {@link Boolean}s
-   * @return an equivalent array of <code><b>boolean</b></code>s. */
-  public static boolean @NotNull [] unbox(final Boolean[] bs) {
-    if (bs == null)
-      return new boolean[0];
-    final boolean @NotNull [] $ = new boolean[bs.length];
-    for (int ¢ = 0; ¢ < bs.length; ++¢)
-      $[¢] = bs[¢].booleanValue();
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Boolean}s into an array of
+	 * <code><b>boolean</b></code>s.
+	 * 
+	 * @param bs an array of {@link Boolean}s
+	 * @return an equivalent array of <code><b>boolean</b></code>s.
+	 */
+	public static boolean @NotNull [] unbox(final Boolean[] bs) {
+		if (bs == null)
+			return new boolean[0];
+		final boolean @NotNull [] $ = new boolean[bs.length];
+		for (int ¢ = 0; ¢ < bs.length; ++¢)
+			$[¢] = bs[¢].booleanValue();
+		return $;
+	}
 
-  public static byte unbox(final @NotNull Byte ¢) {
-    return ¢.byteValue();
-  }
+	public static byte unbox(final @NotNull Byte ¢) {
+		return ¢.byteValue();
+	}
 
-  /** unbox an array of {@link Byte}s into an array of <code><b>byte</b></code> s.
-   * @param bs an array of {@link Byte}s
-   * @return an equivalent array of <code><b>byte</b></code>s. */
-  public static byte @NotNull [] unbox(final Byte[] bs) {
-    if (bs == null)
-      return new byte[0];
-    final byte @NotNull [] $ = new byte[bs.length];
-    for (int ¢ = 0; ¢ < bs.length; ++¢)
-      $[¢] = bs[¢].byteValue();
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Byte}s into an array of <code><b>byte</b></code> s.
+	 * 
+	 * @param bs an array of {@link Byte}s
+	 * @return an equivalent array of <code><b>byte</b></code>s.
+	 */
+	public static byte @NotNull [] unbox(final Byte[] bs) {
+		if (bs == null)
+			return new byte[0];
+		final byte @NotNull [] $ = new byte[bs.length];
+		for (int ¢ = 0; ¢ < bs.length; ++¢)
+			$[¢] = bs[¢].byteValue();
+		return $;
+	}
 
-  public static char unbox(final @NotNull Character ¢) {
-    return ¢.charValue();
-  }
+	public static char unbox(final @NotNull Character ¢) {
+		return ¢.charValue();
+	}
 
-  /** unbox an array of {@link Character}s into an array of
-   * <code><b>char</b></code>s.
-   * @param cs an array of {@link Character}s
-   * @return an equivalent array of <code><b>char</b></code>s. */
-  public static char @NotNull [] unbox(final Character[] cs) {
-    if (cs == null)
-      return new char[0];
-    final char @NotNull [] $ = new char[cs.length];
-    for (int ¢ = 0; ¢ < cs.length; ++¢)
-      $[¢] = cs[¢].charValue();
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Character}s into an array of
+	 * <code><b>char</b></code>s.
+	 * 
+	 * @param cs an array of {@link Character}s
+	 * @return an equivalent array of <code><b>char</b></code>s.
+	 */
+	public static char @NotNull [] unbox(final Character[] cs) {
+		if (cs == null)
+			return new char[0];
+		final char @NotNull [] $ = new char[cs.length];
+		for (int ¢ = 0; ¢ < cs.length; ++¢)
+			$[¢] = cs[¢].charValue();
+		return $;
+	}
 
-  /** unbox a {@link Collection} of {@link Short}s into an array of
-   * <code><b>short</b></code>s.
-   * @param ss a {@link Collection} of {@link Integer}s
-   * @return an equivalent array of <code><b>short</b></code>s. */
-  public static short @NotNull [] unbox(final Collection<Short> ss) {
-    if (ss == null)
-      return new short[0];
-    final short @NotNull [] $ = new short[ss.size()];
-    int i = 0;
-    for (final @NotNull Short v : ss)
-      $[i++] = v.shortValue();
-    return $;
-  }
+	/**
+	 * unbox a {@link Collection} of {@link Short}s into an array of
+	 * <code><b>short</b></code>s.
+	 * 
+	 * @param ss a {@link Collection} of {@link Integer}s
+	 * @return an equivalent array of <code><b>short</b></code>s.
+	 */
+	public static short @NotNull [] unbox(final Collection<Short> ss) {
+		if (ss == null)
+			return new short[0];
+		final short @NotNull [] $ = new short[ss.size()];
+		int i = 0;
+		for (final @NotNull Short v : ss)
+			$[i++] = v.shortValue();
+		return $;
+	}
 
-  public static double unbox(final @NotNull Double ¢) {
-    return ¢.doubleValue();
-  }
+	public static double unbox(final @NotNull Double ¢) {
+		return ¢.doubleValue();
+	}
 
-  /** unbox an array of {@link Double}s into an array of
-   * <code><b>double</b></code>s.
-   * @param ds an array of {@link Double}s
-   * @return an equivalent array of <code><b>double</b></code>s. */
-  public static double @NotNull [] unbox(final Double[] ds) {
-    final double @NotNull [] $ = new double[ds.length];
-    for (int ¢ = 0; ¢ < ds.length; ++¢)
-      $[¢] = ds[¢].floatValue();
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Double}s into an array of
+	 * <code><b>double</b></code>s.
+	 * 
+	 * @param ds an array of {@link Double}s
+	 * @return an equivalent array of <code><b>double</b></code>s.
+	 */
+	public static double @NotNull [] unbox(final Double[] ds) {
+		final double @NotNull [] $ = new double[ds.length];
+		for (int ¢ = 0; ¢ < ds.length; ++¢)
+			$[¢] = ds[¢].floatValue();
+		return $;
+	}
 
-  public static float unbox(final @NotNull Float ¢) {
-    return ¢.floatValue();
-  }
+	public static float unbox(final @NotNull Float ¢) {
+		return ¢.floatValue();
+	}
 
-  /** unbox an array of {@link Float}s into an array of <code><b>float</b></code>
-   * s.
-   * @param fs an array of {@link Float}s
-   * @return an equivalent array of <code><b>float</b></code>s. */
-  public static float @NotNull [] unbox(final Float[] fs) {
-    if (fs == null)
-      return new float[0];
-    final float @NotNull [] $ = new float[fs.length];
-    for (int ¢ = 0; ¢ < fs.length; ++¢)
-      $[¢] = fs[¢].floatValue();
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Float}s into an array of <code><b>float</b></code>
+	 * s.
+	 * 
+	 * @param fs an array of {@link Float}s
+	 * @return an equivalent array of <code><b>float</b></code>s.
+	 */
+	public static float @NotNull [] unbox(final Float[] fs) {
+		if (fs == null)
+			return new float[0];
+		final float @NotNull [] $ = new float[fs.length];
+		for (int ¢ = 0; ¢ < fs.length; ++¢)
+			$[¢] = fs[¢].floatValue();
+		return $;
+	}
 
-  public static int unbox(final @NotNull Integer ¢) {
-    return ¢.intValue();
-  }
+	public static int unbox(final @NotNull Integer ¢) {
+		return ¢.intValue();
+	}
 
-  /** unbox an array of {@link Integer}s into an array of <code><b>int</b></code>
-   * s.
-   * @param is an array of {@link Integer}s
-   * @return an equivalent array of <code><b>int</b></code>s. */
-  public static int @NotNull [] unbox(final Integer[] is) {
-    if (is == null)
-      return new int[0];
-    final int @NotNull [] $ = new int[is.length];
-    for (int ¢ = 0; ¢ < is.length; ++¢)
-      $[¢] = unbox.it(is[¢]);
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Integer}s into an array of <code><b>int</b></code>
+	 * s.
+	 * 
+	 * @param is an array of {@link Integer}s
+	 * @return an equivalent array of <code><b>int</b></code>s.
+	 */
+	public static int @NotNull [] unbox(final Integer[] is) {
+		if (is == null)
+			return new int[0];
+		final int @NotNull [] $ = new int[is.length];
+		for (int ¢ = 0; ¢ < is.length; ++¢)
+			$[¢] = unbox.it(is[¢]);
+		return $;
+	}
 
-  public static long unbox(final @NotNull Long ¢) {
-    return ¢.longValue();
-  }
+	public static long unbox(final @NotNull Long ¢) {
+		return ¢.longValue();
+	}
 
-  /** unbox an array of {@link Long}s into an array of <code><b>long</b></code> s.
-   * @param ls an array of {@link Long}s
-   * @return an equivalent array of <code><b>long</b></code>s. */
-  public static long @NotNull [] unbox(final Long[] ls) {
-    if (ls == null)
-      return new long[0];
-    final long @NotNull [] $ = new long[ls.length];
-    for (int ¢ = 0; ¢ < ls.length; ++¢)
-      $[¢] = ls[¢].longValue();
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Long}s into an array of <code><b>long</b></code> s.
+	 * 
+	 * @param ls an array of {@link Long}s
+	 * @return an equivalent array of <code><b>long</b></code>s.
+	 */
+	public static long @NotNull [] unbox(final Long[] ls) {
+		if (ls == null)
+			return new long[0];
+		final long @NotNull [] $ = new long[ls.length];
+		for (int ¢ = 0; ¢ < ls.length; ++¢)
+			$[¢] = ls[¢].longValue();
+		return $;
+	}
 
-  public static short unbox(final @NotNull Short ¢) {
-    return ¢.shortValue();
-  }
+	public static short unbox(final @NotNull Short ¢) {
+		return ¢.shortValue();
+	}
 
-  /** unbox an array of {@link Short}s into an array of <code><b>short</b></code>
-   * s.
-   * @param ss an array of {@link Integer}s
-   * @return an equivalent array of <code><b>short</b></code>s. */
-  public static short @NotNull [] unbox(final Short[] ss) {
-    if (ss == null)
-      return new short[0];
-    final short @NotNull [] $ = new short[ss.length];
-    for (int ¢ = 0; ¢ < ss.length; ++¢)
-      $[¢] = ss[¢].shortValue();
-    return $;
-  }
+	/**
+	 * unbox an array of {@link Short}s into an array of <code><b>short</b></code>
+	 * s.
+	 * 
+	 * @param ss an array of {@link Integer}s
+	 * @return an equivalent array of <code><b>short</b></code>s.
+	 */
+	public static short @NotNull [] unbox(final Short[] ss) {
+		if (ss == null)
+			return new short[0];
+		final short @NotNull [] $ = new short[ss.length];
+		for (int ¢ = 0; ¢ < ss.length; ++¢)
+			$[¢] = ss[¢].shortValue();
+		return $;
+	}
 }

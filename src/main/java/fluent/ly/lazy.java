@@ -6,7 +6,8 @@ import org.jetbrains.annotations.*;
 
 import il.org.spartan.utils.*;
 
-/** A class for lazy, memoizing evaluation of objects of arbitrary type. The
+/**
+ * A class for lazy, memoizing evaluation of objects of arbitrary type. The
  * evaluation must never return <code><b>null</b></code>. Main purpose is for
  * lazy initialization as in {@code
     static final lazy<Collection<Thing>> things = lazy.get(() -> as.list(//
@@ -17,26 +18,35 @@ import il.org.spartan.utils.*;
  * <p>
  * This class is not expected to be instantiated by clients; use as demonstrated
  * above
+ * 
  * @param <T> JD
  * @author Yossi Gil
- * @since 2017-03-10 */
+ * @since 2017-03-10
+ */
 public interface lazy<@Nullable T> extends Supplier<@Nullable T> {
-  @SuppressWarnings("unused") static <@Nullable T> lazy<@Nullable T> get(@¢ final Supplier<@Nullable T> ¢) {
-    return new lazy<@Nullable T>() {
-      /** Cached value; invalid cache if {@code null} */
-      @Nullable T $;
+	@SuppressWarnings("unused")
+	static <@Nullable T> lazy<@Nullable T> get(@¢ final Supplier<@Nullable T> ¢) {
+		return new lazy<@Nullable T>() {
+			/** Cached value; invalid cache if {@code null} */
+			@Nullable
+			T $;
 
-      /** No need to be {@code synchronized} to make it thread safe. Instance is
-       * always unique.
-       * @Return value of the supplier */
-      @Override @Nullable public T get() {
-        set($ != null ? $ : ¢.get());
-        return $;
-      }
+			/**
+			 * No need to be {@code synchronized} to make it thread safe. Instance is always
+			 * unique.
+			 * 
+			 * @Return value of the supplier
+			 */
+			@Override
+			@Nullable
+			public T get() {
+				set($ != null ? $ : ¢.get());
+				return $;
+			}
 
-      void set(@Nullable final T value) {
-        $ = value;
-      }
-    };
-  }
+			void set(@Nullable final T value) {
+				$ = value;
+			}
+		};
+	}
 }

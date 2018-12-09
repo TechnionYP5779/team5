@@ -8,190 +8,203 @@ import fluent.ly.*;
 import il.org.spartan.utils.Proposition.*;
 
 public class PropositionPrettyPrinter {
-  static class PropositionTreeTraversal {
-    private final Listener<BooleanSupplier> listener;
+	static class PropositionTreeTraversal {
+		private final Listener<BooleanSupplier> listener;
 
-    public PropositionTreeTraversal(final Listener<BooleanSupplier> listener) {
-      this.listener = listener;
-    }
+		public PropositionTreeTraversal(final Listener<BooleanSupplier> listener) {
+			this.listener = listener;
+		}
 
-    public void topDown(final BooleanSupplier ¢) {
-      listener.in(¢);
-      if (¢ instanceof Singleton)
-        singleton((Singleton) ¢);
-      else if (¢ instanceof Some)
-        some((Some) ¢);
-    }
+		public void topDown(final BooleanSupplier ¢) {
+			listener.in(¢);
+			if (¢ instanceof Singleton)
+				singleton((Singleton) ¢);
+			else if (¢ instanceof Some)
+				some((Some) ¢);
+		}
 
-    private void some(final Some ¢) {
-      listener.down();
-      ¢.stream().forEach(λ -> {
-        topDown(λ);
-        listener.next();
-      });
-      listener.up();
-    }
+		private void some(final Some ¢) {
+			listener.down();
+			¢.stream().forEach(λ -> {
+				topDown(λ);
+				listener.next();
+			});
+			listener.up();
+		}
 
-    private void singleton(final Singleton ¢) {
-      listener.down();
-      if (¢.inner instanceof Proposition)
-        topDown(¢.inner);
-      listener.up();
-    }
-  }
+		private void singleton(final Singleton ¢) {
+			listener.down();
+			if (¢.inner instanceof Proposition)
+				topDown(¢.inner);
+			listener.up();
+		}
+	}
 
-  public interface Listener<T> {
-    //@formatter:off
-    default   void  down()                                    {/**/}
-    default   void  up()                                      {/**/}
-    default   void  next()                                    {/**/}
-    default   void  in(@SuppressWarnings("unused") final T __)      {/**/}
-    //@formatter:on
-  }
+	public interface Listener<T> {
+		// @formatter:off
+		default void down() {
+			/**/}
 
-  static class Number {
-    private int number;
-    private final Number base;
+		default void up() {
+			/**/}
 
-    public Number() {
-      this(null);
-    }
+		default void next() {
+			/**/}
 
-    public Number(final Number base) {
-      this.base = base;
-      number = 1;
-    }
+		default void in(@SuppressWarnings("unused") final T __) {
+			/**/}
+		// @formatter:on
+	}
 
-    public Number more() {
-      return new Number(this);
-    }
+	static class Number {
+		private int number;
+		private final Number base;
 
-    public Number less() {
-      return base;
-    }
+		public Number() {
+			this(null);
+		}
 
-    public void next() {
-      ++number;
-    }
+		public Number(final Number base) {
+			this.base = base;
+			number = 1;
+		}
 
-    @Override public String toString() {
-      return (base == null ? "" : base + ".") + number;
-    }
-  }
+		public Number more() {
+			return new Number(this);
+		}
 
-  static class NumberWithTab {
-    private final Tab tab;
-    private Number number;
+		public Number less() {
+			return base;
+		}
 
-    public NumberWithTab() {
-      tab = new Tab();
-      number = new Number();
-    }
+		public void next() {
+			++number;
+		}
 
-    public void more() {
-      tab.more();
-      number = number.more();
-    }
+		@Override
+		public String toString() {
+			return (base == null ? "" : base + ".") + number;
+		}
+	}
 
-    public void less() {
-      tab.less();
-      number = number.less();
-    }
+	static class NumberWithTab {
+		private final Tab tab;
+		private Number number;
 
-    public void next() {
-      number.next();
-    }
+		public NumberWithTab() {
+			tab = new Tab();
+			number = new Number();
+		}
 
-    @Override public String toString() {
-      return tab + "" + number + ") ";
-    }
-  }
+		public void more() {
+			tab.more();
+			number = number.more();
+		}
 
-  class NodePrettyPrinter implements Listener<BooleanSupplier> {
-    private final NumberWithTab aligner;
+		public void less() {
+			tab.less();
+			number = number.less();
+		}
 
-    public NodePrettyPrinter() {
-      aligner = new NumberWithTab();
-    }
+		public void next() {
+			number.next();
+		}
 
-    @Override public void in(final BooleanSupplier ¢) {
-      final @NotNull StringBuilder sb = new StringBuilder(aligner + "");
-      if (¢ instanceof Some || ¢ instanceof Not)
-        sb.append("(" + English.selfName(¢.getClass()) + ")");
-      if (!(¢ + "").contains(¢.getClass().getName()))
-        sb.append(" " + ¢);
-      sb.append(" ==> " + Truth.letterOf(¢));
-      System.out.println(sb);
-    }
+		@Override
+		public String toString() {
+			return tab + "" + number + ") ";
+		}
+	}
 
-    @Override public void down() {
-      aligner.more();
-    }
+	class NodePrettyPrinter implements Listener<BooleanSupplier> {
+		private final NumberWithTab aligner;
 
-    @Override public void up() {
-      aligner.less();
-    }
+		public NodePrettyPrinter() {
+			aligner = new NumberWithTab();
+		}
 
-    @Override public void next() {
-      aligner.next();
-    }
-  }
+		@Override
+		public void in(final BooleanSupplier ¢) {
+			final @NotNull StringBuilder sb = new StringBuilder(aligner + "");
+			if (¢ instanceof Some || ¢ instanceof Not)
+				sb.append("(" + English.selfName(¢.getClass()) + ")");
+			if (!(¢ + "").contains(¢.getClass().getName()))
+				sb.append(" " + ¢);
+			sb.append(" ==> " + Truth.letterOf(¢));
+			System.out.println(sb);
+		}
 
-  private final PropositionTreeTraversal traversal;
+		@Override
+		public void down() {
+			aligner.more();
+		}
 
-  public PropositionPrettyPrinter() {
-    traversal = new PropositionTreeTraversal(new NodePrettyPrinter());
-  }
+		@Override
+		public void up() {
+			aligner.less();
+		}
 
-  void present(final Proposition ¢) {
-    traversal.topDown(¢);
-  }
+		@Override
+		public void next() {
+			aligner.next();
+		}
+	}
 
-  public static void main(final String[] args) {
-    final PropositionPrettyPrinter p = new PropositionPrettyPrinter();
-    // example 1
-    p.present( //
-        Proposition.AND("MAIN", //
-            Proposition.AND("SUB1", //
-                Proposition.X, //
-                Proposition.F), //
-            Proposition.OR("SUB2", //
-                Proposition.T, //
-                Proposition.not(Proposition.N), //
-                () -> true, //
-                Proposition.that("OH NO", () -> {
-                  throw new RuntimeException();
-                }))));
-    System.out.println();
-    // example 2
-    p.present( //
-        Proposition.AND("MAIN", //
-            Proposition.OR("SUB", Proposition.T, Proposition.F), //
-            Proposition.T));
-    System.out.println();
-    // example 3
-    p.present(Proposition.that("MAIN", Proposition.T));
-    System.out.println();
-    // example 4
-    p.present( //
-        Proposition.AND( //
-            Proposition.OR("SUB", Proposition.T, Proposition.F), //
-            Proposition.T));
-    System.out.println();
-    // example 5
-    p.present( //
-        Proposition.AND( //
-            Proposition.F, //
-            Proposition.X));
-    System.out.println();
-    // example 6
-    p.present(Proposition.OR("SUB2", //
-        Proposition.T, //
-        Proposition.not(Proposition.not(Proposition.N)), //
-        () -> true, //
-        Proposition.that("OH NO", () -> {
-          throw new RuntimeException();
-        })));
-    System.out.println();
-  }
+	private final PropositionTreeTraversal traversal;
+
+	public PropositionPrettyPrinter() {
+		traversal = new PropositionTreeTraversal(new NodePrettyPrinter());
+	}
+
+	void present(final Proposition ¢) {
+		traversal.topDown(¢);
+	}
+
+	public static void main(final String[] args) {
+		final PropositionPrettyPrinter p = new PropositionPrettyPrinter();
+		// example 1
+		p.present( //
+				Proposition.AND("MAIN", //
+						Proposition.AND("SUB1", //
+								Proposition.X, //
+								Proposition.F), //
+						Proposition.OR("SUB2", //
+								Proposition.T, //
+								Proposition.not(Proposition.N), //
+								() -> true, //
+								Proposition.that("OH NO", () -> {
+									throw new RuntimeException();
+								}))));
+		System.out.println();
+		// example 2
+		p.present( //
+				Proposition.AND("MAIN", //
+						Proposition.OR("SUB", Proposition.T, Proposition.F), //
+						Proposition.T));
+		System.out.println();
+		// example 3
+		p.present(Proposition.that("MAIN", Proposition.T));
+		System.out.println();
+		// example 4
+		p.present( //
+				Proposition.AND( //
+						Proposition.OR("SUB", Proposition.T, Proposition.F), //
+						Proposition.T));
+		System.out.println();
+		// example 5
+		p.present( //
+				Proposition.AND( //
+						Proposition.F, //
+						Proposition.X));
+		System.out.println();
+		// example 6
+		p.present(Proposition.OR("SUB2", //
+				Proposition.T, //
+				Proposition.not(Proposition.not(Proposition.N)), //
+				() -> true, //
+				Proposition.that("OH NO", () -> {
+					throw new RuntimeException();
+				})));
+		System.out.println();
+	}
 }
