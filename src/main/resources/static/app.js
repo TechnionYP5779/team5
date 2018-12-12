@@ -8,6 +8,8 @@ appModule.controller('MainCtrl', ['mainService','$scope','$http',
             $scope.roleUser = false;
             $scope.roleAdmin = false;
             $scope.roleFoo = false;
+            $scope.addedParking = false;
+            $scope.addressGiven = "no address";
 
             $scope.login = function() {
                 $scope.error = null;
@@ -22,6 +24,13 @@ appModule.controller('MainCtrl', ['mainService','$scope','$http',
                 });
             }
             
+            $scope.addParking = function() {
+            	$scope.addedParking = true;
+            	$scope.error = null;
+                mainService.addParking($scope.address);
+                window.alert("OK");
+            }
+            
             $scope.checkRoles = function() {
                 mainService.hasRole('user').then(function(user) {$scope.roleUser = user});
                 mainService.hasRole('admin').then(function(admin) {$scope.roleAdmin = admin});
@@ -34,9 +43,18 @@ appModule.controller('MainCtrl', ['mainService','$scope','$http',
                 $http.defaults.headers.common.Authorization = '';
             }
 
+            $scope.added = function() {
+            	return $scope.addedParking;
+            }
+            
+            $scope.showParkings = function() {
+            	mainService.showParkings().then(function(address) {$scope.addressGiven = address});
+            }
+            
             $scope.loggedIn = function() {
                 return $scope.token !== null;
             }
+            
         } ]);
 
 
@@ -48,9 +66,20 @@ appModule.service('mainService', function($http) {
                 return response.data.token;
             });
         },
+        
+        addParking : function(address) {
+            return $http.post('/user/addParking', {address: address});
+        },
 
         hasRole : function(role) {
             return $http.get('/api/role/' + role).then(function(response){
+                console.log(response);
+                return response.data;
+            });
+        },
+        
+        showParkings : function() {
+        	return $http.get('/user/getParking').then(function(response){
                 console.log(response);
                 return response.data;
             });

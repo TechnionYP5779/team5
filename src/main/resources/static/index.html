@@ -30,7 +30,16 @@
 		<div class="row">
 			<div class="col-md-6">
 				<h3><span class="label label-success">Success!</span> Welcome {{userName}}</h3>
-	 			<button type="button">Show Available Parking</button><br>
+	 			<button type="button" ng-click="showParkings()">Show Available Parking</button><br>
+	 			<form ng-submit="addParking()">
+				Address: <input type="text" ng-model="address"/><span><input type="submit" value="addParking"/>
+				</form>
+				<div>
+					<p>Address: {{addressGiven}}</p>
+				</div>
+				<div ng-show="added()">
+					<p>Added Parking</p>
+				</div>
 	 			<a href ng-click="logout()">(logout)</a>
 			</div>
 			<div class="col-md-4">
