@@ -13,7 +13,6 @@ import org.junit.*;
  */
 @SuppressWarnings("static-method")
 public class IsTest {
-	@SuppressWarnings("null")
 	@Test
 	public void testIn() {
 		final Integer a = null;

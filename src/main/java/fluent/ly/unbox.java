@@ -27,7 +27,6 @@ import org.jetbrains.annotations.*;
  * @author Yossi Gil.
  * @see box
  */
-@SuppressWarnings("null")
 public enum unbox {
 	// A namespace: no values to this <code><b>enum</b></code>
 	;

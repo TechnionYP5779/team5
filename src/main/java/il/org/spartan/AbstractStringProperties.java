@@ -10,7 +10,6 @@ import fluent.ly.*;
  * @author Yossi Gil
  * @since Apr 8, 2012
  */
-@SuppressWarnings("null")
 public abstract class AbstractStringProperties {
 	final Renderer renderer;
 

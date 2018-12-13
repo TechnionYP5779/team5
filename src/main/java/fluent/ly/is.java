@@ -11,7 +11,6 @@ import org.jetbrains.annotations.*;
  */
 public interface is {
 	@SafeVarargs
-	@SuppressWarnings("null")
 	static <T> boolean in(final T candidate, final @NotNull T... ts) {
 		for (final T ¢ : ts)
 			if (¢ != null && ¢.equals(candidate))
@@ -37,14 +36,12 @@ public interface is {
 
 	interface not {
 		@SafeVarargs
-		@SuppressWarnings("null")
 		static <T> boolean in(final T candidate, final T... ts) {
 			return !is.in(candidate, ts);
 		}
 	}
 
 	@SafeVarargs
-	@SuppressWarnings("null")
 	static <T> boolean out(final T candidate, final T... ts) {
 		return !in(candidate, ts);
 	}

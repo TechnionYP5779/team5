@@ -11,7 +11,6 @@ import il.org.spartan.utils.Proposition.*;
  * @author Yossi Gil
  * @since 2017-03-19
  */
-@SuppressWarnings("unused")
 public abstract class PropositionReducer<R> extends Reduce<R> {
 	public PropositionReducer(final Reduce<R> inner) {
 		this.inner = inner;

@@ -27,14 +27,12 @@ public class BoolTest {
 		assert b.get();
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void testInner() {
 		assert unbox.it(Bool.valueOf(true).inner());
 		assert !unbox.it(Bool.valueOf(false).inner());
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void testEmptyConst() {
 		assert !new Bool().get();

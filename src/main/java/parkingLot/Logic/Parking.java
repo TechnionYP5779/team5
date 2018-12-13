@@ -5,8 +5,10 @@ package parkingLot.Logic;
 /** add here documentation for file
  * @author Shaked Sapir, Shalev Kuba
  * @since 2018-11-27 */
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /** @author Shaked Sapir, Shalev Kuba */
 public class Parking {
@@ -67,10 +69,9 @@ public class Parking {
 	 *         interval)
 	 */
 	protected Parking addAvailableSlot(final Calendar from, final Calendar to, final double price) {
-		if (to.compareTo(from) <= 0)
-			return this;
-		if (availableSlots.stream().filter(λ -> λ.from.compareTo(from) < 0 && λ.to.compareTo(from) > 0
-				|| λ.to.compareTo(to) > 0 && λ.from.compareTo(to) < 0).count() > 0)
+		if (to.compareTo(from) <= 0
+				|| availableSlots.stream().filter(λ -> λ.from.compareTo(from) < 0 && λ.to.compareTo(from) > 0
+						|| λ.to.compareTo(to) > 0 && λ.from.compareTo(to) < 0).count() > 0)
 			return this;
 		this.availableSlots.add(new Slot(from, to, price));
 		return this;
@@ -115,9 +116,7 @@ public class Parking {
 	protected Slot getSlot(final Calendar from, final Calendar to) {
 		final ArrayList<Slot> $ = (ArrayList<Slot>) availableSlots.stream()
 				.filter(λ -> λ.from.compareTo(from) <= 0 && λ.to.compareTo(to) >= 0).collect(Collectors.toList());
-		if ($.isEmpty())
-			return new Slot(from, from, -1);
-		return new Slot($.get(0));
+		return !$.isEmpty() ? new Slot($.get(0)) : new Slot(from, from, -1);
 	}
 
 	/**

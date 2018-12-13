@@ -21,7 +21,6 @@ import fluent.ly.___.Bug.Contract.*;
  * @author Yossi Gil (
  * @since 11/01/2006)
  */
-@SuppressWarnings("null")
 public abstract class ___ {
 	/**
 	 * Exercise the {@link Invariantable#check()}
@@ -651,7 +650,6 @@ public abstract class ___ {
 		throw new Reachability(nprintf(format, args));
 	}
 
-	@SuppressWarnings("unused")
 	public static void unuse(final long __, final Object... ____) {
 		// empty
 	}

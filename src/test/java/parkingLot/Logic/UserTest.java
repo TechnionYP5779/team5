@@ -16,8 +16,7 @@ import parkingLot.Logic.User.*;
 public class UserTest {
 	@Test
 	public void testEquals() {
-		final User user1 = new User("igor", "igor@igor", 123456);
-		final User user2 = new User("igor", "igor@igor", 123456);
+		final User user1 = new User("igor", "igor@igor", 123456), user2 = new User("igor", "igor@igor", 123456);
 		assert user1.equals(user1);
 		assert !user1.equals(user2);
 		assert !user2.equals(user1);
@@ -25,9 +24,8 @@ public class UserTest {
 
 	@Test
 	public void testIdSetting() {
-		final User user1 = new User("igor", "igor@igor", 123456);
-		final User user2 = new User("igor", "igor@igor", 123456);
-		final User user3 = new User("igor", "igor@igor", 123456);
+		final User user1 = new User("igor", "igor@igor", 123456), user2 = new User("igor", "igor@igor", 123456),
+				user3 = new User("igor", "igor@igor", 123456);
 		assert user1.getId() < user2.getId() && user2.getId() < user3.getId();
 	}
 

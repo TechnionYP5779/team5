@@ -8,7 +8,6 @@ import fluent.ly.*;
 import il.org.spartan.*;
 
 @FunctionalInterface
-@SuppressWarnings("null")
 public interface TableRenderer {
 	enum builtin implements TableRenderer {
 		TXT, TEX {

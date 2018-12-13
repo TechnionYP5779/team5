@@ -18,7 +18,6 @@ import il.org.spartan.statistics.*;
  * @author Yossi Gil
  * @since Dec 25, 2009
  */
-@SuppressWarnings("null")
 public class CSVStatistics extends CSVLine.Ordered {
 	@NotNull
 	private static final String SUMMARY_EXTENSION = ".summary";

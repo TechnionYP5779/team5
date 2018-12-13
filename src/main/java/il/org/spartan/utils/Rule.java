@@ -75,7 +75,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 	 * @since 2017-03-10
 	 */
 	static <@Nullable T, @Nullable R> @Nullable OnApplicator<T, R> on(final Predicate<T> p) {
-		return c -> new Rule.Stateful<T, R>() {
+		return c -> new Rule.Stateful<>() {
 			@Override
 			public R fire() {
 				c.accept(current());
@@ -116,7 +116,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 
 	@Check
 	default Rule<T, R> afterCheck(final Predicate<T> p) {
-		return new Interceptor<T, R>(this) {
+		return new Interceptor<>(this) {
 			@Override
 			public boolean check(final T ¢) {
 				return inner.check(¢) && p.test(¢);
@@ -159,7 +159,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 	}
 
 	default Rule<T, R> beforeCheck(final Predicate<T> p) {
-		return new Interceptor<T, R>(this) {
+		return new Interceptor<>(this) {
 			@Override
 			public boolean check(final T ¢) {
 				return p.test(¢) && inner.check(¢);
@@ -239,7 +239,6 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 			super(inner);
 		}
 
-		@SuppressWarnings("null")
 		@Override
 		public Void before(final @NotNull String key, final Object... arguments) {
 			count.putIfAbsent(key, box.it(0));
@@ -255,13 +254,14 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 	 * @since 2017-04-21
 	 */
 	class Interceptor<T, R> implements Rule<T, R> {
+		private static final String STATIC_METHOD = "static-method";
 		public final Rule<T, R> inner;
 
 		public Interceptor(final Rule<T, R> inner) {
 			this.inner = inner;
 		}
 
-		@SuppressWarnings({ "static-method", "unused" })
+		@SuppressWarnings(STATIC_METHOD)
 		public Void before(final @NotNull String key, final Object... arguments) {
 			return null;
 		}

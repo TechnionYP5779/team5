@@ -22,7 +22,6 @@ import org.jetbrains.annotations.*;
  * @author Yossi Gil
  * @since 27/08/2008
  */
-@SuppressWarnings("null")
 public enum prune {
 	;
 	@NotNull

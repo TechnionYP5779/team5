@@ -26,7 +26,6 @@ import il.org.spartan.utils.Separate.*;
  * 
  * @author Yossi Gil
  */
-@SuppressWarnings("null")
 public abstract class CSVLine extends AbstractStringProperties implements Cloneable {
 	@NotNull
 	public static final String ARRAY_SEPARATOR = ";";

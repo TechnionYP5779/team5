@@ -7,8 +7,10 @@ import org.junit.*;
 
 import fluent.ly.*;
 
-@SuppressWarnings({ "static-method", "null" })
+@SuppressWarnings(TabTest.STATIC_METHOD)
 public class TabTest {
+	static final String STATIC_METHOD = "static-method";
+
 	@NotNull
 	private static String cat(final @NotNull String s1, final @NotNull String s2) {
 		return "[[" + s1 + "]][[" + s2 + "]]";

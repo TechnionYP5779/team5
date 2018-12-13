@@ -30,7 +30,6 @@ public class Outer<Inner> {
 		return equals($);
 	}
 
-	@SuppressWarnings("null")
 	protected boolean equals(final Outer<Inner> other) {
 		if (inner == null) {
 			if (other.inner != null)
@@ -46,7 +45,6 @@ public class Outer<Inner> {
 	}
 
 	@NotNull
-	@SuppressWarnings("null")
 	public Inner get() {
 		return inner;
 	}

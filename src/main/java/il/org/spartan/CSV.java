@@ -21,7 +21,6 @@ import fluent.ly.*;
  * 
  * @author Oren Rubin
  */
-@SuppressWarnings("null")
 public enum CSV {
 	;
 	@NotNull

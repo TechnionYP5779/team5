@@ -66,10 +66,6 @@ public class range {
 		is_empty = b < a;
 	}
 
-	/**
-	 *
-	 */
-	@SuppressWarnings("null")
 	public range() {
 	}
 

@@ -9,7 +9,6 @@ import org.junit.*;
 
 @SuppressWarnings("static-method")
 public class listTest {
-	@SuppressWarnings("null")
 	@Test
 	public void append() {
 		final List<Integer> l = IntStream.range(0, 5).boxed().collect(Collectors.toList()),
@@ -17,7 +16,6 @@ public class listTest {
 		azzert.that(until5, is(list.append(box.it(5)).to(l)));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void preppend() {
 		final List<Integer> l = IntStream.range(0, 5).boxed().collect(Collectors.toList()),
@@ -40,7 +38,6 @@ public class listTest {
 		azzert.that(box.it(3), is(list.penultimate(IntStream.range(0, 5).boxed().collect(Collectors.toList()))));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void emptyTo() {
 		final List<Integer> l = IntStream.range(1, 4).boxed().collect(Collectors.toList());

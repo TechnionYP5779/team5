@@ -13,7 +13,6 @@ import org.jetbrains.annotations.*;
  * @author Daniel Mittelman <code><mittelmania [at] gmail.com></code>
  * @since 2015/09/19
  */
-@SuppressWarnings("null")
 public class FileUtils {
 	@NotNull
 	public static List<String> findAllJavaFiles(final String... paths) {

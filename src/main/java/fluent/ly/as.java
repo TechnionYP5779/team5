@@ -14,7 +14,6 @@ import org.jetbrains.annotations.*;
  * @author Yossi Gil
  * @since Jul 8, 2014
  */
-@SuppressWarnings("null")
 public enum as {
 	;
 	/**
@@ -36,7 +35,7 @@ public enum as {
 	public static Iterable<Integer> asIterable(final @NotNull Integer... is) {
 		// Create an object of a new <em>anonymous</em> class that
 		// <code><b>implements</b></code> {@link Iterable}
-		return () -> new Iterator<Integer>() {
+		return () -> new Iterator<>() {
 			int current;
 
 			@Override
@@ -52,7 +51,7 @@ public enum as {
 	}
 
 	public static Iterable<Integer> asIterableLambda(final @NotNull Integer... is) {
-		return () -> new Iterator<Integer>() {
+		return () -> new Iterator<>() {
 			int current;
 
 			@Override
@@ -214,7 +213,7 @@ public enum as {
 	}
 
 	static Iterable<Integer> asIterableEssence(final @NotNull Integer... is) {
-		return () -> new Iterator<Integer>() {
+		return () -> new Iterator<>() {
 			int current;
 
 			@Override

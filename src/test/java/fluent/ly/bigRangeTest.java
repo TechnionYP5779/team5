@@ -12,8 +12,8 @@ public class bigRangeTest {
 	public void withDiffOnly() {
 		final Iterable<BigInteger> iter = bigRange.withDiff(1);
 		BigInteger count = BigInteger.valueOf(0);
-		for (final BigInteger i : iter) {
-			azzert.that(count, is(i));
+		for (final BigInteger ¢ : iter) {
+			azzert.that(count, is(¢));
 			count.add(BigInteger.valueOf(1));
 			if (count.equals(BigInteger.valueOf(1000)))
 				break;
@@ -25,8 +25,8 @@ public class bigRangeTest {
 	public void withDiff3Only() {
 		final Iterable<BigInteger> iter = bigRange.withDiff(3);
 		BigInteger count = BigInteger.valueOf(0);
-		for (final BigInteger i : iter) {
-			azzert.that(count, is(i));
+		for (final BigInteger ¢ : iter) {
+			azzert.that(count, is(¢));
 			count.add(BigInteger.valueOf(1));
 			if (count.equals(BigInteger.valueOf(999)))
 				break;
@@ -38,8 +38,8 @@ public class bigRangeTest {
 	public void fromAndWithDiff() {
 		final Iterable<BigInteger> iter = bigRange.from(2).withDiff(3);
 		BigInteger count = BigInteger.valueOf(2);
-		for (final BigInteger i : iter) {
-			azzert.that(count, is(i));
+		for (final BigInteger ¢ : iter) {
+			azzert.that(count, is(¢));
 			count.add(BigInteger.valueOf(1));
 			if (count.equals(BigInteger.valueOf(998)))
 				break;
@@ -51,8 +51,8 @@ public class bigRangeTest {
 	public void fromToAndWithDiff() {
 		final Iterable<BigInteger> iter = bigRange.from(5).to(123).withDiff(3);
 		BigInteger count = BigInteger.valueOf(5);
-		for (final BigInteger i : iter) {
-			azzert.that(count, is(i));
+		for (final BigInteger ¢ : iter) {
+			azzert.that(count, is(¢));
 			count.add(BigInteger.valueOf(1));
 			count = count.add(BigInteger.valueOf(3));
 		}
@@ -96,8 +96,8 @@ public class bigRangeTest {
 	@Test
 	public void naturals() {
 		BigInteger count = BigInteger.valueOf(0);
-		for (final BigInteger i : bigRange.naturals()) {
-			azzert.that(count, is(i));
+		for (final BigInteger ¢ : bigRange.naturals()) {
+			azzert.that(count, is(¢));
 			count.add(BigInteger.valueOf(1));
 			if (count.equals(BigInteger.valueOf(1000)))
 				break;
@@ -110,8 +110,8 @@ public class bigRangeTest {
 		final Iterable<BigInteger> iter = bigRange.from(BigInteger.valueOf(5)).to(BigInteger.valueOf(123))
 				.withDiff(BigInteger.valueOf(3));
 		BigInteger count = BigInteger.valueOf(5);
-		for (final BigInteger i : iter) {
-			azzert.that(count, is(i));
+		for (final BigInteger ¢ : iter) {
+			azzert.that(count, is(¢));
 			count.add(BigInteger.valueOf(1));
 			count = count.add(BigInteger.valueOf(3));
 		}
@@ -121,8 +121,8 @@ public class bigRangeTest {
 	public void bigIntegerTo() {
 		final Iterable<BigInteger> iter = bigRange.to(BigInteger.valueOf(123)).withDiff(BigInteger.valueOf(3));
 		BigInteger count = BigInteger.valueOf(0);
-		for (final BigInteger i : iter) {
-			azzert.that(count, is(i));
+		for (final BigInteger ¢ : iter) {
+			azzert.that(count, is(¢));
 			count.add(BigInteger.valueOf(1));
 			count = count.add(BigInteger.valueOf(3));
 		}

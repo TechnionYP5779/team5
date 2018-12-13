@@ -12,7 +12,6 @@ import org.jetbrains.annotations.*;
  * 
  * @author Yossi Gil
  */
-@SuppressWarnings("null")
 public enum string {
 	// No elements in this name space
 	;

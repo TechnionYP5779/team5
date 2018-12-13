@@ -7,7 +7,7 @@ import java.util.stream.*;
 
 import org.junit.*;
 
-@SuppressWarnings({ "static-method", "null" })
+@SuppressWarnings("static-method")
 public class theTest {
 	@Test
 	public void indexTest() {

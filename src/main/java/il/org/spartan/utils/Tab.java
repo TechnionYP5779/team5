@@ -26,7 +26,6 @@ import org.jetbrains.annotations.*;
  * @author Adrian Kuhn
  * @since August 4th, 2008
  */
-@SuppressWarnings("null")
 public class Tab {
 	/** What to add before each indented line of text? */
 	private String indentation = "";

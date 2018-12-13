@@ -96,7 +96,6 @@ public class asTest {
 		azzert.that(l, is(as.list(l)));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void rangeA2zListTest() {
 		azzert.that(IntStream.range(0, 26).mapToObj(λ -> String.valueOf((char) (λ + 'A'))).collect(Collectors.toList()),
@@ -165,7 +164,6 @@ public class asTest {
 	@Test
 	public void asListSimple() {
 		// direct call `as.list(12, 13, 14)` kills Travis --or
-		@SuppressWarnings("null")
 		final @NotNull List<Integer> is = as.list(new int @NotNull [] { 12, 13, 14 });
 		azzert.that(is.get(0), is(fluent.ly.box.it(12)));
 		azzert.that(is.get(1), is(fluent.ly.box.it(13)));

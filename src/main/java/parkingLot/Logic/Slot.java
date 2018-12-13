@@ -3,9 +3,9 @@
  * @since 2018-11-27 */
 package parkingLot.Logic;
 
-import java.util.*;
+import java.util.Calendar;
 
-import fluent.ly.*;
+import fluent.ly.box;
 
 /** @author ShalevKuba, Shaked Sapir */
 public class Slot {
@@ -50,11 +50,8 @@ public class Slot {
 		final int prime = 31;
 		int $ = 1;
 		$ = $ * prime + (from == null ? 0 : from.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(price_for_hour);
-		$ = $ * prime + (int) (temp ^ temp >>> 32);
-		$ = $ * prime + (to == null ? 0 : to.hashCode());
-		return $;
+		long temp = Double.doubleToLongBits(price_for_hour);
+		return prime * ($ * prime + (int) (temp ^ temp >>> 32)) + (to == null ? 0 : to.hashCode());
 	}
 
 	/*
@@ -63,9 +60,8 @@ public class Slot {
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(final Object o) {
-		final Slot s = (Slot) o;
-		return this.from.equals(s.from) && this.to.equals(s.to)
-				&& box.it(this.price_for_hour).equals(box.it(s.price_for_hour));
+	public boolean equals(final Object ¢) {
+		return this.from.equals(((Slot) ¢).from) && this.to.equals(((Slot) ¢).to)
+				&& box.it(this.price_for_hour).equals(box.it(((Slot) ¢).price_for_hour));
 	}
 }

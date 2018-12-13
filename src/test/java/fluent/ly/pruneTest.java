@@ -14,7 +14,7 @@ import org.junit.*;
  * @author Yossi Gil, the Technion.
  * @since 27/08/2008
  */
-@SuppressWarnings({ "static-method", "null" })
+@SuppressWarnings("static-method")
 public class pruneTest {
 	@Nullable
 	final String[] alternatingArray = new @Nullable String[] { null, "A", null, null, "B", null, null, null, "C",

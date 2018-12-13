@@ -17,7 +17,6 @@ import il.org.spartan.*;
  * @since 21/06/2008
  * @see unbox
  */
-@SuppressWarnings("null")
 public enum box {
 	// A namespace: no values to this <code><b>enum</b></code>
 	;

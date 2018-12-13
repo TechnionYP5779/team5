@@ -69,8 +69,7 @@ public class iterablesTest {
 
 	@Test
 	public void alternateNewIntegerIterablesTest() {
-		final Iterable<Integer> it1 = new ArrayList<>();
-		final Iterable<Integer> it2 = new ArrayList<>();
+		final Iterable<Integer> it1 = new ArrayList<>(), it2 = new ArrayList<>();
 		iterables.alternate(it1, it2);
 	}
 
@@ -88,8 +87,7 @@ public class iterablesTest {
 
 	@Test
 	public void alternateTwoIntegerSingletonListsReturnListWithBothIntegers() {
-		final List<Integer> lst1 = new ArrayList<>();
-		final List<Integer> lst2 = new ArrayList<>();
+		final List<Integer> lst1 = new ArrayList<>(), lst2 = new ArrayList<>();
 		lst1.add(box.it(100));
 		lst2.add(box.it(200));
 		azzert.that(iterables.alternate(lst1, lst2).iterator().next(), is(100));
@@ -97,8 +95,7 @@ public class iterablesTest {
 
 	@Test
 	public void alternateAddUntilTheShortestFirst() {
-		final List<Integer> lst1 = new ArrayList<>();
-		final List<Integer> lst2 = new ArrayList<>();
+		final List<Integer> lst1 = new ArrayList<>(), lst2 = new ArrayList<>();
 		lst2.add(box.it(1));
 		lst1.add(box.it(2));
 		lst2.add(box.it(3));
@@ -111,8 +108,7 @@ public class iterablesTest {
 
 	@Test
 	public void alternateAddUntilTheShortestSecond() {
-		final List<Integer> lst1 = new ArrayList<>();
-		final List<Integer> lst2 = new ArrayList<>();
+		final List<Integer> lst1 = new ArrayList<>(), lst2 = new ArrayList<>();
 		lst1.add(box.it(1));
 		lst2.add(box.it(2));
 		lst1.add(box.it(3));

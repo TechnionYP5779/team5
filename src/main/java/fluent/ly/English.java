@@ -17,7 +17,6 @@ import il.org.spartan.utils.*;
  * @author Ori Roth
  * @since 2.6
  */
-@SuppressWarnings("null")
 public interface English {
 	interface Inflection {
 		static Inflection stem(final @NotNull String base) {

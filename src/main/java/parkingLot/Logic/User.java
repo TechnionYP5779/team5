@@ -3,7 +3,8 @@
  * @since year-month-day */
 package parkingLot.Logic;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Since 2018 - 11 - 26
@@ -142,11 +143,7 @@ public class User {
 
 	@Override
 	public boolean equals(final Object ¢) {
-		if (¢ == this)
-			return true;
-		if (!(¢ instanceof User))
-			return false;
-		return this.id == ((User) ¢).id;
+		return ¢ == this || (¢ instanceof User && this.id == ((User) ¢).id);
 	}
 
 	@Override

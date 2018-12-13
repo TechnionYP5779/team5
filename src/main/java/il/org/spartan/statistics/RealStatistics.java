@@ -47,7 +47,6 @@ public class RealStatistics extends ImmutableStatistics {
 	}
 
 	@NotNull
-	@SuppressWarnings("null")
 	protected RealStatistics recordValue(final double v) {
 		if (n() == 0) {
 			min = max = v;

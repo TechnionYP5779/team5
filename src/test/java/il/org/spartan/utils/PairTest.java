@@ -20,9 +20,8 @@ public class PairTest {
 
 	@Test
 	public void test_makePairs() {
-		final Pair<Integer, Integer> list1[] = Pair.makePairs(10);
-		final Pair<Integer, Integer> list2[] = Pair.makePairs(3, 5);
-		final Pair<Integer, Integer> list3[] = Pair.makePairs(3, 0);
+		final Pair<Integer, Integer> list1[] = Pair.makePairs(10), list2[] = Pair.makePairs(3, 5),
+				list3[] = Pair.makePairs(3, 0);
 		azzert.that(list1.length, is(10));
 		azzert.that(list2.length, is(15));
 		azzert.that(list3.length, is(0));

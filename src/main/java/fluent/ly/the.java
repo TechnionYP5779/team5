@@ -100,7 +100,7 @@ public interface the {
 
 	@NotNull
 	static <T> Iterable<T> lastOf(final @NotNull Iterable<T> ¢) {
-		return () -> new Iterator<T>() {
+		return () -> new Iterator<>() {
 			Iterator<T> $ = ¢.iterator();
 			{
 				$.next();
@@ -167,7 +167,6 @@ public interface the {
 	 * @return last item in a list or <code><b>null</b></code> if the parameter is
 	 *         <code><b>null</b></code> or empty
 	 */
-	@SuppressWarnings("null")
 	static <T> @Nullable T last(final @Nullable List<T> ¢) {
 		return eval(() -> ¢.get(¢.size() - 1)).unless(¢ == null || ¢.isEmpty());
 	}

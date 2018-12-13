@@ -56,7 +56,6 @@ public interface fault {
 	}
 
 	@NotNull
-	@SuppressWarnings("null")
 	static String specifically(final @NotNull String explanation, final Object... os) {
 		return dump("\n " + explanation)
 				+ Stream.of(os).map(λ -> dump(λ.getClass().getSimpleName(), λ)).reduce((x, y) -> x + y).get() + done();
@@ -67,7 +66,7 @@ public interface fault {
 		return "\n " + name + "=[" + value + "]";
 	}
 
-	static boolean bool(@SuppressWarnings("unused") final Object __) {
+	static boolean bool(final Object __) {
 		return false;
 	}
 }

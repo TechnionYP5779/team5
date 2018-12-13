@@ -65,7 +65,7 @@ public class TableRendererTest {
 		azzert.that(TableRenderer.builtin.CSV.beforeFooter(), is(""));
 		azzert.that(TableRenderer.builtin.CSV.beforeHeader(), is(""));
 		azzert.that(TableRenderer.builtin.CSV.beforeTable(), is(""));
-		azzert.that(TableRenderer.builtin.CSV.cellInt(box.it(1L * 4)), is("4"));
+		azzert.that(TableRenderer.builtin.CSV.cellInt(box.it(4L)), is("4"));
 		azzert.that(TableRenderer.builtin.CSV.extension(), is("csv"));
 		azzert.that(TableRenderer.builtin.CSV.footerBegin(), is(""));
 		azzert.that(TableRenderer.builtin.TXT.footerEnd(), is(TableRenderer.NL + ""));

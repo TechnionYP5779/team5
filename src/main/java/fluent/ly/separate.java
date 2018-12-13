@@ -20,7 +20,6 @@ import il.org.spartan.*;
  * @author Yossi Gil
  * @since 07/08/2008
  */
-@SuppressWarnings("null")
 public enum separate {
 	;
 	@NotNull

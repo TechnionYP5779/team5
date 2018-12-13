@@ -315,7 +315,7 @@ public class stringTest {
 		azzert.that(string.strip("hell"), is("el"));
 		try {
 			string.strip("");
-		} catch (@SuppressWarnings("unused") final RuntimeException ¢) {
+		} catch (final RuntimeException ¢) {
 			// ¢.printStackTrace();
 			assert true;
 			return;

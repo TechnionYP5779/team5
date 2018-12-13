@@ -37,7 +37,6 @@ public abstract class ImmutableStatistics extends Statistics implements java.io.
 	 * 
 	 * @return an array containing all recorded values
 	 */
-	@SuppressWarnings("null")
 	public final double @NotNull [] all() {
 		return Arrays.copyOf(values, n);
 	}
@@ -146,7 +145,6 @@ public abstract class ImmutableStatistics extends Statistics implements java.io.
 	}
 
 	@NotNull
-	@SuppressWarnings("null")
 	private StringBuilder appendError(final @NotNull StringBuilder b, final double d) {
 		return n() <= 1 ? b : b.append('±' + RELATIVE.format(d));
 	}

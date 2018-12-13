@@ -20,7 +20,6 @@ public class allTest {
 		assert !all.notNull(l);
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void ArrayNotNulltest() {
 		final Integer[] a = new Integer[3];

@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -30,11 +32,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public LoginResponse login(@RequestBody final UserLogin login) throws ServletException {
-		if (login.name == null || !userDb.containsKey(login.name)) {
+	public LoginResponse login(@RequestBody final UserLogin ¢) throws ServletException {
+		if (¢.name == null || !userDb.containsKey(¢.name))
 			throw new ServletException("Invalid login");
-		}
-		return new LoginResponse(Jwts.builder().setSubject(login.name).claim("roles", userDb.get(login.name))
+		return new LoginResponse(Jwts.builder().setSubject(¢.name).claim("roles", userDb.get(¢.name))
 				.setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256, "secretkey").compact());
 	}
 

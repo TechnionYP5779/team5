@@ -26,8 +26,7 @@ public class ExamplesTest {
 		final Iterator<Example> it = e.iterator();
 		final Spliterator<Example> split = e.spliterator();
 		final Converter cv = e.convert("Hello");
-		final Examples new_s = cv.to("hi");
-		final Examples exs = e.ignores("123").add(ex);
+		final Examples new_s = cv.to("hi"), exs = e.ignores("123").add(ex);
 		azzert.notNull(it);
 		azzert.notNull(new_s);
 		azzert.notNull(split);

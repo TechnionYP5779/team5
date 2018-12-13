@@ -142,7 +142,7 @@ public class StatisticsTest {
 		s.n = 0;
 		try {
 			s.checkEmpty();
-		} catch (@SuppressWarnings("unused") final Exception E) {
+		} catch (final Exception E) {
 			// empty block
 		}
 	}
