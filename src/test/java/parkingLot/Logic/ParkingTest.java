@@ -16,10 +16,11 @@ import parkingLot.Logic.Parking.*;
 
 @SuppressWarnings("static-method")
 public class ParkingTest {
+	final Parking p = new Parking(1, size.PRIVATE_CAR, "Israel, Holon, Hahartsit, 8");
+	
 	@Test
 	public void setsAndGets() {
-		final Parking p = new Parking(3, 1, size.PRIVATE_CAR, "Israel, Holon, Hahartsit, 8");
-		azzert.that(p.getId(), is(3));
+		azzert.that(p.getId(), is(1));
 		azzert.that(p.getOwner(), is(1));
 		azzert.that(p.getSize(), is(size.PRIVATE_CAR));
 		azzert.that(p.getLocation(), is("Israel, Holon, Hahartsit, 8"));
@@ -28,7 +29,6 @@ public class ParkingTest {
 
 	@Test
 	public void availableSlotTest() {
-		final Parking p = new Parking(3, 1, size.PRIVATE_CAR, "Israel, Holon, Hahartsit, 8");
 		p.addAvailableSlot(new GregorianCalendar(2018, 11, 27, 19, 00), new GregorianCalendar(2018, 11, 27, 18, 00),
 				5.5);
 		p.addAvailableSlot(new GregorianCalendar(2018, 11, 27, 12, 00), new GregorianCalendar(2018, 11, 27, 12, 00),
@@ -66,7 +66,6 @@ public class ParkingTest {
 
 	@Test
 	public void getSlot() {
-		final Parking p = new Parking(3, 1, size.PRIVATE_CAR, "Israel, Holon, Hahartsit, 8");
 		azzert.that(p.getSlot(new GregorianCalendar(2018, 11, 27, 12, 00), new GregorianCalendar(2018, 11, 27, 14, 00))
 				.getPrice_for_hour(), is((double) -1));
 		p.addAvailableSlot(new GregorianCalendar(2018, 11, 27, 8, 00), new GregorianCalendar(2018, 11, 27, 20, 00),

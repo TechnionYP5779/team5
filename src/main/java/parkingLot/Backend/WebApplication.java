@@ -14,10 +14,10 @@ public class WebApplication {
 	@Bean
 	@SuppressWarnings("static-method")
 	public FilterRegistrationBean jwtFilter() {
-		final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-		registrationBean.setFilter(new JwtFilter());
-		registrationBean.addUrlPatterns("/api/*");
-		return registrationBean;
+		final FilterRegistrationBean $ = new FilterRegistrationBean();
+		$.setFilter(new JwtFilter());
+		$.addUrlPatterns("/api/*");
+		return $;
 	}
 
 	public static void main(final String[] args) throws Exception {

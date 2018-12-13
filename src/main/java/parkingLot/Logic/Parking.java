@@ -10,7 +10,7 @@ import java.util.stream.*;
 
 /** @author Shaked Sapir, Shalev Kuba */
 public class Parking {
-	enum size {
+	public enum size {
 		PRIVATE_CAR, MOTORCYCLE, TRANSIT, BUS
 	}
 
@@ -19,15 +19,16 @@ public class Parking {
 	 * location Format: State, city, street, apratment no. we will try to use google
 	 * maps locationType. we will do it when the time comes
 	 **/
+	static int currentId = -1;
 	String location;
-	int id;
+	final int id;
 	int ownerId;
 	size sz;
 	List<Slot> availableSlots;
 
 	/** Constructor **/
-	public Parking(final int id, final int owner, final size sz, final String location) {
-		this.id = id;
+	public Parking(final int owner, final size sz, final String location) {
+		this.id = currentId++;
 		this.ownerId = owner;
 		this.sz = sz;
 		this.location = location;
