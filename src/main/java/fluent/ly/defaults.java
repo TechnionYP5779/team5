@@ -43,7 +43,6 @@ public enum defaults {
 	 * @return <code>v</code> if it is not <code><b>null</b></code>, otherwise
 	 *         <code>defaultValue</code>
 	 */
-	@SuppressWarnings("null")
 	public static int to(final @Nullable Integer v, final Integer defaultValue) {
 		return unbox.it(v != null ? v : defaultValue);
 	}

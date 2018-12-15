@@ -111,8 +111,7 @@ public class PairsListTest {
 		for (int ¢ = 0; ¢ < 10; ¢++)
 			p.record(10.0 - ¢, 20.0 - ¢);
 		double d = 0;
-		final Iterator<PAIR<Double, Double>> itr = p.revIterator().iterator();
-		for (; itr.hasNext(); d++)
+		for (final Iterator<PAIR<Double, Double>> itr = p.revIterator().iterator(); itr.hasNext(); d++)
 			azzert.that(itr.next().p, is(new Pair<>(box.it(10.0 - d), box.it(20.0 - d))));
 	}
 
@@ -125,7 +124,7 @@ public class PairsListTest {
 		final Iterator<PAIR<Double, Double>> itr = p.revIterator();
 		for (; itr.hasNext(); d++)
 			itr.next();
-		azzert.that(itr.next().p, is(new Pair<>(box.it(-d + 10.0 + 1), box.it(-d + 20.0 + 1))));
+		azzert.that(itr.next().p, is(new Pair<>(box.it(10.0 - d + 1), box.it(20.0 - d + 1))));
 	}
 
 	@Test
@@ -138,7 +137,7 @@ public class PairsListTest {
 		for (; itr.hasNext(); d++)
 			itr.next();
 		itr.next();
-		azzert.that(itr.next().p, is(new Pair<>(box.it(-d + 10.0 + 1), box.it(-d + 20.0 + 1))));
+		azzert.that(itr.next().p, is(new Pair<>(box.it(10.0 - d + 1), box.it(20.0 - d + 1))));
 	}
 
 	@Test

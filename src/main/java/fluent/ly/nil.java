@@ -8,7 +8,6 @@ import java.util.function.*;
  * @author Yossi Gil
  * @since 2017-04-10
  */
-@SuppressWarnings({ "unused", "null" })
 public interface nil {
 	interface On<T, R> {
 		R on(T t);

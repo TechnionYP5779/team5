@@ -68,7 +68,7 @@ public class PairsList {
 				final PAIR<Double, Double> $ = current;
 				current = l.get(++idx);
 				return $;
-			} catch (@SuppressWarnings("unused") final IndexOutOfBoundsException ¢) {
+			} catch (final IndexOutOfBoundsException ¢) {
 				return l.get(l.size() - 1);
 			}
 		}

@@ -1,7 +1,5 @@
 package parkingLot.Backend;
 
-import io.jsonwebtoken.Claims;
-
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fluent.ly.box;
+import io.jsonwebtoken.Claims;
 
 @RestController
 @RequestMapping("/api")
 public class ApiController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "role/{role}", method = RequestMethod.GET)
-	public static Boolean login(@PathVariable final String role, final HttpServletRequest request)
-			throws ServletException {
-		final Claims claims = (Claims) request.getAttribute("claims");
+	public static Boolean login(@PathVariable final String role, final HttpServletRequest r) throws ServletException {
+		final Claims $ = (Claims) r.getAttribute("claims");
 
-		return box.it(((List<String>) claims.get("roles")).contains(role));
+		return box.it(((List<String>) $.get("roles")).contains(role));
 	}
 }

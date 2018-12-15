@@ -18,7 +18,6 @@ import fluent.ly.*;
  * @author Yossi Gil
  * @since 2017-03-06
  */
-@SuppressWarnings("null")
 public interface Proposition extends BooleanSupplier {
 	static Proposition AND(final BooleanSupplier s1, final BooleanSupplier s2, final BooleanSupplier... ss) {
 		return AND(null, s1, s2, ss);

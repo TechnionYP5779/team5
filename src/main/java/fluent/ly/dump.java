@@ -16,7 +16,6 @@ import il.org.spartan.*;
  * @author Yossi Gil
  * @since 24/07/2007
  */
-@SuppressWarnings("null")
 public class dump {
 	/**
 	 * Dump a class object

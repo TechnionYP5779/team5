@@ -39,7 +39,6 @@ public class file {
 
 	@NotNull
 	public static String read(final @NotNull File f) throws IOException {
-		@SuppressWarnings("null")
 		final @NotNull String ls = System.getProperty("line.separator");
 		System.err.println(ls.compareTo("\n"));
 		final @NotNull StringBuilder $ = new StringBuilder();
@@ -52,7 +51,6 @@ public class file {
 	}
 
 	@NotNull
-	@SuppressWarnings("null")
 	public static String read(final @NotNull String fileName) throws IOException {
 		return read(Paths.get(fileName));
 	}

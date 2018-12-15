@@ -10,12 +10,12 @@ import fluent.ly.*;
 public class angleTest {
 	@Test
 	public void test1() {
-		azzert.that(angle.degrees(20).degrees(), is((double) 20));
+		azzert.that(angle.degrees(20).degrees(), is(20.0));
 	}
 
 	@Test
 	public void test2() {
-		azzert.that(angle.radians(1).radians(), is((double) 1));
+		azzert.that(angle.radians(1).radians(), is(1.0));
 	}
 
 	@Test
@@ -30,22 +30,22 @@ public class angleTest {
 
 	@Test
 	public void test5() {
-		azzert.that(angle.halfPi.add(angle.degrees(20)).degrees(), is((double) 110));
+		azzert.that(angle.halfPi.add(angle.degrees(20)).degrees(), is(110.0));
 	}
 
 	@Test
 	public void test6() {
-		azzert.that(angle.halfPi.add(20).degrees(), is((double) 110));
+		azzert.that(angle.halfPi.add(20).degrees(), is(110.0));
 	}
 
 	@Test
 	public void test7() {
-		azzert.that(angle.pi.degrees(), is((double) 180));
+		azzert.that(angle.pi.degrees(), is(180.0));
 	}
 
 	@Test
 	public void test8() {
-		azzert.that(angle.of(180).degrees(), is((double) 180));
+		azzert.that(angle.of(180).degrees(), is(180.0));
 	}
 
 	@Test
@@ -60,11 +60,11 @@ public class angleTest {
 
 	@Test
 	public void test11() {
-		azzert.that(angle.halfPi.substract(angle.degrees(20)).degrees(), is((double) 70));
+		azzert.that(angle.halfPi.substract(angle.degrees(20)).degrees(), is(70.0));
 	}
 
 	@Test
 	public void test12() {
-		azzert.that(angle.halfPi.substract(20).degrees(), is((double) 70));
+		azzert.that(angle.halfPi.substract(20).degrees(), is(70.0));
 	}
 }

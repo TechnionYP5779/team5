@@ -18,47 +18,44 @@ import parkingLot.Logic.Transaction;
 public class TransactionTest {
 	@Test
 	public void TestMadeBefore() {
-		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31);
-		final Calendar calendar2 = new GregorianCalendar(2018, 2, 31);
-		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 1, 1);
-		final Transaction t2 = new Transaction(calendar2, new Slot(calendar2, calendar2, 100.0), 1, 1, 1);
+		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31), calendar2 = new GregorianCalendar(2018, 2, 31);
+		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 1, 1),
+				t2 = new Transaction(calendar2, new Slot(calendar2, calendar2, 100.0), 1, 1, 1);
 		assert t1.madeBefore(t2);
 		assert !t2.madeBefore(t1);
 	}
 
 	@Test
 	public void TestStartedBefore() {
-		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31);
-		final Calendar calendar2 = new GregorianCalendar(2018, 2, 31);
-		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 1, 1);
-		final Transaction t2 = new Transaction(calendar2, new Slot(calendar2, calendar2, 100.0), 1, 1, 1);
+		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31), calendar2 = new GregorianCalendar(2018, 2, 31);
+		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 1, 1),
+				t2 = new Transaction(calendar2, new Slot(calendar2, calendar2, 100.0), 1, 1, 1);
 		assert t1.startedBefore(t2);
 		assert !t2.startedBefore(t1);
 	}
 
 	@Test
 	public void TestEndedBefore() {
-		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31);
-		final Calendar calendar2 = new GregorianCalendar(2018, 2, 31);
-		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 1, 1);
-		final Transaction t2 = new Transaction(calendar2, new Slot(calendar2, calendar2, 100.0), 1, 1, 1);
+		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31), calendar2 = new GregorianCalendar(2018, 2, 31);
+		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 1, 1),
+				t2 = new Transaction(calendar2, new Slot(calendar2, calendar2, 100.0), 1, 1, 1);
 		assert t1.endedBefore(t2);
 		assert !t2.endedBefore(t1);
 	}
 
 	@Test
 	public void rentDuration() {
-		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31, 5, 0);
-		final Calendar calendar2 = new GregorianCalendar(2018, 1, 31, 8, 0);
+		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31, 5, 0),
+				calendar2 = new GregorianCalendar(2018, 1, 31, 8, 0);
 		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar2, 100.0), 1, 1, 1);
 		azzert.that(t1.rentDuration(), is(3));
 	}
 
 	@Test
 	public void gettersTest() {
-		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31, 5, 0);
-		final Calendar calendar2 = new GregorianCalendar(2018, 1, 31, 8, 0);
-		final Calendar calendar3 = new GregorianCalendar(2018, 1, 31, 11, 0);
+		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31, 5, 0),
+				calendar2 = new GregorianCalendar(2018, 1, 31, 8, 0),
+				calendar3 = new GregorianCalendar(2018, 1, 31, 11, 0);
 		final Transaction t1 = new Transaction(calendar1, new Slot(calendar2, calendar3, 100.0), 1, 2, 3);
 		azzert.that(t1.getLandlordId(), is(3));
 		azzert.that(t1.getParkingId(), is(1));
@@ -72,9 +69,9 @@ public class TransactionTest {
 
 	@Test
 	public void rentTimeTest() {
-		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31, 5, 0);
-		final Calendar calendar2 = new GregorianCalendar(2018, 1, 31, 8, 0);
-		final Calendar calendar3 = new GregorianCalendar(2018, 1, 31, 11, 0);
+		final Calendar calendar1 = new GregorianCalendar(2018, 1, 31, 5, 0),
+				calendar2 = new GregorianCalendar(2018, 1, 31, 8, 0),
+				calendar3 = new GregorianCalendar(2018, 1, 31, 11, 0);
 		final Transaction t1 = new Transaction(calendar1, new Slot(calendar1, calendar1, 100.0), 1, 2, 3);
 		t1.setRentStart(calendar2);
 		t1.setRentEnd(calendar3);

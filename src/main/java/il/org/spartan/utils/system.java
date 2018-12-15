@@ -96,7 +96,6 @@ public interface system {
 		;
 	}
 
-	@SuppressWarnings("null")
 	static boolean isBalanced(final @NotNull String s) {
 		final Stack<Character> $ = new Stack<>();
 		for (final char ¢ : s.toCharArray())
@@ -141,7 +140,6 @@ public interface system {
 
 	/** @return the name of the class from which this method was called. */
 	@NotNull
-	@SuppressWarnings("null")
 	static String myFullClassName() {
 		final StackTraceElement[] $ = new Throwable().getStackTrace();
 		for (int ¢ = 1; ¢ < $.length; ++¢)
@@ -188,7 +186,6 @@ public interface system {
 		return bash("./essence <" + fileName + ">" + essenced(fileName));
 	}
 
-	@SuppressWarnings("null")
 	static String userName() {
 		return English.upperFirstLetter(getProperty("user.name", "User"));
 	}

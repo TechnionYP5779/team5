@@ -19,7 +19,6 @@ public class LongestCommonSubsequence {
 	private final char @NotNull [] bs;
 	private final int @NotNull [][] length;
 
-	@SuppressWarnings("null")
 	public LongestCommonSubsequence(final @NotNull String a, final @NotNull String b) {
 		as = tide.clean(a).toCharArray();
 		bs = tide.clean(b).toCharArray();

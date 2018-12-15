@@ -5,12 +5,14 @@ package parkingLot.Logic;
 /** add here documentation for file
  * @author Shaked Sapir, Shalev Kuba
  * @since 2018-11-27 */
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /** @author Shaked Sapir, Shalev Kuba */
 public class Parking {
-	enum size {
+	public enum size {
 		PRIVATE_CAR, MOTORCYCLE, TRANSIT, BUS
 	}
 
@@ -19,15 +21,16 @@ public class Parking {
 	 * location Format: State, city, street, apratment no. we will try to use google
 	 * maps locationType. we will do it when the time comes
 	 **/
+	static int currentId = -1;
 	String location;
-	int id;
+	final int id;
 	int ownerId;
 	size sz;
 	List<Slot> availableSlots;
 
 	/** Constructor **/
-	public Parking(final int id, final int owner, final size sz, final String location) {
-		this.id = id;
+	public Parking(final int owner, final size sz, final String location) {
+		this.id = currentId++;
 		this.ownerId = owner;
 		this.sz = sz;
 		this.location = location;
@@ -66,10 +69,9 @@ public class Parking {
 	 *         interval)
 	 */
 	protected Parking addAvailableSlot(final Calendar from, final Calendar to, final double price) {
-		if (to.compareTo(from) <= 0)
-			return this;
-		if (availableSlots.stream().filter(λ -> λ.from.compareTo(from) < 0 && λ.to.compareTo(from) > 0
-				|| λ.to.compareTo(to) > 0 && λ.from.compareTo(to) < 0).count() > 0)
+		if (to.compareTo(from) <= 0
+				|| availableSlots.stream().filter(λ -> λ.from.compareTo(from) < 0 && λ.to.compareTo(from) > 0
+						|| λ.to.compareTo(to) > 0 && λ.from.compareTo(to) < 0).count() > 0)
 			return this;
 		this.availableSlots.add(new Slot(from, to, price));
 		return this;
@@ -114,9 +116,7 @@ public class Parking {
 	protected Slot getSlot(final Calendar from, final Calendar to) {
 		final ArrayList<Slot> $ = (ArrayList<Slot>) availableSlots.stream()
 				.filter(λ -> λ.from.compareTo(from) <= 0 && λ.to.compareTo(to) >= 0).collect(Collectors.toList());
-		if ($.isEmpty())
-			return new Slot(from, from, -1);
-		return new Slot($.get(0));
+		return !$.isEmpty() ? new Slot($.get(0)) : new Slot(from, from, -1);
 	}
 
 	/**

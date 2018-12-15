@@ -12,7 +12,7 @@ public class bigRange {
 		return new theRange() {
 			@Override
 			public Iterator<BigInteger> iterator() {
-				return new Iterator<BigInteger>() {
+				return new Iterator<>() {
 					BigInteger current = BigInteger.valueOf(0).subtract(i);
 
 					@Override
@@ -77,7 +77,7 @@ public class bigRange {
 			return new theRange() {
 				@Override
 				public Iterator<BigInteger> iterator() {
-					return new Iterator<BigInteger>() {
+					return new Iterator<>() {
 						BigInteger current = first.subtract(i);
 
 						@Override

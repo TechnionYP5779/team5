@@ -6,7 +6,6 @@ package fluent.ly;
  * @author Yossi Gil
  * @since 2017-04-10
  */
-@SuppressWarnings("unused")
 public interface zero {
 	static int forgetting(final Object _1, final Object... _2) {
 		return 0;

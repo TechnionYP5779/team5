@@ -238,7 +238,6 @@ public class CSVLineTest {
 		azzert.that(c.entries().iterator().next() + "", is("ddd="));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void putarr01() {
 		final Sorterd c = new Sorterd();
@@ -247,7 +246,6 @@ public class CSVLineTest {
 		azzert.that(c.entries().iterator().next() + "", is("ddd="));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void putarr02() {
 		final Sorterd c = new Sorterd();
@@ -256,7 +254,6 @@ public class CSVLineTest {
 		azzert.that(c.entries().iterator().next() + "", is("ddd="));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void putarr03() {
 		final Sorterd c = new Sorterd();
@@ -265,7 +262,6 @@ public class CSVLineTest {
 		azzert.that(c.entries().iterator().next() + "", is("ddd=shak"));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void putarr10() {
 		final Sorterd c = new Sorterd();

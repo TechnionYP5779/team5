@@ -4,7 +4,7 @@ import static fluent.ly.azzert.*;
 
 import org.junit.*;
 
-@SuppressWarnings({ "static-method", "null" })
+@SuppressWarnings("static-method")
 public class unboxTest {
 	@Test
 	public void testUnboxBooleanArray() {
@@ -53,7 +53,7 @@ public class unboxTest {
 
 	@Test
 	public void testUnboxLongArray() {
-		azzert.that(unbox.it(new Long[] { box.it(1L * 1), box.it(1L * 2), box.it(1L * 3), box.it(1L * 4) }),
+		azzert.that(unbox.it(new Long[] { box.it(1L), box.it(2L), box.it(3L), box.it(4L) }),
 				is(new long[] { 1, 2, 3, 4 }));
 	}
 }

@@ -51,7 +51,7 @@ public class PropositionPrettyPrinter {
 		default void next() {
 			/**/}
 
-		default void in(@SuppressWarnings("unused") final T __) {
+		default void in(final T __) {
 			/**/}
 		// @formatter:on
 	}

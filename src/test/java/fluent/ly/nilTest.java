@@ -18,8 +18,7 @@ public class nilTest {
 
 	@Test
 	public void testGuardingly() {
-		final String helloString1 = "Hello";
-		final String nullString1 = null;
+		final String helloString1 = "Hello", nullString1 = null;
 		final Integer i1 = nil.guardingly(String::length).on(helloString1);
 		azzert.that(i1, is(box.it(5)));
 		final Integer i2 = nil.guardingly(String::length).on(nullString1);

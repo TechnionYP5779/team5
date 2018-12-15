@@ -16,7 +16,6 @@ import org.jetbrains.annotations.*;
  */
 public interface PureIterable<T> extends Iterable<T> {
 	@Override
-	@SuppressWarnings("null")
 	@Nullable
 	PureIterator<@NotNull T> iterator();
 

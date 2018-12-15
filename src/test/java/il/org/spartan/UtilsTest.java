@@ -51,8 +51,7 @@ public class UtilsTest {
 
 	@Test
 	public void addAllTest() {
-		final ArrayList<Integer> a = new ArrayList<>();
-		final ArrayList<Integer> b = new ArrayList<>();
+		final ArrayList<Integer> a = new ArrayList<>(), b = new ArrayList<>();
 		b.add(box.it(5));
 		azzert.that(a.size(), is(0));
 		Utils.addAll(a, b);
@@ -148,8 +147,7 @@ public class UtilsTest {
 	@Test
 	public void lastTest() {
 		final ArrayList<Integer> a = new ArrayList<>();
-		final Integer x2 = box.it(2);
-		final Integer x3 = box.it(3);
+		final Integer x2 = box.it(2), x3 = box.it(3);
 		a.add(x2);
 		a.add(x3);
 		assert Utils.lastIn(x3, a);
@@ -181,7 +179,6 @@ public class UtilsTest {
 	 * @since 2014-05-31
 	 */
 
-	@SuppressWarnings("null")
 	@NotNull
 	public Integer[] intToIntegers(final int... is) {
 		final Integer @NotNull [] $ = new Integer @NotNull [is.length];
@@ -191,7 +188,7 @@ public class UtilsTest {
 	}
 
 	@Test
-	@SuppressWarnings({ "unchecked", "null" })
+	@SuppressWarnings("unchecked")
 	public void addAllTypicalTest() {
 		final Set<String> ss = new HashSet<>();
 		accumulate.to(ss).addAll(as.set("A", "B"), null, as.set("B", "C", "D"));
@@ -202,7 +199,6 @@ public class UtilsTest {
 			azzert.aye("", ss.contains(¢));
 	}
 
-	@SuppressWarnings("null")
 	@Test
 	public void addTypicalTest() {
 		final Set<String> ss = new HashSet<>();
@@ -270,7 +266,6 @@ public class UtilsTest {
 
 	@Test
 	public void swapDegenerateTest() {
-		@SuppressWarnings("null")
 		final @NotNull String @NotNull [] ss = as.array("A", "B", "C", "D");
 		swap(ss, 1, 1);
 		assertArrayEquals(as.array("A", "B", "C", "D"), ss);
@@ -278,7 +273,6 @@ public class UtilsTest {
 
 	@Test
 	public void swapTypicalTest() {
-		@SuppressWarnings("null")
 		final @NotNull String @NotNull [] ss = as.array("A", "B", "C", "D");
 		swap(ss, 1, 2);
 		assertArrayEquals(as.array("A", "C", "B", "D"), ss);
@@ -286,7 +280,6 @@ public class UtilsTest {
 
 	@Test
 	public void swapTypicalCaseTest() {
-		@SuppressWarnings("null")
 		final Integer @NotNull [] $ = intToIntegers(29, 1, 60);
 		swap($, 0, 1);
 		assertArrayEquals(intToIntegers(1, 29, 60), $);
@@ -300,8 +293,7 @@ public class UtilsTest {
 	@Test
 	public void penultimateInTest() {
 		final ArrayList<Integer> a = new ArrayList<>();
-		final Integer x2 = box.it(2);
-		final Integer x3 = box.it(3);
+		final Integer x2 = box.it(2), x3 = box.it(3);
 		a.add(x2);
 		a.add(x3);
 		assert Utils.penultimateIn(x2, a);
@@ -319,8 +311,7 @@ public class UtilsTest {
 	@Test
 	public void removeTests() {
 		final ArrayList<Integer> a = new ArrayList<>();
-		final Integer x2 = box.it(2);
-		final Integer x3 = box.it(2);
+		final Integer x2 = box.it(2), x3 = box.it(2);
 		a.add(x2);
 		a.add(x3);
 		Utils.removeDuplicates(a);
@@ -347,8 +338,7 @@ public class UtilsTest {
 
 	@Test
 	public void suffixedByTest() {
-		final File f = new File("file1");
-		final File g = new File("file2");
+		final File f = new File("file1"), g = new File("file2");
 		final ArrayList<String> slist = new ArrayList<>();
 		slist.add("suf1");
 		slist.add("e1");

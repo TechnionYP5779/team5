@@ -56,8 +56,7 @@ public class rangeTest {
 		final rangedTo r = range.to(2).from(-5);
 		azzert.that(r.getTo(), is(2));
 		azzert.that(r.getFrom(), is(-5));
-		final range rr = new range(1, 7);
-		final range rr_in1 = new range(1, true);
+		final range rr = new range(1, 7), rr_in1 = new range(1, true);
 		assert !rr_in1.isToInfinite();
 		assert rr_in1.isFromInfinite();
 		final range rr_in2 = new range(1, false);
@@ -65,8 +64,7 @@ public class rangeTest {
 		assert !rr_in2.isFromInfinite();
 		isNull(rr_in1.from());
 		final rangedTo in = rr.interset(rr);
-		final rangeIterator itt = rr.from();
-		final rangeIterator it = r.from();
+		final rangeIterator itt = rr.from(), it = r.from();
 		assert in.from().hasNext();
 		assert itt.hasNext();
 		assert it.hasNext();

@@ -15,7 +15,6 @@ import il.org.spartan.Utils.FoundHandleForT.*;
  * @author Yossi Gil <code><yossi.gil [at] gmail.com></code>
  * @since 2013/07/01
  */
-@SuppressWarnings("null")
 public interface Utils {
 	String WHITES = "(?m)\\s+";
 

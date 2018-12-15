@@ -21,7 +21,6 @@ import il.org.spartan.utils.*;
  * @author Yossi Gil
  * @since Nov 13, 2016
  */
-@SuppressWarnings("null")
 public interface note {
 	class __ {
 		static String trace(final Throwable ¢) {

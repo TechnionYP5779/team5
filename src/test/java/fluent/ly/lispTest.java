@@ -6,8 +6,10 @@ import java.util.*;
 
 import org.junit.*;
 
-@SuppressWarnings({ "static-method", "null" })
+@SuppressWarnings(lispTest.STATIC_METHOD)
 public class lispTest {
+	static final String STATIC_METHOD = "static-method";
+
 	@Test
 	public void chop1() {
 		final List<Integer> l = new ArrayList<>();

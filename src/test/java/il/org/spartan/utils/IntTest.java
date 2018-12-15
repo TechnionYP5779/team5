@@ -14,7 +14,6 @@ public class IntTest {
 		azzert.that(unbox.it(box.it(9)), is(9));
 	}
 
-	@SuppressWarnings("null")
 	@AfterClass
 	public static void test_inner() {
 		final Int i1 = new Int(10);

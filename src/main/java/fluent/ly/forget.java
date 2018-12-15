@@ -8,7 +8,6 @@ package fluent.ly;
  *         them the compiler supports this, therefore all methods are labeled as
  *         "unused".
  */
-@SuppressWarnings("unused")
 public interface forget {
 	static void all(final Object _1, final Object... _2) {
 		/**/ }

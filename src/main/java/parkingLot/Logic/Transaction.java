@@ -1,6 +1,6 @@
 package parkingLot.Logic;
 
-import java.util.*;
+import java.util.Calendar;
 
 /**
  * @author Lior Ben-Yamin, Nir Chachamovitz

@@ -6,7 +6,6 @@ package il.org.spartan.etc;
  * @author Yossi Gil
  * @since 2017-04-10
  */
-@SuppressWarnings("unused")
 public interface yes {
 	interface On<T, R> {
 		R on(T t);

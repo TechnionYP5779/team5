@@ -32,8 +32,7 @@ public class BinaryTest {
 	@Test
 	public void andTest() {
 		Binary.T.clone();
-		final Binary true_b = Binary.of(true);
-		final Binary false_b = Binary.of(false);
+		final Binary true_b = Binary.of(true), false_b = Binary.of(false);
 		Binary.and(true_b, false_b);
 		azzert.that(Binary.F, is(Binary.of(false)));
 		final Binary true_b2 = Binary.of(true);
@@ -44,8 +43,7 @@ public class BinaryTest {
 
 	@Test
 	public void eqTest() {
-		final Binary b1 = Binary.T.clone();
-		final Binary b2 = Binary.F;
+		final Binary b1 = Binary.T.clone(), b2 = Binary.F;
 		Binary.eq(b1, b2);
 		Binary.eq(b1, b1);
 	}
@@ -59,8 +57,7 @@ public class BinaryTest {
 
 	@Test
 	public void notTest() {
-		final Binary b1 = Binary.T.clone();
-		final Binary b2 = Binary.F;
+		final Binary b1 = Binary.T.clone(), b2 = Binary.F;
 		Binary.not(b1);
 		Binary.not(b2);
 	}
@@ -68,8 +65,7 @@ public class BinaryTest {
 	@Test
 	public void orTest() {
 		Binary.T.clone();
-		final Binary true_b = Binary.of(true);
-		final Binary false_b = Binary.of(false);
+		final Binary true_b = Binary.of(true), false_b = Binary.of(false);
 		Binary.or(true_b, false_b);
 		azzert.that(Binary.F, is(Binary.of(false)));
 		final Binary true_b2 = Binary.of(true);

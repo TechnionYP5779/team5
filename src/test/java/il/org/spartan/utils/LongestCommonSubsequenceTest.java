@@ -14,8 +14,7 @@ import fluent.ly.*;
 public class LongestCommonSubsequenceTest {
 	@Test
 	public void testSimilarity() {
-		final String str1 = "abcdefg";
-		final String str2 = "bcde";
+		final String str1 = "abcdefg", str2 = "bcde";
 		final LongestCommonSubsequence lcs = new LongestCommonSubsequence(str1, str2);
 		azzert.that(lcs.similarity(), is(0.7272727272727273));
 	}
