@@ -14,7 +14,7 @@ appModule
 							$scope.roleUser = false;
 							$scope.roleAdmin = false;
 							$scope.roleFoo = false;
-							$scope.addressGiven = "no address";
+							$scope.parkings = null;
 
 							// login logout
 
@@ -27,7 +27,6 @@ appModule
 													$scope.token = token;
 													$http.defaults.headers.common.Authorization = 'Bearer '
 															+ token;
-													$scope.checkRoles();
 												}, function(error) {
 													$scope.error = error
 													$scope.userName = '';
@@ -49,33 +48,16 @@ appModule
 							$scope.addParking = function() {
 								$scope.addedParking = true;
 								$scope.error = null;
-								mainService.addParking($scope.address);
+								mainService.addParking($scope.address, $scope.userName);
 								window.alert("Parking in " +  $scope.address + " added Succesfully")
 							}
 
 							$scope.showParkings = function() {
 								mainService.showParkings().then(
-										function(address) {
-											$scope.addressGiven = address
+										function(parkings) {
+											$scope.parkings = parkings
 										});
 							}
-
-							// TODO roles - remove
-
-							$scope.checkRoles = function() {
-								mainService.hasRole('user').then(
-										function(user) {
-											$scope.roleUser = user
-										});
-								mainService.hasRole('admin').then(
-										function(admin) {
-											$scope.roleAdmin = admin
-										});
-								mainService.hasRole('foo').then(function(foo) {
-									$scope.roleFoo = foo
-								});
-							}
-
 						} ]);
 
 appModule.service('mainService', function($http) {
@@ -89,23 +71,15 @@ appModule.service('mainService', function($http) {
 			});
 		},
 		// parking requests
-		addParking : function(address) {
+		addParking : function(address, userName) {
 			return $http.post('/parking/addParking', {
-				address : address
+				address : address,
+				userName: userName
 			});
 		},
 
 		showParkings : function() {
 			return $http.get('/parking/getParking').then(function(response) {
-				console.log(response);
-				return response.data;
-			});
-		},
-
-		// TODO remove
-
-		hasRole : function(role) {
-			return $http.get('/api/role/' + role).then(function(response) {
 				console.log(response);
 				return response.data;
 			});

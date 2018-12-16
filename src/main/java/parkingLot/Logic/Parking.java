@@ -21,8 +21,9 @@ public class Parking {
 	 * location Format: State, city, street, apratment no. we will try to use google
 	 * maps locationType. we will do it when the time comes
 	 **/
-	static int currentId = -1;
+	static int currentId = 1;
 	String location;
+	String userName;
 	final int id;
 	int ownerId;
 	size sz;
@@ -35,6 +36,15 @@ public class Parking {
 		this.sz = sz;
 		this.location = location;
 		this.availableSlots = new ArrayList<>();
+	}
+	
+	public Parking(final int owner, final size sz, final String location, String userName) {
+		this.id = currentId++;
+		this.ownerId = owner;
+		this.sz = sz;
+		this.location = location;
+		this.availableSlots = new ArrayList<>();
+		this.userName = userName;
 	}
 
 	/** getters & setters **/
@@ -53,10 +63,15 @@ public class Parking {
 	public String getLocation() {
 		return location;
 	}
+	
+	public String getUserName() {
+		return userName;
+	}
 
 	protected List<Slot> getAvailableSlots() {
 		return availableSlots;
 	}
+	
 
 	/** some basic functionality **/
 	/**
