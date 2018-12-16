@@ -1,9 +1,7 @@
 package parkingLot.Backend;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -20,15 +18,15 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @RequestMapping("/user")
 public class UserController {
 
-	private final Map<String, List<String>> userDb = new HashMap<>();
+	private final Map<String, String> userDb = new HashMap<>();
 
 	public UserController() {
-		userDb.put("igor", Arrays.asList("user", "admin"));
-		userDb.put("or", Arrays.asList("user", "admin"));
-		userDb.put("lior", Arrays.asList("user", "admin"));
-		userDb.put("nir", Arrays.asList("user", "admin"));
-		userDb.put("shalev", Arrays.asList("user", "admin"));
-		userDb.put("shaked", Arrays.asList("user", "admin"));
+		userDb.put("igor", "igor");
+		userDb.put("or", "or");
+		userDb.put("lior", "lior");
+		userDb.put("nir", "nir");
+		userDb.put("shalev", "shalev");
+		userDb.put("shaked", "shaked");
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)

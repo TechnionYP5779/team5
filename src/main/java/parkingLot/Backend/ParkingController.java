@@ -1,5 +1,6 @@
 package parkingLot.Backend;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,19 +19,22 @@ import parkingLot.Logic.Parking;
 public class ParkingController {
 
 	private final Map<Integer, Parking> addressDb = new HashMap<>();
+	
 
 	@RequestMapping(value = "addParking", method = RequestMethod.POST)
-	public void addParking(@RequestBody final Address ¢) throws ServletException {
-		addressDb.put(box.it(1), new Parking(0, Parking.size.PRIVATE_CAR, ¢.address));
+	public void addParking(@RequestBody final HttpParking ¢) throws ServletException {
+		Parking parking = new Parking(0, Parking.size.PRIVATE_CAR, ¢.address, ¢.userName);
+		addressDb.put(box.it(parking.getId()), parking);
 	}
 
 	@RequestMapping(value = "getParking", method = RequestMethod.GET)
-	public String getParking() throws ServletException {
-		return "\"" + addressDb.get(box.it(1)).getLocation() + "\"";
+	public Collection<Parking> getParking() throws ServletException {
+		return addressDb.values();
 	}
 
-	private static class Address {
+	private static class HttpParking {
 		public String address;
+		public String userName;
 	}
 
 }
