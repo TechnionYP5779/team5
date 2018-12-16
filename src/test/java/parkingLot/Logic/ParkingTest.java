@@ -19,7 +19,7 @@ public class ParkingTest {
 
 	@Test
 	public void setsAndGets() {
-		azzert.that(p.getId(), is(1));
+		azzert.that(p.getId(), is(3));
 		azzert.that(p.getOwner(), is(1));
 		azzert.that(p.getSize(), is(size.PRIVATE_CAR));
 		azzert.that(p.getLocation(), is("Israel, Holon, Hahartsit, 8"));

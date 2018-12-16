@@ -1,5 +1,12 @@
 <!doctype html>
 <html ng-app="myApp">
+<style>
+table, th, td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 10px;
+}
+</style>
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -7,6 +14,7 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="app.css" />
 <script src="libs/jquery/jquery.js"></script>
 <script src="libs/bootstrap/js/bootstrap.js"></script>
 <script src="libs/angular/angular.js"></script>
@@ -14,7 +22,7 @@
 </head>
 <body>
 	<div class="container" ng-controller='MainCtrl'>
-		<h1>{{greeting}}</h1>
+		<img src="/images/logo.png" alt="Parking Lot" class="center"> </br>
 		<div ng-show="!loggedIn()">
 			Please log in</br>
 			<form ng-submit="login()">
@@ -38,39 +46,22 @@
 						Available Parking</button>
 					<br>
 					<form ng-submit="addParking()">
-						Address: <input type="text" ng-model="address" /><span><input
+						Address: <input type="text" ng-model="address" /><input
 							type="submit" value="addParking" />
 					</form>
-					<div>
-						<p>Addresses To Show: {{addressGiven}}</p>
-					</div>
+					<table width="400">
+							<tr>
+								<th>id</th>
+								<th>location</th>
+								<th>owner</th>
+							</tr>
+							<tr ng-repeat="parking in parkings">
+								<td>{{parking.id}}</td>
+								<td align="center">{{parking.location}}</td>
+								<td align="center">{{parking.userName}}</td>
+							</tr>
+					</table>
 					<a href ng-click="logout()">(logout)</a>
-				</div>
-				<div class="col-md-4">
-					<div class="row header">
-						<div class="col-sm-4">{{userName}} is a</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">User</div>
-						<div class="col-sm-2">
-							<span class="glyphicon glyphicon-ok" aria-hidden="true"
-								ng-show="roleUser"></span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">Admin</div>
-						<div class="col-sm-2">
-							<span class="glyphicon glyphicon-ok" aria-hidden="true"
-								ng-show="roleAdmin"></span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">Foo</div>
-						<div class="col-sm-2">
-							<span class="glyphicon glyphicon-ok" aria-hidden="true"
-								ng-show="roleFoo"></span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
