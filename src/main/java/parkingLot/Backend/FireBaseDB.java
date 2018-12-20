@@ -35,7 +35,7 @@ public class FireBaseDB implements DB{
 	}
 	
 	public FireBaseDB() throws IOException{
-		InputStream serviceAccount = new FileInputStream("C:\\Users\\אור\\eclipse-workspace\\team5\\src\\main\\java\\parkingLot\\Backend\\key.json");
+		InputStream serviceAccount = new FileInputStream("..\\..\\..\\..\\..\\credentials\\credentials.json");
 		GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
 		FirestoreOptions options =  FirestoreOptions.newBuilder()
 			    .setCredentials(credentials)
@@ -45,7 +45,7 @@ public class FireBaseDB implements DB{
 			DocumentReference docRef = DB.collection("users").document("alovelace");
 			// Add document data  with id "alovelace" using a hashmap
 			Map<String, Object> data = new HashMap<>();
-			data.put("first", "Ada");
+			data.put("first", "AdaBoost");
 			data.put("last", "Lovelace");
 			data.put("born", 1815);
 			//asynchronously write data
