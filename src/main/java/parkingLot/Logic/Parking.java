@@ -45,6 +45,14 @@ public class Parking {
 		this.availableSlots = new ArrayList<>();
 		this.userMail = userMail;
 	}
+	
+	public Parking(int id, final size sz, final String location, String userMail) {
+		this.id = id;
+		this.sz = sz;
+		this.location = location;
+		this.availableSlots = new ArrayList<>();
+		this.userMail = userMail;
+	}
 
 	/** getters & setters **/
 	public int getId() {

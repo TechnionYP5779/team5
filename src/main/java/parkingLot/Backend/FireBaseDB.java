@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import parkingLot.Logic.Parking;
 import parkingLot.Logic.User;
@@ -18,7 +19,9 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.EventListener;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.FirestoreException;
 import com.google.cloud.firestore.FirestoreOptions;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
@@ -130,8 +133,26 @@ public class FireBaseDB implements DB{
 
 	@Override
 	public ArrayList<Parking> getParkings() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<Parking> ret=new ArrayList<>();
+		
+		CollectionReference parkings = DB.collection("parking");
+		com.google.cloud.firestore.Query query = parkings.whereEqualTo("owner", "or@gmail");
+		ApiFuture<QuerySnapshot> querySnapshot = query.get();
+		try {
+			for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+				if(!"-1".equals(document.getId()))
+				ret.add(new Parking(Integer.valueOf(document.getId()),Parking.size.PRIVATE_CAR,document.getString("location"),document.getString("owner")));
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+		
 	}
 
 	@Override
