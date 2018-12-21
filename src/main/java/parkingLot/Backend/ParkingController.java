@@ -18,18 +18,18 @@ import parkingLot.Logic.Parking;
 @RequestMapping("/parking")
 public class ParkingController {
 
-	private final Map<Integer, Parking> addressDb = new HashMap<>();
+	private final  DB db= new FireBaseDB("C:\\Users\\אור\\eclipse-workspace\\team5\\credentials\\credentials.json");
 	
 
 	@RequestMapping(value = "addParking", method = RequestMethod.POST)
 	public void addParking(@RequestBody final HttpParking ¢) throws ServletException {
 		Parking parking = new Parking(Parking.size.PRIVATE_CAR, ¢.address, ¢.userName);
-		addressDb.put(box.it(parking.getId()), parking);
+		db.addParking(parking);
 	}
 
 	@RequestMapping(value = "getParking", method = RequestMethod.GET)
 	public Collection<Parking> getParking() throws ServletException {
-		return addressDb.values();
+		return db.getParkings();
 	}
 
 	private static class HttpParking {

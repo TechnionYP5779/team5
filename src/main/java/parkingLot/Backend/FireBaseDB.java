@@ -1,5 +1,6 @@
 package parkingLot.Backend;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -9,8 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-
 import parkingLot.Logic.Parking;
 import parkingLot.Logic.User;
 
@@ -19,16 +18,10 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.EventListener;
 import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.FirestoreException;
 import com.google.cloud.firestore.FirestoreOptions;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.cloud.FirestoreClient;
-import com.google.firebase.database.Query;
 
 public class FireBaseDB implements DB{
 
@@ -48,52 +41,26 @@ public class FireBaseDB implements DB{
 	}
 	
 	
-	public FireBaseDB(String path) throws IOException{
-		InputStream serviceAccount = new FileInputStream(path);
-		GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
+	public FireBaseDB(String path)  {
+		InputStream serviceAccount = null;
+		try {
+			serviceAccount = new FileInputStream(path);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		GoogleCredentials credentials = null;
+		try {
+			credentials = GoogleCredentials.fromStream(serviceAccount);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		FirestoreOptions options =  FirestoreOptions.newBuilder()
 			    .setCredentials(credentials)
 			    .setTimestampsInSnapshotsEnabled(true)
 			    .build();
 			 this.DB = options.getService();
-			/*
-			DocumentReference docRef = DB.collection("users").document("alovelace");
-			// Add document data  with id "alovelace" using a hashmap
-			Map<String, Object> data = new HashMap<>();
-			data.put("first", "AdaBoost");
-			data.put("last", "Lovelace");
-			data.put("born", 1815);
-			//asynchronously write data
-			ApiFuture<WriteResult> result = docRef.set(data);
-			// ...
-			// result.get() blocks on response
-			try {
-				System.out.println("Update time : " + result.get().getUpdateTime());
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			CollectionReference cities = DB.collection("users");
-			// Create a query against the collection.
-			com.google.cloud.firestore.Query query = cities.whereEqualTo("first", "AdaBoost");
-			// retrieve  query results asynchronously using query.get()
-			ApiFuture<QuerySnapshot> querySnapshot = query.get();
-			try {
-				for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
-					  System.out.println(document.getString("last"));
-					}
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			*/
 	}
 	
 	@Override
@@ -137,7 +104,7 @@ public class FireBaseDB implements DB{
 		ArrayList<Parking> ret=new ArrayList<>();
 		
 		CollectionReference parkings = DB.collection("parking");
-		com.google.cloud.firestore.Query query = parkings.whereEqualTo("owner", "or@gmail");
+		com.google.cloud.firestore.Query query = parkings;
 		ApiFuture<QuerySnapshot> querySnapshot = query.get();
 		try {
 			for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
