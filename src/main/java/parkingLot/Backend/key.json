@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "parkinglot",
+  "private_key_id": "0584089c6a45bc4bb3a76b88482b9d29ffbd75a0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCd5leuC8CWuKvS\nA44jlPLUE6I+mKbbufbCVdCPW0fmWDwlcPxXRZkplKY+gDxrZl4CxLj4LI82j26J\nq++cyu784hDIyPD9+91DYsTs+ufcmq9VaKUVDtT2/0BWIXNqErZIRdG1FUw1VugB\njD20SkKLuEZG6qY2yeWUPQF7JLTNLPGms3D2OCofHs+7TMhuUNMV2MiqhGWNYs6h\niUmRO4rggB2Jm3CpZf99E5k2AsMJTwPxS5baXX4L5yt9JfeOaFSf/jXH8V1yPFLS\nijFoEytnwcPJm50RJVgLnKUAwKVwZ/zddfvDE+Z/Gn2Gu8oX8AbFyDDPKmWfRHNB\nQXylckKJAgMBAAECggEAEPRngI6uP7jlaTv8vp0bLHLNwnkvfItFv/UJO6V2bVlW\n3wHYdLIKWdTGe5JXOoSPzm4LewmE2LvSx5lk1aIUQqbvHLI371vEtNxFjzk7XZyl\n/E6r4DybGUkMAlud6htHg6/sjkxSxiz2ZVkm1IW/SsOvFyUR0zL/cfkRgESvHdM9\nCKyeq0mi0rZllRP6vZg5bTAdMiX2ZKAQj4nGgNnHgMrK1kfFp9/9qKOUzuFjQ6CO\nDPhMNH2oOW54Tu3gL4lT9oSBod4jJ5u6fUiqufLDOBmG/1zyseNrbadJ145gpMNR\nCFeonllpxDTfmSx46u+0541uqk2fvSIg3qAJG+cnEQKBgQDSLCW/JexLp9uqksFR\nNEnQZqN3XD5FBpJzAM2bKTpN69qJSGP+wJ/JTGUfsP010fUjhV9rnUWrQsWBuT1U\nDjoCAcoyRRsnCoqitWKdL4lekO/SX9kQ7OzsLElVbt4JNiGyVC3eZU1v5qr9m5po\n0zPxA3IXbfLgkmLUxIXOIQEqWQKBgQDAVFPnaWEtoF3U6bLdnaRekztTA910nepw\nZ8QNJkNe1J0nHdt1r/IbDA2ltQ1ndG2VMKBmV9vnm/ATOJmGYNz1K/r500l+werA\nzn57dzSHBSqaW9xdbajsilndGNGVGM2ivBPKS7Um6Jcoyk9TxCxSrwVO6ByHp9l0\n4RPays5zsQKBgBcnbfElCGc9UuHz0QBVNlyTMicQLnwEQVYSHJSfciDrfuPo6btD\nFVdj5zAam4q2Wr9TDjQY23gGnyOveKYt+w4FjHUFT/x5GNTcDsUqW4Pji8gtbwiC\nUYejSWD0GdoB8KxowbTijClrzCKsZdJukiZXLtaN8lfzSJgQHn2a/TnhAoGBAK1I\njRwXhvXb4g6dzIj9qoWHc9DUz6dtTDegVjRewB5lw33l2cAMGT8jOfyNxpjqfn0H\nhc0P5dKkXcaDnVdEWHARAxwpsLMjNkYnBjBpc4sfLYZLs5z920/bSyH4ZYRHB6dS\neyYt1fZLYz3eIWDgg+qvREIWwPW8ViGHVSMwzJfRAoGARamjX3PVL2WPCXmzEqpT\n4UZ4fyq6H4/a18o9fUOI9+z9XCa3ZYLFBTAasnvTi/uh6NfGDsUFVnoA/guBMZQC\nfwb24aCm9ILpB7L+jdiQxxVnirrqKimRCug693oPOrOH1IDnQs1kZzwG0GFB9/KK\n5C+Q9ydzoblMnNmVb8bvoyQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-wcew9@parkinglot.iam.gserviceaccount.com",
+  "client_id": "107144893531749428450",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-wcew9%40parkinglot.iam.gserviceaccount.com"
+}

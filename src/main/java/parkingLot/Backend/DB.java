@@ -9,7 +9,7 @@ public interface DB {
 
 	User getUser(String id, String password);
 
-	boolean addUser(User u);
+	boolean addUser(User u,String password);
 
 	ArrayList<Parking> getParkings();
 
