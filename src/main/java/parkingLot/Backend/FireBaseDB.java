@@ -40,7 +40,7 @@ public class FireBaseDB implements DB{
 	private Map<String, Object> parking2map(Parking p){
 		Map<String,Object> retMap=new HashMap<>();
 		retMap.put("location",p.getLocation() );
-		retMap.put("owner", p.getOwner());
+		retMap.put("owner", p.getUserName());
 		return retMap;
 	}
 	
@@ -136,7 +136,18 @@ public class FireBaseDB implements DB{
 
 	@Override
 	public boolean addParking(Parking p) {
-		// TODO Auto-generated method stub
+		Map<String,Object> m = parking2map(p);
+		DocumentReference docRef = DB.collection("parking").document(String.valueOf(p.getId()));
+		ApiFuture<WriteResult> result=docRef.set(m);
+		try {
+			result.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 

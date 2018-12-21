@@ -23,7 +23,7 @@ public class Parking {
 	 **/
 	static int currentId = 1;
 	String location;
-	String userName;
+	String userMail;
 	final int id;
 	int ownerId;
 	size sz;
@@ -38,13 +38,12 @@ public class Parking {
 		this.availableSlots = new ArrayList<>();
 	}
 	
-	public Parking(final int owner, final size sz, final String location, String userName) {
+	public Parking( final size sz, final String location, String userMail) {
 		this.id = currentId++;
-		this.ownerId = owner;
 		this.sz = sz;
 		this.location = location;
 		this.availableSlots = new ArrayList<>();
-		this.userName = userName;
+		this.userMail = userMail;
 	}
 
 	/** getters & setters **/
@@ -65,7 +64,7 @@ public class Parking {
 	}
 	
 	public String getUserName() {
-		return userName;
+		return this.userMail;
 	}
 
 	protected List<Slot> getAvailableSlots() {

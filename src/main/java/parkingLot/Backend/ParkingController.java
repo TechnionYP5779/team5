@@ -23,7 +23,7 @@ public class ParkingController {
 
 	@RequestMapping(value = "addParking", method = RequestMethod.POST)
 	public void addParking(@RequestBody final HttpParking ¢) throws ServletException {
-		Parking parking = new Parking(0, Parking.size.PRIVATE_CAR, ¢.address, ¢.userName);
+		Parking parking = new Parking(Parking.size.PRIVATE_CAR, ¢.address, ¢.userName);
 		addressDb.put(box.it(parking.getId()), parking);
 	}
 
