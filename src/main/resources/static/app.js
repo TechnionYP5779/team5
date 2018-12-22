@@ -21,7 +21,7 @@ appModule
 							$scope.login = function() {
 								$scope.error = null;
 								mainService
-										.login($scope.userName)
+										.login($scope.userName,$scope.password)
 										.then(
 												function(token) {
 													$scope.token = token;
@@ -30,6 +30,7 @@ appModule
 												}, function(error) {
 													$scope.error = error
 													$scope.userName = '';
+													$scope.password = '';
 												});
 							}
 
@@ -41,6 +42,12 @@ appModule
 
 							$scope.loggedIn = function() {
 								return $scope.token !== null;
+							}
+							
+							$scope.signUp = function() {
+								mainService.signUp($scope.userNameS,$scope.passwordS);
+								$scope.passwordS='';
+								$scope.userNameS='';
 							}
 
 							// parking
@@ -63,13 +70,22 @@ appModule
 appModule.service('mainService', function($http) {
 	return {
 		// login requests
-		login : function(username) {
+		login : function(username,password) {
 			return $http.post('/user/login', {
-				name : username
+				name : username,
+				password: password
 			}).then(function(response) {
 				return response.data.token;
 			});
 		},
+		
+		signUp : function(email, password) {
+			return $http.post('/user/signUp', {
+				name : email,
+				password: password
+			});
+		},
+		
 		// parking requests
 		addParking : function(address, userName) {
 			return $http.post('/parking/addParking', {

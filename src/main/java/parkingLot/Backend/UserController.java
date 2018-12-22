@@ -13,31 +13,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import parkingLot.Logic.User;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
-	private final Map<String, String> userDb = new HashMap<>();
+	private final DB db=new FireBaseDB("C:\\Users\\אור\\eclipse-workspace\\team5\\credentials\\credentials.json"); 
 
-	public UserController() {
-		userDb.put("igor", "igor");
-		userDb.put("or", "or");
-		userDb.put("lior", "lior");
-		userDb.put("nir", "nir");
-		userDb.put("shalev", "shalev");
-		userDb.put("shaked", "shaked");
-	}
-
+	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public LoginResponse login(@RequestBody final UserLogin ¢) throws ServletException {
-		if (¢.name == null || !userDb.containsKey(¢.name))
+		if (¢.name == null || ¢.password==null ) {
+			System.out.println("here1");
 			throw new ServletException("Invalid login");
-		return new LoginResponse(Jwts.builder().setSubject(¢.name).claim("roles", userDb.get(¢.name))
+		}
+		User $=db.getUser(¢.name, ¢.password);
+		if($==null)
+			throw new ServletException("Invalid login");
+		return new LoginResponse(Jwts.builder().setSubject(¢.name).claim("roles", $.getName())
 				.setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256, "secretkey").compact());
 	}
+	
+	
+	@RequestMapping(value = "signUp", method = RequestMethod.POST)
+	public void addParking(@RequestBody final UserLogin ¢) throws ServletException {
+		int index;
+		if(¢.name.indexOf("@")==-1)
+			index=¢.name.length();
+		else
+			index=(¢.name.indexOf("@"));
+		db.addUser(new User(¢.name.substring(0, index),¢.name,123456789), ¢.password);
+	}
 
-	@SuppressWarnings("unused")
 	private static class UserLogin {
 		public String name;
 		public String password;

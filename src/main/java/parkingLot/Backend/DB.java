@@ -7,7 +7,7 @@ import parkingLot.Logic.User;
 
 public interface DB {
 
-	User getUser(String id, String password);
+	User getUser(String email, String password);
 
 	boolean addUser(User u,String password);
 

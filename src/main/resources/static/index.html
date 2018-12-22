@@ -26,8 +26,18 @@ table, th, td {
 		<div ng-show="!loggedIn()">
 			Please log in</br>
 			<form ng-submit="login()">
-				Username: <input type="text" ng-model="userName" /><span><input
-					type="submit" value="Login" />
+				Email: <input type="text" ng-model="userName" /><span>
+				Password: <input type="text" ng-model="password" /><span>
+				<input type="submit" value="Login" />
+			</form>
+		</div>
+		</br>
+		<div ng-show="!loggedIn()">
+			Please sign up</br>
+			<form ng-submit="signUp()">
+				Email: <input type="text" ng-model="userNameS" /><span>
+				Password: <input type="text" ng-model="passwordS" /><span><input
+					type="submit" value="sign Up" />
 			</form>
 		</div>
 		<div class="alert alert-danger" role="alert"

@@ -64,15 +64,45 @@ public class FireBaseDB implements DB{
 	}
 	
 	@Override
-	public User getUser(String id, String password) {
-		// TODO Auto-generated method stub
+	public User getUser(String email, String password) {
+		CollectionReference users = DB.collection("users");
+		/*
+		MessageDigest digest=null;
+		try {
+			digest = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		password+=email;
+		byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+		String shash=String.valueOf(hash);
+		System.out.println(shash);
+		*/
+		com.google.cloud.firestore.Query query = users.whereEqualTo("password", password);
+		ApiFuture<QuerySnapshot> querySnapshot = query.get();
+		try {
+			for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+				if((!"-1".equals(document.getId()))&& email.equals(document.getId()))
+					return new User(document.getString("name"),email,123);
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
 	public boolean addUser(User u,String password) {
 		Map<String,Object> m = user2map(u);
+		m.put("password", password);
 		DocumentReference docRef = DB.collection("users").document(u.getEmail());
+		/*
 		MessageDigest digest=null;
 		try {
 			digest = MessageDigest.getInstance("SHA-256");
@@ -83,8 +113,8 @@ public class FireBaseDB implements DB{
 		}
 		password+=u.getEmail();
 		byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-		
 		m.put("password", String.valueOf(hash));
+		*/
 		ApiFuture<WriteResult> result=docRef.set(m);
 		try {
 			result.get();
