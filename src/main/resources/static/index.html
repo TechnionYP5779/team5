@@ -27,8 +27,8 @@ table, th, td {
 			Please log in</br>
 			<form ng-submit="login()">
 				Email: <input type="text" ng-model="userName" /><span>
-				Password: <input type="password" ng-model="password" /><span>
-				<input type="submit" value="Login" />
+					Password: <input type="password" ng-model="password" /><span>
+						<input type="submit" value="Login" />
 			</form>
 		</div>
 		</br>
@@ -36,8 +36,8 @@ table, th, td {
 			Please sign up</br>
 			<form ng-submit="signUp()">
 				Email: <input type="text" ng-model="userNameS" /><span>
-				Password: <input type="password" ng-model="passwordS" /><span><input
-					type="submit" value="sign Up" />
+					Password: <input type="password" ng-model="passwordS" /><span><input
+						type="submit" value="sign Up" />
 			</form>
 		</div>
 		<div class="alert alert-danger" role="alert"
@@ -60,16 +60,16 @@ table, th, td {
 							type="submit" value="addParking" />
 					</form>
 					<table width="400">
-							<tr>
-								<th>id</th>
-								<th>location</th>
-								<th>owner</th>
-							</tr>
-							<tr ng-repeat="parking in parkings">
-								<td>{{parking.id}}</td>
-								<td align="center">{{parking.location}}</td>
-								<td align="center">{{parking.userName}}</td>
-							</tr>
+						<tr>
+							<th>id</th>
+							<th>location</th>
+							<th>owner</th>
+						</tr>
+						<tr ng-repeat="parking in parkings">
+							<td>{{parking.id}}</td>
+							<td align="center">{{parking.location}}</td>
+							<td align="center">{{parking.userName}}</td>
+						</tr>
 					</table>
 					<a href ng-click="logout()">(logout)</a>
 				</div>

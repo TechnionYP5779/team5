@@ -1,12 +1,12 @@
 package il.org.spartan.utils;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 /**
  * An abstract reducer of an associative, but not necessarily commutative
  * operation. This operation must also have a neutral element (#{@link Reduce}).
- * 
+ *
  * @param <R>
  * @since 2017-01-29
  */

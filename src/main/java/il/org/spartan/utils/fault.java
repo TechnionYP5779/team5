@@ -1,14 +1,15 @@
 package il.org.spartan.utils;
 
-import java.io.*;
-import java.nio.charset.*;
-import java.util.stream.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Stream;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Fluent API
- * 
+ *
  * @author Yossi Gil
  * @since 2016
  */

@@ -1,12 +1,13 @@
 package il.org.spartan.statistics;
 
-import static il.org.spartan.bench.Unit.*;
+import static il.org.spartan.bench.Unit.RELATIVE;
 
-import java.util.*;
+import java.util.Arrays;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import il.org.spartan.bench.*;
+import il.org.spartan.bench.Unit;
 
 /**
  * @author Yossi Gil
@@ -34,7 +35,7 @@ public abstract class ImmutableStatistics extends Statistics implements java.io.
 
 	/**
 	 * Generate a copy of the set of all recorded values
-	 * 
+	 *
 	 * @return an array containing all recorded values
 	 */
 	public final double @NotNull [] all() {
@@ -119,7 +120,7 @@ public abstract class ImmutableStatistics extends Statistics implements java.io.
 
 	/**
 	 * Prune the set of values to those in the median +- mad value.
-	 * 
+	 *
 	 * @return an array representing these values
 	 */
 	public double @NotNull [] prune() {
@@ -137,7 +138,7 @@ public abstract class ImmutableStatistics extends Statistics implements java.io.
 	/**
 	 * Provides the {@link Unit} of measurement used by values recorded in this
 	 * instance
-	 * 
+	 *
 	 * @return a non-negative integer, giving the number of elements in the sequence
 	 */
 	public final Unit unit() {

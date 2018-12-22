@@ -1,9 +1,11 @@
 // <a href=http://ssdl-linux.cs.technion.ac.il/wiki/index.php>SSDLPedia</a>
 package il.org.spartan.utils;
 
-import static fluent.ly.___.*;
+import static fluent.ly.___.require;
 
-import org.jetbrains.annotations.*;
+import java.io.PrintStream;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Prefix text with varying indentation level. Class can be used for an indented
@@ -42,7 +44,7 @@ public class Tab {
 
 	/**
 	 * Instantiate this class with a specified tabulation {@link String}.
-	 * 
+	 *
 	 * @param tab a {@link String} by which indentation should be increased at each
 	 *            {@link #more()} action.
 	 */
@@ -52,7 +54,7 @@ public class Tab {
 
 	/**
 	 * Increase indentation but returns the previous tabulation string.
-	 * 
+	 *
 	 * @return the previous tabulation string.
 	 */
 	public String begin() {
@@ -63,7 +65,7 @@ public class Tab {
 
 	/**
 	 * Decrease indentation level and returns the new tabulation string.
-	 * 
+	 *
 	 * @return the new tabulation string.
 	 */
 	public String end() {
@@ -73,7 +75,7 @@ public class Tab {
 
 	/**
 	 * Determine whether backward tabbing is not possible any more.
-	 * 
+	 *
 	 * @return <code><b>true</b></code> <i>iff</i> if this instance cannot provide
 	 *         any lesser indentation.
 	 */
@@ -89,7 +91,7 @@ public class Tab {
 
 	/**
 	 * Send a formatted, indented by this instance, line to {@link System#out}.
-	 * 
+	 *
 	 * @param format A format string as described in {@link PrintStream#printf}.
 	 *               This format string should not include the terminating
 	 *               <code>'\n'</code> character.
@@ -107,7 +109,7 @@ public class Tab {
 
 	/**
 	 * Send a formatted line, indented by this instance, to {@link System#out}.
-	 * 
+	 *
 	 * @param os what to print
 	 */
 	public void println(final @NotNull Object... os) {

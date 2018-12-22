@@ -1,8 +1,8 @@
 package il.org.spartan.utils;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.*;
+import fluent.ly.as;
 
 public abstract class Accumulator {
 	protected int value;
@@ -51,7 +51,7 @@ public abstract class Accumulator {
 
 	/**
 	 * A simple counter class.
-	 * 
+	 *
 	 * @author Itay Maman, The Technion
 	 * @since Jul 30, 2007
 	 */
@@ -91,7 +91,7 @@ public abstract class Accumulator {
 
 		/**
 		 * Instantiate {@link Last}.
-		 * 
+		 *
 		 * @param name JD
 		 */
 		public Last(final @NotNull String name) {
@@ -124,7 +124,7 @@ public abstract class Accumulator {
 
 		/**
 		 * Instantiate {@link Summer}.
-		 * 
+		 *
 		 * @param name name of this instance
 		 */
 		public Summer(final @NotNull String name) {

@@ -1,24 +1,26 @@
 /* Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package il.org.spartan.iterables;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 
-import an.*;
-import fluent.ly.*;
+import an.iterable;
+import fluent.ly.as;
 
 /**
  * No values in an 'enum' used as name space for a collection of 'static'
  * functions.
- * 
+ *
  * @author Yossi Gil <Yossi.Gil@GMail.COM>
  */
 public enum iterables {
 	;
 	/**
 	 * Counts the number of items in an {@link Iterable}.
-	 * 
+	 *
 	 * @param    <T> some arbitrary type
 	 * @param ts some iterable over items whose type is the type parameter
 	 * @return number of items the given iterable yields.
@@ -49,7 +51,7 @@ public enum iterables {
 
 	/**
 	 * wraps a value in a singleton iterator form
-	 * 
+	 *
 	 * @param   <T> JD
 	 * @param $ JD
 	 * @return parameter, but in a singleton iterator form

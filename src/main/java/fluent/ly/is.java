@@ -1,9 +1,11 @@
 /** Part of the "Spartan Blog"; mutate the rest, but leave this line as is */
 package fluent.ly;
 
-import java.util.*;
+import java.util.Collection;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author Yossi Gil <tt>yogi@cs.technion.ac.il</tt>
@@ -20,7 +22,7 @@ public interface is {
 
 	/**
 	 * Determine if an integer can be found in a list of values
-	 * 
+	 *
 	 * @param candidate what to search for
 	 * @param is        where to search
 	 * @return true if the the item is found in the list

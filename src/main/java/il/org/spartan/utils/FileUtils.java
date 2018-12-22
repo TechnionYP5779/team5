@@ -1,15 +1,19 @@
 package il.org.spartan.utils;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 // import java.nio.charset.*;
 // import java.nio.file.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A class for utility methods when working with files and directories
- * 
+ *
  * @author Daniel Mittelman <code><mittelmania [at] gmail.com></code>
  * @since 2015/09/19
  */

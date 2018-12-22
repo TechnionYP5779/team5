@@ -1,14 +1,23 @@
 package il.org.spartan;
 
-import static fluent.ly.___.*;
+import static fluent.ly.___.nonnull;
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import fluent.ly.*;
+import fluent.ly.as;
 
 /**
  * This class realize the CSV specification, by comprising methods for
@@ -18,7 +27,7 @@ import fluent.ly.*;
  * This is a simplified version of the CSV specification, each record must be a
  * single line. Within are some other useful auxiliary functions for string
  * manipulations.
- * 
+ *
  * @author Oren Rubin
  */
 public enum CSV {
@@ -29,7 +38,7 @@ public enum CSV {
 	/**
 	 * Combine the given array of Class objects values into a comma separated
 	 * string.
-	 * 
+	 *
 	 * @param cs Input array
 	 * @return Combined string
 	 * @see #splitToClasses(String)
@@ -45,7 +54,7 @@ public enum CSV {
 	 * Combine the given array into a comma separated string. Each element is
 	 * escaped, so commas inside the elements cannot do not collide with the
 	 * separating commas.
-	 * 
+	 *
 	 * @param       <T> type of array elements
 	 * @param parts Input array
 	 * @return Combined string
@@ -64,7 +73,7 @@ public enum CSV {
 	 * Combine the given array of enum values into a comma separated string. Each
 	 * array element is first converted into a string using its name() method and
 	 * then is escaped.
-	 * 
+	 *
 	 * @param       <T> type of array elements
 	 * @param parts Input array
 	 * @return Combined string
@@ -79,7 +88,7 @@ public enum CSV {
 
 	/**
 	 * Escape the given input
-	 * 
+	 *
 	 * @param s Input string
 	 * @return Escaped form of the input
 	 */
@@ -95,7 +104,7 @@ public enum CSV {
 
 	/**
 	 * Read a CSV file.
-	 * 
+	 *
 	 * @param ¢ Input file
 	 * @return A two dimensional array of strings
 	 * @throws IOException some problem with file 'filename'
@@ -108,7 +117,7 @@ public enum CSV {
 
 	/**
 	 * Read a CSV file from the given Reader object.
-	 * 
+	 *
 	 * @param r input reader
 	 * @return a two dimensional array of strings
 	 */
@@ -180,7 +189,7 @@ public enum CSV {
 
 	/**
 	 * Unescape the given input
-	 * 
+	 *
 	 * @param s Input string
 	 * @return Unescaped string
 	 */

@@ -1,22 +1,23 @@
 /* Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package fluent.ly;
 
-import static il.org.spartan.Utils.*;
+import static fluent.ly.azzert.is;
+import static il.org.spartan.Utils.cantBeNull;
 
-import static fluent.ly.azzert.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-import java.util.*;
-import java.util.stream.*;
+import org.jetbrains.annotations.NotNull;
 
-import org.jetbrains.annotations.*;
-
-import il.org.spartan.*;
+import il.org.spartan.Separator;
 
 /**
  * A utility class providing library functions that take an array or a
  * collection, and return a {@link String} composed by the elements of this
  * collection, separated by a given {@link String} or <code><b>char</b></code>.
- * 
+ *
  * @author Yossi Gil
  * @since 07/08/2008
  */
@@ -40,7 +41,7 @@ public enum separate {
 	 * A simple program demonstrating the use of this class. This program prints a
 	 * comma separated list of its arguments, where special characters in each
 	 * argument are escaped prior to printing.
-	 * 
+	 *
 	 * @param args list of the command line arguments.
 	 */
 	public static void main(final @NotNull String[] args) {
@@ -153,7 +154,7 @@ public enum separate {
 
 	/**
 	 * Auxiliary class for fluent API.
-	 * 
+	 *
 	 * @author Yossi Gil <tt>yossi.gil@gmail.com</tt>
 	 * @since 2016-09-10
 	 */
@@ -161,7 +162,7 @@ public enum separate {
 		/**
 		 * Separate elements of a given {@link Iterable} collection by a given
 		 * {{@link String}}
-		 * 
+		 *
 		 * @param ts      an {@link Iterable} collection of elements to be separated
 		 * @param         <T> type of elements in the {@link Iterable} collection
 		 *                parameter
@@ -181,7 +182,7 @@ public enum separate {
 
 		/**
 		 * Separate a list of elements by a given {{@link String}}
-		 * 
+		 *
 		 * @param os      what needs to be separated
 		 * @param between what should be used for separating these elements
 		 * @return a {{@link String}} obtained by concatenating the textual

@@ -15,12 +15,11 @@ import parkingLot.Logic.Parking;
 @RequestMapping("/parking")
 public class ParkingController {
 
-	private final  DB db= new FireBaseDB(".\\credentials\\credentials.json");
-	
+	private final DB db = new FireBaseDB(".\\credentials\\credentials.json");
 
 	@RequestMapping(value = "addParking", method = RequestMethod.POST)
 	public void addParking(@RequestBody final HttpParking ¢) throws ServletException {
-		Parking parking = new Parking(Parking.size.PRIVATE_CAR, ¢.address, ¢.userName);
+		final Parking parking = new Parking(Parking.size.PRIVATE_CAR, ¢.address, ¢.userName);
 		db.addParking(parking);
 	}
 

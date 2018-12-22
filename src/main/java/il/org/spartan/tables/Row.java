@@ -1,17 +1,18 @@
 // <a href=http://ssdl-linux.cs.technion.ac.il/wiki/index.php>SSDLPedia</a>
 package il.org.spartan.tables;
 
-import java.util.*;
+import java.util.LinkedHashMap;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.*;
-import il.org.spartan.external.*;
-import il.org.spartan.utils.*;
+import fluent.ly.as;
+import fluent.ly.unbox;
+import il.org.spartan.external.External;
+import il.org.spartan.utils.Accumulator;
 
 /**
  * Represents a row of a {@link Table}
- * 
+ *
  * @param <Self> uses for fluent API, __ of subclass
  * @author Yossi Gil
  * @since 2017-01-04
@@ -42,7 +43,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * Add a key without a value to this instance.
-	 * 
+	 *
 	 * @param key The key to be added; must not be {@code null @return {@code this}
 	 */
 	public final Self col(final @NotNull String key) {
@@ -51,7 +52,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * Add a key and a {@code char} value to this instance
-	 * 
+	 *
 	 * @param key The key to be added; must not be {@code null @param value The
 	 *            value associated with the key @return {@code this}
 	 */
@@ -74,7 +75,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * Add a key and an {@code int} value to this instance
-	 * 
+	 *
 	 * @param key The key to be added; must not be {@code null @param value The
 	 *            value associated with the key @return {@code this}
 	 */
@@ -84,7 +85,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * Add a key and a general {@link Object} value to this instance
-	 * 
+	 *
 	 * @param key The key to be added; must not be {@code null; must not be
 	 *        {@code null @param value The value associated with the key @return
 	 *            {@code this}
@@ -95,7 +96,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * Add a key and a {@code long} value to this instance
-	 * 
+	 *
 	 * @param key The key to be added; must not be {@code null @param value The
 	 *            value associated with the key @return {@code this}
 	 */
@@ -105,7 +106,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * Add a key and a non specific {@link Object} value to this instance
-	 * 
+	 *
 	 * @param key The key to be added; must not be {@code null; must not be
 	 *        {@code null @param value The value associated with the key @return
 	 *            {@code this}
@@ -127,7 +128,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * A mutator to add a key and a general {@link String} value to this instance
-	 * 
+	 *
 	 * @param key The key to be added; must not be {@code null @param value The
 	 *            value associated with the key @return {@code this}
 	 */
@@ -138,7 +139,7 @@ public abstract class Row<Self extends Row<?>> extends LinkedHashMap<String, Obj
 
 	/**
 	 * Adds all {@link External} properties in a given object.
-	 * 
+	 *
 	 * @param t an arbitrary object, usually with some of its fields and methods
 	 *          marked {@link External}
 	 * @return the parameter

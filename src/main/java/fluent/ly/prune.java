@@ -1,11 +1,16 @@
 /* Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package fluent.ly;
 
-import static il.org.spartan.Utils.*;
+import static il.org.spartan.Utils.cantBeNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A <b>Utility class</b> providing functions to remove <code><b>null</b></code>
@@ -58,7 +63,7 @@ public enum prune {
 
 	/**
 	 * Shrink an array size to zero.
-	 * 
+	 *
 	 * @param   <T> type of elements in the input array.
 	 * @param ¢ an array of values.
 	 * @return an array of size 0 of elements of type <code>T</code>.

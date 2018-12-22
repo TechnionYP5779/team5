@@ -1,6 +1,7 @@
 package fluent.ly;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author Yossi Gil <Yossi.Gil@GMail.COM>
@@ -23,7 +24,7 @@ public class maybe<@Nullable T> {
 
 	/**
 	 * Instantiates this class.
-	 * 
+	 *
 	 * @param inner JD
 	 */
 	public maybe(final @Nullable T inner) {

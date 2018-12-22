@@ -1,10 +1,10 @@
 package il.org.spartan.utils;
 
-import fluent.ly.*;
+import fluent.ly.box;
 
 /**
  * Boolean or reducer
- * 
+ *
  * @author oran1248
  * @since 2017-04-20
  */

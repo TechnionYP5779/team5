@@ -1,13 +1,14 @@
 package il.org.spartan;
 
-import java.io.*;
+import java.io.File;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Combines {@link CSVWriter} and {@link CSVLine}, to make it easy to write to a
  * CSV file.
- * 
+ *
  * @author Yossi Gil
  * @since Dec 25, 2009
  */

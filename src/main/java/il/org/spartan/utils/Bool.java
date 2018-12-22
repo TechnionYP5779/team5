@@ -1,11 +1,11 @@
 package il.org.spartan.utils;
 
-import fluent.ly.*;
+import fluent.ly.box;
 
 /**
  * A poor man's approximation of a mutable boolean, which is so much more
  * convenient than {@link Boolean}
- * 
+ *
  * @author Ori Marcovitch
  * @since Oct 16, 2016
  */

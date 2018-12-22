@@ -1,10 +1,10 @@
 package fluent.ly;
 
-import java.util.function.*;
+import java.util.function.Function;
 
 /**
  * TODO Yossi Gil: document class
- * 
+ *
  * @author Yossi Gil
  * @since 2017-04-10
  */

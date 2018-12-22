@@ -1,16 +1,19 @@
 package il.org.spartan.utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.*;
-import il.org.spartan.statistics.*;
+import fluent.ly.box;
+import fluent.ly.unbox;
+import il.org.spartan.statistics.Statistics;
 
 /**
  * this class represents a list of pairs, on which we run statistic measures
  * and, hopefully, a linear regression.
- * 
+ *
  * @author Shaked Sapir
  * @since 2018-11-14
  */
@@ -18,7 +21,7 @@ public class PairsList {
 	/**
 	 * first, we implement a wrapper for Pair<T,S> because we want to be able to
 	 * compare Pairs.
-	 * 
+	 *
 	 * @param <Double> generic type of first element in pair
 	 * @param <Double1> generic type of second element in pair
 	 */
@@ -43,7 +46,7 @@ public class PairsList {
 
 	/**
 	 * then, we implement an iterator for the list, so we can iterate it sorted.
-	 * 
+	 *
 	 * @author Shaked Sapir
 	 */
 	public class PLIterator implements Iterable<PAIR<Double, Double>>, Iterator<PAIR<Double, Double>> {
@@ -102,7 +105,7 @@ public class PairsList {
 	/** sorting and iterators **/
 	/**
 	 * this is an iterator to iterate over the list's elements in ascending order
-	 * 
+	 *
 	 * @return an iterator to the list
 	 */
 	public PLIterator iterator() {
@@ -112,7 +115,7 @@ public class PairsList {
 
 	/**
 	 * this is an iterator to iterate over the list's elements in descending order
-	 * 
+	 *
 	 * @return a revered-iterator to the list
 	 */
 	public PLIterator revIterator() {

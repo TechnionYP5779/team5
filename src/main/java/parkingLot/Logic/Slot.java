@@ -50,7 +50,7 @@ public class Slot {
 		final int prime = 31;
 		int $ = 1;
 		$ = $ * prime + (from == null ? 0 : from.hashCode());
-		long temp = Double.doubleToLongBits(price_for_hour);
+		final long temp = Double.doubleToLongBits(price_for_hour);
 		return prime * ($ * prime + (int) (temp ^ temp >>> 32)) + (to == null ? 0 : to.hashCode());
 	}
 

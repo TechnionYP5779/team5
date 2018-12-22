@@ -1,8 +1,9 @@
 package fluent.ly;
 
-import java.util.*;
+import java.util.Collection;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class out {
 	static final int MAX_FIRST = 20;

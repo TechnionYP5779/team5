@@ -3,7 +3,7 @@ package il.org.spartan.utils;
 /**
  * Binary is like Boolean only it has two possible values: true
  * ({@link Binary#T}) and false ({@link Binary#F}).
- * 
+ *
  * @author Yossi Gil
  * @since 2017-04-21
  */

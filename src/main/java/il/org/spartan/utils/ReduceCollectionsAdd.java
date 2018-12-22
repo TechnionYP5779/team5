@@ -1,12 +1,12 @@
 package il.org.spartan.utils;
 
-import java.util.*;
+import java.util.Collection;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * TODO Yossi Gil: document class
- * 
+ *
  * @author Yossi Gil
  * @since 2017-03-19
  */

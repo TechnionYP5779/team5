@@ -1,10 +1,12 @@
 package il.org.spartan;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import fluent.ly.*;
+import fluent.ly.separate;
 
 /**
  * @author Yossi Gil
@@ -37,7 +39,7 @@ public abstract class AbstractStringProperties {
 
 	/**
 	 * A total inspector
-	 * 
+	 *
 	 * @return the header of the CSV line
 	 */
 	public String header() {

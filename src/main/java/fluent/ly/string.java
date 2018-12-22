@@ -1,15 +1,24 @@
 package fluent.ly;
 
-import static fluent.ly.___.*;
+import static fluent.ly.___.nonnegative;
+import static fluent.ly.___.nonnull;
+import static fluent.ly.___.positive;
+import static fluent.ly.___.require;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Formatter;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A bunch of string functions.
- * 
+ *
  * @author Yossi Gil
  */
 public enum string {
@@ -327,7 +336,7 @@ public enum string {
 
 	/**
 	 * Strip the first and last character of a string.
-	 * 
+	 *
 	 * @param ¢ a non-<code><b>null</b></code> string of length at least two to
 	 *          strip
 	 * @return <code>s</code> but without its first and last character.

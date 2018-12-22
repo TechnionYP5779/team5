@@ -1,12 +1,15 @@
 package an;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * TODO Yossi Gil: document class
- * 
+ *
  * @author Yossi Gil
  * @since 2017-04-01
  */

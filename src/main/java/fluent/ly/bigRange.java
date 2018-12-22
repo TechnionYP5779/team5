@@ -1,7 +1,7 @@
 package fluent.ly;
 
-import java.math.*;
-import java.util.*;
+import java.math.BigInteger;
+import java.util.Iterator;
 
 public class bigRange {
 	public static theRange withDiff(final long i) {

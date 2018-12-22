@@ -1,10 +1,10 @@
 package il.org.spartan.utils;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.*;
-import il.org.spartan.statistics.*;
-import il.org.spartan.utils.PairsList.*;
+import fluent.ly.unbox;
+import il.org.spartan.statistics.Statistics;
+import il.org.spartan.utils.PairsList.PAIR;
 
 /**
  * this class implements simple linear regression, it gets lists of (x,y)
@@ -12,7 +12,7 @@ import il.org.spartan.utils.PairsList.*;
  * https://en.wikipedia.org/wiki/Simple_linear_regression) to find the
  * representing linear line of the data. assumption: the x,y values containers
  * are of the same size
- * 
+ *
  * @author Shaked Sapir
  * @since 2018-11-15
  */

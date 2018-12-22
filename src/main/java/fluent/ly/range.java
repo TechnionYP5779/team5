@@ -1,8 +1,8 @@
 package fluent.ly;
 
-import java.util.*;
+import java.util.Iterator;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author Nir Chachamovitz

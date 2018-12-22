@@ -2,7 +2,7 @@ package il.org.spartan.utils;
 
 /**
  * A class for utility methods to create angles.
- * 
+ *
  * @since 2018-11-13
  * @author lior.b
  */

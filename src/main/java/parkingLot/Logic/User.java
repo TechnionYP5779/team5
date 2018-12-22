@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Since 2018 - 11 - 26
- * 
+ *
  * @author Igor Bashmashnikov
  * @author Or Feldman A class to represent a user in the parkingLot Project.
  *         Contains information about the user and his list of parkings to rent
@@ -143,7 +143,7 @@ public class User {
 
 	@Override
 	public boolean equals(final Object ¢) {
-		return ¢ == this || (¢ instanceof User && this.id == ((User) ¢).id);
+		return ¢ == this || ¢ instanceof User && this.id == ((User) ¢).id;
 	}
 
 	@Override

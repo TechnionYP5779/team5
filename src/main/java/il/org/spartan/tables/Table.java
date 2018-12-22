@@ -1,21 +1,28 @@
 package il.org.spartan.tables;
 
-import java.io.*;
-import java.util.*;
+import java.io.Closeable;
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import an.*;
-import fluent.ly.*;
-import il.org.spartan.etc.*;
-import il.org.spartan.statistics.*;
-import il.org.spartan.utils.*;
+import an.iterable;
+import fluent.ly.as;
+import fluent.ly.box;
+import fluent.ly.separate;
+import fluent.ly.the;
+import il.org.spartan.etc.cCamelCase;
+import il.org.spartan.statistics.RealStatistics;
+import il.org.spartan.utils.Int;
+import il.org.spartan.utils.system;
 
 /**
  * A relation is just another name for a table that contains elements of __
  * {@link Record}. This class provides fluent API for generating tables,
  * including aggregation information.
- * 
+ *
  * @author Yossi Gil
  * @since 2016-12-25
  */
@@ -85,7 +92,7 @@ public class Table extends Row<Table> implements Closeable {
 
 	/**
 	 * Close operation from {@link Closeable} for saving output files.
-	 * 
+	 *
 	 * @author oran1248
 	 * @since 2017-04-21
 	 */

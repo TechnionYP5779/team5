@@ -1,11 +1,14 @@
 package fluent.ly;
 
-import static il.org.spartan.Utils.*;
+import static il.org.spartan.Utils.hasNull;
+import static il.org.spartan.Utils.inRange;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.List;
+import java.util.stream.Stream;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** @noinspection unused */
 public interface lisp {
@@ -34,7 +37,7 @@ public interface lisp {
 
 	/**
 	 * Retrieve previous item in a list
-	 * 
+	 *
 	 * @param i  an index of specific item in a list
 	 * @param ts the indexed list
 	 * @return previous item in the list, if such an item exists, otherwise, the
@@ -100,7 +103,7 @@ public interface lisp {
 
 	/**
 	 * swaps two elements in an indexed list in given indexes, if they are legal
-	 * 
+	 *
 	 * @param ts the indexed list
 	 * @param i1 the index of the first element
 	 * @param i2 the index of the second element

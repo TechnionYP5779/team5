@@ -1,16 +1,21 @@
 /* Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package fluent.ly;
 
-import static il.org.spartan.Utils.*;
+import static il.org.spartan.Utils.cantBeNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A collection of <code><b>static</b></code> functions for converting from one
  * aggregate type to another.
- * 
+ *
  * @author Yossi Gil
  * @since Jul 8, 2014
  */
@@ -68,7 +73,7 @@ public enum as {
 
 	/**
 	 * Converts a boolean into a bit value
-	 * 
+	 *
 	 * @param $ some boolean value
 	 * @return 1 if the parameter is true, 0 otherwise
 	 */
@@ -78,7 +83,7 @@ public enum as {
 
 	/**
 	 * C like conversion of a reference to an {@link Object} into a 0/1 bit.
-	 * 
+	 *
 	 * @param ¢ some object
 	 * @return <code>0</code> if the parameter is <code><b>null</b></code>.
 	 *         <code>1</code> otherwise.
@@ -98,7 +103,7 @@ public enum as {
 
 	/**
 	 * Converts a sequence of integer values into an array.
-	 * 
+	 *
 	 * @param $ some sequence of values of the type parameter
 	 * @return parameters, organized as an array with entries whose type is the type
 	 *         parameter
@@ -110,7 +115,7 @@ public enum as {
 	/**
 	 * Return a compact representation of a list of {@link Integer}s as an array of
 	 * type <code><b>int</b></code>.
-	 * 
+	 *
 	 * @param is the list to be converted, none of the elements in it can be
 	 *           <code><b>null</b></code>
 	 * @return an array of <code><b>int</b></code>. representing the input.
@@ -124,7 +129,7 @@ public enum as {
 
 	/**
 	 * Creates an iterable for an array of objects
-	 * 
+	 *
 	 * @param   <T> an arbitrary type
 	 * @param ¢ what to iterate on
 	 * @return an {@link Iterable} over the parameter
@@ -137,7 +142,7 @@ public enum as {
 	/**
 	 * Converts a list of <code><b>int</b></code>s into a {@link List} of
 	 * {@link Integer}s
-	 * 
+	 *
 	 * @param ¢ what to convert
 	 * @return a {@link List} of of all <code><b>int</b></code>s in the parameter
 	 */
@@ -148,7 +153,7 @@ public enum as {
 	/**
 	 * Converts an {@link Iterable} of a given type into a {@link List} of values of
 	 * this type.
-	 * 
+	 *
 	 * @param   <T> type of items to be converted
 	 * @param $ what to convert
 	 * @return parameter, converted to the {@link List} of the given type
@@ -160,7 +165,7 @@ public enum as {
 	/**
 	 * Converts a sequence of objects of some common type T into a {@link List} of
 	 * values
-	 * 
+	 *
 	 * @param   <T> type of objects to be converted
 	 * @param $ what to covert
 	 * @return result parameter, converted into a {@link List}
@@ -172,7 +177,7 @@ public enum as {
 
 	/**
 	 * Converts a sequence of objects of a given type into a {@link Set} of values
-	 * 
+	 *
 	 * @param   <T> type of objects to be converted
 	 * @param ¢ what to covert
 	 * @return parameter, converted into a {@link Set}
@@ -199,7 +204,7 @@ public enum as {
 
 	/**
 	 * Converts an {@link Iterable} into an array of {@link String}.
-	 * 
+	 *
 	 * @param os what to covert
 	 * @return an array of the parameter values, each converted to i {@link String}
 	 */
@@ -230,7 +235,7 @@ public enum as {
 
 	/**
 	 * Converts a sequence of values into an array.
-	 * 
+	 *
 	 * @param   <T> some arbitrary type
 	 * @param $ some sequence of values of the type parameter
 	 * @return parameter, organized as an array with entries whose type is the type

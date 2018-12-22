@@ -1,25 +1,30 @@
 package fluent.ly;
 
-import java.lang.management.*;
-import java.lang.reflect.*;
-import java.util.*;
+import java.lang.management.ClassLoadingMXBean;
+import java.lang.management.CompilationMXBean;
+import java.lang.management.ManagementFactory;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import il.org.spartan.*;
+import il.org.spartan.ReflectionAnalyzer;
 
 /**
  * A class to print all properties of an arbitrary object which can be retrieved
  * by getters methods (i.e., getXXX()) methods and boolean inspection methods
  * (i.e., isXXX()), as can be determined by reflection information.
- * 
+ *
  * @author Yossi Gil
  * @since 24/07/2007
  */
 public class dump {
 	/**
 	 * Dump a class object
-	 * 
+	 *
 	 * @param ¢ JD
 	 */
 	public static void go(final @NotNull Class<?> ¢) {

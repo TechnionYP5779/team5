@@ -1,20 +1,25 @@
 // <a href=http://ssdl-linux.cs.technion.ac.il/wiki/index.php>SSDLPedia</a>
 package il.org.spartan;
 
-import static fluent.ly.box.*;
+import static fluent.ly.box.box;
 
-import java.util.*;
-import java.util.Map.*;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import fluent.ly.*;
-import il.org.spartan.Aggregator.*;
-import il.org.spartan.Aggregator.Aggregation.*;
-import il.org.spartan.external.*;
-import il.org.spartan.streotypes.*;
-import il.org.spartan.utils.*;
-import il.org.spartan.utils.Separate.*;
+import fluent.ly.___;
+import il.org.spartan.Aggregator.Aggregation;
+import il.org.spartan.Aggregator.Aggregation.FormatSpecifier;
+import il.org.spartan.external.External;
+import il.org.spartan.streotypes.Canopy;
+import il.org.spartan.utils.Accumulator;
+import il.org.spartan.utils.Separate;
+import il.org.spartan.utils.Separate.F;
 
 /**
  * import static il.org.spartan.utils.Box.*; import il.org.spartan.streotypes.*;
@@ -23,7 +28,7 @@ import il.org.spartan.utils.Separate.*;
  * java.util.Map.*; import il.org.spartan.utils.*; /** import java.util.*;
  * import java.util.Map.*; import il.org.spartan.utils.*; /** Create a line in
  * an "Comma Separated Values" format from a sequence of named values.
- * 
+ *
  * @author Yossi Gil
  */
 public abstract class CSVLine extends AbstractStringProperties implements Cloneable {
@@ -34,7 +39,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Instantiate {@link CSVLine}.
-	 * 
+	 *
 	 * @param map which implementation should we use for storing values
 	 */
 	CSVLine(final Map<String, String> map) {
@@ -43,7 +48,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Instantiate {@link CSVLine}.
-	 * 
+	 *
 	 * @param renderer
 	 * @param map      which implementation should we use for storing values
 	 */
@@ -72,7 +77,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Adds all {@link External} properties in a given object.
-	 * 
+	 *
 	 * @param t an arbitrary object, usually with some of its fields and methods
 	 *          marked {@link External}
 	 * @return the parameter
@@ -116,7 +121,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key without a value to this instance.
-	 * 
+	 *
 	 * @param key The key to be added; must not be <code><b>null</b></code>
 	 * @return this
 	 */
@@ -126,7 +131,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and a <code><b>boolean</b></code> value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>
 	 * @param value The value associated with the key
 	 * @return this
@@ -137,7 +142,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and a <code><b>char</b></code> value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>
 	 * @param value The value associated with the key
 	 * @return this
@@ -151,7 +156,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 	                                                                           *
 	                                                                           * &#64;param key
 	                                                                           *          The key to be added; must not be <code><b>null</b></code>
-	 * 
+	 *
 	 * @param value The value associated with the key
 	 * @return this
 	 */
@@ -164,7 +169,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 	                                                                           *
 	                                                                           * &#64;param key
 	                                                                           *          The key to be added; must not be <code><b>null</b></code>
-	 * 
+	 *
 	 * @param value The value associated with the key
 	 * @param ss    Which (if any) aggregate statistics should be produced for this
 	 *              column
@@ -180,7 +185,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 	                                                                           *
 	                                                                           * &#64;param key
 	                                                                           *          The key to be added; must not be <code><b>null</b></code>
-	 * 
+	 *
 	 * @param value  The value associated with the key
 	 * @param format How should the value be formatted
 	 * @param ss     Which (if any) aggregate statistics should be produced for this
@@ -199,7 +204,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 	                                                                           *
 	                                                                           * &#64;param key
 	                                                                           *          The key to be added; must not be <code><b>null</b></code>
-	 * 
+	 *
 	 * @param value The value associated with the key
 	 * @return this
 	 */
@@ -209,7 +214,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and an <code><b>int</b></code> value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>
 	 * @param value The value associated with the key
 	 * @return this
@@ -220,7 +225,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and an <code><b>int</b></code> value to this instance
-	 * 
+	 *
 	 * @param key    The key to be added; must not be <code><b>null</b></code>
 	 * @param value  The value associated with the key
 	 * @param format How should this value be formatted?
@@ -237,7 +242,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and a general {@link Object} value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>; must
 	 *              not be <code><b>null</b></code>
 	 * @param value The value associated with the key
@@ -249,7 +254,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and a <code><b>long</b></code> value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>
 	 * @param value The value associated with the key
 	 * @return this
@@ -260,7 +265,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and a general {@link Object} value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>; must
 	 *              not be <code><b>null</b></code>
 	 * @param value The value associated with the key
@@ -280,7 +285,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * Add a key and a <code><b>short</b></code> value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>
 	 * @param value The value associated with the key
 	 * @return this
@@ -298,7 +303,7 @@ public abstract class CSVLine extends AbstractStringProperties implements Clonea
 
 	/**
 	 * A mutator to add a key and a general {@link String} value to this instance
-	 * 
+	 *
 	 * @param key   The key to be added; must not be <code><b>null</b></code>
 	 * @param value The value associated with the key
 	 * @return this

@@ -1,8 +1,9 @@
 package fluent.ly;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A utility class, offering a collection of function to unbox arrays and
@@ -23,7 +24,7 @@ import org.jetbrains.annotations.*;
  * <p>
  * Note that unboxing of a single value of a reference type is easy using a
  * function such as {@link Long#longValue()}
- * 
+ *
  * @author Yossi Gil.
  * @see box
  */
@@ -97,7 +98,7 @@ public enum unbox {
 	/**
 	 * unbox an array of {@link Boolean}s into an array of
 	 * <code><b>boolean</b></code>s.
-	 * 
+	 *
 	 * @param bs an array of {@link Boolean}s
 	 * @return an equivalent array of <code><b>boolean</b></code>s.
 	 */
@@ -116,7 +117,7 @@ public enum unbox {
 
 	/**
 	 * unbox an array of {@link Byte}s into an array of <code><b>byte</b></code> s.
-	 * 
+	 *
 	 * @param bs an array of {@link Byte}s
 	 * @return an equivalent array of <code><b>byte</b></code>s.
 	 */
@@ -136,7 +137,7 @@ public enum unbox {
 	/**
 	 * unbox an array of {@link Character}s into an array of
 	 * <code><b>char</b></code>s.
-	 * 
+	 *
 	 * @param cs an array of {@link Character}s
 	 * @return an equivalent array of <code><b>char</b></code>s.
 	 */
@@ -152,7 +153,7 @@ public enum unbox {
 	/**
 	 * unbox a {@link Collection} of {@link Short}s into an array of
 	 * <code><b>short</b></code>s.
-	 * 
+	 *
 	 * @param ss a {@link Collection} of {@link Integer}s
 	 * @return an equivalent array of <code><b>short</b></code>s.
 	 */
@@ -173,7 +174,7 @@ public enum unbox {
 	/**
 	 * unbox an array of {@link Double}s into an array of
 	 * <code><b>double</b></code>s.
-	 * 
+	 *
 	 * @param ds an array of {@link Double}s
 	 * @return an equivalent array of <code><b>double</b></code>s.
 	 */
@@ -191,7 +192,7 @@ public enum unbox {
 	/**
 	 * unbox an array of {@link Float}s into an array of <code><b>float</b></code>
 	 * s.
-	 * 
+	 *
 	 * @param fs an array of {@link Float}s
 	 * @return an equivalent array of <code><b>float</b></code>s.
 	 */
@@ -211,7 +212,7 @@ public enum unbox {
 	/**
 	 * unbox an array of {@link Integer}s into an array of <code><b>int</b></code>
 	 * s.
-	 * 
+	 *
 	 * @param is an array of {@link Integer}s
 	 * @return an equivalent array of <code><b>int</b></code>s.
 	 */
@@ -230,7 +231,7 @@ public enum unbox {
 
 	/**
 	 * unbox an array of {@link Long}s into an array of <code><b>long</b></code> s.
-	 * 
+	 *
 	 * @param ls an array of {@link Long}s
 	 * @return an equivalent array of <code><b>long</b></code>s.
 	 */
@@ -250,7 +251,7 @@ public enum unbox {
 	/**
 	 * unbox an array of {@link Short}s into an array of <code><b>short</b></code>
 	 * s.
-	 * 
+	 *
 	 * @param ss an array of {@link Integer}s
 	 * @return an equivalent array of <code><b>short</b></code>s.
 	 */

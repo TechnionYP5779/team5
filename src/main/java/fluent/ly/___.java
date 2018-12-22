@@ -1,30 +1,37 @@
 package fluent.ly;
 
-import static fluent.ly.box.*;
-import static fluent.ly.string.*;
+import static fluent.ly.box.box;
+import static fluent.ly.string.sprintf;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.___.Bug.*;
-import fluent.ly.___.Bug.Assertion.*;
-import fluent.ly.___.Bug.Assertion.Value.*;
-import fluent.ly.___.Bug.Assertion.Value.Numerical.*;
-import fluent.ly.___.Bug.Assertion.Variant.*;
-import fluent.ly.___.Bug.Contract.*;
+import fluent.ly.___.Bug.Assertion;
+import fluent.ly.___.Bug.Assertion.Invariant;
+import fluent.ly.___.Bug.Assertion.Reachability;
+import fluent.ly.___.Bug.Assertion.Value.NotNullValue;
+import fluent.ly.___.Bug.Assertion.Value.Numerical.Negative;
+import fluent.ly.___.Bug.Assertion.Value.Numerical.NonNan;
+import fluent.ly.___.Bug.Assertion.Value.Numerical.NonNegative;
+import fluent.ly.___.Bug.Assertion.Value.Numerical.NonPositive;
+import fluent.ly.___.Bug.Assertion.Value.Numerical.Positive;
+import fluent.ly.___.Bug.Assertion.Variant.Nondecreasing;
+import fluent.ly.___.Bug.Assertion.Variant.Underflow;
+import fluent.ly.___.Bug.Contract.Postcondition;
+import fluent.ly.___.Bug.Contract.Precondition;
 
 /**
  * A simple implementation of design by contract services. Violations are
  * reported to <code>System.err</code>. Error descriptions are passed by a
  * <code>printf</code> like argument syntax. Services are often used with
  * <code><b>static import</b></code>.
- * 
+ *
  * @author Yossi Gil (
  * @since 11/01/2006)
  */
 public abstract class ___ {
 	/**
 	 * Exercise the {@link Invariantable#check()}
-	 * 
+	 *
 	 * @param v a Invariantable object whose invariant should be checked
 	 */
 	public static void check(final ___.Invariantable ¢) {
@@ -33,7 +40,7 @@ public abstract class ___ {
 
 	/**
 	 * A possibly non-returning method to be used for checking postconditions.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @throws Postcondition A {@link RuntimeException} to be thrown in the case
 	 *                       <code>condition</code> was <code><b>false</b></code>
@@ -46,7 +53,7 @@ public abstract class ___ {
 	 * A possibly non-returning method to be used for checking postconditions. If
 	 * the postcondition fails, then a user supplied message is associated with the
 	 * thrown exception.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @param message   text to be associated with the exception thrown in the case
 	 *                  of an error.
@@ -62,7 +69,7 @@ public abstract class ___ {
 	 * the postcondition fails, then a user supplied formatted message (generated
 	 * from <code>printf</code> like arguments) is associated with the thrown
 	 * exception.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @param format    format string to be associated with the exception thrown in
 	 *                  the case of an error.
@@ -80,7 +87,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be negative.
-	 * 
+	 *
 	 * @param¢ a value which must be negative
 	 * @throws Negative in case <code>d</code> was nonnegative
 	 */
@@ -91,7 +98,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be negative.
-	 * 
+	 *
 	 * @param d       a value which must be negative
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -104,7 +111,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be negative.
-	 * 
+	 *
 	 * @param d      a value which must be negative
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -120,7 +127,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be negative.
-	 * 
+	 *
 	 * @param n a value which must be negative
 	 * @throws Negative in case <code>n</code> was nonnegative
 	 */
@@ -131,7 +138,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be negative.
-	 * 
+	 *
 	 * @param i       a value which must be negative
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -144,7 +151,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be negative.
-	 * 
+	 *
 	 * @param i      a value which must be negative
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -160,7 +167,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be non-NaN.
-	 * 
+	 *
 	 * @param d a value which must be not be NaN
 	 * @throws NonNan in case <code>d</code> was NaN
 	 */
@@ -171,7 +178,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be non-NaN.
-	 * 
+	 *
 	 * @param d       a value which must be nonnegative
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -184,7 +191,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be non-NaN.
-	 * 
+	 *
 	 * @param d      a value which must be nonnegative
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -200,7 +207,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking doubles which must be
 	 * non-NaN.
-	 * 
+	 *
 	 * @param ds a array which must not be NaN
 	 * @throws NonNan in case <code>n</code> was NaN
 	 */
@@ -212,7 +219,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonnegative.
-	 * 
+	 *
 	 * @param ¢ a value which must be nonnegative
 	 * @throws NonNegative in case <code>n</code> was negative
 	 */
@@ -223,7 +230,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonnegative.
-	 * 
+	 *
 	 * @param d a value which must be nonnegative
 	 * @throws NonNegative in case <code>d</code> was negative
 	 */
@@ -234,7 +241,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonnegative.
-	 * 
+	 *
 	 * @param d       a value which must be nonnegative
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -247,7 +254,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonnegative.
-	 * 
+	 *
 	 * @param d      a value which must be nonnegative
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -264,7 +271,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking doubles which must be
 	 * nonnegative.
-	 * 
+	 *
 	 * @param ds a array which must be nonnegative
 	 * @throws NonNegative in case <code>n</code> was negative
 	 */
@@ -276,7 +283,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonnegative.
-	 * 
+	 *
 	 * @param i      a value which must be nonnegative
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -292,7 +299,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonnegative.
-	 * 
+	 *
 	 * @param is a array which must be nonnegative
 	 * @throws NonNegative in case <code>n</code> was negative
 	 */
@@ -304,7 +311,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking objects that should
 	 * never be <code><b>null</b></code>.
-	 * 
+	 *
 	 * @param o if <code><b>null</b></code>, program will halt.
 	 * @throws NotNull in case <code>o</code> was <code><b>null</b></code>
 	 */
@@ -315,7 +322,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking objects that should
 	 * never be <code><b>null</b></code>.
-	 * 
+	 *
 	 * @param o       if <code><b>null</b></code>, program will halt.
 	 * @param message an error message to be associated with the failure
 	 * @throws NotNull in case <code>o</code> was <code><b>null</b></code>
@@ -327,7 +334,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking objects that should
 	 * never be <code><b>null</b></code>.
-	 * 
+	 *
 	 * @param o      if <code><b>null</b></code>, program will halt.
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -343,7 +350,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonpositive.
-	 * 
+	 *
 	 * @param d a value which must be nonpositive
 	 * @throws NonPositive in case <code>d</code> was positive
 	 */
@@ -354,7 +361,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonpositive.
-	 * 
+	 *
 	 * @param d       a value which must be nonpositive
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -367,7 +374,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonpositive.
-	 * 
+	 *
 	 * @param d      a value which must be nonpositive
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -384,7 +391,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonpositive.
-	 * 
+	 *
 	 * @param n a value which must be positive
 	 * @throws NonPositive in case <code>n</code> was positive.
 	 */
@@ -395,7 +402,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonpositive.
-	 * 
+	 *
 	 * @param i       a value which must be nonpositive
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -408,7 +415,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be nonpositive.
-	 * 
+	 *
 	 * @param i      a value which must be nonpositive
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -448,7 +455,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking floating point
 	 * numbers which must be positive.
-	 * 
+	 *
 	 * @param d a value which must be positive
 	 * @throws Positive in case <code>d</code> was nonpositive
 	 */
@@ -459,7 +466,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be positive.
-	 * 
+	 *
 	 * @param d       a value which must be positive
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -472,7 +479,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be positive.
-	 * 
+	 *
 	 * @param d      a value which must be positive
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -488,7 +495,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be positive.
-	 * 
+	 *
 	 * @param n a value which must be positive
 	 * @throws Positive in case <code>n</code> was nonpositive
 	 */
@@ -499,7 +506,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be positive.
-	 * 
+	 *
 	 * @param i       if negative program will halt.
 	 * @param message text to be associated with the exception thrown in the case of
 	 *                an error.
@@ -512,7 +519,7 @@ public abstract class ___ {
 	/**
 	 * A possibly non-returning method to be used for checking integers which must
 	 * be positive.
-	 * 
+	 *
 	 * @param i      a value which must be positive
 	 * @param format format string to be associated with the exception thrown in the
 	 *               case of an error.
@@ -527,7 +534,7 @@ public abstract class ___ {
 
 	/**
 	 * A possibly non-returning method to be used for checking preconditions.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @throws Precondition A {@link RuntimeException} to be thrown in the case
 	 *                      <code>condition</code> was <code><b>false</b></code>
@@ -540,7 +547,7 @@ public abstract class ___ {
 	 * A possibly non-returning method to be used for checking preconditions. If the
 	 * precondition fails, then a user supplied message is associated with the
 	 * thrown exception.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @param message   text to be associated with the exception thrown in the case
 	 *                  of an error.
@@ -555,7 +562,7 @@ public abstract class ___ {
 	 * A possibly non-returning method to be used for checking preconditions. If the
 	 * precondition fails, then a user supplied formatted message (generated from
 	 * <code>printf</code> like arguments) is associated with the thrown exception.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @param format    format string to be associated with the exception thrown in
 	 *                  the case of an error.
@@ -572,7 +579,7 @@ public abstract class ___ {
 
 	/**
 	 * A possibly non-returning method to be used for checking assertions.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @throws Invariant A {@link RuntimeException} to be thrown in the case
 	 *                   <code>condition</code> was <code><b>false</b></code>
@@ -585,7 +592,7 @@ public abstract class ___ {
 	 * A possibly non-returning method to be used for checking assertions. If the
 	 * postcondition fails, then a user supplied message is associated with the
 	 * thrown exception.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @param message   text to be associated with the exception thrown in the case
 	 *                  of an error.
@@ -600,7 +607,7 @@ public abstract class ___ {
 	 * A possibly non-returning method to be used for checking assertions. If the
 	 * postcondition fails, then a user supplied formatted message (generated from
 	 * <code>printf</code> like arguments) is associated with the thrown exception.
-	 * 
+	 *
 	 * @param condition if <code><b>false</b></code>, program will halt.
 	 * @param format    format string to be associated with the exception thrown in
 	 *                  the case of an error.
@@ -617,7 +624,7 @@ public abstract class ___ {
 
 	/**
 	 * A never-returning method indicating code sites with missing functionality
-	 * 
+	 *
 	 * @param args a list of strings in a <code>printf</code> like format describing
 	 *             the task to be done.
 	 */
@@ -628,7 +635,7 @@ public abstract class ___ {
 	/**
 	 * A never-returning method to be used in points of code which should never be
 	 * reached.
-	 * 
+	 *
 	 * @throws Reachability will always be thrown
 	 */
 	public static void unreachable() throws Reachability {
@@ -638,7 +645,7 @@ public abstract class ___ {
 	/**
 	 * A never-returning method to be used in points of code which should never be
 	 * reached.
-	 * 
+	 *
 	 * @param message a string describing the violation
 	 * @throws Reachability will always be thrown
 	 */
@@ -661,7 +668,7 @@ public abstract class ___ {
 	 * runtime- errors. Programming errors cannot be corrected at runtime, and hence
 	 * all errors of this class and its descendants should not be caught by ordinary
 	 * applications.
-	 * 
+	 *
 	 * @author Yossi Gil, the Technion.
 	 * @since 04/08/2008
 	 */
@@ -670,7 +677,7 @@ public abstract class ___ {
 
 		/**
 		 * convert an ordinary exception into this type.
-		 * 
+		 *
 		 * @param e the exception to convert
 		 */
 		public Bug(final Exception e) {
@@ -679,7 +686,7 @@ public abstract class ___ {
 
 		/**
 		 * instantiate this class with a given textual description
-		 * 
+		 *
 		 * @param message a description of the exceptional situation
 		 */
 		public Bug(final @NotNull String message) {
@@ -689,7 +696,7 @@ public abstract class ___ {
 		/**
 		 * This is the root of all assertion related exceptions, including contract
 		 * violations.
-		 * 
+		 *
 		 * @author Yossi Gil, the Technion.
 		 * @since 04/08/2008
 		 */
@@ -698,7 +705,7 @@ public abstract class ___ {
 
 			/**
 			 * instantiate this class with a given textual description
-			 * 
+			 *
 			 * @param message a description of the exceptional situation
 			 */
 			public Assertion(final @NotNull String message) {
@@ -707,7 +714,7 @@ public abstract class ___ {
 
 			/**
 			 * Thrown in case a class invariant was violated.
-			 * 
+			 *
 			 * @author Yossi Gil, the Technion.
 			 * @since 04/08/2008
 			 */
@@ -716,7 +723,7 @@ public abstract class ___ {
 
 				/**
 				 * instantiate this class with a given textual description
-				 * 
+				 *
 				 * @param message a description of the exceptional situation
 				 */
 				public Invariant(final @NotNull String message) {
@@ -726,7 +733,7 @@ public abstract class ___ {
 
 			/**
 			 * Thrown in case execution reached code that should never be executed
-			 * 
+			 *
 			 * @author Yossi Gil, the Technion.
 			 * @since 04/08/2008
 			 */
@@ -735,7 +742,7 @@ public abstract class ___ {
 
 				/**
 				 * instantiate this class with a given textual description
-				 * 
+				 *
 				 * @param message a description of the exceptional situation
 				 */
 				public Reachability(final @NotNull String message) {
@@ -746,7 +753,7 @@ public abstract class ___ {
 			/**
 			 * Abstract base class of all exceptions thrown in case a value violated a
 			 * condition placed on it.
-			 * 
+			 *
 			 * @author Yossi Gil, the Technion.
 			 * @since 04/08/2008
 			 */
@@ -760,7 +767,7 @@ public abstract class ___ {
 
 				/**
 				 * instantiate this class with a given textual description
-				 * 
+				 *
 				 * @param message a description of the exceptional situation
 				 */
 				public Value(final @NotNull String message) {
@@ -774,7 +781,7 @@ public abstract class ___ {
 				/**
 				 * Thrown in case a value was <code><b>null</b></code>, when it was expected to
 				 * be non-code><b>null</b></code>.
-				 * 
+				 *
 				 * @author Yossi Gil
 				 * @since 18/01/2008
 				 */
@@ -787,7 +794,7 @@ public abstract class ___ {
 
 					/**
 					 * instantiate this class with a given textual description
-					 * 
+					 *
 					 * @param message a description of the exceptional situation
 					 */
 					public NotNullValue(final @NotNull String message) {
@@ -802,7 +809,7 @@ public abstract class ___ {
 				/**
 				 * Abstract base class of exceptions thrown when a numerical value did not
 				 * satisfy conditions assumed on it.
-				 * 
+				 *
 				 * @author Yossi Gil, the Technion.
 				 * @since 04/08/2008
 				 */
@@ -819,7 +826,7 @@ public abstract class ___ {
 
 					/**
 					 * Thrown when a numerical value assumed to be negative, was not.
-					 * 
+					 *
 					 * @author Yossi Gil
 					 * @since 23/01/2008
 					 */
@@ -855,7 +862,7 @@ public abstract class ___ {
 
 					/**
 					 * Thrown when a numerical value assumed to be non-NaN, but it was not
-					 * 
+					 *
 					 * @author Yossi Gil
 					 * @since 23/01/2008
 					 */
@@ -891,7 +898,7 @@ public abstract class ___ {
 
 					/**
 					 * Thrown when a numerical value assumed to be non-negative, was not.
-					 * 
+					 *
 					 * @author Yossi Gil
 					 * @since 23/01/2008
 					 */
@@ -961,7 +968,7 @@ public abstract class ___ {
 
 					/**
 					 * Thrown when a numerical value assumed to be positive, was not.
-					 * 
+					 *
 					 * @author Yossi Gil
 					 * @since 23/01/2008
 					 */
@@ -999,7 +1006,7 @@ public abstract class ___ {
 
 			/**
 			 * Abstract base class of exceptions thrown when a loop variant failed.
-			 * 
+			 *
 			 * @author Yossi Gil, the Technion.
 			 * @since 04/08/2008
 			 */
@@ -1008,7 +1015,7 @@ public abstract class ___ {
 
 				/**
 				 * instantiate this class with a given textual description
-				 * 
+				 *
 				 * @param message a description of the exceptional situation
 				 */
 				public Variant(final @NotNull String message) {
@@ -1017,7 +1024,7 @@ public abstract class ___ {
 
 				/**
 				 * Thrown when the initial value of a loop variant was negative.
-				 * 
+				 *
 				 * @author Yossi Gil, the Technion.
 				 * @since 04/08/2008
 				 */
@@ -1032,7 +1039,7 @@ public abstract class ___ {
 				/**
 				 * Thrown if an iteration of a certain loop failed to decrease this loop's
 				 * variant.
-				 * 
+				 *
 				 * @author Yossi Gil, the Technion.
 				 * @since 04/08/2008
 				 */
@@ -1048,7 +1055,7 @@ public abstract class ___ {
 				/**
 				 * Thrown if an iteration of a certain loop tried to make this loop's variant
 				 * negative.
-				 * 
+				 *
 				 * @author Yossi Gil, the Technion.
 				 * @since 04/08/2008
 				 */
@@ -1064,7 +1071,7 @@ public abstract class ___ {
 
 		/**
 		 * Abstract base class of contract (pre- and post-condition) violations
-		 * 
+		 *
 		 * @author Yossi Gil, the Technion.
 		 * @since 04/08/2008
 		 */
@@ -1078,7 +1085,7 @@ public abstract class ___ {
 
 			/**
 			 * Thrown in case a post-condition was not satisfied
-			 * 
+			 *
 			 * @author Yossi Gil, the Technion.
 			 * @since 04/08/2008
 			 */
@@ -1087,7 +1094,7 @@ public abstract class ___ {
 
 				/**
 				 * instantiate this class with a given textual description
-				 * 
+				 *
 				 * @param message a description of the exceptional situation
 				 */
 				public Postcondition(final @NotNull String message) {
@@ -1097,7 +1104,7 @@ public abstract class ___ {
 
 			/**
 			 * Thrown in case a pre-condition was not satisfied
-			 * 
+			 *
 			 * @author Yossi Gil, the Technion.
 			 * @since 04/08/2008
 			 */
@@ -1106,7 +1113,7 @@ public abstract class ___ {
 
 				/**
 				 * instantiate this class with a given textual description
-				 * 
+				 *
 				 * @param message a description of the exceptional situation
 				 */
 				public Precondition(final @NotNull String message) {
@@ -1118,7 +1125,7 @@ public abstract class ___ {
 
 	/**
 	 * An interface representing a class with an invariant.
-	 * 
+	 *
 	 * @author Yossi Gil
 	 * @since 11/04/2006
 	 */
@@ -1135,7 +1142,7 @@ public abstract class ___ {
 	 * A class to emulate Eiffel's <code>variant</code> construct. To use, create an
 	 * object of this type, initializing it with the variant's first value , and
 	 * then call function {@link #check(int)} successively.
-	 * 
+	 *
 	 * @author Yossi Gil
 	 * @since 05/06/2007
 	 */
@@ -1144,7 +1151,7 @@ public abstract class ___ {
 
 		/**
 		 * Initialize a variant, with a specified value
-		 * 
+		 *
 		 * @param value a non-negative value
 		 * @throws Bug.Assertion.Variant.Initial in case initial value is negative
 		 */
@@ -1157,7 +1164,7 @@ public abstract class ___ {
 		/**
 		 * reset the variant value to a new, smaller value value; abort if the new value
 		 * is negative or no lesser than the previous value.
-		 * 
+		 *
 		 * @param newValue the next value of this variant.
 		 * @throws Nondecreasing in case the variant's value did not decrease
 		 * @throws Underflow     in case the variant's value went negative
@@ -1172,7 +1179,7 @@ public abstract class ___ {
 
 		/**
 		 * inspect the variant's value.
-		 * 
+		 *
 		 * @return a non-negative integer which is the current value of this object
 		 */
 		public int value() {

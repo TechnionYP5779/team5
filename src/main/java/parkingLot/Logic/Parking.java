@@ -37,16 +37,16 @@ public class Parking {
 		this.location = location;
 		this.availableSlots = new ArrayList<>();
 	}
-	
-	public Parking( final size sz, final String location, String userMail) {
+
+	public Parking(final size sz, final String location, final String userMail) {
 		this.id = currentId++;
 		this.sz = sz;
 		this.location = location;
 		this.availableSlots = new ArrayList<>();
 		this.userMail = userMail;
 	}
-	
-	public Parking(int id, final size sz, final String location, String userMail) {
+
+	public Parking(final int id, final size sz, final String location, final String userMail) {
 		this.id = id;
 		this.sz = sz;
 		this.location = location;
@@ -70,19 +70,18 @@ public class Parking {
 	public String getLocation() {
 		return location;
 	}
-	
+
 	public String getUserName() {
 		return this.userMail;
 	}
-	
-	public void setId(int id) {
-		this.id=id;
+
+	public void setId(final int id) {
+		this.id = id;
 	}
 
 	protected List<Slot> getAvailableSlots() {
 		return availableSlots;
 	}
-	
 
 	/** some basic functionality **/
 	/**

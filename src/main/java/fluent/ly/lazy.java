@@ -1,10 +1,10 @@
 package fluent.ly;
 
-import java.util.function.*;
+import java.util.function.Supplier;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 
-import il.org.spartan.utils.*;
+import il.org.spartan.utils.¢;
 
 /**
  * A class for lazy, memoizing evaluation of objects of arbitrary type. The
@@ -18,7 +18,7 @@ import il.org.spartan.utils.*;
  * <p>
  * This class is not expected to be instantiated by clients; use as demonstrated
  * above
- * 
+ *
  * @param <T> JD
  * @author Yossi Gil
  * @since 2017-03-10
@@ -33,7 +33,7 @@ public interface lazy<@Nullable T> extends Supplier<@Nullable T> {
 			/**
 			 * No need to be {@code synchronized} to make it thread safe. Instance is always
 			 * unique.
-			 * 
+			 *
 			 * @Return value of the supplier
 			 */
 			@Override

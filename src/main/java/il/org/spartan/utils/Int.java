@@ -1,11 +1,11 @@
 package il.org.spartan.utils;
 
-import fluent.ly.*;
+import fluent.ly.box;
 
 /**
  * A poor man's approximation of a mutable int, which is so much more convenient
  * than {@link Integer}
- * 
+ *
  * @author Yossi Gil
  * @since Sep 12, 2016
  */

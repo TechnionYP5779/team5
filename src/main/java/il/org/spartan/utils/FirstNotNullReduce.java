@@ -1,10 +1,10 @@
 package il.org.spartan.utils;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Return the first element that is not null
- * 
+ *
  * @author oran1248
  * @since 2017-04-20
  */

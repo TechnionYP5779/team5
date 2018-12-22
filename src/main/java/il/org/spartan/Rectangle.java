@@ -2,7 +2,7 @@ package il.org.spartan;
 
 /**
  * Since 2018/11/20
- * 
+ *
  * @author Igor Bashmashnikov A class that represents a rectangle by two points
  */
 public class Rectangle {

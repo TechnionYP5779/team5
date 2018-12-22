@@ -1,12 +1,14 @@
 package il.org.spartan.utils;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Spliterator;
 
-import il.org.spartan.utils.Example.*;
+import il.org.spartan.utils.Example.Ignores;
 
 /**
  * A collection of {@link Example}
- * 
+ *
  * @author Yossi Gil
  * @since 2017-04-01
  */
@@ -48,7 +50,7 @@ public class Examples implements Iterable<Example> {
 
 	/**
 	 * Auxiliary class for FAPI
-	 * 
+	 *
 	 * @author Yossi Gil
 	 * @since 2017-03-07
 	 */

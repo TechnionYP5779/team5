@@ -1,6 +1,6 @@
 package fluent.ly;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A bunch of <code><b>static</b></code> functions to manage the frequent
@@ -16,14 +16,14 @@ import org.jetbrains.annotations.*;
  * <code><b>null</b></code>. If however, <code>answer</code> is not
  * <code><b>null</b></code> then <code>guess</code>'s value will be that of
  * <code>answer</code>.
- * 
+ *
  * @author Yossi Gil, 2008/06/20
  */
 public enum defaults {
 	;
 	/**
 	 * Return a default value for an {@link Integer} type.
-	 * 
+	 *
 	 * @param v            a possibly <code><b>null</b></code> value
 	 * @param defaultValue a value to be used in case <code>v</code> is
 	 *                     <code><b>null</b></code>
@@ -36,7 +36,7 @@ public enum defaults {
 
 	/**
 	 * Return a default value for an {@link Integer} type.
-	 * 
+	 *
 	 * @param v            a possibly <code><b>null</b></code> value
 	 * @param defaultValue a value to be used in case <code>v</code> is
 	 *                     <code><b>null</b></code>

@@ -1,11 +1,11 @@
 package il.org.spartan.utils;
 
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 /**
  * encapsulates elements of the __ parameter, to be organizable in a
  * hierarchical structure
- * 
+ *
  * @param <T> Type stored in each element
  * @author Yossi Gil
  * @since 2017-03-27
@@ -20,7 +20,7 @@ public interface Duplo<T> {
 
 	/**
 	 * do not override
-	 * 
+	 *
 	 * @return a stream representation of the element stored in this instance
 	 */
 	default Stream<T> selfStream() {
@@ -29,7 +29,7 @@ public interface Duplo<T> {
 
 	/**
 	 * return a stream of elements encapsulated by in this instance
-	 * 
+	 *
 	 * @return a stream representation of the element stored in this instance
 	 */
 	default Stream<T> neighborsStream() {
@@ -38,7 +38,7 @@ public interface Duplo<T> {
 
 	/**
 	 * A {@link Duplo} which has no neighbors
-	 * 
+	 *
 	 * @param <T>
 	 * @author Yossi Gil
 	 * @since 2017-03-30

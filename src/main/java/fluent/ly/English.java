@@ -1,19 +1,21 @@
 package fluent.ly;
 
-import java.text.*;
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.*;
+import java.text.DecimalFormat;
+import java.util.List;
+import java.util.Random;
+import java.util.function.Function;
+import java.util.stream.IntStream;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import il.org.spartan.*;
-import il.org.spartan.etc.*;
-import il.org.spartan.utils.*;
+import il.org.spartan.Utils;
+import il.org.spartan.etc.cCamelCase;
+import il.org.spartan.utils.Int;
 
 /**
  * Utility class for linguistic issues. Used by GUI dialogs.
- * 
+ *
  * @author Ori Roth
  * @since 2.6
  */
@@ -72,7 +74,7 @@ public interface English {
 
 	/**
 	 * Constructs linguistic list of items: [i1, i2, i3] --> "i1, i2 and i3"
-	 * 
+	 *
 	 * @param ¢ list of items
 	 * @return a linguistic list of the items
 	 */
@@ -101,7 +103,7 @@ public interface English {
 
 	/**
 	 * Get the plural form of the word if needed, by adding an 'es' to its end.
-	 * 
+	 *
 	 * @param s string to be pluralize
 	 * @param i count
 	 * @return fixed string
@@ -112,7 +114,7 @@ public interface English {
 
 	/**
 	 * Get the plural form of the word if needed, by adding an 'es' to its end.
-	 * 
+	 *
 	 * @param s string to be pluralize
 	 * @param i count
 	 * @return fixed string
@@ -123,7 +125,7 @@ public interface English {
 
 	/**
 	 * Get the plural form of the word if needed, by adding an 'es' to its end.
-	 * 
+	 *
 	 * @param s string to be pluralize
 	 * @param i count
 	 * @return fixed string
@@ -134,7 +136,7 @@ public interface English {
 
 	/**
 	 * Get the plural form of the word if needed, by adding an 's' to its end.
-	 * 
+	 *
 	 * @param s string to be pluralize
 	 * @param i count
 	 * @return fixed string
@@ -145,7 +147,7 @@ public interface English {
 
 	/**
 	 * Get the plural form of the word if needed, by adding an 's' to its end.
-	 * 
+	 *
 	 * @param s string to be pluralize
 	 * @param i count
 	 * @return fixed string
@@ -156,7 +158,7 @@ public interface English {
 
 	/**
 	 * Get the plural form of the word if needed, by adding an 's' to its end.
-	 * 
+	 *
 	 * @param s string to be pluralize
 	 * @param i count
 	 * @return fixed string
@@ -241,7 +243,7 @@ public interface English {
 
 	/**
 	 * Cut string's suffix to maximal length for every row.
-	 * 
+	 *
 	 * @param s JD
 	 * @return cut string
 	 */
@@ -255,7 +257,7 @@ public interface English {
 
 	/**
 	 * Cut string's suffix to maximal length.
-	 * 
+	 *
 	 * @param s JD
 	 * @param l JD
 	 * @param x replacement suffix string

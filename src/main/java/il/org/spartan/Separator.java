@@ -1,9 +1,11 @@
 /* Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package il.org.spartan;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.*;
+import fluent.ly.as;
+import fluent.ly.box;
+import fluent.ly.is;
 
 /**
  * A class representing a separator string, which can be used for separating
@@ -31,7 +33,7 @@ public final class Separator {
 
 	/**
 	 * <code>separateBy</code>
-	 * 
+	 *
 	 * @param is      JD
 	 * @param between what to put between the items
 	 * @return String value of method <code>separateBy</code>
@@ -49,7 +51,7 @@ public final class Separator {
 
 	/**
 	 * <code>separateBy</code> returning String
-	 * 
+	 *
 	 * @param         <T> JD
 	 * @param between what to put between the items
 	 * @param ts      JD
@@ -61,7 +63,7 @@ public final class Separator {
 
 	/**
 	 * <code>wrap</code>
-	 * 
+	 *
 	 * @param         <T> JD
 	 * @param wrap    what to wrap the characters with
 	 * @param ts      JD
@@ -115,7 +117,7 @@ public final class Separator {
 
 	/**
 	 * Instantiates this class.
-	 * 
+	 *
 	 * @param c JD
 	 */
 	public Separator(final char c) {
@@ -124,7 +126,7 @@ public final class Separator {
 
 	/**
 	 * Instantiates this class.
-	 * 
+	 *
 	 * @param s JD
 	 */
 	public Separator(final @NotNull String s) {

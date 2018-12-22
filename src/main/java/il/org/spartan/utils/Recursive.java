@@ -29,7 +29,7 @@ import java.util.stream.*;
  * <li>Apply self judgment, don't come running to me with every little dilemma
  * you have.
  * </ol>
- * 
+ *
  * @see Compound
  * @see Atomic
  * @author Yossi Gil
@@ -38,7 +38,7 @@ import java.util.stream.*;
 public interface Recursive<T> extends Duplo<T> {
 	/**
 	 * An atomic recursive structure specializing {@link Recursive}
-	 * 
+	 *
 	 * @author Yossi Gil
 	 * @since 2017-03-13
 	 */
@@ -48,7 +48,7 @@ public interface Recursive<T> extends Duplo<T> {
 
 	/**
 	 * A compound recursive structure, specializing {@link Recursive}
-	 * 
+	 *
 	 * @author Yossi Gil
 	 * @since 2017-03-13
 	 */
@@ -77,7 +77,7 @@ public interface Recursive<T> extends Duplo<T> {
 	/**
 	 * A compound recursive structure enumerating {@link #descendants()} in
 	 * pre-order
-	 * 
+	 *
 	 * @param <E>
 	 * @author Yossi Gil
 	 * @since 2017-03-13

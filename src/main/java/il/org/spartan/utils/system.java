@@ -1,19 +1,32 @@
 package il.org.spartan.utils;
 
-import static java.lang.System.*;
+import static java.lang.System.getProperty;
 
-import java.io.*;
-import java.text.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.Stack;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import fluent.ly.*;
-import il.org.spartan.etc.*;
+import fluent.ly.English;
+import fluent.ly.box;
+import fluent.ly.note;
+import fluent.ly.unbox;
+import il.org.spartan.etc.cCamelCase;
 
 /**
  * Not such a good name for a bunch of static functions
- * 
+ *
  * @author Yossi Gil
  * @since 2016
  */
@@ -193,7 +206,7 @@ public interface system {
 	/**
 	 * This function counts the number of words the given string contains. Words are
 	 * separated by at least one whitespace.
-	 * 
+	 *
 	 * @param $ the string its words are being counted
 	 * @return the number of words the given string contains
 	 */

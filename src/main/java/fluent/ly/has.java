@@ -1,16 +1,17 @@
 /** Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package fluent.ly;
 
-import static il.org.spartan.Utils.*;
+import static il.org.spartan.Utils.inRange;
 
-import java.util.*;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A collection of <code><b>static</b></code> functions for converting from one
  * aggregate type to another.
- * 
+ *
  * @author Yossi Gil
  * @since Jul 8, 2014
  */
@@ -18,7 +19,7 @@ public enum has {
 	;
 	/**
 	 * Retrieve next item in a list
-	 * 
+	 *
 	 * @param    <T> JD
 	 * @param i  an index of specific item in a list
 	 * @param ts the indexed list
@@ -31,7 +32,7 @@ public enum has {
 
 	/**
 	 * Determine whether a <code><b>null</b></code> occurs in a sequence of objects
-	 * 
+	 *
 	 * @param os JD
 	 * @return <code><b>null</b></code> <i>iff</i> one of the parameters is
 	 *         <code><b>null</b></code>
@@ -45,7 +46,7 @@ public enum has {
 
 	/**
 	 * Determine whether a <code><b>null</b></code> occurs in a sequence of objects
-	 * 
+	 *
 	 * @param os JD
 	 * @return <code><b>null</b></code> <i>iff</i> one of the parameters is
 	 *         <code><b>null</b></code>

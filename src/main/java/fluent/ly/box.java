@@ -1,18 +1,18 @@
 // <a href=http://ssdl-linux.cs.technion.ac.il/wiki/index.php>SSDLPedia</a>
 package fluent.ly;
 
-import static il.org.spartan.Utils.*;
+import static il.org.spartan.Utils.cantBeNull;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import il.org.spartan.*;
+import il.org.spartan.Utils;
 
 /**
  * A utility class, with a collection of function to box primitive types in
  * their reference type equivalent representation. Similarly, this class offers
  * functions to box arrays of primitive types into their reference type
  * equivalent.
- * 
+ *
  * @author Yossi Gil, the Technion.
  * @since 21/06/2008
  * @see unbox
@@ -22,7 +22,7 @@ public enum box {
 	;
 	/**
 	 * box a <code><b>boolean</b></code> into a {@link Boolean} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>boolean</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Boolean} with the value of
 	 *         <code>c</code>
@@ -55,7 +55,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>char</b></code> into a {@link Character} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>char</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Character} with the value of
 	 *         <code>c</code>
@@ -75,7 +75,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>double</b></code> into a {@link Double} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>double</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Double} with the value of
 	 *         <code>d</code>
@@ -95,7 +95,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>float</b></code> into a {@link Float} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>float</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Float} with the value of
 	 *         <code>f</code>
@@ -115,7 +115,7 @@ public enum box {
 
 	/**
 	 * box an <code><b>int</b></code> into an {@link Integer} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>int</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Integer} with the value of
 	 *         <code>n</code>
@@ -148,7 +148,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>short</b></code> into a {@link Short} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>short</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Short} with the value of
 	 *         <code>s</code>
@@ -167,7 +167,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>boolean</b></code> into a {@link Boolean} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>boolean</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Boolean} with the value of
 	 *         <code>c</code>
@@ -187,7 +187,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>byte</b></code> into a {@link Byte} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>long</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Long} with the value of
 	 *         <code>l</code>
@@ -220,7 +220,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>double</b></code> into a {@link Double} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>double</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Double} with the value of
 	 *         <code>d</code>
@@ -240,7 +240,7 @@ public enum box {
 
 	/**
 	 * box a <code><b>float</b></code> into a {@link Float} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>float</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Float} with the value of
 	 *         <code>f</code>
@@ -260,7 +260,7 @@ public enum box {
 
 	/**
 	 * box an <code><b>int</b></code> into an {@link Integer} object.
-	 * 
+	 *
 	 * @param ¢ some <code><b>int</b></code> value
 	 * @return a non-<code><b>null</b></code> {@link Integer} with the value of
 	 *         <code>n</code>

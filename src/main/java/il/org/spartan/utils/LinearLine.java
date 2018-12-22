@@ -3,7 +3,7 @@ package il.org.spartan.utils;
 /**
  * this class represents a linear line holds for the linear function
  * {@code y = beta0 + beta1*x }
- * 
+ *
  * @author Shaked Sapir
  * @since 2018-11-15
  */

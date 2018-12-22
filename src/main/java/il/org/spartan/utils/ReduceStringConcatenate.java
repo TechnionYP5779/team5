@@ -2,7 +2,7 @@ package il.org.spartan.utils;
 
 /**
  * Reducer that concatenate strings
- * 
+ *
  * @author Yossi Gil
  * @since 2017-03-19
  */

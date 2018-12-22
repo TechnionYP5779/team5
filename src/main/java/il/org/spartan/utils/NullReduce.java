@@ -1,10 +1,10 @@
 package il.org.spartan.utils;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Provides null value for {@link #reduce()}
- * 
+ *
  * @param <T>
  * @since 2017
  */

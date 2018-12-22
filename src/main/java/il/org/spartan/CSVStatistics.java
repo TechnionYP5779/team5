@@ -1,20 +1,23 @@
 package il.org.spartan;
 // TODO: Yossi: I commented this one too.
 
-import java.util.*;
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
 // import static il.org.spartan.utils.___.*;
-import il.org.spartan.Aggregator.Aggregation.*;
-import il.org.spartan.statistics.*;
+import il.org.spartan.Aggregator.Aggregation.FormatSpecifier;
+import il.org.spartan.statistics.ImmutableStatistics;
+import il.org.spartan.statistics.RealStatistics;
 
 /**
  * Similar to {@link CSVWriter}, except that in addition to the production of
  * output to the main CSV file, this class generates a secondary CSV file,
  * recording the essential statistics (min, max, count, etc.) of each numerical
  * column in the main CSV file.
- * 
+ *
  * @author Yossi Gil
  * @since Dec 25, 2009
  */
@@ -36,7 +39,7 @@ public class CSVStatistics extends CSVLine.Ordered {
 	/**
 	 * Instantiate this class, setting the names of the main and secondary CSV
 	 * files.
-	 * 
+	 *
 	 * @param baseName   the name of the files into which statistics should be
 	 *                   written; if this name ends with ".csv", this extension is
 	 *                   removed.

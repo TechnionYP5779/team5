@@ -1,6 +1,7 @@
 package il.org.spartan;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Pun intended: <code>tide.WHITES</code>, <code>tide.clean(s)</code>, cleans
@@ -11,7 +12,7 @@ public interface tide {
 
 	/**
 	 * Remove all non-essential spaces from a string that represents Java code.
-	 * 
+	 *
 	 * @param javaCodeFragment JD
 	 * @return parameter, with all redundant spaces removes from it
 	 */

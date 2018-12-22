@@ -1,13 +1,13 @@
 package an;
 
-import java.util.*;
+import java.util.Iterator;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
 public interface iterable {
 	/**
 	 * <code>singleton</code>
-	 * 
+	 *
 	 * @param   <T> JD
 	 * @param ¢ JD
 	 * @return PureIterable.Sized<T> for returned value of method
@@ -20,7 +20,7 @@ public interface iterable {
 
 	/**
 	 * Creates an iterable for an array of objects
-	 * 
+	 *
 	 * @param    < T > an arbitrary type
 	 * @param ts what to iterate on
 	 * @return an {@link Iterable} over the parameter

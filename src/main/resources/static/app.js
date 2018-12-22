@@ -21,7 +21,7 @@ appModule
 							$scope.login = function() {
 								$scope.error = null;
 								mainService
-										.login($scope.userName,$scope.password)
+										.login($scope.userName, $scope.password)
 										.then(
 												function(token) {
 													$scope.token = token;
@@ -43,11 +43,12 @@ appModule
 							$scope.loggedIn = function() {
 								return $scope.token !== null;
 							}
-							
+
 							$scope.signUp = function() {
-								mainService.signUp($scope.userNameS,$scope.passwordS);
-								$scope.passwordS='';
-								$scope.userNameS='';
+								mainService.signUp($scope.userNameS,
+										$scope.passwordS);
+								$scope.passwordS = '';
+								$scope.userNameS = '';
 							}
 
 							// parking
@@ -55,15 +56,18 @@ appModule
 							$scope.addParking = function() {
 								$scope.addedParking = true;
 								$scope.error = null;
-								mainService.addParking($scope.address, $scope.userName);
-								window.alert("Parking in " +  $scope.address + " added Succesfully")
+								mainService.addParking($scope.address,
+										$scope.userName);
+								window.alert("Parking in " + $scope.address
+										+ " added Succesfully")
 							}
 
 							$scope.showParkings = function() {
 								mainService.showParkings().then(
 										function(parkings) {
 											$scope.parkings = parkings
-											$scope.parkings.sort(function(p1,p2){
+											$scope.parkings.sort(function(p1,
+													p2) {
 												return p1.id - p2.id;
 											});
 										});
@@ -73,27 +77,27 @@ appModule
 appModule.service('mainService', function($http) {
 	return {
 		// login requests
-		login : function(username,password) {
+		login : function(username, password) {
 			return $http.post('/user/login', {
 				name : username,
-				password: password
+				password : password
 			}).then(function(response) {
 				return response.data.token;
 			});
 		},
-		
+
 		signUp : function(email, password) {
 			return $http.post('/user/signUp', {
 				name : email,
-				password: password
+				password : password
 			});
 		},
-		
+
 		// parking requests
 		addParking : function(address, userName) {
 			return $http.post('/parking/addParking', {
 				address : address,
-				userName: userName
+				userName : userName
 			});
 		},
 

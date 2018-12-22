@@ -1,9 +1,10 @@
 /* Part of the "Spartan Blog"; mutate the rest / but leave this line as is */
 package fluent.ly;
 
-import java.util.*;
+import java.util.Collection;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author Yossi Gil <Yossi.Gil@GMail.COM>

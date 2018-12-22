@@ -1,17 +1,26 @@
 package il.org.spartan;
 
-import java.io.*;
-import java.util.*;
-import java.util.function.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
 
-import org.jetbrains.annotations.*;
-import fluent.ly.*;
-import il.org.spartan.Utils.FoundHandleForT.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import fluent.ly.list;
+import fluent.ly.the;
+import il.org.spartan.Utils.FoundHandleForT.FoundHandleForInt;
 
 /**
  * An empty <code><b>interface</b></code> with a variety of <code>public
  * static</code> utility functions of reasonably wide use.
- * 
+ *
  * @author Yossi Gil <code><yossi.gil [at] gmail.com></code>
  * @since 2013/07/01
  */
@@ -65,7 +74,7 @@ public interface Utils {
 	/**
 	 * Appends an element to an array, by reallocating an array whose size is
 	 * greater by one and placing the element at the last position.
-	 * 
+	 *
 	 * @param    <T> JD
 	 * @param ts an arbitrary array
 	 * @param t  an element
@@ -117,7 +126,7 @@ public interface Utils {
 	 * a @Nullable annotation if the type that does not have it. Doing so a is plain
 	 * clutter. Since the compiler cannot assist you, you will have to be on the
 	 * guard.
-	 * 
+	 *
 	 * @param   <T> an arbitrary type
 	 * @param $ an instance of the type parameter
 	 * @return its parameter, after verifying that it is not
@@ -133,7 +142,7 @@ public interface Utils {
 	/**
 	 * Impose an ordering on type <code><b>boolean</b></code> by which
 	 * <code><b>true</b></code> is greater than <code><b>false</b></code>.
-	 * 
+	 *
 	 * @param b1 JD
 	 * @param b2 JD
 	 * @return an integer that is negative, zero or positive depending on whether
@@ -148,7 +157,7 @@ public interface Utils {
 
 	/**
 	 * Remove all non-essential spaces from a string that represents Java code.
-	 * 
+	 *
 	 * @param javaCodeFragment JD
 	 * @return parameter, with all redundant spaces removed from it
 	 */
@@ -163,7 +172,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether a string contains any of a list of patterns.
-	 * 
+	 *
 	 * @param text     string to be tested
 	 * @param patterns a list of substrings
 	 * @return tree iff the the first parameter contains any of the substrings found
@@ -179,7 +188,7 @@ public interface Utils {
 	/**
 	 * Deletes a specified element from an array, by reallocating an array whose
 	 * size is smaller by one and shifting the other elements down.
-	 * 
+	 *
 	 * @param    <T> JD
 	 * @param ts an arbitrary array
 	 * @param i  position of element to be deleted
@@ -209,7 +218,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether a <code><b>null</b></code> occurs in a sequence of objects
-	 * 
+	 *
 	 * @param os an unknown number of objects
 	 * @return <code><b>null</b></code> <i>iff</i> one of the parameters is
 	 *         <code><b>null</b></code>
@@ -223,7 +232,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether an integer is a valid list index
-	 * 
+	 *
 	 * @param    <T> JD
 	 * @param i  some integer
 	 * @param ts a list of things
@@ -236,7 +245,7 @@ public interface Utils {
 
 	/**
 	 * Determine if an integer can be found in a list of values
-	 * 
+	 *
 	 * @param candidate what to search for
 	 * @param is        where to search
 	 * @return true if the the item is found in the list
@@ -251,7 +260,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether an {@link Object} is the last in a {@link List} .
-	 * 
+	 *
 	 * @param o  JD
 	 * @param os JD
 	 * @return <code><b>true</b></code> <i>iff</i> the {@link Object} parameter is
@@ -265,7 +274,7 @@ public interface Utils {
 	 * Aborts in case a given value is <code><b>null</b></code>.
 	 * <p>
 	 * This function is the lesser used dual of {@link #cantBeNull(Object)} .
-	 * 
+	 *
 	 * @param   <T> some arbitrary type
 	 * @param $ an instance of the type parameter which is required to be
 	 *          <code><b>null</b></code>.
@@ -286,7 +295,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether an {@link Object} is penultimate in its {@link List} .
-	 * 
+	 *
 	 * @param    <T> JD
 	 * @param o  JD
 	 * @param os JD
@@ -300,7 +309,7 @@ public interface Utils {
 
 	/**
 	 * Prepend a given <code><b>char</b></code> to a {@link StringBuilder}
-	 * 
+	 *
 	 * @param $ prepend to what
 	 * @param c what needs to be prepended
 	 * @return {@link StringBuilder} parameter with the <code><b>char</b></code>
@@ -312,7 +321,7 @@ public interface Utils {
 
 	/**
 	 * Prepend a given {@link String} to a {@link StringBuilder}
-	 * 
+	 *
 	 * @param $ prepend to what
 	 * @param s what needs to be prepended
 	 * @return {@link StringBuilder} parameter with the {@link String} parameter
@@ -324,7 +333,7 @@ public interface Utils {
 
 	/**
 	 * Remove any duplicates that may be present in a given {@link List}
-	 * 
+	 *
 	 * @param    <T> JD
 	 * @param ts JD
 	 */
@@ -336,7 +345,7 @@ public interface Utils {
 
 	/**
 	 * Remove all occurrences of a given prefix from a given {@link String} .
-	 * 
+	 *
 	 * @param s      JD
 	 * @param prefix what should be removed
 	 * @return parameter after all such occurrences are removed.
@@ -349,7 +358,7 @@ public interface Utils {
 
 	/**
 	 * Remove all occurrences of a given suffix from a given string.
-	 * 
+	 *
 	 * @param s      JD
 	 * @param suffix what should be removed
 	 * @return parameter after all such occurrences are removed.
@@ -362,7 +371,7 @@ public interface Utils {
 
 	/**
 	 * Remove all occurrences of white space character in a given {@link String}
-	 * 
+	 *
 	 * @param ¢ JD
 	 * @return parameter after all such occurrences are removed.
 	 */
@@ -372,7 +381,7 @@ public interface Utils {
 
 	/**
 	 * Sorts an array
-	 * 
+	 *
 	 * @param ¢ what to sort
 	 * @return given array with elements in sorted order
 	 */
@@ -383,7 +392,7 @@ public interface Utils {
 
 	/**
 	 * Computes the square of a given double
-	 * 
+	 *
 	 * @param ¢ some number
 	 * @return square of the parameter
 	 */
@@ -393,7 +402,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether a file name ends with any one of the supplied extensions.
-	 * 
+	 *
 	 * @param f        a file to examine
 	 * @param suffixes a list of potential extensions.
 	 * @return <code><b>true</b></code> <em>iff</em>the file name ends with any one
@@ -405,7 +414,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether a file name ends with any one of the supplied extensions.
-	 * 
+	 *
 	 * @param f        a file to examine
 	 * @param suffixes a list of potential extensions.
 	 * @return <code><b>true</b></code> <em>iff</em>the file name ends with any one
@@ -417,7 +426,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether a string ends with any one of the supplied suffixes.
-	 * 
+	 *
 	 * @param s        a string to examine
 	 * @param suffixes a list of potential suffixes
 	 * @return <code><b>true</b></code> <em>iff</em> <code>s</code> ends with any
@@ -432,7 +441,7 @@ public interface Utils {
 
 	/**
 	 * Determine whether a string ends with any one of the supplied suffixes.
-	 * 
+	 *
 	 * @param s        a string to examine
 	 * @param suffixes a list of potential suffixes
 	 * @return <code><b>true</b></code> <em>iff</em> <code>s</code> ends with any
@@ -447,7 +456,7 @@ public interface Utils {
 
 	/**
 	 * Swap the contents of two cells in a given array
-	 * 
+	 *
 	 * @param    <T> type of array elements
 	 * @param ts the given array
 	 * @param i  index of one cell
@@ -461,7 +470,7 @@ public interface Utils {
 
 	/**
 	 * Reifies the notion of a function
-	 * 
+	 *
 	 * @author Yossi Gil
 	 * @param <F> the type of the function's argument
 	 * @param <T> the type of the function's result
@@ -471,7 +480,7 @@ public interface Utils {
 
 		/**
 		 * Instantiates this class
-		 * 
+		 *
 		 * @param function which function to apply?
 		 */
 		public Applicator(final Function<F, T> function) {
@@ -510,7 +519,7 @@ public interface Utils {
 
 		/**
 		 * Instantiates this class.
-		 * 
+		 *
 		 * @param candidate what to search for
 		 */
 		public FoundHandleForT(final T candidate) {
@@ -519,7 +528,7 @@ public interface Utils {
 
 		/**
 		 * Determine if an integer can be found in a list of values
-		 * 
+		 *
 		 * @param ts where to search
 		 * @return true if the the item is found in the list
 		 */
@@ -542,7 +551,7 @@ public interface Utils {
 
 			/**
 			 * Instantiates this class.
-			 * 
+			 *
 			 * @param candidate what to search for
 			 */
 			public FoundHandleForInt(final int candidate) {
@@ -551,7 +560,7 @@ public interface Utils {
 
 			/**
 			 * Determine if an integer can be found in a list of values
-			 * 
+			 *
 			 * @param is where to search
 			 * @return true if the the item is found in the list
 			 */

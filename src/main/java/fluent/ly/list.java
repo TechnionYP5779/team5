@@ -1,17 +1,18 @@
 package fluent.ly;
 
-import static fluent.ly.idiomatic.*;
+import static fluent.ly.idiomatic.eval;
 
-import java.util.*;
-import java.util.function.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.UnaryOperator;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Nullable;
 
-import il.org.spartan.utils.*;
+import il.org.spartan.utils.Outer;
 
 /**
  * TODO Yossi Gil: document class
- * 
+ *
  * @author Yossi Gil
  * @since 2017-04-28
  */

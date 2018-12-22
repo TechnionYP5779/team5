@@ -1,14 +1,15 @@
 package il.org.spartan.statistics;
 
-import static il.org.spartan.statistics.MomentUtils.*;
+import static fluent.ly.box.box;
+import static il.org.spartan.statistics.MomentUtils.sqr;
 
-import static fluent.ly.box.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import java.util.*;
+import org.jetbrains.annotations.NotNull;
 
-import org.jetbrains.annotations.*;
-
-import il.org.spatan.iteration.*;
+import il.org.spatan.iteration.Iterables;
 
 /**
  * @author Yossi Gil
@@ -53,7 +54,7 @@ public abstract class Statistics {
 	 * Compute a <a href=
 	 * "http://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance"
 	 * >sample variance</a>
-	 * 
+	 *
 	 * @param ds the sample
 	 * @return the sample variance of the parameter
 	 */
@@ -120,7 +121,7 @@ public abstract class Statistics {
 
 	/**
 	 * Provides the number of elements in this instance.
-	 * 
+	 *
 	 * @return a non-negative integer, giving the number of elements in the sequence
 	 */
 	public final int n() {
@@ -173,7 +174,7 @@ public abstract class Statistics {
 
 	/**
 	 * Provides the degrees of freedom offered by this instance.
-	 * 
+	 *
 	 * @return a non-negative integer, giving the degree of freedom in the sequence,
 	 *         i.e., the number of elements - 1.
 	 * @see #n()

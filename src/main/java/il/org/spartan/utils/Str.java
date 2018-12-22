@@ -2,7 +2,7 @@ package il.org.spartan.utils;
 
 /**
  * A poor man's approximation of a mutable String.
- * 
+ *
  * @author Ori Marcovitch
  * @since Oct 18, 2016
  */

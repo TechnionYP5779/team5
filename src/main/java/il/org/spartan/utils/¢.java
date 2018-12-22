@@ -1,10 +1,12 @@
 package il.org.spartan.utils;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
 
 /**
  * Short name of {@link JohnDoe} parameter
- * 
+ *
  * @author Yossi Gil
  * @since 2017-03-13
  */

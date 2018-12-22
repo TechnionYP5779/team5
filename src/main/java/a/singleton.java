@@ -1,14 +1,14 @@
 package a;
 
-import java.util.*;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.*;
+import fluent.ly.as;
 
 /**
  * Singleton collections.
- * 
+ *
  * @author Ori Roth
  * @since 2017-04-16
  */

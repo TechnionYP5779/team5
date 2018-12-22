@@ -1,12 +1,12 @@
 package il.org.spartan.tables;
 
-import java.util.*;
+import java.util.Arrays;
 
-import il.org.spartan.statistics.*;
+import il.org.spartan.statistics.RealStatistics;
 
 /**
  * TODO Yossi Gil Document Class
- * 
+ *
  * @author Yossi Gil
  * @since 2016-12-26
  */

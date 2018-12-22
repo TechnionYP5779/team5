@@ -1,10 +1,10 @@
 package il.org.spartan.utils;
 
-import java.util.function.*;
+import java.util.function.BooleanSupplier;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
-import fluent.ly.*;
+import fluent.ly.forget;
 
 public enum Truth {
 	T("true"), //

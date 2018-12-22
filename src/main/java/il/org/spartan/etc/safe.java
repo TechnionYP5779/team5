@@ -9,7 +9,7 @@ public enum safe {
 	DUMMY_ENUM_INSTANCE_INTRODUCING_SINGLETON_WITH_STATIC_METHODS;
 	/**
 	 * Divide but if denominator 0 return 1
-	 * 
+	 *
 	 * @param a
 	 * @param d
 	 * @return

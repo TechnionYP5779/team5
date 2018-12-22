@@ -1,14 +1,26 @@
 package il.org.spartan.utils;
 
-import static java.lang.String.*;
+import static java.lang.String.format;
 
-import java.lang.annotation.*;
-import java.util.*;
-import java.util.function.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Target;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import fluent.ly.*;
+import fluent.ly.English;
+import fluent.ly.box;
+import fluent.ly.note;
+import fluent.ly.unbox;
 
 /**
  * An abstract interface defining tippers, bloaters, and light weight pattern
@@ -51,7 +63,7 @@ import fluent.ly.*;
  * parameters. Defunct {@link #describe(Object)} and
  * {@link #description(Object)}.
  * </nl>
- * 
+ *
  * @param <T> __ of elements for which the rule is applicable
  * @param <R> __ of result of applying this rule
  * @author Yossi Gil
@@ -66,7 +78,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 	/**
 	 * Gives the ability to perform an action on object {@code T} t, only if
 	 * predicate(t) takes place.
-	 * 
+	 *
 	 * @param   <T> __ of elements for which the rule is applicable
 	 * @param   <R> __ of result of applying this rule
 	 * @param p a predicate
@@ -97,7 +109,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 	 * {@code afterCheck} functions supply a fluent API for:<br>
 	 * 1. performing an action after {@link Rule.check}<br>
 	 * 2. add a prerequisite to check after {@link Rule.check}
-	 * 
+	 *
 	 * @author oran1248
 	 * @since 2017-04-21
 	 */
@@ -131,7 +143,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 
 	/**
 	 * Apply this instance to a parameter
-	 * 
+	 *
 	 * @param ¢ subject of this application
 	 * @return result of application of this instance on the given subject
 	 */
@@ -143,7 +155,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 	 * {@code beforeCheck} functions supply a fluent API for: 1. performing an
 	 * action before {@link Rule.check}<br>
 	 * 2. add a prerequisite to check before {@link Rule.check}
-	 * 
+	 *
 	 * @author oran1248
 	 * @since 2017-04-21
 	 */
@@ -170,7 +182,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 	/**
 	 * Determine whether the parameter is "eligible" for application of this
 	 * instance. Should be overridden
-	 * 
+	 *
 	 * @param n JD
 	 * @return whether the argument is eligible for the simplification offered by
 	 *         this instance.
@@ -228,7 +240,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 
 	/**
 	 * For counting Strings
-	 * 
+	 *
 	 * @author oran1248
 	 * @since 2017-04-21
 	 */
@@ -249,7 +261,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 
 	/**
 	 * Wrapper for Rule
-	 * 
+	 *
 	 * @author oran1248
 	 * @since 2017-04-21
 	 */
@@ -317,7 +329,7 @@ public interface Rule<T, R> extends Function<T, R>, Recursive<Rule<T, R>> {
 
 	/**
 	 * Default implementation of {@link Rule},
-	 * 
+	 *
 	 * @param <T> {@see Rule}
 	 * @param <R> {@see Rule}
 	 * @author Yossi Gil

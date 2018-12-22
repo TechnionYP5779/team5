@@ -1,12 +1,15 @@
 package il.org.spartan.etc;
 
-import java.util.function.*;
+import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
-import fluent.ly.*;
+import fluent.ly.nulling;
 
 /**
  * TODO Yossi Gil: document class
- * 
+ *
  * @author Yossi Gil
  * @since 2017-04-08
  */

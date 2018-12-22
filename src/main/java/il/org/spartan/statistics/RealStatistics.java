@@ -1,15 +1,17 @@
 package il.org.spartan.statistics;
 
-import java.util.*;
+import java.util.Arrays;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import fluent.ly.*;
+import fluent.ly.as;
+import fluent.ly.unbox;
 
 /**
  * A class to compute statistics, e.g., the minimal and maximal value, the mean
  * and the standard deviation, of a sequence of real numbers.
- * 
+ *
  * @author Yossi Gil,
  */
 public class RealStatistics extends ImmutableStatistics {

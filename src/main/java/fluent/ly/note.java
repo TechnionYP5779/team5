@@ -1,23 +1,26 @@
 package fluent.ly;
 
-import static java.lang.String.*;
-import static java.util.stream.Collectors.*;
+import static fluent.ly.English.indefinite;
+import static java.lang.String.format;
+import static java.util.stream.Collectors.toList;
 
-import static fluent.ly.English.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.Stack;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
 
-import java.io.*;
-import java.util.*;
-import java.util.logging.*;
-import java.util.stream.*;
+import org.jetbrains.annotations.NotNull;
 
-import org.jetbrains.annotations.*;
-
-import il.org.spartan.utils.*;
+import il.org.spartan.utils.system;
 
 /**
  * Our way of dealing with logs, exceptions, NPE, Eclipse bugs, and other
  * unusual situations.
- * 
+ *
  * @author Yossi Gil
  * @since Nov 13, 2016
  */
@@ -93,7 +96,7 @@ public interface note {
 
 	/**
 	 * To be invoked whenever you do not know what to do with an exception
-	 * 
+	 *
 	 * @param o JD
 	 * @param ¢ JD
 	 */
@@ -107,7 +110,7 @@ public interface note {
 
 	/**
 	 * To be invoked whenever you do not know what to do with an exception
-	 * 
+	 *
 	 * @param o JD
 	 * @param x JD
 	 */
@@ -169,7 +172,7 @@ public interface note {
 
 	/**
 	 * logs an error in the plugin into an external file
-	 * 
+	 *
 	 * @param tipper an error
 	 */
 	static <T> T logToFile(final Throwable t, final Object... os) {

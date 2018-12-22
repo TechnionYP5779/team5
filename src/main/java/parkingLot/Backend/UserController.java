@@ -17,31 +17,29 @@ import parkingLot.Logic.User;
 @RequestMapping("/user")
 public class UserController {
 
-	private final DB db=new FireBaseDB(".\\credentials\\credentials.json"); 
+	private final DB db = new FireBaseDB(".\\credentials\\credentials.json");
 
-	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public LoginResponse login(@RequestBody final UserLogin ¢) throws ServletException {
-		if (¢.name == null || ¢.password==null ) {
+		if (¢.name == null || ¢.password == null) {
 			System.out.println("here1");
 			throw new ServletException("Invalid login");
 		}
-		User $=db.getUser(¢.name, ¢.password);
-		if($==null)
+		final User $ = db.getUser(¢.name, ¢.password);
+		if ($ == null)
 			throw new ServletException("Invalid login");
-		return new LoginResponse(Jwts.builder().setSubject(¢.name).claim("roles", $.getName())
-				.setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256, "secretkey").compact());
+		return new LoginResponse(Jwts.builder().setSubject(¢.name).claim("roles", $.getName()).setIssuedAt(new Date())
+				.signWith(SignatureAlgorithm.HS256, "secretkey").compact());
 	}
-	
-	
+
 	@RequestMapping(value = "signUp", method = RequestMethod.POST)
 	public void addParking(@RequestBody final UserLogin ¢) throws ServletException {
 		int index;
-		if(¢.name.indexOf("@")==-1)
-			index=¢.name.length();
+		if (¢.name.indexOf("@") == -1)
+			index = ¢.name.length();
 		else
-			index=(¢.name.indexOf("@"));
-		db.addUser(new User(¢.name.substring(0, index),¢.name,123456789), ¢.password);
+			index = ¢.name.indexOf("@");
+		db.addUser(new User(¢.name.substring(0, index), ¢.name, 123456789), ¢.password);
 	}
 
 	private static class UserLogin {

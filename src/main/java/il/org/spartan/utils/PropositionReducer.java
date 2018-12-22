@@ -1,12 +1,16 @@
 package il.org.spartan.utils;
 
-import java.util.function.*;
+import java.util.function.BooleanSupplier;
 
-import il.org.spartan.utils.Proposition.*;
+import il.org.spartan.utils.Proposition.And;
+import il.org.spartan.utils.Proposition.Not;
+import il.org.spartan.utils.Proposition.Or;
+import il.org.spartan.utils.Proposition.Singleton;
+import il.org.spartan.utils.Proposition.Some;
 
 /**
  * TODO Yossi Gil: document class
- * 
+ *
  * @param <R>
  * @author Yossi Gil
  * @since 2017-03-19

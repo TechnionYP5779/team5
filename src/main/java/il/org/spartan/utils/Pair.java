@@ -1,8 +1,9 @@
 package il.org.spartan.utils;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import il.org.spartan.*;
+import il.org.spartan.Utils;
 
 public class Pair<First, Second> {
 	@SuppressWarnings("unchecked") //

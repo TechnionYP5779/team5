@@ -1,15 +1,21 @@
 package fluent.ly;
 
-import static fluent.ly.___.*;
-import static fluent.ly.idiomatic.*;
+import static fluent.ly.___.nonnull;
+import static fluent.ly.___.positive;
+import static fluent.ly.idiomatic.eval;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * TODO Yossi Gil: document class
- * 
+ *
  * @author Yossi Gil
  * @since 2017-04-12
  */
@@ -131,7 +137,7 @@ public interface the {
 
 	/**
 	 * Computes the maximum of two or more integers.
-	 * 
+	 *
 	 * @param a  some integer
 	 * @param is additional integers
 	 * @return largest of the parameters
@@ -145,7 +151,7 @@ public interface the {
 
 	/**
 	 * Computes the minimum of two or more integers
-	 * 
+	 *
 	 * @param a  some integer
 	 * @param is additional
 	 * @return smallest of the parameters
@@ -173,7 +179,7 @@ public interface the {
 
 	/**
 	 * Computes the square of a given integer
-	 * 
+	 *
 	 * @param ¢ some integer
 	 * @return square of the parameter
 	 */
@@ -183,7 +189,7 @@ public interface the {
 
 	/**
 	 * Chop the first character of a string.
-	 * 
+	 *
 	 * @param ¢ a non-<code><b>null</b></code> string of length at least one
 	 * @return <code>s</code> but without its first character.
 	 */
