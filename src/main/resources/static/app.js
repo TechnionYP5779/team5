@@ -63,6 +63,9 @@ appModule
 								mainService.showParkings().then(
 										function(parkings) {
 											$scope.parkings = parkings
+											$scope.parkings.sort(function(p1,p2){
+												return p1.id - p2.id;
+											});
 										});
 							}
 						} ]);
