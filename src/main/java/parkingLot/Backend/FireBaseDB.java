@@ -18,8 +18,10 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.FieldPath;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreOptions;
+import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 
@@ -154,6 +156,13 @@ public class FireBaseDB implements DB{
 
 	@Override
 	public boolean addParking(Parking p) {
+		int maxId=-1;
+		ArrayList<Parking> l=this.getParkings();
+		for(Parking pk : l) {
+			if(pk.getId()>maxId)
+				maxId=pk.getId();
+		}
+		p.setId(maxId+1);
 		Map<String,Object> m = parking2map(p);
 		DocumentReference docRef = DB.collection("parking").document(String.valueOf(p.getId()));
 		ApiFuture<WriteResult> result=docRef.set(m);

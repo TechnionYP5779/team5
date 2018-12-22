@@ -24,7 +24,7 @@ public class Parking {
 	static int currentId = 1;
 	String location;
 	String userMail;
-	final int id;
+	int id;
 	int ownerId;
 	size sz;
 	List<Slot> availableSlots;
@@ -73,6 +73,10 @@ public class Parking {
 	
 	public String getUserName() {
 		return this.userMail;
+	}
+	
+	public void setId(int id) {
+		this.id=id;
 	}
 
 	protected List<Slot> getAvailableSlots() {
