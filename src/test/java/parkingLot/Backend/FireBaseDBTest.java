@@ -1,16 +1,13 @@
 package parkingLot.Backend;
-import java.io.IOException;
-
 import org.junit.Test;
-import parkingLot.Logic.User;
 
 
 
 public class FireBaseDBTest {
+	@SuppressWarnings("static-method")
 	@Test
 	public void test() {
 		DB db=new FireBaseDB(".\\credentials\\credentials.json");
-		User u= new User("or", "or@gmail", 123456789);
 		assert db!=null;
 		//db.addUser(u, "123");			
 		//Parking p=new Parking(Parking.size.PRIVATE_CAR,"kfar-saba",  "or@gmail"); 
@@ -19,7 +16,7 @@ public class FireBaseDBTest {
 		//for(Parking pk : p ) {
 		//	System.out.println("parking with id="+pk.getId()+" location="+pk.getLocation()+" owner="+pk.getUserName());
 		//}
-		System.out.println(db.getUser("or@gmail", "123").getName());
+		//System.out.println(db.getUser("or@gmail", "123").getName());
 	}
 	
 	

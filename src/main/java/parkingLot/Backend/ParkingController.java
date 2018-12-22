@@ -1,8 +1,6 @@
 package parkingLot.Backend;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import fluent.ly.box;
 import parkingLot.Logic.Parking;
 
 @RestController
