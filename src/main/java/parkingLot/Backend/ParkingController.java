@@ -18,7 +18,7 @@ import parkingLot.Logic.Parking;
 @RequestMapping("/parking")
 public class ParkingController {
 
-	private final  DB db= new FireBaseDB("C:\\Users\\אור\\eclipse-workspace\\team5\\credentials\\credentials.json");
+	private final  DB db= new FireBaseDB(".\\credentials\\credentials.json");
 	
 
 	@RequestMapping(value = "addParking", method = RequestMethod.POST)

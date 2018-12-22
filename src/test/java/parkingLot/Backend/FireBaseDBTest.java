@@ -1,7 +1,7 @@
 package parkingLot.Backend;
-import java.util.ArrayList;
+import java.io.IOException;
+
 import org.junit.Test;
-import parkingLot.Logic.Parking;
 import parkingLot.Logic.User;
 
 
@@ -9,10 +9,10 @@ import parkingLot.Logic.User;
 public class FireBaseDBTest {
 	@Test
 	public void test() {
-		DB db=new FireBaseDB("C:\\Users\\אור\\eclipse-workspace\\team5\\credentials\\credentials.json");
+		DB db=new FireBaseDB(".\\credentials\\credentials.json");
 		User u= new User("or", "or@gmail", 123456789);
 		assert db!=null;
-		db.addUser(u, "123");			
+		//db.addUser(u, "123");			
 		//Parking p=new Parking(Parking.size.PRIVATE_CAR,"kfar-saba",  "or@gmail"); 
 		//db.addParking(p);
 		//ArrayList<Parking> p=db.getParkings();
@@ -21,5 +21,7 @@ public class FireBaseDBTest {
 		//}
 		System.out.println(db.getUser("or@gmail", "123").getName());
 	}
+	
+	
 
 }

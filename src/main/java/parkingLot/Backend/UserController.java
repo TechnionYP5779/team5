@@ -19,7 +19,7 @@ import parkingLot.Logic.User;
 @RequestMapping("/user")
 public class UserController {
 
-	private final DB db=new FireBaseDB("C:\\Users\\אור\\eclipse-workspace\\team5\\credentials\\credentials.json"); 
+	private final DB db=new FireBaseDB(".\\credentials\\credentials.json"); 
 
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
